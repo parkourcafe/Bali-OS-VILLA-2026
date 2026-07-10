@@ -723,11 +723,20 @@ var CONTACT_WHATSAPP = "";   // digits only, e.g. "62812xxxxxxx"
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var saveData = navigator.connection && navigator.connection.saveData;
   var desktop = window.matchMedia('(min-width: 900px)').matches;
+  var SOURCES = [
+    'assets/hero.mp4', /* preferred: local file in the repo (add it to override the CDN copy) */
+    'https://d8j0ntlcm91z4.cloudfront.net/user_3EKntK4EDjG8nay4H1dy1TK30mB/hf_20260710_155958_d3c22fbc-b192-4f33-a0a6-0e622d83beb9.mp4'
+  ];
   if (desktop && !reduced && !saveData) {
-    vid.src = 'assets/hero.mp4';
+    var i = 0;
+    var tryNext = function(){
+      if (i >= SOURCES.length) { media.classList.add('show-poster'); return; }
+      vid.src = SOURCES[i++];
+      vid.play().catch(function(){ tryNext(); });
+    };
     vid.addEventListener('playing', function(){ media.classList.add('show-video'); });
-    vid.addEventListener('error', function(){ media.classList.add('show-poster'); });
-    vid.play().catch(function(){ media.classList.add('show-poster'); });
+    vid.addEventListener('error', function(){ tryNext(); });
+    tryNext();
   } else {
     media.classList.add('show-poster'); /* light poster image only — no video download */
   }

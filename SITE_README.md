@@ -4,6 +4,7 @@ Single-file static site: `index.html`. No build step, no dependencies beyond Goo
 
 ## Launch instructions
 
+0. **Hero video:** the hero currently streams the generated clip from the Higgsfield CDN (fallback chain: `assets/hero.mp4` → CDN URL → static scene). For reliability, download the clip from your Higgsfield library, commit it as `assets/hero.mp4` plus a frame as `assets/hero-poster.jpg` — the local file automatically takes over. Video loads on desktop only (≥900px); phones get the light poster/scene by design.
 1. **Set contact channels** (required): in `index.html`, find the `CONFIG` block at the top of the `<script>` section and fill in:
    - `CONTACT_EMAIL` — the business email that receives audit requests
    - `CONTACT_WHATSAPP` — WhatsApp number, digits only (e.g. `62812xxxxxxx`)
