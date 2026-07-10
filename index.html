@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Villa Ops Response System — Selena Systems</title>
 <meta name="description" content="AI guest inquiry, qualification and follow-up system for Bali villa management companies. 95% of eligible new inquiries on covered channels receive a first automated response within two minutes.">
+<link rel="canonical" href="https://bali-os-villa-2026.vercel.app/">
+<meta property="og:title" content="Villa Ops Response System — Selena Systems">
+<meta property="og:description" content="AI guest inquiry response, qualification and follow-up system for Bali villa management companies.">
+<meta property="og:image" content="https://bali-os-villa-2026.vercel.app/assets/og-image.svg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Villa Ops Response System — Selena Systems">
+<meta name="twitter:description" content="AI guest inquiry response, qualification and follow-up system for Bali villa management companies.">
+<meta name="twitter:image" content="https://bali-os-villa-2026.vercel.app/assets/og-image.svg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e1512'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%23c2a15d'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -256,6 +265,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);ba
 .form-out{display:none;margin-top:18px;background:rgba(14,21,18,.8);border:1px solid var(--line);border-radius:12px;padding:16px;font-size:.83rem;white-space:pre-wrap;color:rgba(245,240,230,.85)}
 #send-btn{width:100%;margin-top:24px}
 .ok-msg{display:none;margin-top:14px;color:var(--teal-bright);font-size:.86rem;font-weight:600}
+.err-msg{display:none;margin-top:14px;color:#f0a6a6;font-size:.86rem;font-weight:600}
 @media(max-width:920px){.final-in{grid-template-columns:1fr}}
 
 /* mobile sticky CTA */
@@ -300,10 +310,10 @@ footer a:hover{color:var(--teal)}
   <div class="wrap hero-in">
     <div>
       <p class="eyebrow rv">Selena Systems · Bali</p>
-      <h1 class="rv">Villa Ops<br>Response <em>System</em></h1>
-      <p class="sub rv">AI guest inquiry, qualification and follow-up system for Bali villa management companies. Covered inquiries get a first automated response within two minutes — then qualification, follow-up, and human handoff where it matters.</p>
+      <h1 class="rv">Stop losing villa inquiries <em>after hours.</em></h1>
+      <p class="sub rv">An AI response and follow-up system for Bali villa operators — WhatsApp, website, Instagram, email and OTA inboxes — installed in 14 days.</p>
       <div class="promise rv">
-        <p><b>The commercial promise:</b> 95% of eligible new inquiries on covered channels receive a first automated response within two minutes. Scoped, tested, and accepted before final payment — exclusions stated openly below.</p>
+        <p><b>Proof line:</b> 95% of eligible new inquiries answered within 2 minutes, tested against 40 scenarios before final payment. Exclusions stated openly below.</p>
       </div>
       <div class="cta-row rv">
         <a class="btn btn-brass" href="#audit">Book a free AI Audit</a>
@@ -542,11 +552,35 @@ footer a:hover{color:var(--teal)}
     <div class="honest rv">
       <p>We do not invent case studies, testimonials, or numbers. A single mystery-shop test is a signal worth reviewing — never presented as proof of systemic failure. The first three founding clients receive Pilot/Core pricing in exchange for a written, client-approved case study. Local delivery in Bali is supported by an established local partner company; the exact contracting structure is confirmed with you before signing.</p>
     </div>
+    <div class="notinc rv" style="margin-top:34px">
+      <h3>Message the demo on WhatsApp</h3>
+      <p>The demo should use a safe demo number or sandbox, not a production client number. When configured, this button opens WhatsApp with a prefilled guest question.</p>
+      <div class="cta-row" style="margin:18px 0 10px">
+        <a class="btn btn-brass" id="demo-wa-link" href="#" rel="noopener">Message the demo on WhatsApp</a>
+      </div>
+      <p class="small">Try: "Do you have a 3-bedroom villa in Canggu for July 12–15?" · "Is airport pickup included?" · "Can I check in late at night?"</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AUDIT DELIVERABLE ================= -->
+<section class="section section-light" id="audit-deliverable">
+  <div class="wrap">
+    <p class="eyebrow rv">Free AI Audit</p>
+    <h2 class="rv">What you receive</h2>
+    <div class="grid3">
+      <div class="inc rv"><div class="ico">01</div><h3>3-minute video</h3><p>A short review of one real inquiry scenario, dated and properly labeled.</p></div>
+      <div class="inc rv"><div class="ico">02</div><h3>First response</h3><p>The first response we would automate, based on approved information only.</p></div>
+      <div class="inc rv"><div class="ico">03</div><h3>Qualification questions</h3><p>The dates, guest, budget, purpose, and urgency questions your team should collect.</p></div>
+      <div class="inc rv"><div class="ico">04</div><h3>Follow-up sequence</h3><p>The day 1 / 3 / 7 follow-up sequence we would install for quiet inquiries.</p></div>
+      <div class="inc rv"><div class="ico">05</div><h3>Fit recommendation</h3><p>A clear yes/no recommendation on whether the system fits your operation.</p></div>
+      <div class="inc rv"><div class="ico">06</div><h3>Next step</h3><p>If there is fit, the smallest sensible pilot or core scope. If not, we say so.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- ================= PRICING ================= -->
-<section class="section section-light" id="pricing">
+<section class="section" id="pricing">
   <div class="wrap">
     <p class="eyebrow rv">Pricing</p>
     <h2 class="rv">Fixed scope. Published prices.</h2>
@@ -667,6 +701,8 @@ footer a:hover{color:var(--teal)}
         <input id="f-name" name="name" type="text" autocomplete="name" required>
         <label for="f-company">Company</label>
         <input id="f-company" name="company" type="text" autocomplete="organization" required>
+        <label for="f-role">Role</label>
+        <input id="f-role" name="role" type="text" autocomplete="organization-title" required>
         <label for="f-size">Villas under management</label>
         <select id="f-size" name="size">
           <option>Under 15</option>
@@ -674,6 +710,8 @@ footer a:hover{color:var(--teal)}
           <option>30–60</option>
           <option>60+</option>
         </select>
+        <label for="f-link">Website or listing link</label>
+        <input id="f-link" name="listing_link" type="url" autocomplete="url" placeholder="https://">
         <label>Where do guest inquiries arrive today?</label>
         <div class="checks">
           <label><input type="checkbox" name="ch" value="WhatsApp" checked>WhatsApp</label>
@@ -682,15 +720,36 @@ footer a:hover{color:var(--teal)}
           <label><input type="checkbox" name="ch" value="Email">Email</label>
           <label><input type="checkbox" name="ch" value="OTA inboxes">OTA inboxes</label>
         </div>
-        <label for="f-contact">WhatsApp number or email (where we send the audit)</label>
-        <input id="f-contact" name="contact" type="text" required>
+        <label for="f-whatsapp">WhatsApp number</label>
+        <input id="f-whatsapp" name="whatsapp" type="tel" autocomplete="tel" required>
+        <label for="f-email">Email <span style="opacity:.5">(optional)</span></label>
+        <input id="f-email" name="email" type="email" autocomplete="email">
         <label for="f-note">Biggest response headache right now <span style="opacity:.5">(optional)</span></label>
         <textarea id="f-note" name="note" rows="3"></textarea>
         <button class="btn btn-brass" id="send-btn" type="submit">Request my free AI Audit</button>
-        <p class="ok-msg" id="ok-msg">Request prepared — your email app should open. If it didn't, the text below is ready to copy into WhatsApp or email.</p>
+        <p class="ok-msg" id="ok-msg" role="status">Thank you — we will review one real inquiry scenario and send your audit within 24–48 hours.</p>
+        <p class="err-msg" id="err-msg" role="alert"></p>
         <div class="form-out" id="form-out"></div>
-        <p class="form-note">Submitting a request is not a payment and creates no obligation. Your details are used only to prepare and send the audit — nothing else, no lists, no spam.</p>
+        <p class="form-note">Submitting a request is not a payment and creates no obligation. Your details are used only to prepare and send the audit — nothing else, no lists, no spam. See <a href="#privacy">Privacy</a>.</p>
       </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRIVACY / CONTACT ================= -->
+<section class="section section-light" id="privacy">
+  <div class="wrap">
+    <p class="eyebrow rv">Privacy &amp; Contact</p>
+    <h2 class="rv">Simple data handling</h2>
+    <div class="split">
+      <div class="panel panel-chaos rv">
+        <h3>Privacy</h3>
+        <p class="note">Selena Systems collects the details you submit only to review inquiry-response fit and send the free AI Audit. We aim to respond within 24–48 hours where feasible. Your data is not sold, rented, or added to unrelated lists. To request deletion or contact removal, use the contact details below.</p>
+      </div>
+      <div class="panel panel-chaos rv">
+        <h3>Contact</h3>
+        <p class="note">For audit requests, partnership questions, or data deletion requests, use the configured form destination or contact Selena Systems directly. Before launch, set the contact email, WhatsApp number, and form endpoint in the page configuration.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -702,7 +761,7 @@ footer a:hover{color:var(--teal)}
       <p style="margin-top:10px;max-width:340px">AI-powered operating systems for growing businesses. Bali, Indonesia — delivery supported by an established local partner company.</p>
     </div>
     <div>
-      <p style="margin-bottom:8px"><a href="#system">The System</a> · <a href="#process">14 Days</a> · <a href="#pricing">Pricing</a> · <a href="#faq">FAQ</a> · <a href="#audit">Free AI Audit</a></p>
+      <p style="margin-bottom:8px"><a href="#system">The System</a> · <a href="#process">14 Days</a> · <a href="#pricing">Pricing</a> · <a href="#faq">FAQ</a> · <a href="#audit">Free AI Audit</a> · <a href="#privacy">Privacy</a> · <a href="#privacy">Contact</a></p>
       <p>© Selena Systems. No invented case studies, no fake urgency, no guaranteed-revenue claims — by policy.</p>
     </div>
   </div>
@@ -714,6 +773,8 @@ footer a:hover{color:var(--teal)}
 /* ====== CONFIG — set before launch (see SITE_README.md) ====== */
 var CONTACT_EMAIL = "";      // e.g. "hello@yourdomain.com"
 var CONTACT_WHATSAPP = "";   // digits only, e.g. "62812xxxxxxx"
+var FORM_ENDPOINT = "";      // Formspree/Basin/Getform/Vercel API endpoint for real lead delivery
+var DEMO_WHATSAPP = "";      // safe demo number or sandbox, digits only
 
 /* hero video: desktop only, respects reduced-motion & Save-Data, poster fallback everywhere else */
 (function(){
@@ -769,40 +830,98 @@ var CONTACT_WHATSAPP = "";   // digits only, e.g. "62812xxxxxxx"
   steps.forEach(function(s){ io.observe(s); });
 })();
 
-/* form: build message; mailto/WhatsApp if configured, always show copyable text — never fail silently */
+/* demo WhatsApp CTA: hidden until a safe demo number is configured */
+(function(){
+  var link = document.getElementById('demo-wa-link');
+  if(!link) return;
+  var text = 'Hi, do you have a 3-bedroom villa in Canggu for July 12–15?';
+  if (DEMO_WHATSAPP) {
+    link.href = 'https://wa.me/' + DEMO_WHATSAPP + '?text=' + encodeURIComponent(text);
+    link.target = '_blank';
+  } else {
+    link.textContent = 'Demo WhatsApp coming soon';
+    link.setAttribute('aria-disabled','true');
+    link.style.pointerEvents = 'none';
+    link.style.opacity = '.65';
+  }
+})();
+
+/* form: POST to configured endpoint; fallback to WhatsApp/email; never GET or expose data in URL */
 (function(){
   var form = document.getElementById('audit-form');
   if(!form) return;
-  form.addEventListener('submit', function(ev){
+  form.addEventListener('submit', async function(ev){
     ev.preventDefault();
     var g = function(id){ return (document.getElementById(id).value||'').trim(); };
-    if(!g('f-name') || !g('f-company') || !g('f-contact')){
-      [ 'f-name','f-company','f-contact' ].forEach(function(id){
+    var err = document.getElementById('err-msg');
+    err.style.display = 'none';
+    err.textContent = '';
+    if(!g('f-name') || !g('f-company') || !g('f-role') || !g('f-whatsapp')){
+      [ 'f-name','f-company','f-role','f-whatsapp' ].forEach(function(id){
         var el = document.getElementById(id);
         el.style.borderColor = el.value.trim() ? '' : '#c96f6f';
       });
+      err.textContent = 'Please fill the required fields so we know where to send the audit.';
+      err.style.display = 'block';
       return;
     }
     var chs = Array.prototype.map.call(form.querySelectorAll('input[name="ch"]:checked'), function(c){return c.value}).join(', ') || '—';
+    var payload = {
+      source: 'Villa Ops Response System landing page',
+      name: g('f-name'),
+      company: g('f-company'),
+      role: g('f-role'),
+      villas_under_management: document.getElementById('f-size').value,
+      listing_link: g('f-link'),
+      inquiry_channels: chs,
+      whatsapp: g('f-whatsapp'),
+      email: g('f-email'),
+      biggest_headache: g('f-note')
+    };
     var msg = "Free AI Audit request — Villa Ops Response System\n"
-      + "Name: " + g('f-name') + "\n"
-      + "Company: " + g('f-company') + "\n"
-      + "Villas under management: " + document.getElementById('f-size').value + "\n"
+      + "Name: " + payload.name + "\n"
+      + "Company: " + payload.company + "\n"
+      + "Role: " + payload.role + "\n"
+      + "Villas under management: " + payload.villas_under_management + "\n"
+      + "Website/listing: " + (payload.listing_link || '—') + "\n"
       + "Inquiry channels: " + chs + "\n"
-      + "Send the audit to: " + g('f-contact')
-      + (g('f-note') ? "\nBiggest headache: " + g('f-note') : "");
+      + "WhatsApp: " + payload.whatsapp + "\n"
+      + "Email: " + (payload.email || '—')
+      + (payload.biggest_headache ? "\nBiggest headache: " + payload.biggest_headache : "");
     var out = document.getElementById('form-out');
     out.textContent = msg;
-    out.style.display = 'block';
-    document.getElementById('ok-msg').style.display = 'block';
-    if (CONTACT_WHATSAPP) {
-      window.open('https://wa.me/' + CONTACT_WHATSAPP + '?text=' + encodeURIComponent(msg), '_blank');
-    } else if (CONTACT_EMAIL) {
-      window.location.href = 'mailto:' + CONTACT_EMAIL
-        + '?subject=' + encodeURIComponent('Free AI Audit request — ' + g('f-company'))
-        + '&body=' + encodeURIComponent(msg);
+    var btn = document.getElementById('send-btn');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    try {
+      if (FORM_ENDPOINT) {
+        var res = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('Lead endpoint returned ' + res.status);
+      } else if (CONTACT_WHATSAPP) {
+        window.open('https://wa.me/' + CONTACT_WHATSAPP + '?text=' + encodeURIComponent(msg), '_blank');
+      } else if (CONTACT_EMAIL) {
+        window.location.href = 'mailto:' + CONTACT_EMAIL
+          + '?subject=' + encodeURIComponent('Free AI Audit request — ' + payload.company)
+          + '&body=' + encodeURIComponent(msg);
+      } else {
+        throw new Error('No FORM_ENDPOINT, CONTACT_WHATSAPP, or CONTACT_EMAIL configured.');
+      }
+      document.getElementById('ok-msg').style.display = 'block';
+      out.style.display = 'none';
+      form.reset();
+    } catch(e) {
+      err.textContent = 'The request was prepared, but no real delivery destination is configured yet. Copy the text below into WhatsApp or email before using this page for outreach.';
+      err.style.display = 'block';
+      out.style.display = 'block';
+      try { navigator.clipboard && navigator.clipboard.writeText(msg); } catch(copyErr){}
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Request my free AI Audit';
     }
-    try { navigator.clipboard && navigator.clipboard.writeText(msg); } catch(e){}
   });
 })();
 </script>

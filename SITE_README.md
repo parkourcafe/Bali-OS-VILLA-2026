@@ -5,13 +5,16 @@ Single-file static site: `index.html`. No build step, no dependencies beyond Goo
 ## Launch instructions
 
 0. **Hero video:** the hero currently streams the generated clip from the Higgsfield CDN (fallback chain: `assets/hero.mp4` → CDN URL → static scene). For reliability, download the clip from your Higgsfield library, commit it as `assets/hero.mp4` plus a frame as `assets/hero-poster.jpg` — the local file automatically takes over. Video loads on desktop only (≥900px); phones get the light poster/scene by design.
-1. **Set contact channels** (required): in `index.html`, find the `CONFIG` block at the top of the `<script>` section and fill in:
+1. **Set lead delivery** (required before outreach): in `index.html`, find the `CONFIG` block at the top of the `<script>` section and fill in at least one real delivery destination:
+   - `FORM_ENDPOINT` — preferred. Use a Formspree/Basin/Getform endpoint or a Vercel API route/server action that sends the lead to email, Google Sheet, Airtable, Telegram, Notion, or CRM.
    - `CONTACT_EMAIL` — the business email that receives audit requests
    - `CONTACT_WHATSAPP` — WhatsApp number, digits only (e.g. `62812xxxxxxx`)
-   Until these are set, the form still works: it composes the request text, shows it for copy/paste, and copies it to the clipboard — it never fails silently.
-2. **Preview locally:** open `index.html` in a browser, or `python3 -m http.server` in the repo folder.
-3. **Publish (when you decide to):** GitHub Pages (Settings → Pages → deploy from branch, root) or any static host (Netlify/Vercel drag-and-drop). No domain is purchased or configured by this package.
-4. Per `EXECUTION_DASHBOARD.md`, sales conversations are blocked until the demo system exists and the local contracting checklist is resolved — publishing the site is a founder decision gated on the same checklist.
+   Until one of these is set, the form prepares copyable text and shows a visible error. It does not use GET and does not expose lead data in the URL.
+2. **Set demo WhatsApp** (optional but recommended): fill `DEMO_WHATSAPP` with a safe demo number or sandbox. Until this is set, the demo button is disabled and labeled "Demo WhatsApp coming soon."
+3. **Check link previews:** `index.html` includes canonical, Open Graph, Twitter card, and `assets/og-image.svg`. If a custom domain is connected, update the canonical URL and OG image URL.
+4. **Preview locally:** open `index.html` in a browser, or `python3 -m http.server` in the repo folder.
+5. **Publish (when you decide to):** GitHub Pages (Settings → Pages → deploy from branch, root) or any static host (Netlify/Vercel drag-and-drop). No domain is purchased or configured by this package.
+6. Per `EXECUTION_DASHBOARD.md`, sales conversations are blocked until the demo system exists and the local contracting checklist is resolved — publishing the site is a founder decision gated on the same checklist.
 
 ## Content rules enforced on this site
 
@@ -26,7 +29,11 @@ Single-file static site: `index.html`. No build step, no dependencies beyond Goo
 
 - [ ] Mobile (≤680px): sticky bottom CTA appears; nav collapses to logo + CTA; all grids stack.
 - [ ] Reduced motion (OS setting): no animations, content fully visible.
-- [ ] Form: submit with empty required fields → red borders, no navigation; with fields → message preview + clipboard copy (+ WhatsApp/mailto if configured).
+- [ ] Form: submit with empty required fields → red borders, no navigation.
+- [ ] Form with `FORM_ENDPOINT` set → endpoint receives a lead and the page shows the 24–48h thank-you state.
+- [ ] Form fallback with only `CONTACT_WHATSAPP` or `CONTACT_EMAIL` set → WhatsApp/mail app opens; with no destination set → visible error + copyable text.
+- [ ] Link preview: WhatsApp/Telegram/LinkedIn preview shows title, description, and image.
+- [ ] Demo CTA: disabled until `DEMO_WHATSAPP` is set; opens prefilled WhatsApp message when configured.
 - [ ] All anchor links (`#system`, `#process`, `#fit`, `#pricing`, `#faq`, `#audit`) scroll correctly.
 - [ ] No console errors; page renders with fonts blocked (fallback serif/sans).
 
@@ -34,7 +41,7 @@ Single-file static site: `index.html`. No build step, no dependencies beyond Goo
 
 - English-only for v1 (buyers are internationally oriented operators). A Russian/Indonesian version is backlog.
 - No analytics installed (nothing to configure yet); add a privacy-respecting counter (e.g. Plausible) at launch — backlog.
-- Separate pages (terms/privacy, demo-agent page for "Villa Demo Selena") — backlog; the form's privacy note covers the interim.
+- Separate full legal terms page — backlog. The current page includes minimum Privacy / Contact content and footer links.
 - No stock or generated photos are used — the visual world is CSS/SVG; real project photography can replace the hero scene later.
 
 ## Preserved routes

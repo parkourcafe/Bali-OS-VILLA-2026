@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Villa Ops Response System — Selena Systems</title>
+  <desc id="desc">AI guest inquiry, qualification and follow-up system for Bali villa management companies.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b110e"/>
+      <stop offset=".55" stop-color="#15201b"/>
+      <stop offset="1" stop-color="#0e1512"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".78" cy=".18" r=".72">
+      <stop offset="0" stop-color="#c2a15d" stop-opacity=".32"/>
+      <stop offset=".62" stop-color="#c2a15d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="teal" cx=".12" cy=".84" r=".65">
+      <stop offset="0" stop-color="#2e6e5e" stop-opacity=".42"/>
+      <stop offset=".7" stop-color="#2e6e5e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#teal)"/>
+  <path d="M0 505c102-32 173-10 255-30 79-19 112-64 197-57 67 5 101 43 189 34 88-10 126-66 229-59 92 6 128 51 231 42 45-4 82-17 99-25v220H0Z" fill="#090f0c" opacity=".78"/>
+  <text x="86" y="108" fill="#c2a15d" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="6">SELENA SYSTEMS · BALI</text>
+  <text x="86" y="250" fill="#f5f0e6" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="500">Villa Ops</text>
+  <text x="86" y="346" fill="#f5f0e6" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="500">Response System</text>
+  <text x="90" y="420" fill="#d8bf8d" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="600">AI guest inquiry, qualification and follow-up</text>
+  <text x="90" y="463" fill="#d8bf8d" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="600">for Bali villa management companies</text>
+  <rect x="86" y="520" width="520" height="54" rx="27" fill="#c2a15d"/>
+  <text x="118" y="556" fill="#0e1512" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">95% answered within 2 minutes</text>
+</svg>
