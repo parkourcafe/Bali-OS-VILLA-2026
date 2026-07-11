@@ -1,0 +1,416 @@
+<title>Villa Ops — Outreach Control</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --ground:#F6F4EF; --panel:#FFFFFF; --panel-2:#FBFAF6; --ink:#14201D; --muted:#5C6A64;
+  --line:#E4E0D6; --line-strong:#D2CDC0;
+  --accent:#0E7C6B; --accent-soft:#DCEEEA; --send:#B8763A; --send-soft:#F1E4D4;
+  --good:#2F8F5B; --due:#C98A2B; --bad:#C4553D; --slate:#7A857F;
+  --shadow:0 1px 2px rgba(20,32,29,.05),0 8px 24px rgba(20,32,29,.06);
+  --radius:10px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ground:#0E1614; --panel:#15201D; --panel-2:#111A18; --ink:#EAF1EE; --muted:#93A29B;
+    --line:#26332F; --line-strong:#324039;
+    --accent:#3FBFA8; --accent-soft:#12332D; --send:#D89A5A; --send-soft:#2E2115;
+    --good:#4FB47B; --due:#E0A445; --bad:#E0765C; --slate:#8A968F;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="light"]{
+  --ground:#F6F4EF; --panel:#FFFFFF; --panel-2:#FBFAF6; --ink:#14201D; --muted:#5C6A64;
+  --line:#E4E0D6; --line-strong:#D2CDC0; --accent:#0E7C6B; --accent-soft:#DCEEEA;
+  --send:#B8763A; --send-soft:#F1E4D4; --good:#2F8F5B; --due:#C98A2B; --bad:#C4553D; --slate:#7A857F;
+  --shadow:0 1px 2px rgba(20,32,29,.05),0 8px 24px rgba(20,32,29,.06);
+}
+:root[data-theme="dark"]{
+  --ground:#0E1614; --panel:#15201D; --panel-2:#111A18; --ink:#EAF1EE; --muted:#93A29B;
+  --line:#26332F; --line-strong:#324039; --accent:#3FBFA8; --accent-soft:#12332D;
+  --send:#D89A5A; --send-soft:#2E2115; --good:#4FB47B; --due:#E0A445; --bad:#E0765C; --slate:#8A968F;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:14px; line-height:1.45; -webkit-font-smoothing:antialiased;
+}
+.serif{font-family:Georgia,"Iowan Old Style","Times New Roman",serif}
+.wrap{max-width:1180px; margin:0 auto; padding:22px 20px 80px}
+
+/* masthead */
+.mast{display:flex; justify-content:space-between; align-items:flex-end; gap:18px; flex-wrap:wrap; padding-bottom:16px; border-bottom:1px solid var(--line)}
+.mast h1{font-weight:600; font-size:26px; margin:0; letter-spacing:-.01em}
+.mast .eyebrow{text-transform:uppercase; letter-spacing:.14em; font-size:11px; color:var(--accent); font-weight:700; margin-bottom:6px}
+.mast p{margin:6px 0 0; color:var(--muted); max-width:52ch}
+.themebtn{border:1px solid var(--line-strong); background:var(--panel); color:var(--ink); border-radius:8px; padding:7px 12px; cursor:pointer; font-size:12.5px; font-weight:600}
+.themebtn:hover{border-color:var(--accent)}
+
+/* banner */
+.banner{margin-top:16px; background:var(--accent-soft); border:1px solid color-mix(in srgb,var(--accent) 30%,transparent); color:var(--ink); border-radius:var(--radius); padding:11px 14px; font-size:12.5px; display:flex; gap:9px; align-items:flex-start}
+.banner b{color:var(--accent)}
+
+/* stat row */
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:16px}
+.stat{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:14px 16px; box-shadow:var(--shadow)}
+.stat .k{font-size:11px; text-transform:uppercase; letter-spacing:.09em; color:var(--muted); font-weight:600}
+.stat .v{font-family:Georgia,serif; font-size:30px; font-weight:600; margin-top:4px; font-variant-numeric:tabular-nums; line-height:1}
+.stat .sub{font-size:11.5px; color:var(--muted); margin-top:5px}
+.stat .v.accent{color:var(--accent)} .stat .v.send{color:var(--send)}
+
+/* controls */
+.controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:22px 0 12px}
+.search{flex:1; min-width:200px; display:flex; align-items:center; gap:8px; background:var(--panel); border:1px solid var(--line-strong); border-radius:8px; padding:8px 12px}
+.search input{border:0; background:transparent; color:var(--ink); font-size:14px; width:100%; outline:none}
+.search svg{flex:0 0 auto; color:var(--muted)}
+.chips{display:flex; gap:6px; flex-wrap:wrap}
+.chip{border:1px solid var(--line-strong); background:var(--panel); color:var(--muted); border-radius:999px; padding:6px 12px; font-size:12.5px; cursor:pointer; font-weight:600; white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--ink); color:var(--ground); border-color:var(--ink)}
+.chip:hover{border-color:var(--accent)}
+
+/* table */
+.tablecard{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
+.tscroll{overflow-x:auto}
+table{border-collapse:collapse; width:100%; min-width:760px}
+thead th{text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); font-weight:700; padding:11px 12px; border-bottom:1px solid var(--line); background:var(--panel-2); position:sticky; top:0}
+tbody td{padding:11px 12px; border-bottom:1px solid var(--line); vertical-align:middle}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:var(--panel-2)}
+tbody tr:last-child td{border-bottom:0}
+.co{font-weight:600}
+.co .site{display:block; font-size:11.5px; color:var(--muted); font-weight:400}
+.num{font-variant-numeric:tabular-nums}
+.send-rail{display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:6px; font-size:12px; font-weight:700; background:var(--send-soft); color:var(--send); font-variant-numeric:tabular-nums}
+.send-rail.blank{background:transparent; color:var(--line-strong)}
+.score{font-family:Georgia,serif; font-size:16px; font-weight:600; font-variant-numeric:tabular-nums}
+.prio{display:inline-block; font-size:11px; font-weight:700; padding:2px 7px; border-radius:5px; border:1px solid var(--line-strong)}
+.prio.A{color:var(--accent); border-color:color-mix(in srgb,var(--accent) 45%,transparent); background:var(--accent-soft)}
+.prio.B{color:var(--slate)}
+.prio.C{color:var(--muted)}
+.chan{font-size:12.5px; color:var(--muted)}
+.status-pill{display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; padding:3px 9px; border-radius:999px; border:1px solid var(--line-strong); color:var(--muted); white-space:nowrap}
+.status-pill::before{content:""; width:7px; height:7px; border-radius:50%; background:currentColor}
+.s-none{color:var(--slate)} .s-verified{color:var(--accent)} .s-touch{color:var(--due)}
+.s-follow{color:var(--due)} .s-replied{color:var(--good)} .s-advance{color:var(--good)}
+.s-won{color:var(--good)} .s-dead{color:var(--bad)}
+.empty{padding:38px; text-align:center; color:var(--muted)}
+
+/* drawer */
+.scrim{position:fixed; inset:0; background:rgba(10,16,14,.44); opacity:0; pointer-events:none; transition:opacity .18s}
+.scrim.open{opacity:1; pointer-events:auto}
+.drawer{position:fixed; top:0; right:0; height:100%; width:min(480px,94vw); background:var(--panel); border-left:1px solid var(--line-strong); box-shadow:-16px 0 40px rgba(0,0,0,.18); transform:translateX(100%); transition:transform .22s cubic-bezier(.4,0,.2,1); overflow-y:auto; z-index:10}
+.drawer.open{transform:translateX(0)}
+.dhead{padding:20px 22px 16px; border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--panel); z-index:2}
+.dhead .row1{display:flex; justify-content:space-between; align-items:flex-start; gap:12px}
+.dhead h2{margin:0; font-size:20px; font-weight:600; letter-spacing:-.01em}
+.dhead .meta{margin-top:8px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; font-size:12px; color:var(--muted)}
+.dot{width:3px;height:3px;border-radius:50%;background:var(--line-strong)}
+.closeb{border:1px solid var(--line-strong); background:var(--panel); color:var(--ink); width:30px;height:30px;border-radius:7px; cursor:pointer; font-size:16px; line-height:1; flex:0 0 auto}
+.closeb:hover{border-color:var(--bad); color:var(--bad)}
+.dbody{padding:18px 22px 40px; display:flex; flex-direction:column; gap:20px}
+.sect > .lbl{font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); font-weight:700; margin-bottom:8px}
+.kv{display:grid; grid-template-columns:92px 1fr; gap:6px 12px; font-size:13px}
+.kv .kk{color:var(--muted)}
+.actions{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px}
+.btn{display:inline-flex; align-items:center; gap:7px; border-radius:8px; padding:8px 13px; font-size:12.5px; font-weight:600; cursor:pointer; text-decoration:none; border:1px solid var(--line-strong); background:var(--panel); color:var(--ink)}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent); border-color:var(--accent); color:#fff}
+.btn.primary:hover{filter:brightness(1.05)}
+.btn.wa{background:#1f9d55; border-color:#1f9d55; color:#fff}
+:root[data-theme="dark"] .btn.wa{background:#1a7d44;border-color:#1a7d44}
+.msgbox{background:var(--panel-2); border:1px solid var(--line); border-radius:var(--radius); padding:13px 14px; font-size:12.5px; white-space:pre-wrap; line-height:1.5; color:var(--ink)}
+.msgbox .subj{font-weight:700; margin-bottom:6px}
+.copyb{margin-top:8px}
+.copyb.done{border-color:var(--good); color:var(--good)}
+.hint{font-size:12px; color:var(--muted); line-height:1.5}
+.statusrow{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+select.statussel{border:1px solid var(--line-strong); background:var(--panel); color:var(--ink); border-radius:8px; padding:8px 10px; font-size:13px; font-weight:600; cursor:pointer}
+.pain{font-size:13px; color:var(--ink)} .pitch{font-size:13px; color:var(--ink)}
+.notes{font-size:12.5px; color:var(--muted); font-style:italic}
+.foot{margin-top:26px; text-align:center; font-size:12px; color:var(--muted)}
+a.link{color:var(--accent); text-decoration:none} a.link:hover{text-decoration:underline}
+@media (max-width:560px){ .mast h1{font-size:22px} .kv{grid-template-columns:80px 1fr} }
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <div>
+      <div class="eyebrow">Selena Systems · Bali</div>
+      <h1 class="serif">Villa Ops — Outreach Control</h1>
+      <p>Every prospect, contact and message in one board. Click any row to see who to write, where, and the exact copy to send.</p>
+    </div>
+    <button class="themebtn" id="themebtn" type="button">◐ Theme</button>
+  </header>
+
+  <div class="banner">
+    <span>ℹ️</span>
+    <div><b>Shared status lives in the Google Sheet.</b> The status you set here is saved only in this browser, as a personal view. Use it to work a session; keep the sheet as the team source of truth (see <span class="serif">crm_playbook.md</span>).</div>
+  </div>
+
+  <section class="stats" id="stats"></section>
+
+  <div class="controls">
+    <label class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="q" type="search" placeholder="Search company, area, decision-maker…" autocomplete="off">
+    </label>
+    <div class="chips" id="filters"></div>
+  </div>
+
+  <div class="tablecard">
+    <div class="tscroll">
+      <table>
+        <thead><tr>
+          <th style="width:44px">Send</th><th>Company</th><th style="width:56px">Score</th>
+          <th style="width:60px">Priority</th><th>Wave</th><th>Where we write</th><th style="width:150px">Status</th>
+        </tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div class="empty" id="empty" hidden>No prospects match these filters.</div>
+  </div>
+
+  <div class="foot">34 prospects · Top 10 in send order · built from <span class="serif">bali_villa_prospects.csv</span> + <span class="serif">outreach_packs.md</span></div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true"></aside>
+
+<script>
+const STATUSES=[
+ ["none","Not contacted","s-none"],["verified","Contact verified","s-verified"],
+ ["touch","1st touch sent","s-touch"],["follow1","Follow-up 1 sent","s-follow"],
+ ["follow2","Follow-up 2 sent","s-follow"],["replied","Replied","s-replied"],
+ ["audit","Audit offered/sent","s-advance"],["call","Call booked","s-advance"],
+ ["proposal","Proposal sent","s-advance"],["won","Pilot won","s-won"],
+ ["notnow","Not now","s-dead"],["lost","Lost","s-dead"]
+];
+const SMAP=Object.fromEntries(STATUSES.map(s=>[s[0],{label:s[1],cls:s[2]}]));
+
+// ---- DATA (all 34; messages embedded for Top 10) ----
+const D=[
+ {so:1,co:"Villa Management Bali",score:87.5,prio:"A",wave:"Wave 1 · founder-led",site:"villa-management-bali.com",areas:"Uluwatu; Pecatu; Ungasan; Nusa Dua; Jimbaran; Bukit; East Bali",portfolio:"Unknown",type:"Villa mgmt for overseas owners / OTA hosts",dm:"Desi, Founder",chan:"WhatsApp",email:"contact@villa-management-bali.com",phone:"+62 8133 7334 871",ig:"instagram.com/villa.management.bali",pain:"Manual coordination between guest inquiries, OTA follow-up, housekeeping, maintenance escalation and overseas-owner visibility.",pitch:"Make promised fast response + transparency systematic: one workflow for guest comms, compliance follow-up, staff escalation and owner updates.",next:"Send WhatsApp to Desi (soft-CTA teaser).",notes:"Very strong message-market fit; founder-led, easy to personalize.",
+  wa:`Hi Desi — I made a short public AI Ops Audit for Villa Management Bali.\n\nWhat stood out publicly: you focus on overseas owners, OTA compliance, guest operations, regular reports, and fast response across Bukit / East Bali.\n\nLikely leakage worth testing:\nWhatsApp inquiries may be answered, but not always fully qualified before they become manual ops work — dates, group size, budget, urgency, villa fit, and follow-up.\n\nWhat I'd automate first:\n1. approved first reply\n2. guest qualification\n3. D1/D3/D7 follow-up\n4. escalation for complaints/pricing/compliance\n5. simple response log for owner visibility\n\nIf useful, I can run a deeper Secret Guest Audit through your public inquiry flow and send the report here on WhatsApp.`,
+  esub:"Villa Management Bali: adding control to first response + qualification",
+  ebody:`Your public positioning around overseas owners, guest operations, OTA compliance, and regular reporting suggests a business where trust and responsiveness matter a lot. The hidden opportunity is often tightening first response, qualification, and follow-up before manual ops work begins. We build a Villa Ops Response System for premium operators. If useful, send one anonymized guest inquiry and I'll map the exact flow.`},
+
+ {so:2,co:"OriVista",score:83.4,prio:"B+",wave:"Wave 2 · direct-booking",site:"orivista.com",areas:"Canggu; Seminyak; Ubud; Uluwatu; Umalas; Tabanan",portfolio:"52+ private pool villas",type:"Private pool villa mgmt + direct booking platform",dm:"Manish Agarwal, Founder",chan:"WhatsApp",email:"support@orivista.com",phone:"+62 811 3803 600",ig:"—",pain:"Speed and consistency of premium guest/owner response across a distributed direct-booking + concierge-heavy portfolio.",pitch:"Response orchestration for direct booking, concierge, owner inquiries and service consistency.",next:"Founder-led WhatsApp (soft-CTA teaser).",notes:"Slightly above target band but commercially strong. Dedupe vs lead_list seed row.",
+  wa:`Hi OriVista team — I made a short public AI Ops Audit for OriVista.\n\nWhat stood out publicly: 52+ private pool villas, direct booking, 18-hour concierge support, and a strong guest-experience layer.\n\nLikely leakage worth testing:\nFor direct-booking + concierge-heavy flows, the issue is often not only response speed, but whether every inquiry is properly qualified and followed up — dates, party size, budget, villa fit, add-ons, urgency.\n\nWhat I'd automate first:\n1. approved first response\n2. guest qualification\n3. follow-up if the guest goes quiet\n4. escalation for VIP/pricing/complaints\n5. response visibility for the team\n\nIf useful, I can run a deeper Secret Guest Audit through your public inquiry flow and send the report here on WhatsApp.`,
+  esub:"OriVista: a cleaner first-response + concierge qualification layer",
+  ebody:`With 52+ villas, direct booking, and 18-hour concierge support, your setup is exactly where response speed matters — but controlled qualification and follow-up usually matter just as much. We build a Villa Ops Response System: approved first response within minutes, structured guest qualification, day 1/day 3/day 7 follow-up, and escalation to human staff for pricing exceptions, complaints, or sensitive cases. If useful, send one anonymized guest inquiry and I'll map the exact flow for OriVista.`},
+
+ {so:3,co:"Supala Villa Management",score:87.8,prio:"A",wave:"Wave 1.5 · verified",site:"supalavillamanagement.com",areas:"Bali island-wide; Ubud/Gianyar base",portfolio:"40+ properties",type:"Villa/hospitality mgmt (villas, hotels, resorts, F&B)",dm:"Corporate OM / Senior Sales (ultimate DM unknown)",chan:"Email",email:"info@supalavillamanagement.com",phone:"+62 859 5504 7807",ig:"—",pain:"Multi-channel response governance across guest inquiries, owner updates, reservations, revenue team and on-ground ops.",pitch:"Faster multi-channel response governance: unified layer for guest/owner/staff inquiries, escalation and reporting.",next:"Email first touch (soft-CTA teaser).",notes:"Very clean 40+ portfolio match.",
+  wa:"",
+  esub:"Supala: quick public audit on first-response control",
+  ebody:`Hi Supala team,\n\nI made a short public AI Ops Audit based on your villa management positioning.\n\nWhat stood out publicly: 40+ properties, reservation-system integration across online channels, online customer service, revenue managers, and transparent monthly reporting.\n\nLikely leakage worth testing:\nWhen a team already has channel integration, the hidden issue is often whether first response, qualification and follow-up are standardized before human staff take over.\n\nWhat I'd automate first:\n1. approved first reply\n2. guest qualification: dates, party size, budget, purpose, urgency\n3. follow-up on day 1 / 3 / 7\n4. escalation to staff for exceptions\n5. simple response log for management visibility\n\nIf useful, I can run a deeper Secret Guest Audit through your public inquiry flow and send the report by WhatsApp/email.`},
+
+ {so:4,co:"Short Stay Bali / TJM",score:93.3,prio:"A",wave:"Wave 1 · top micro-audit",site:"shortstaybali.com",areas:"Canggu; Ubud; Seminyak; Uluwatu; Pererenan; Nusa Dua",portfolio:"70+ villas + 2 resorts",type:"Luxury villa mgmt; rental platform; mgmt engine",dm:"Antoine Cardyn, Director; Lionadi Teja, Reservations",chan:"Email",email:"info@shortstaybali.com",phone:"+62 819-4421-6352",ig:"instagram.com/shortstaybali",pain:"Fragmentation across OTA, direct booking, WhatsApp, concierge, ops and compliance follow-through.",pitch:"Control tower for guest + villa ops: approved first response, qualification, follow-up, escalation, logging.",next:"Email to director/reservations. Write '70+ villas' — not both figures.",notes:"Best overall ICP. Treat TJM + Short Stay Bali as one group.",
+  wa:`Hi TJM team — I noticed Short Stay Bali publicly highlights 20+ years in market, a direct booking engine, multi-channel distribution, and 24/7 on-ground concierge. Based only on public info, that usually makes first-response consistency, guest qualification, and follow-up orchestration worth testing — especially across direct and OTA inquiries. We build a Villa Ops Response System: approved first reply, structured qualification, day 1/day 3/day 7 follow-up, and human escalation for complaints, pricing exceptions, and sensitive cases. Not a generic chatbot. If useful, send me one anonymized real guest inquiry and I'll map the exact flow.`,
+  esub:"TJM / Short Stay Bali: tightening first-response + qualification flow",
+  ebody:`Your public setup — 20+ years, direct booking, concierge, broad distribution — suggests a strong hospitality engine. The next gain is often not simply speed, but controlling first response, qualification, and follow-up across inquiry sources. We build a Villa Ops Response System for premium villa operators: approved first response within minutes, guest qualification, timed follow-up, and clean escalation to humans when needed. If helpful, send one anonymized guest inquiry and I'll map the exact flow for TJM.`},
+
+ {so:5,co:"Balitecture Villa Management",score:91.0,prio:"A",wave:"Wave 1",site:"balitecture.com",areas:"Canggu; Seminyak; Uluwatu; Cemagi; Bali broader",portfolio:"80+ villas managed",type:"Integrated architecture, build, villa mgmt & sales",dm:"Irene, Head of Villa Mgmt; Byron, GM; Daniel, Co-Founder",chan:"WhatsApp",email:"hello@balitecture.com",phone:"+62 811-3909-045",ig:"instagram.com/balitecture",pain:"Cross-functional complexity across guest messages, maintenance, housekeeping, dynamic pricing, owner reporting and departments.",pitch:"Unified response nerve center across guest comms, maintenance handoff, owner transparency and team accountability.",next:"Targeted audit to Irene/Byron; position as orchestration layer, not chatbot. Confirm best recipient.",notes:"Very strong but more mature/larger account.",
+  wa:`Hi Balitecture team — I noticed you publicly highlight 80+ villas managed, a 160+ in-house team, and 24/7 guest support with fast response times. Based only on public info, that usually means first-response consistency, qualification depth, and exception routing are worth testing as volume grows. We build a Villa Ops Response System — a response-control layer for approved first reply, guest qualification, follow-up, and clean escalation to staff; not a generic AI chatbot. If useful, send me one anonymized real guest inquiry and I'll map the exact response + qualification + follow-up flow.`,
+  esub:"Balitecture: a response-control layer for 24/7 villa inquiries",
+  ebody:`You already publicize 24/7 support, fast response, dynamic pricing, and owner reporting. In setups like that, the next gain is often not more speed, but more control over first response, qualification, follow-up, and escalation. We build a Villa Ops Response System for premium operators: approved first response within minutes, structured qualification, day 1/day 3/day 7 follow-up, and clean handoff to humans for exceptions and sensitive cases. If useful, send one anonymized guest inquiry and I'll map the exact flow.`},
+
+ {so:6,co:"Bingin Villa Management",score:88.3,prio:"A",wave:"Wave 1 · top boutique pilot",site:"binginvillamanagement.com",areas:"Bingin; Uluwatu; Bukit Peninsula",portfolio:"Boutique; exact count unknown",type:"Boutique villa mgmt; ops; revenue optimization",dm:"Reza, Founder; Syam, Head of Ops; Nico, Revenue",chan:"Instagram DM / WhatsApp",email:"team@binginvillamanagement.com",phone:"+62 812-7133-4777",ig:"instagram.com/binginvillamgm",pain:"Last-mile coordination between guest messages, concierge, maintenance, on-site support, revenue/direct booking and owner visibility.",pitch:"Response orchestration layer over existing tech stack: approved replies, qualification, escalation, follow-up, owner visibility.",next:"Founder/ops mini-audit via IG DM. Verify WhatsApp from social first.",notes:"One of the best first-pilot candidates: visible team, boutique, tech-aware.",
+  wa:`Hi Reza / Bingin Villa Management team — I noticed you publicly position as boutique by choice, focused on Bingin/Uluwatu, with smart pricing tools and a strong operations team. Based only on public info, that usually means the opportunity is keeping first response and qualification consistent without losing the high-touch brand feel. We build a Villa Ops Response System — approved first reply, guest qualification, follow-up, and escalation to staff when judgment is needed. Not a generic chatbot. If useful, send one anonymized inquiry and I'll map the exact flow.`,
+  esub:"Bingin Villa Management: keeping boutique service while tightening lead handling",
+  ebody:`Your public positioning around Bingin/Uluwatu specialization, boutique portfolio management, and AI-enabled pricing suggests a team that values both speed and personalized handling. That makes first-response consistency and qualification worth testing. We build a Villa Ops Response System for premium operators. If useful, send one anonymized guest inquiry and I'll map the exact flow for Bingin Villa Management.`},
+
+ {so:7,co:"Gravity Bali",score:89.0,prio:"A",wave:"Wave 1",site:"gravitybali.com",areas:"Canggu; Seminyak; Balangan; Uluwatu; prime Bali",portfolio:"40+ exclusive villas",type:"Premium villa mgmt, marketing & investment",dm:"Ops / management leadership (unnamed)",chan:"Email",email:"contact@gravitybali.com",phone:"+62 813-5370-4430",ig:"instagram.com/bali.gravity",pain:"Response fragmentation between guests, staff, vendors and owners at 40+ villa scale.",pitch:"SLA-backed response orchestration + owner visibility; single intake, multilingual replies, escalation and reporting.",next:"Email first, form second. Re-verify phone before WhatsApp.",notes:"Site language matches single intake / SLA / analytics needs.",
+  wa:`Hi Gravity Bali team — I noticed you publicly reference 40+ exclusive villas, 120+ staff, and direct owner communication / transparency. Based only on public info, that usually means the opportunity is not just replying fast, but keeping first response, qualification, and escalation controlled across a growing portfolio. We build a Villa Ops Response System — approved first reply, guest qualification, follow-up, and clean human escalation. It's a response-control layer, not a generic AI chatbot. If useful, send me one anonymized real guest inquiry and I'll map the exact flow.`,
+  esub:"Gravity Bali: tightening inquiry control across portfolio scale",
+  ebody:`Your public positioning around 40+ villas, owner transparency, and a larger on-ground team suggests a complex inquiry environment. In setups like that, the biggest gain is often not raw reply speed, but controlling first-response quality, qualification, and escalation across the portfolio. We build a Villa Ops Response System for premium operators. If useful, send one anonymized guest inquiry and I'll map the exact flow for Gravity.`},
+
+ {so:8,co:"Nakula",score:78.0,prio:"A",wave:"Wave 2 · expansion",site:"nakula.com",areas:"Bali island-wide destinations",portfolio:"70+ homes",type:"Villa / home rental and management operator",dm:"Management route (unnamed)",chan:"Email / WhatsApp",email:"—",phone:"Verify on contact page",ig:"—",pain:"Inquiry ownership — whether first response classifies intent and routes it to the correct team fast enough.",pitch:"Faster multilingual first response + approved-answer control, with routing to reservations vs management vs guest service.",next:"Verify management inquiry address; send routing-angle audit.",notes:"Segmented contact structure; slightly above sweet spot but operationally strong.",
+  wa:`Hi Nakula team — I noticed you publicly manage 70+ homes and run separate public routes for reservations, guest service, events, and villa management enquiries. Based only on public info, that usually means inquiry ownership and routing are worth testing just as much as reply speed. We build a Villa Ops Response System — approved first reply, guest qualification, timed follow-up, and escalation/routing to the right team. It's a response-control layer, not a generic chatbot. If useful, send one anonymized inquiry and I'll map the exact flow.`,
+  esub:"Nakula: cleaner inquiry routing across reservations, service, and management",
+  ebody:`Your public contact structure is unusually clear — management enquiries, reservations, events, and guest service are separated. That's often a sign of scale, but also a good place to test whether first response, qualification, and routing stay consistent before human teams take over. We build a Villa Ops Response System for premium villa operators. If useful, send one anonymized guest inquiry and I'll map the exact flow for Nakula.`},
+
+ {so:9,co:"Nagisa Bali",score:87.3,prio:"A",wave:"Wave 1 / 2",site:"nagisa-bali.com",areas:"Seminyak; Kuta; Canggu; Sanur; Nusa Dua; Jimbaran; Ubud",portfolio:"Broad established portfolio",type:"Luxury villa management and marketing",dm:"Lina Shimizu, CEO; Widiantara, GM",chan:"Website / email",email:"info@nagisa-bali.com",phone:"+62 811 3945 378",ig:"instagram.com/nagisabalivillas",pain:"Fragmentation between booking, guest communication, staff follow-up, owner reporting and multilingual/multi-market inquiries.",pitch:"Consistent approved-response layer for booking + guest ops + owner visibility while preserving Japanese-standard service.",next:"Form-led outreach; verify named recipient first.",notes:"Strong established operator; reachable leadership.",
+  wa:`Hi Nagisa Bali team — I noticed you publicly position Nagisa around 2006-founded experience, 100+ staff, multilingual markets, and full villa management plus reservation support. Based only on public info, that usually makes first-response consistency and qualification quality worth testing across different guest types and channels. We build a Villa Ops Response System — approved first reply, structured qualification, timed follow-up, and escalation to staff for sensitive cases. It's a response-control layer, not a generic chatbot. If useful, send me one anonymized inquiry and I'll map the exact flow.`,
+  esub:"Nagisa Bali: adding response control to a multi-market reservations flow",
+  ebody:`Your public positioning — long operating history, 100+ staff, reservation support, international market coverage — suggests a setup where reply speed matters, but so does keeping first-response quality, qualification, and escalation consistent across guest types. We build a Villa Ops Response System for premium operators. If helpful, send one anonymized guest inquiry and I'll map the exact flow for Nagisa.`},
+
+ {so:10,co:"My Villa Management",score:86.9,prio:"A",wave:"Wave 1.5 · verified",site:"myvillamanagement.com",areas:"Umalas base; Bali broader; Ubud",portfolio:"50 villas under management",type:"Full-service villa mgmt + rental operator",dm:"Stephane, Director; Mita, Reservation & Marketing",chan:"Email",email:"info@myvillamanagement.com",phone:"+62 361 8475096",ig:"instagram.com/myvillamanagementbali",pain:"Handoff delays and inconsistent response across reservations, marketing, villa supervision, accounting and guest services.",pitch:"Response standardization across reservations, marketing, accounting and villa supervision; approved replies + follow-up + escalation.",next:"Email to Stephane — use classification/routing angle, not a speed claim.",notes:"Strong upper-band match with visible team/stakeholders.",
+  wa:`Hi My Villa Management team — I noticed you publicly cover a broad mix across villa rentals, long-stay rentals, retreat villas, in-villa services, and villa sales. Based only on public info, that usually makes first-touch classification and follow-up worth testing, because different inquiry types often need different next steps. We build a Villa Ops Response System — approved first reply, structured qualification, follow-up, and clean routing/escalation to the right human team. It's a response-control layer, not a generic chatbot. If useful, send one anonymized inquiry and I'll map the exact flow.`,
+  esub:"My Villa Management: cleaner first-touch routing across mixed inquiry types",
+  ebody:`Your public site covers short stays, long stays, retreat villas, in-villa services, and villa sales. In that kind of setup, a useful question is whether early-stage inquiries are being classified and routed consistently from the first reply. We build a Villa Ops Response System for premium operators: approved first response, structured qualification, timed follow-up, and clean escalation/routing to the correct human team. If useful, send one anonymized guest inquiry and I'll map the exact flow for My Villa Management.`},
+
+ {so:0,co:"Optimum Bali",score:83.8,prio:"B",wave:"Wave 2",site:"optimumbali.com",areas:"Seminyak; Canggu; Umalas; Uluwatu; Ubud; Sanur",portfolio:"56 listings / managed",type:"Villa rentals, sales and management",dm:"Unknown",chan:"WhatsApp / email",email:"info@optimumbali.com",phone:"+62 853 3800 2448",ig:"instagram.com/optimumbali",pain:"Mixed inquiry types create manual qualification and handoff load between rentals, owners, investors, sales and management.",pitch:"Faster response + cleaner routing between guest, owner, investor and management leads.",next:"Lighter audit on inquiry triage and lost direct bookings.",notes:"Accessible lead; good second-wave target."},
+ {so:0,co:"Premier Hospitality Asia",score:79.0,prio:"A",wave:"Wave 2 · verify",site:"premierhospitalityasia.com",areas:"Bali / premium hospitality",portfolio:"Unknown",type:"Premium hospitality / villa mgmt",dm:"Unknown",chan:"WhatsApp / website",email:"—",phone:"Verify",ig:"—",pain:"Governed response and escalation across premium guest-service and reservation workflows.",pitch:"One approved knowledge base + escalation map across luxury reservations and guest-service entry points.",next:"Verify portfolio size and villa-only count.",notes:"Strong premium complexity, but count unverified."},
+ {so:0,co:"Apex Property Bali",score:75.0,prio:"B+",wave:"Wave 2 · expansion",site:"apexbali.com",areas:"Bali / villa destinations",portfolio:"88 hand-picked villas",type:"Villa rental / property mgmt",dm:"Unknown",chan:"WhatsApp / website",email:"—",phone:"Verify",ig:"—",pain:"WhatsApp speed-to-lead and approved replies for direct-booking inquiries.",pitch:"WhatsApp speed-to-lead + owner-safe approved replies for direct-booking team.",next:"Find ops/reservations lead; prepare practical WhatsApp audit.",notes:"Good practical outcome-driven candidate."},
+ {so:0,co:"House of Reservations",score:80.8,prio:"C+",wave:"Strategic / later",site:"houseofreservations.com",areas:"Seminyak; Canggu; Uluwatu; Ubud; Sanur; Nusa Dua",portfolio:"200+ villas",type:"Villa rentals + property mgmt",dm:"Unknown",chan:"Email / WhatsApp",email:"bookings@houseofreservations.com",phone:"+62 821 4790 9060",ig:"instagram.com/house_of_reservations",pain:"Reservation overflow and direct-booking follow-up across large villa inventory.",pitch:"Governance / response-ops layer for high-volume direct booking and guest messaging.",next:"Do not prioritize first wave; strategic account.",notes:"Probably too large/process-heavy for first pilot."},
+ {so:0,co:"Bali Management Villas",score:80.8,prio:"C+",wave:"Strategic / later",site:"balimanagement.villas",areas:"Seminyak; Canggu; Bali broader",portfolio:"200+ properties",type:"Property/villa management",dm:"Unknown",chan:"Email / social",email:"contact@balimanagement.villas",phone:"+62 361 9342 033",ig:"instagram.com/balimanagementvillas",pain:"High message volume, owner reporting and operational accountability across large portfolio.",pitch:"AI qualification + response dashboard for high message volume and owner reporting.",next:"Keep for later enterprise-style approach.",notes:"Highly relevant, but likely corporate buying process."},
+ {so:0,co:"Sandara Luxury Management",score:80.1,prio:"A-/B+",wave:"Wave 1.5 / 2 · verify",site:"sandaraluxury.com",areas:"Canggu; Pererenan; Berawa; Bingin; Uluwatu",portfolio:"Multi-property; count needs verification",type:"Hospitality & villa mgmt; property investment",dm:"Founder/GM/Ops unknown",chan:"WhatsApp / email",email:"info@sandaraluxury.com (verify)",phone:"+62 812-3743-1886 (verify)",ig:"instagram.com/sandaramanagement",pain:"Fragmented coordination between OTA messaging, guest support, staff scheduling, maintenance/vendor follow-up and owner reporting.",pitch:"Single operating nerve center for guest comms, task routing, owner transparency, monthly visibility and follow-up.",next:"Verify contact; then owner-pain outreach referencing their mgmt page.",notes:"Excellent articulated pain, but contact path weaker."},
+ {so:0,co:"BaliSuperHost",score:80.1,prio:"C",wave:"Benchmark / later",site:"balisuperhost.com",areas:"Ubud; Canggu; Seminyak; Jimbaran; Uluwatu; Sanur",portfolio:"569 villas",type:"Large villa management platform",dm:"Unknown",chan:"Email / WhatsApp",email:"reservation@balisuperhost.com",phone:"+62 812 3709 7070",ig:"instagram.com/balisuperhost",pain:"Reservation triage, QA governance and process consistency across very large operations.",pitch:"Governance / QA layer for reservation triage, not basic automation.",next:"Use as market benchmark; approach later with enterprise framing.",notes:"Too large for first wave, but useful reference."},
+ {so:0,co:"Manta Villas",score:79.8,prio:"B+",wave:"Wave 2",site:"mantavillas.com",areas:"Seminyak; Canggu; Ubud; Uluwatu; Jimbaran; Nusa Dua",portfolio:"Unknown",type:"Luxury villa rentals + full-service mgmt",dm:"Owner/GM/Ops unknown",chan:"WhatsApp / form",email:"Contact form only",phone:"+62 819-1884-3134 (verify)",ig:"instagram.com/themantavillasbali",pain:"Maintaining instant guest replies and fast mgmt responses across guest relations, maintenance, marketing, reporting and owner inquiries.",pitch:"SLA-backed response routing: keep their instant-response promise measurable, consistent and visible.",next:"Verify contact, then pitch sustaining instant-support promise.",notes:"Strong SLA promise; contact/stakeholder less visible."},
+ {so:0,co:"Bali Luxury Management",score:75.8,prio:"B",wave:"Wave 2 · partial",site:"baliluxurymanagement.com",areas:"Uluwatu; Canggu; Umalas; Seminyak; Ubud",portfolio:"Luxury homes; count unknown",type:"Luxury rentals + full-service property mgmt",dm:"Unknown",chan:"WhatsApp / social",email:"—",phone:"+62 882-4565-1327",ig:"partially confirmed",pain:"Maintaining luxury-tone response and concierge coordination across direct, social, guest and owner channels.",pitch:"Concierge-grade response orchestration for pre-stay inquiries, in-stay requests, upsells, maintenance and owner visibility.",next:"Try WhatsApp outreach; keep searching for owner/GM contact.",notes:"WhatsApp path confirmed; portfolio + DM unknown."},
+ {so:0,co:"VPM Bali",score:74.0,prio:"B",wave:"Expansion · verify",site:"vpmbali.com",areas:"Umalas; Kerobokan; Bali",portfolio:"Unknown",type:"Property mgmt / villa rental",dm:"Unknown",chan:"Email / website",email:"—",phone:"—",ig:"—",pain:"Reservation consistency and owner visibility for a service-led management team.",pitch:"Reservation consistency and owner visibility for a service-led Umalas team.",next:"Verify live portfolio count and premium positioning.",notes:"Merge duplicate VPM / Villa Property Management rows."},
+ {so:0,co:"Maviba Villas and Resorts",score:73.0,prio:"B",wave:"Expansion · verify",site:"mavibalirentals.com",areas:"Bali villa destinations",portfolio:"Unknown",type:"Villa mgmt + rentals / resorts",dm:"Unknown",chan:"WhatsApp / website",email:"—",phone:"Verify",ig:"—",pain:"Repetitive booking/concierge questions may distract staff from in-stay service.",pitch:"Deflect repetitive concierge/booking questions so staff focus on in-stay service.",next:"Confirm portfolio size and current decision-maker.",notes:"Good if scale confirmed."},
+ {so:0,co:"Vazati Management",score:72.0,prio:"B",wave:"Expansion · verify",site:"vazatimanagement.com",areas:"Bali; footprint needs verification",portfolio:"Unknown",type:"Boutique premium villa mgmt",dm:"Unknown",chan:"Email / website",email:"—",phone:"—",ig:"—",pain:"Maintaining boutique/personal service quality while keeping responses fast and governed.",pitch:"Response governance that protects boutique/personal service quality rather than replacing it.",next:"Verify portfolio count and service-area footprint.",notes:"Strong process fit if portfolio meaningful."},
+ {so:0,co:"Cabo Bali",score:71.0,prio:"B",wave:"Expansion · verify",site:"cabobali.com",areas:"Uluwatu; Canggu",portfolio:"Unknown",type:"Modern villa management operator",dm:"Unknown",chan:"WhatsApp / website",email:"—",phone:"Verify",ig:"—",pain:"Needs response governance on top of existing pricing/ops tools (PriceLabs, Breezeway, Guesty).",pitch:"Response-governance layer that complements PriceLabs/Breezeway rather than replacing stack.",next:"Verify portfolio size and best decision-maker.",notes:"Modern tool-aware operator."},
+ {so:0,co:"Intaran Villa Management",score:70.0,prio:"B",wave:"Expansion · verify",site:"intaranvillamanagement.co.id",areas:"Bali",portfolio:"Unknown",type:"Villa management operator",dm:"Unknown",chan:"Website / form",email:"—",phone:"—",ig:"—",pain:"Needs centralized approved answers and escalation for OTA/direct queries across luxury assets.",pitch:"Centralized approved answers and escalation for OTA/direct guest queries.",next:"Verify portfolio size and public business contact.",notes:"Keep in verification queue until data improves."},
+ {so:0,co:"Blacksand Villas",score:69.0,prio:"B",wave:"Expansion · verify",site:"blacksandvillas.com",areas:"Bali",portfolio:"Unknown",type:"Premium villas / booking + owner-adjacent",dm:"Unknown",chan:"Website / form",email:"—",phone:"—",ig:"—",pain:"Brand-consistent answers across guest, owner and investment-adjacent questions.",pitch:"Brand-consistent answers across guest, owner, and investment-adjacent inquiries.",next:"Verify management contact and managed-property count.",notes:"Good conceptual fit if ops role confirmed."},
+ {so:0,co:"Alex Villas Indonesia",score:69.0,prio:"B",wave:"Expansion / strategic",site:"alexvillasgroup.com",areas:"Bali / Indonesia",portfolio:"Above core band / mixed",type:"Larger villa group / rental & mgmt",dm:"Unknown",chan:"Website / form",email:"—",phone:"—",ig:"—",pain:"Larger operating clusters; needs scoped pilot rather than whole-platform pitch.",pitch:"Fast-win response system for one operating cluster or brand before wider rollout.",next:"Define one cluster/use-case before outreach.",notes:"Above core size; useful if scoped tightly."},
+ {so:0,co:"Villa Bali Management",score:76.8,prio:"B",wave:"Late Wave 2",site:"villabalimanagement.com",areas:"Bali island-wide",portfolio:"160+ villas",type:"Villa management + rental agency",dm:"Unknown",chan:"Email / WhatsApp",email:"sales@villabalimanagement.com",phone:"+62 877 1061 4950",ig:"instagram.com/villabalimanagement",pain:"Maintaining Superhost-level responsiveness across large managed portfolio and owner/guest channels.",pitch:"Structured first response + follow-up to protect Superhost-level responsiveness.",next:"Verify exact managed stock and decision-maker.",notes:"Interesting second-tier candidate if 160+ managed confirmed."},
+ {so:0,co:"The Bali Agent",score:75.5,prio:"B-",wave:"Wave 2",site:"thebaliagent.com",areas:"Bali's best neighbourhoods",portfolio:"106 villas",type:"Villa rental agency + experiences",dm:"Unknown",chan:"Website / phone",email:"—",phone:"+62 361 731332",ig:"instagram.com/thebaliagent",pain:"Inquiry triage, villa matching and experience upsell qualification across 100+ villa portfolio.",pitch:"Response and qualification layer for villa matching + experience upsells.",next:"Research contact path and decision-maker.",notes:"Good commercial fit; slightly larger than sweet spot."},
+ {so:0,co:"STAY Bali",score:74.4,prio:"B+",wave:"Wave 2 · verify",site:"stay-bali.com",areas:"Seminyak; Canggu",portfolio:"20 luxury villas",type:"Luxury villa management division",dm:"Owner/GM/Ops unknown",chan:"Email",email:"info@stay-bali.com",phone:"+62 853 3378 5488",ig:"—",pain:"Lean premium team balancing guest inquiries, staff coordination, housekeeping and owner updates.",pitch:"Answer like a bigger team without hiring more reservations staff; response consistency + owner visibility.",next:"Find decision-maker or confirm active channel; then boutique ROI angle.",notes:"Good premium candidate, but smaller and less visible stakeholders."},
+ {so:0,co:"Great Bali Villas",score:73.1,prio:"C+",wave:"Wave 2 · verify",site:"greatbalivillas.com",areas:"Bali + Lombok; Seminyak; Canggu; Uluwatu",portfolio:"327+ listed villas",type:"Villa rental / managed collection",dm:"Unknown",chan:"WhatsApp / website",email:"info@greatbalivillas.com",phone:"+62 821 4647 5705",ig:"instagram.com/greatbalivillas.official",pain:"Speed-to-lead and pre-arrival upsell follow-up across WhatsApp-heavy booking flow.",pitch:"WhatsApp response layer and pre-arrival upsell/follow-up workflow.",next:"Verify managed inventory vs curated/listed inventory before outreach.",notes:"Listed inventory may not equal managed portfolio."},
+ {so:0,co:"Bali Luxury Villas",score:72.9,prio:"B-",wave:"Wave 2 · verify",site:"baliluxuryvillas.com",areas:"Various Bali luxury markets",portfolio:"16+ shown; total unknown",type:"Luxury villa rentals + management",dm:"Unknown",chan:"Website / form",email:"—",phone:"—",ig:"—",pain:"Manual guest follow-up and service consistency across luxury reservations and villa operations.",pitch:"Approved-response workflow that preserves 5-star tone and reduces manual guest follow-up.",next:"Verify managed portfolio size and best contact path.",notes:"Strong positioning, but managed-vs-listed stock unclear."},
+ {so:0,co:"Betterplace",score:67.0,prio:"B",wave:"Strategic / later",site:"betterplace.cc",areas:"Canggu; Umalas; Seminyak; Uluwatu; Ubud; Sanur",portfolio:"1000+ listings; managed share unclear",type:"Real estate / rental / property platform",dm:"Unknown",chan:"Website / email",email:"hello@betterplace.cc",phone:"+62 813 7773 2003",ig:"instagram.com/betterplace.cc",pain:"Too broad for standard fixed-scope install; needs pilot scope.",pitch:"Contained pilot focused on reservation response governance, not full-stack replacement.",next:"Only approach with specific pilot scope.",notes:"Larger-than-ideal; strategic but not first-wave."},
+ {so:0,co:"Balid Villa Management",score:66.7,prio:"B-/C+",wave:"Wave 2 · research hold",site:"balidvillamanagement.com",areas:"Southern Bali; Uluwatu; Jimbaran; Pecatu",portfolio:"1500+ bookings; active count not public",type:"Villa mgmt & marketing (Southern Bali)",dm:"Unknown",chan:"Website / social",email:"—",phone:"Not confirmed",ig:"instagram.com/balid.villa.management",pain:"Response consistency across OTA, WhatsApp/social inquiries, guest communications, reporting and daily ops.",pitch:"Faster first response and approved answers across OTA, website/social inquiries and guest communications.",next:"Do not prioritize; verify direct WhatsApp/email and DM first.",notes:"Operating model confirmed, but buying path weak."},
+ {so:0,co:"Bukit Vista",score:66.6,prio:"C",wave:"Benchmark / later",site:"bukitvista.com",areas:"Bali overall",portfolio:"Unknown",type:"Short-term rental / property mgmt",dm:"Unknown",chan:"Website / LinkedIn",email:"—",phone:"—",ig:"—",pain:"Owner acquisition and guest inquiry pipeline may benefit from faster qualification, but company may already be tool-mature.",pitch:"Fast-response + qualification layer for owner acquisition and guest inquiry pipeline.",next:"Do not prioritize early; use as benchmark.",notes:"Relevant but likely already process/tool mature."}
+];
+
+// ---- helpers ----
+const $=s=>document.querySelector(s), rowsEl=$("#rows");
+const waDigits=p=>{if(!p)return"";const first=p.split(";")[0];const d=first.replace(/[^0-9]/g,"");return(d.length>=8&&!/verify/i.test(first))?d:"";};
+const mail1=e=>{if(!e||e==="—")return"";const m=e.split(/[; ]/)[0];return /@/.test(m)?m:"";};
+const store=()=>{try{return JSON.parse(localStorage.getItem("villaops_status")||"{}")}catch(e){return{}}};
+const saveStatus=(co,v)=>{const s=store();s[co]=v;localStorage.setItem("villaops_status",JSON.stringify(s))};
+const getStatus=co=>store()[co]||"none";
+
+// ---- theme ----
+const tb=$("#themebtn");
+tb.onclick=()=>{const cur=document.documentElement.getAttribute("data-theme");
+  const isDark=cur?cur==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
+  document.documentElement.setAttribute("data-theme",isDark?"light":"dark");};
+
+// ---- filters ----
+const FILTERS=[["all","All"],["top10","Top 10"],["A","Priority A"],["wave1","Wave 1"],["wave2","Wave 2"],["strategic","Strategic"],["verify","Needs verify"]];
+let active="all", query="";
+const fEl=$("#filters");
+FILTERS.forEach(([k,l])=>{const b=document.createElement("button");b.className="chip";b.textContent=l;b.setAttribute("aria-pressed",k==="all");b.onclick=()=>{active=k;[...fEl.children].forEach(c=>c.setAttribute("aria-pressed",c===b));render()};fEl.appendChild(b);});
+$("#q").oninput=e=>{query=e.target.value.toLowerCase().trim();render()};
+
+function matches(d){
+  if(query){const hay=(d.co+" "+d.areas+" "+d.dm+" "+d.wave+" "+d.type).toLowerCase();if(!hay.includes(query))return false;}
+  switch(active){
+    case"top10":return d.so>0;
+    case"A":return d.prio.startsWith("A");
+    case"wave1":return /Wave 1/.test(d.wave);
+    case"wave2":return /Wave 2|Expansion/.test(d.wave);
+    case"strategic":return /Strategic|Benchmark/.test(d.wave);
+    case"verify":return /verify|hold|partial/i.test(d.wave);
+    default:return true;
+  }
+}
+
+// ---- stats ----
+function renderStats(){
+  const s=store();
+  const contacted=D.filter(d=>["touch","follow1","follow2","replied","audit","call","proposal","won"].includes(s[d.co])).length;
+  const replied=D.filter(d=>["replied","audit","call","proposal","won"].includes(s[d.co])).length;
+  const tiles=[
+    ["Prospects",D.length,"in the master shortlist",""],
+    ["Top 10",10,"in send order","send"],
+    ["Contacted",contacted,"first touch logged (this browser)","accent"],
+    ["Replied+",replied,"handed to founder","accent"],
+  ];
+  $("#stats").innerHTML=tiles.map(([k,v,sub,cls])=>`<div class="stat"><div class="k">${k}</div><div class="v ${cls}">${v}</div><div class="sub">${sub}</div></div>`).join("");
+}
+
+// ---- table ----
+function render(){
+  renderStats();
+  const list=D.filter(matches).sort((a,b)=>{
+    const ao=a.so||999,bo=b.so||999; if(ao!==bo)return ao-bo; return b.score-a.score;
+  });
+  rowsEl.innerHTML="";
+  list.forEach(d=>{
+    const st=getStatus(d.co), sm=SMAP[st];
+    const tr=document.createElement("tr");
+    tr.innerHTML=`
+      <td><span class="send-rail ${d.so?'':'blank'}">${d.so||'·'}</span></td>
+      <td class="co">${d.co}<span class="site">${d.site}</span></td>
+      <td><span class="score">${d.score}</span></td>
+      <td><span class="prio ${d.prio[0]}">${d.prio}</span></td>
+      <td class="chan">${d.wave}</td>
+      <td class="chan"><b style="color:var(--ink)">${d.chan}</b> · ${d.dm}</td>
+      <td><span class="status-pill ${sm.cls}">${sm.label}</span></td>`;
+    tr.onclick=()=>openDrawer(d);
+    rowsEl.appendChild(tr);
+  });
+  $("#empty").hidden=list.length>0;
+}
+
+// ---- drawer ----
+const drawer=$("#drawer"), scrim=$("#scrim");
+function closeDrawer(){drawer.classList.remove("open");scrim.classList.remove("open");drawer.setAttribute("aria-hidden","true");}
+scrim.onclick=closeDrawer;
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer();});
+
+function openDrawer(d){
+  const wa=waDigits(d.phone), em=mail1(d.email);
+  const waHref=wa?`https://wa.me/${wa}${d.wa?`?text=${encodeURIComponent(d.wa)}`:""}`:"";
+  const mailHref=em?`mailto:${em}?subject=${encodeURIComponent(d.esub||"")}&body=${encodeURIComponent(d.ebody||"")}`:"";
+  const opts=STATUSES.map(s=>`<option value="${s[0]}" ${getStatus(d.co)===s[0]?"selected":""}>${s[1]}</option>`).join("");
+
+  let msgSection="";
+  if(d.wa||d.ebody){
+    msgSection=`<div class="sect"><div class="lbl">Ready message${d.so?` · #${d.so} in send order`:""}</div>`;
+    if(d.wa){msgSection+=`<div class="msgbox" id="wabox">${d.wa.replace(/</g,"&lt;")}</div><button class="btn copyb" data-copy="wabox">Copy WhatsApp text</button>`;}
+    if(d.ebody){msgSection+=`<div class="msgbox" id="ebox" style="margin-top:${d.wa?'12px':'0'}"><div class="subj">Subject: ${d.esub}</div>${d.ebody.replace(/</g,"&lt;")}</div><button class="btn copyb" data-copy="ebox">Copy email</button>`;}
+    msgSection+=`</div>`;
+  } else {
+    msgSection=`<div class="sect"><div class="lbl">Message</div><div class="hint">No pre-written pack yet — this is a later-wave prospect. Draft from the closest Top-10 pack in <span class="serif">outreach_packs.md</span>, matched to the pain hypothesis below.</div></div>`;
+  }
+
+  drawer.innerHTML=`
+    <div class="dhead">
+      <div class="row1">
+        <div>
+          <h2>${d.co}</h2>
+          <div class="meta"><span class="prio ${d.prio[0]}">${d.prio}</span><span>·</span><span class="score" style="font-size:14px">${d.score}</span><span class="dot"></span><span>${d.wave}</span></div>
+        </div>
+        <button class="closeb" id="cb" type="button" aria-label="Close">×</button>
+      </div>
+      <div class="statusrow" style="margin-top:14px">
+        <span class="hint">Status (personal):</span>
+        <select class="statussel" id="ss">${opts}</select>
+      </div>
+    </div>
+    <div class="dbody">
+      <div class="sect">
+        <div class="lbl">Who & where we write</div>
+        <div class="kv">
+          <span class="kk">Channel</span><span><b>${d.chan}</b></span>
+          <span class="kk">Contact</span><span>${d.dm}</span>
+          <span class="kk">Email</span><span>${d.email||"—"}</span>
+          <span class="kk">Phone</span><span>${d.phone||"—"}</span>
+          <span class="kk">Instagram</span><span>${d.ig||"—"}</span>
+          <span class="kk">Website</span><span><a class="link" href="https://${d.site}" target="_blank" rel="noopener">${d.site}</a></span>
+          <span class="kk">Areas</span><span>${d.areas}</span>
+          <span class="kk">Portfolio</span><span>${d.portfolio}</span>
+          <span class="kk">Type</span><span>${d.type}</span>
+        </div>
+        <div class="actions">
+          ${waHref?`<a class="btn wa" href="${waHref}" target="_blank" rel="noopener">↗ Open WhatsApp</a>`:""}
+          ${mailHref?`<a class="btn primary" href="${mailHref}">✉ Draft email</a>`:""}
+        </div>
+      </div>
+      ${msgSection}
+      <div class="sect"><div class="lbl">Main pain hypothesis</div><div class="pain">${d.pain}</div></div>
+      <div class="sect"><div class="lbl">Best pitch angle</div><div class="pitch">${d.pitch}</div></div>
+      <div class="sect"><div class="lbl">Next action</div><div class="pitch">${d.next}</div></div>
+      <div class="sect"><div class="lbl">Notes</div><div class="notes">${d.notes}</div></div>
+    </div>`;
+
+  drawer.classList.add("open");scrim.classList.add("open");drawer.setAttribute("aria-hidden","false");
+  $("#cb").onclick=closeDrawer;
+  $("#ss").onchange=e=>{saveStatus(d.co,e.target.value);render();};
+  drawer.querySelectorAll(".copyb").forEach(b=>{b.onclick=async()=>{
+    const el=document.getElementById(b.dataset.copy);
+    const txt=b.dataset.copy==="ebox"?`Subject: ${d.esub}\n\n${d.ebody}`:d.wa;
+    try{await navigator.clipboard.writeText(txt);}catch(e){const r=document.createRange();r.selectNode(el);getSelection().removeAllRanges();getSelection().addRange(r);document.execCommand("copy");getSelection().removeAllRanges();}
+    b.classList.add("done");b.textContent="✓ Copied";setTimeout(()=>{b.classList.remove("done");b.textContent=b.dataset.copy==="ebox"?"Copy email":"Copy WhatsApp text";},1600);
+  };});
+}
+
+render();
+</script>

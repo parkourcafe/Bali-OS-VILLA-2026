@@ -1,0 +1,6 @@
+# Keep internal ops material out of the public Vercel deploy.
+# The public site is index.html + assets/ only.
+internal/
+*.md
+*.csv
+*.tsv
