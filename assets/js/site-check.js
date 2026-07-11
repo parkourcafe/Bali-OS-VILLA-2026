@@ -123,8 +123,7 @@ function render(report) {
   results.classList.remove('wc-hidden');
 }
 
-form.addEventListener('submit', async (ev) => {
-  ev.preventDefault();
+async function runCheck() {
   const url = (urlInput.value || '').trim();
   if (!url) { setStatus('Enter a website address first.', true); urlInput.focus(); return; }
   results.classList.add('wc-hidden');
@@ -143,4 +142,10 @@ form.addEventListener('submit', async (ev) => {
   } finally {
     $('wc-run').disabled = false;
   }
-});
+}
+
+form.addEventListener('submit', (ev) => { ev.preventDefault(); runCheck(); });
+
+// Arrived from the homepage form (/website-check/?url=…) → prefill and run automatically.
+const preset = new URLSearchParams(location.search).get('url');
+if (preset) { urlInput.value = preset; runCheck(); }
