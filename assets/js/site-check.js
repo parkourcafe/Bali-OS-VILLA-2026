@@ -11,7 +11,7 @@ const AREA_TITLES = {
   speed: 'Loading speed',
   mobile: 'Mobile-friendly',
   google: 'Findable by Google',
-  ai: 'Readable by AI assistants',
+  ai: 'AI search readiness (ChatGPT · Perplexity · Google AI)',
   contact: 'Can guests reach you',
 };
 const AREA_ORDER = ['mobile', 'google', 'ai', 'contact'];
@@ -73,11 +73,26 @@ function checkRow(c) {
   return row;
 }
 
+function bandClass(score) {
+  return score >= 80 ? 'low' : score >= 60 ? 'med' : score >= 40 ? 'medhigh' : 'high';
+}
+
 function render(report) {
   $('wc-overall').textContent = report.summary.overall;
   const band = $('wc-band'); band.textContent = report.summary.band;
-  const cls = report.summary.overall >= 80 ? 'low' : report.summary.overall >= 60 ? 'med' : report.summary.overall >= 40 ? 'medhigh' : 'high';
-  band.className = 'wc-band ' + cls;
+  band.className = 'wc-band ' + bandClass(report.summary.overall);
+
+  // AI Search Readiness — the headline "new search" metric
+  const ai = report.aiReadiness || {};
+  $('wc-ai').textContent = (ai.score == null ? '–' : ai.score);
+  const aiBand = $('wc-ai-band');
+  aiBand.textContent = ai.band || '–';
+  aiBand.className = 'wc-band ' + (ai.score == null ? 'med' : bandClass(ai.score));
+  const aiBlocked = report.checks.some((c) => c.id === 'ai-block' && c.status === 'fail');
+  $('wc-ai-note').textContent = aiBlocked
+    ? 'This site blocks AI search engines — they cannot cite it at all.'
+    : 'Can ChatGPT, Perplexity & Google AI read and cite this site?';
+
   $('wc-url-label').textContent = 'Checked: ' + report.url;
 
   const tech = $('wc-tech'); tech.textContent = '';
