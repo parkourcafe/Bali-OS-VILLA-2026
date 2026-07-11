@@ -14,6 +14,12 @@ const AREA_TITLES = {
   ai: 'AI search readiness (ChatGPT · Perplexity · Google AI)',
   contact: 'Can guests reach you',
 };
+const AREA_INTRO = {
+  mobile: 'Most guests look at your site on a phone.',
+  google: 'Whether guests find you in normal Google search.',
+  ai: 'Whether AI assistants (ChatGPT, Perplexity, Google AI) can find and recommend you.',
+  contact: 'Whether an interested guest can actually reach you.',
+};
 const AREA_ORDER = ['mobile', 'google', 'ai', 'contact'];
 const BADGE = { pass: '✓', warn: '!', fail: '✕', info: 'i' };
 
@@ -48,13 +54,13 @@ function renderSpeed(speed) {
       box.appendChild(card); continue;
     }
     const rings = document.createElement('div'); rings.style.display = 'flex'; rings.style.gap = '18px'; rings.style.flexWrap = 'wrap';
-    rings.appendChild(ring('Performance', s.scores.performance));
-    rings.appendChild(ring('SEO', s.scores.seo));
+    rings.appendChild(ring('Speed score', s.scores.performance));
+    rings.appendChild(ring('Google basics', s.scores.seo));
     card.appendChild(rings);
     if (s.metrics) {
       const ul = document.createElement('ul'); ul.className = 'wc-metrics';
-      const rows = [['Largest content paint', s.metrics.lcp], ['Total blocking time', s.metrics.tbt], ['Layout shift', s.metrics.cls]];
-      if (s.totalBytes) rows.push(['Total page size', s.totalBytes.replace(/^Total size was\s*/i, '')]);
+      const rows = [['Time to show main content', s.metrics.lcp], ['Time the page feels frozen', s.metrics.tbt], ['Content jumping while it loads', s.metrics.cls]];
+      if (s.totalBytes) rows.push(['Page weight (how much loads)', s.totalBytes.replace(/^Total size was\s*/i, '')]);
       for (const [k, v] of rows) { if (!v) continue; const li = document.createElement('li'); const a = document.createElement('span'); a.textContent = k; const bb = document.createElement('span'); bb.textContent = v; li.appendChild(a); li.appendChild(bb); ul.appendChild(li); }
       card.appendChild(ul);
     }
@@ -109,6 +115,7 @@ function render(report) {
     if (!items.length) continue;
     const g = document.createElement('div'); g.className = 'wc-group';
     const h = document.createElement('h3'); h.textContent = AREA_TITLES[area]; g.appendChild(h);
+    if (AREA_INTRO[area]) { const intro = document.createElement('p'); intro.className = 'wc-note'; intro.style.margin = '-4px 0 8px'; intro.textContent = AREA_INTRO[area]; g.appendChild(intro); }
     items.forEach((c) => g.appendChild(checkRow(c)));
     groups.appendChild(g);
   }
