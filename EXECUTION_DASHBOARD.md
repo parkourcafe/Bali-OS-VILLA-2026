@@ -27,10 +27,20 @@
 - Blockers: time and evidence quality.
 - Next action: run the first 3 mini-audits (Short Stay Bali, Bingin, Villa Management Bali); verify contacts/portfolio for the Manual Verification view; dedupe OriVista against lead_list.csv seed row.
 
+## Phase 2.5: first-touch outreach
+- Status: ready to send.
+- Owner: founder.
+- Inputs: `outreach_packs.md` (Top 10 packs, both CTA variants), `outreach_crm.tsv` (reference), `outreach_tracker.tsv` (live status).
+- Deliverable: first-touch messages sent to the Top 10 in send order.
+- Send order: (1) Villa Management Bali, (2) OriVista, (3) Supala — then Short Stay Bali, Balitecture, Bingin — then Gravity, Nakula, Nagisa, My Villa Management.
+- Completion criteria: First 3 sent today with cold-open soft CTA; tracker updated; 48h follow-up scheduled.
+- Blockers: manual verification blockers listed in `outreach_packs.md` (resolve per lead before send).
+- Next action: send First 3; log in `outreach_tracker.tsv`.
+
 ## Phase 3: audits
 - Status: not started.
 - Owner: founder.
-- Inputs: shortlist, audit script, required mystery-shop wording.
+- Inputs: shortlist, audit script, required mystery-shop wording, per-lead deep-audit scenarios in `outreach_packs.md`.
 - Deliverable: audit evidence for selected companies.
 - Completion criteria: each audit has date, channel, timestamp, response quality notes, and caveat that one test is not systemic proof.
 - Blockers: legal/reputation risk if done carelessly.
