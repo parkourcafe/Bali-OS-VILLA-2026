@@ -47,3 +47,5 @@ A company can score above 90 only after real audit evidence exists. Do not assig
 
 ## Lead-list status
 `lead_list.csv` is a research seed list with 68 named companies. It is not a verified sales pipeline and not a list of 90+ prospects.
+
+`bali_villa_prospects.csv` is the Phase 2 scored desktop shortlist: 20 Bali villa-management companies with desktop scores and wave assignments, plus a 4-company expansion pool (Supala Villa Management, My Villa Management, Art Villas Bali, OriVista) whose portfolio scale is verified via official sources but whose desktop scores are pending. Scores above 90 in that file remain provisional until audit evidence exists, per the 90+ rule above.

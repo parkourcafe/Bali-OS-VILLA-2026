@@ -19,13 +19,13 @@
 - Next action: build demo before outreach.
 
 ## Phase 2: prospect research
-- Status: not started.
+- Status: in progress — first 20 companies desktop-scored; 4 verified expansion prospects added unscored.
 - Owner: founder.
 - Inputs: `lead_list.csv` research seed list, ICP_AND_SCORING.md.
-- Deliverable: scored desktop shortlist.
+- Deliverable: scored desktop shortlist — see `bali_villa_prospects.csv` (20 scored + 4-company expansion pool; 6 more names held in manual verification queue).
 - Completion criteria: no invented scores; missing data marked unknown.
 - Blockers: time and evidence quality.
-- Next action: score first 20 companies by desktop score only.
+- Next action: desktop-score the 4 expansion prospects; verify contacts flagged "needs verification"; dedupe OriVista against lead_list.csv seed row.
 
 ## Phase 3: audits
 - Status: not started.
