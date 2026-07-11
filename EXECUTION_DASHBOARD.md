@@ -29,13 +29,14 @@
 
 ## Phase 2.5: first-touch outreach
 - Status: ready to send.
-- Owner: founder.
-- Inputs: `outreach_packs.md` (Top 10 packs, both CTA variants), `outreach_crm.tsv` (reference), `outreach_tracker.tsv` (live status).
-- Deliverable: first-touch messages sent to the Top 10 in send order.
+- Owner: assistant runs outreach + tracking end-to-end; founder handles replies/calls.
+- System of record: shared Google Sheet built from `crm_google_sheet.csv`; operated per `crm_playbook.md`. HubSpot later.
+- Inputs: `outreach_packs.md` (Top 10 packs, both CTA variants), `crm_google_sheet.csv` (import into Google Sheet), `crm_playbook.md` (SOP), `outreach_crm.tsv` (HubSpot-ready reference for later).
+- Deliverable: first-touch messages sent to the Top 10 in send order, logged in the sheet.
 - Send order: (1) Villa Management Bali, (2) OriVista, (3) Supala — then Short Stay Bali, Balitecture, Bingin — then Gravity, Nakula, Nagisa, My Villa Management.
-- Completion criteria: First 3 sent today with cold-open soft CTA; tracker updated; 48h follow-up scheduled.
+- Completion criteria: First 3 sent with cold-open soft CTA; sheet Status updated; 48h follow-up due set.
 - Blockers: manual verification blockers listed in `outreach_packs.md` (resolve per lead before send).
-- Next action: send First 3; log in `outreach_tracker.tsv`.
+- Next action: assistant imports `crm_google_sheet.csv` into Google Sheet, adds Status dropdown, sends First 3, logs status.
 
 ## Phase 3: audits
 - Status: not started.
