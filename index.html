@@ -199,6 +199,17 @@ body.settled .float-wrap{animation:floaty 9s ease-in-out infinite}
 .mstep h3{font-size:1.4rem;margin-bottom:10px}
 .mstep p{color:rgba(22,18,16,.64);font-size:.98rem;max-width:420px}
 .mstep .k{font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:9px}
+/* two-speed reading: the headline IS the toggle; prose is the optional second layer */
+.mdet{max-width:420px}
+.mdet summary{list-style:none;cursor:pointer;position:relative;display:block;padding-right:40px}
+.mdet summary::-webkit-details-marker{display:none}
+.mdet summary::after{content:'+';position:absolute;right:0;top:50%;transform:translateY(-50%);width:26px;height:26px;border:1px solid rgba(213,154,74,.45);border-radius:50%;text-align:center;line-height:24px;font-family:var(--sans);font-size:1rem;color:var(--brass);transition:transform .35s var(--ease),background .3s}
+.mdet[open] summary::after{transform:translateY(-50%) rotate(45deg);background:rgba(213,154,74,.12)}
+.mdet summary:hover::after{background:rgba(213,154,74,.14)}
+.mdet summary h3{margin-bottom:0;transition:color .3s}
+.mdet summary:hover h3{color:var(--teal)}
+.mdet p{margin-top:10px;animation:fadeUp .45s var(--ease) both}
+@media(min-width:921px){.mstep{min-height:15vh;display:flex;flex-direction:column;justify-content:center}}
 @media(max-width:920px){.mech{grid-template-columns:1fr}.mech-sticky{position:relative;top:0}.mech-steps{gap:34px;padding:30px 0 0}.mstep{opacity:1}}
 
 /* ---------- process / 14 days ---------- */
@@ -208,6 +219,18 @@ body.settled .float-wrap{animation:floaty 9s ease-in-out infinite}
 .day .k{font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:10px}
 .day h3{font-size:1.05rem;margin-bottom:8px}
 .day p{font-size:.83rem;color:rgba(22,18,16,.6)}
+.day .mdet{max-width:none}
+.day .mdet summary{padding-right:30px}
+.day .mdet summary::after{width:20px;height:20px;line-height:18px;font-size:.85rem;border-color:rgba(176,86,46,.35);color:var(--teal)}
+details.constraint summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px}
+details.constraint summary::-webkit-details-marker{display:none}
+details.constraint summary::after{content:'+';flex:0 0 26px;width:26px;height:26px;border:1px solid rgba(176,86,46,.35);border-radius:50%;text-align:center;line-height:24px;font-family:var(--sans);color:var(--teal);transition:transform .35s var(--ease)}
+details.constraint[open] summary::after{transform:rotate(45deg)}
+details.constraint p{margin-top:12px;animation:fadeUp .45s var(--ease) both}
+/* numbers get a stage (decorative — canonical copy stays in the list) */
+.stat-band{display:flex;gap:34px;flex-wrap:wrap;margin:30px 0 14px}
+.stat-band b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(2rem,3.4vw,2.8rem);line-height:1;color:var(--ink);letter-spacing:-.02em}
+.stat-band span{display:block;margin-top:8px;font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal)}
 .constraint{margin-top:36px;background:rgba(176,86,46,.07);border:1px solid rgba(176,86,46,.22);border-radius:18px;padding:24px 28px;font-size:.9rem;color:rgba(22,18,16,.76);max-width:860px}
 @media(max-width:980px){.days{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.days{grid-template-columns:1fr}}
@@ -476,29 +499,34 @@ footer a:hover{color:var(--teal)}
     <div class="mech" style="margin-top:56px">
       <div class="mech-steps">
         <div class="mstep" data-state="0">
-          <span class="k">01 · Inquiry</span>
-          <h3>A guest writes at 11pm</h3>
-          <p>WhatsApp, website chat — whichever channels are in your signed scope. Time zone doesn't matter anymore; AU and EU guests inquire while Bali sleeps.</p>
+          <details class="mdet">
+            <summary><span class="k">01 · Inquiry</span><h3>A guest writes at 11pm</h3></summary>
+            <p>WhatsApp, website chat — whichever channels are in your signed scope. Time zone doesn't matter anymore; AU and EU guests inquire while Bali sleeps.</p>
+          </details>
         </div>
         <div class="mstep" data-state="1">
-          <span class="k">02 · Response</span>
-          <h3>Answered within two minutes</h3>
-          <p>Accurate, in the guest's language, from information you approved: properties, ranges it may quote, house rules, logistics. Never an invented rate — that guardrail is contractual.</p>
+          <details class="mdet">
+            <summary><span class="k">02 · Response</span><h3>Answered within two minutes</h3></summary>
+            <p>Accurate, in the guest's language, from information you approved: properties, ranges it may quote, house rules, logistics. Never an invented rate — that guardrail is contractual.</p>
+          </details>
         </div>
         <div class="mstep" data-state="2">
-          <span class="k">03 · Qualification</span>
-          <h3>Serious inquiries get shaped</h3>
-          <p>Dates, guests, budget, purpose, property fit, urgency — collected conversationally, so your team wakes up to a qualified lead instead of a cold "hi, price?"</p>
+          <details class="mdet">
+            <summary><span class="k">03 · Qualification</span><h3>Serious inquiries get shaped</h3></summary>
+            <p>Dates, guests, budget, purpose, property fit, urgency — collected conversationally, so your team wakes up to a qualified lead instead of a cold "hi, price?"</p>
+          </details>
         </div>
         <div class="mstep" data-state="3">
-          <span class="k">04 · Follow-up</span>
-          <h3>Silence gets a second chance</h3>
-          <p>Conversations that go quiet are followed up on day 1, 3, and 7 with messaging you approved. The inquiries you already earned stop evaporating.</p>
+          <details class="mdet">
+            <summary><span class="k">04 · Follow-up</span><h3>Silence gets a second chance</h3></summary>
+            <p>Conversations that go quiet are followed up on day 1, 3, and 7 with messaging you approved. The inquiries you already earned stop evaporating.</p>
+          </details>
         </div>
         <div class="mstep" data-state="4">
-          <span class="k">05 · Handoff</span>
-          <h3>Humans take what humans should</h3>
-          <p>Complaints, emergencies, refund requests, sensitive personal information, unusual requests, and anything you mark as mandatory human review — escalated instantly with full context. And there's always a pause-AI procedure.</p>
+          <details class="mdet">
+            <summary><span class="k">05 · Handoff</span><h3>Humans take what humans should</h3></summary>
+            <p>Complaints, emergencies, refund requests, sensitive personal information, unusual requests, and anything you mark as mandatory human review — escalated instantly with full context. And there's always a pause-AI procedure.</p>
+          </details>
         </div>
       </div>
       <div class="mech-sticky">
@@ -543,15 +571,16 @@ footer a:hover{color:var(--teal)}
     <h2 class="rv">Installed in a 14-day sprint</h2>
     <p class="lead rv">One scoped implementation. Built around WhatsApp and website chat — Instagram or email only if included in scope. You own the accounts, the documentation, and the handover.</p>
     <div class="days">
-      <div class="day rv"><span class="k">Days 1–2</span><h3>Map &amp; lock scope</h3><p>Kickoff, access collected, scope frozen. No new channels after day 2 without a change request.</p></div>
-      <div class="day rv"><span class="k">Days 3–7</span><h3>Knowledge base &amp; agent</h3><p>Your docs become the approved knowledge base; the response agent and qualification + escalation routes are built.</p></div>
-      <div class="day rv"><span class="k">Days 8–10</span><h3>Follow-up &amp; dashboard</h3><p>Day 1/3/7 sequences, unified pipeline with ownership, response-time dashboard live.</p></div>
-      <div class="day rv"><span class="k">Days 11–12</span><h3>Acceptance tests</h3><p>The formal 40-scenario suite: 20 historical inquiries, 10 adversarial, 10 operational/failure-mode. Required tests — run together, before go-live.</p></div>
-      <div class="day rv"><span class="k">Days 13–14</span><h3>Training &amp; shadow go-live</h3><p>60-minute team training, pause-AI procedure, joint acceptance, handover — then 14 days of post-launch tuning.</p></div>
+      <div class="day rv"><span class="k">Days 1–2</span><details class="mdet"><summary><h3>Map &amp; lock scope</h3></summary><p>Kickoff, access collected, scope frozen. No new channels after day 2 without a change request.</p></details></div>
+      <div class="day rv"><span class="k">Days 3–7</span><details class="mdet"><summary><h3>Knowledge base &amp; agent</h3></summary><p>Your docs become the approved knowledge base; the response agent and qualification + escalation routes are built.</p></details></div>
+      <div class="day rv"><span class="k">Days 8–10</span><details class="mdet"><summary><h3>Follow-up &amp; dashboard</h3></summary><p>Day 1/3/7 sequences, unified pipeline with ownership, response-time dashboard live.</p></details></div>
+      <div class="day rv"><span class="k">Days 11–12</span><details class="mdet"><summary><h3>Acceptance tests</h3></summary><p>The formal 40-scenario suite: 20 historical inquiries, 10 adversarial, 10 operational/failure-mode. Required tests — run together, before go-live.</p></details></div>
+      <div class="day rv"><span class="k">Days 13–14</span><details class="mdet"><summary><h3>Training &amp; shadow go-live</h3></summary><p>60-minute team training, pause-AI procedure, joint acceptance, handover — then 14 days of post-launch tuning.</p></details></div>
     </div>
-    <div class="constraint rv">
-      <strong>The honest fine print:</strong> the 14-day promise applies when scope is locked by day 2, WhatsApp/API access is available or not on the critical path, a maximum of two initial channels are included, one availability source is used, no custom PMS integration is required, the knowledge base is approved on time, and rollout starts in shadow mode. Larger portfolios or custom integrations get a longer, honest quote.
-    </div>
+    <details class="constraint rv">
+      <summary><strong>The honest fine print:</strong></summary>
+      <p>the 14-day promise applies when scope is locked by day 2, WhatsApp/API access is available or not on the critical path, a maximum of two initial channels are included, one availability source is used, no custom PMS integration is required, the knowledge base is approved on time, and rollout starts in shadow mode. Larger portfolios or custom integrations get a longer, honest quote.</p>
+    </details>
   </div>
 </section>
 
@@ -561,6 +590,11 @@ footer a:hover{color:var(--teal)}
     <div>
       <p class="eyebrow rv">Who it's for</p>
       <h2 class="rv">Built for operators with real inquiry flow</h2>
+      <div class="stat-band rv" aria-hidden="true">
+        <div><b>20–60</b><span>managed villas</span></div>
+        <div><b>150–300+</b><span>inquiries / month</span></div>
+        <div><b>2+</b><span>people on reservations</span></div>
+      </div>
       <ul>
         <li class="rv"><i>✓</i>Bali villa management company or multi-property rental operator</li>
         <li class="rv"><i>✓</i>Ideally 20–60 managed villas — minimum 15 premium villas or ~30 standard villas</li>
