@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /score/result/
+Sitemap: /sitemap.xml
