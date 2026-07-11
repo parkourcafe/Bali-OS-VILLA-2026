@@ -1,0 +1,36 @@
+{
+  "event": "score_completed",
+  "idempotencyKey": "11111111-2222-4333-8444-555555555555",
+  "profile": {
+    "company": "Sample Villas (setup test)",
+    "publicUrl": "example.com",
+    "villaCount": "ten_to_twenty_four",
+    "whoAnswers": "reservation_staff",
+    "channels": ["whatsapp", "website", "instagram"],
+    "otherChannel": "",
+    "headache": "no_follow_up",
+    "otherHeadache": ""
+  },
+  "answers": {
+    "channelManagement": "mixed_inboxes",
+    "afterHours": "whoever_sees",
+    "responseTime": "thirty_m_to_2h",
+    "qualification": "usually_informal",
+    "followUp": "manual",
+    "escalation": "informal",
+    "visibility": "asking_staff"
+  },
+  "contact": {
+    "name": "Setup Test",
+    "whatsapp": "+6281234567890",
+    "email": ""
+  },
+  "clientMeta": {
+    "startedAt": "2026-01-01T00:00:00Z",
+    "submittedAt": "2026-01-01T00:02:00Z",
+    "landingPath": "/",
+    "referrer": "",
+    "utm": { "source": "", "medium": "", "campaign": "setup-test", "content": "", "term": "" }
+  },
+  "honeypot": ""
+}

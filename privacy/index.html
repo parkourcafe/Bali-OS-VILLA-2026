@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy notice — Selena Systems</title>
+<meta name="description" content="How Selena Systems handles the information you submit through the Villa Response Readiness assessment.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2317241f'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%231f6b5b'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="site-in">
+    <a class="wordmark" href="/"><b>Selena</b> Systems</a>
+  </div>
+</header>
+
+<main class="prose">
+  <h1>Privacy notice</h1>
+  <p id="entity-line">This notice describes how Selena Systems <span id="entity-name"></span> handles information submitted through this website.</p>
+
+  <h2>What we collect</h2>
+  <ul>
+    <li><strong>Assessment answers</strong> — your selections about how your operation handles guest inquiries.</li>
+    <li><strong>Company details you type</strong> — company name and, optionally, a public website or Instagram handle.</li>
+    <li><strong>Contact details</strong> — your name, WhatsApp number and optional email.</li>
+    <li><strong>Technical basics</strong> — a salted, one-way hash derived from your IP address (used only for abuse prevention; the raw IP address is not stored in our lead records), and anonymous usage events with no personal identifiers.</li>
+  </ul>
+
+  <h2>Why we collect it</h2>
+  <ul>
+    <li>to calculate and save your Villa Response Readiness Score;</li>
+    <li>to deliver a Live Guest Inquiry Audit or Villa Response Playbook that you explicitly request;</li>
+    <li>to contact you about that request on WhatsApp or email;</li>
+    <li>to keep the service safe from spam and abuse.</li>
+  </ul>
+  <p>We do not sell your data. We do not add you to bulk marketing lists.</p>
+
+  <h2>Who processes it</h2>
+  <p>Your data is processed by service providers acting on our instructions:</p>
+  <ul>
+    <li><strong>Netlify</strong> — website hosting and form processing infrastructure;</li>
+    <li><strong>Google Workspace</strong> — lead records (Google Sheets) and email notifications;</li>
+    <li><strong>Analytics provider</strong> — anonymous usage statistics without personal identifiers (see below).</li>
+  </ul>
+
+  <h2>Analytics</h2>
+  <p>Our funnel analytics record events such as "assessment started" or "score shown" with anonymous properties (step number, score band, device class). They never include your name, company, phone number, email, links you typed, or your individual answers.</p>
+
+  <h2>Live Guest Inquiry Audit boundaries</h2>
+  <p>A live test is performed only after an authorised company representative requests it and approves the channel, scenario and test window. Tests use one public inquiry channel only. We do not access private inboxes, guest data, property management systems or any internal systems. We do not publish test results, screenshots or response times.</p>
+
+  <h2>Retention</h2>
+  <ul>
+    <li>Assessment records with no follow-up activity are reviewed and deleted after approximately 90 days.</li>
+    <li>Records connected to an active conversation are kept while the conversation is relevant.</li>
+    <li>Client records are kept as required by the client agreement and accounting rules.</li>
+  </ul>
+
+  <h2>Your choices</h2>
+  <p>You can request a copy or deletion of your data at any time: <span id="privacy-contact">contact details are provided on the main page footer</span>.</p>
+
+  <p class="small" style="margin-top:30px">This notice covers this assessment website only. Last updated: <span id="updated"></span>.</p>
+</main>
+
+<footer class="site">
+  <div class="footer-in">
+    <span>© <span id="y"></span> Selena Systems</span>
+    <a href="/">Home</a>
+  </div>
+</footer>
+
+<script type="module">
+  import { SITE_CONFIG, has } from '/assets/js/site-config.js';
+  document.getElementById('y').textContent = new Date().getFullYear();
+  document.getElementById('updated').textContent = document.lastModified ? new Date(document.lastModified).toISOString().slice(0, 10) : '';
+  if (has(SITE_CONFIG.LEGAL_ENTITY_NAME)) {
+    document.getElementById('entity-name').textContent = '(' + SITE_CONFIG.LEGAL_ENTITY_NAME + ')';
+  }
+  if (has(SITE_CONFIG.PRIVACY_CONTACT_EMAIL)) {
+    const s = document.getElementById('privacy-contact');
+    s.textContent = '';
+    const a = document.createElement('a');
+    a.href = 'mailto:' + SITE_CONFIG.PRIVACY_CONTACT_EMAIL;
+    a.textContent = SITE_CONFIG.PRIVACY_CONTACT_EMAIL;
+    s.appendChild(a);
+  }
+</script>
+</body>
+</html>

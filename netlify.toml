@@ -1,0 +1,57 @@
+# Villa Response Readiness Funnel — Netlify configuration (FINAL TZ §26)
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# API alias
+[[redirects]]
+  from = "/api/lead"
+  to = "/.netlify/functions/lead"
+  status = 200
+
+# Legacy / stray score routes land safely on the assessment
+[[redirects]]
+  from = "/score"
+  to = "/score/"
+  status = 301
+
+[[redirects]]
+  from = "/score/result"
+  to = "/score/result/"
+  status = 301
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy/"
+  status = 301
+
+[[redirects]]
+  from = "/score/*"
+  to = "/score/"
+  status = 302
+
+# Security headers (global)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io https://www.googletagmanager.com; connect-src 'self' https://plausible.io https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+
+# Result page must not be indexed
+[[headers]]
+  for = "/score/result/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# Long cache for static assets (HTML stays uncached by default)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
