@@ -7,8 +7,8 @@
 export const SITE_CONFIG = Object.freeze({
   WORDMARK: 'Selena Systems',
 
-  // TODO(Selena): public WhatsApp link, e.g. "https://wa.me/62XXXXXXXXXX"
-  WHATSAPP_PUBLIC_URL: '',
+  // Public WhatsApp link for audit/contact fallback.
+  WHATSAPP_PUBLIC_URL: 'https://wa.me/6282339630988',
 
   // TODO(Selena): 15-minute call booking link (Cal.com/Calendly)
   CALENDAR_URL: '',

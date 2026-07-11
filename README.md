@@ -75,7 +75,7 @@ The same `/api/lead` runs on either host — the canonical logic lives once in
 
 ## Launch checklist (values only Selena can provide — placeholders live in `assets/js/site-config.js` and `.env.example`)
 
-- [ ] `WHATSAPP_PUBLIC_URL` — public WhatsApp link (used in footer + retry fallback)
+- [x] `WHATSAPP_PUBLIC_URL` — public WhatsApp link (used in footer + retry fallback): `https://wa.me/6282339630988`
 - [ ] `CONTACT_EMAIL` and `PRIVACY_CONTACT_EMAIL`
 - [ ] `CALENDAR_URL` — 15-minute call booking link
 - [ ] `LEGAL_ENTITY_NAME` — entity named on the privacy page (lawyer-reviewed text)

@@ -8,7 +8,7 @@ Single-file static site: `index.html`. No build step, no dependencies beyond Goo
 1. **Set lead delivery** (required before outreach): in `index.html`, find the `CONFIG` block at the top of the `<script>` section and fill in at least one real delivery destination:
    - `FORM_ENDPOINT` — preferred. Use a Formspree/Basin/Getform endpoint or a Vercel API route/server action that sends the lead to email, Google Sheet, Airtable, Telegram, Notion, or CRM.
    - `CONTACT_EMAIL` — the business email that receives audit requests
-   - `CONTACT_WHATSAPP` — WhatsApp number, digits only (e.g. `62812xxxxxxx`)
+   - `CONTACT_WHATSAPP` — WhatsApp number, digits only (currently set to `6282339630988`)
    Until one of these is set, the form prepares copyable text and shows a visible error. It does not use GET and does not expose lead data in the URL.
 2. **Set demo WhatsApp** (optional but recommended): fill `DEMO_WHATSAPP` with a safe demo number or sandbox. Until this is set, the demo button is disabled and labeled "Demo WhatsApp coming soon."
 3. **Check link previews:** `index.html` includes canonical, Open Graph, Twitter card, and `assets/og-image.svg`. If a custom domain is connected, update the canonical URL and OG image URL.
