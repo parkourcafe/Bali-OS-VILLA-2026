@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   normalizeUrl, isPublicHost, findabilityChecks, mobileChecks, aiChecks,
-  contactChecks, techFingerprint, parsePagespeed, summarize, auditSite, AuditError,
+  contactChecks, techFingerprint, parsePagespeed, summarize, areaScore, auditSite, AuditError,
 } from '../lib/site-audit.mjs';
 
 const status = (checks, id) => checks.find((c) => c.id === id).status;
@@ -51,19 +51,32 @@ test('mobile viewport check', () => {
   assert.equal(status(mobileChecks('<html></html>'), 'viewport'), 'fail');
 });
 
-test('AI checks: structured data, crawler block, JS-only heuristic', () => {
-  const rich = '<script type="application/ld+json">{}</script><h1>Villas</h1>' + 'Real readable content about our villas in Uluwatu. '.repeat(20);
-  const rc = aiChecks(rich, '');
+test('AI search readiness checks: crawlers, structured data, SSR, FAQ, llms.txt', () => {
+  const rich = '<script type="application/ld+json">{"@type":"FAQPage"}</script><h1>Villas</h1>' + 'Real readable content about our villas in Uluwatu. '.repeat(20);
+  const rc = aiChecks(rich, '', true);
   assert.equal(status(rc, 'structured'), 'pass');
   assert.equal(status(rc, 'ssr'), 'pass');
-  assert.equal(status(rc, 'h1'), 'pass');
+  assert.equal(status(rc, 'faq'), 'pass');
+  assert.equal(status(rc, 'llms'), 'pass');
+  assert.equal(status(rc, 'ai-block'), 'pass');
 
+  // Blocking an AI crawler is a FAIL (they can't cite you)
   const blockedRobots = 'User-agent: GPTBot\nDisallow: /\n';
-  assert.equal(status(aiChecks('<div></div>', blockedRobots), 'ai-block'), 'warn');
+  assert.equal(status(aiChecks('<div></div>', blockedRobots, false), 'ai-block'), 'fail');
 
   const jsOnly = '<div id="root"></div>';
-  assert.equal(status(aiChecks(jsOnly, ''), 'ssr'), 'warn');
-  assert.equal(status(aiChecks(jsOnly, ''), 'structured'), 'warn');
+  assert.equal(status(aiChecks(jsOnly, '', false), 'ssr'), 'warn');
+  assert.equal(status(aiChecks(jsOnly, '', false), 'structured'), 'warn');
+  assert.equal(status(aiChecks(jsOnly, '', false), 'llms'), 'info');
+});
+
+test('areaScore: AI readiness reflects scored checks, ignores info-only', () => {
+  const ready = aiChecks('<script type="application/ld+json">{"@type":"FAQPage"}</script><h1>x</h1>' + 'text '.repeat(200), '', true);
+  const notReady = aiChecks('<div></div>', 'User-agent: GPTBot\nDisallow: /\n', false);
+  const rs = areaScore(ready, 'ai');
+  const ns = areaScore(notReady, 'ai');
+  assert.ok(rs >= 90, 'a well-prepared site scores high: ' + rs);
+  assert.ok(ns <= 25, 'a blocked JS-only site scores low: ' + ns);
 });
 
 test('contact checks: whatsapp / phone / booking', () => {
@@ -123,6 +136,7 @@ test('auditSite: end-to-end with injected fetch returns report + summary', async
     if (url.includes('pagespeedonline')) return { ok: true, status: 200, json: async () => ({ lighthouseResult: { categories: { performance: { score: 0.45 } }, audits: {} } }) };
     if (url.endsWith('/robots.txt')) return { ok: true, status: 200, url, body: 'User-agent: *\nAllow: /', text: async () => 'User-agent: *\nAllow: /' };
     if (url.endsWith('/sitemap.xml')) return { ok: true, status: 200, url, body: '<urlset><loc>a</loc></urlset>', text: async () => '<urlset><loc>a</loc></urlset>' };
+    if (url.endsWith('/llms.txt')) return { ok: false, status: 404, url, body: '', text: async () => '' };
     return { ok: true, status: 200, url, body: page, text: async () => page };
   };
   const r = await auditSite('anjunabay.test', { fetch: fakeFetch });
@@ -130,5 +144,6 @@ test('auditSite: end-to-end with injected fetch returns report + summary', async
   assert.ok(r.checks.length >= 10);
   assert.equal(r.speed.mobile.scores.performance, 45);
   assert.ok(r.summary.overall > 0);
+  assert.ok(typeof r.aiReadiness.score === 'number' && ['Ready', 'Partly ready', 'Not ready'].includes(r.aiReadiness.band));
   assert.match(r.disclaimer, /does not access private data/);
 });

@@ -90,7 +90,7 @@ The same `/api/lead` runs on either host — the canonical logic lives once in
 
 A free, standalone auditor: a visitor enters any villa website and gets an instant report on
 load speed (Google PageSpeed), mobile-friendliness, how Google & AI assistants read it, and
-whether guests can reach them. It bridges to the readiness funnel ("fast website ≠ fast replies").
+whether guests can reach them, plus a headline **AI Search Readiness** score (can ChatGPT / Perplexity / Google AI read and cite the site: crawler access, structured data, server-rendered content, FAQ/Q&A, llms.txt). It bridges to the readiness funnel ("fast website ≠ fast replies").
 
 - Core logic: `lib/site-audit.mjs` (pure parsers + PageSpeed call; unit-tested with fixtures).
 - API: `api/site-audit.mjs` (Vercel) and `netlify/functions/site-audit.mjs` (parity) — `GET|POST /api/site-audit?url=…`.

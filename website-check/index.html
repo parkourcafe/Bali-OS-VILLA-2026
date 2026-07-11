@@ -23,7 +23,15 @@
   .wc-status{margin:24px 0;font-size:.95rem;color:var(--muted,#5b6660)}
   .wc-status.err{color:#a3352f}
   .wc-hidden{display:none}
-  .wc-score{display:flex;align-items:center;gap:20px;flex-wrap:wrap;border:1px solid var(--line,#d9d5c9);border-radius:16px;padding:22px;margin:20px 0;background:#fff}
+  .wc-headline{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0 6px}
+  .wc-stat{border:1px solid var(--line,#d9d5c9);border-radius:16px;padding:20px;background:#fff}
+  .wc-stat-ai{background:linear-gradient(160deg,#132a22,#0f1f19);color:#f4efe4;border-color:#1f6b5b}
+  .wc-stat .k{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted,#5b6660);margin-bottom:6px}
+  .wc-stat-ai .k{color:#cfe6db}
+  .wc-new{background:#c9a24b;color:#1a1a1a;border-radius:5px;font-size:.6rem;padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em}
+  .wc-stat .num{font-family:var(--serif,serif);font-size:2.9rem;line-height:1;margin-bottom:8px}
+  .wc-substat{font-size:.78rem;color:#cfe6db;margin:10px 0 0}
+  @media (max-width:560px){.wc-headline{grid-template-columns:1fr}}
   .wc-score .num{font-family:var(--serif,serif);font-size:3.2rem;line-height:1}
   .wc-band{display:inline-block;padding:6px 14px;border-radius:999px;font-weight:700;font-size:.85rem}
   .wc-band.low{background:#e4f1ea;color:#1f6b4a}.wc-band.med{background:#fdf1dd;color:#8a5a12}
@@ -61,8 +69,8 @@
 <main class="wc-shell">
   <div class="wc-intro">
     <p class="wc-eyebrow">Free instant website check</p>
-    <h1>See what's slowing your villa website down.</h1>
-    <p>Enter any villa website. In a few seconds you'll see how fast it loads on a phone, how Google and AI assistants read it, and whether guests can actually reach you — all from public data, no login needed.</p>
+    <h1>Is your villa website ready for how people search now?</h1>
+    <p>Guests increasingly ask ChatGPT, Perplexity and Google's AI — not just the old search box. Enter any villa website and see, in seconds, its <b>AI Search Readiness</b>, its load speed, and whether guests can reach you. All from public data, no login needed.</p>
   </div>
 
   <form class="wc-form" id="wc-form" novalidate>
@@ -74,14 +82,21 @@
   <p class="wc-status wc-hidden" id="wc-status" role="status" aria-live="polite"></p>
 
   <section class="wc-hidden" id="wc-results" aria-live="polite">
-    <div class="wc-score">
-      <div class="num" id="wc-overall">–</div>
-      <div>
+    <div class="wc-headline" id="wc-headline">
+      <div class="wc-stat">
+        <div class="k">Overall website health</div>
+        <div class="num" id="wc-overall">–</div>
         <span class="wc-band" id="wc-band">–</span>
-        <p class="wc-note" id="wc-url-label" style="margin-top:8px"></p>
-        <p class="wc-tech" id="wc-tech"></p>
+      </div>
+      <div class="wc-stat wc-stat-ai">
+        <div class="k">AI Search Readiness <span class="wc-new">new</span></div>
+        <div class="num" id="wc-ai">–</div>
+        <span class="wc-band" id="wc-ai-band">–</span>
+        <p class="wc-substat" id="wc-ai-note">Can ChatGPT, Perplexity &amp; Google AI read and cite this site?</p>
       </div>
     </div>
+    <p class="wc-note" id="wc-url-label" style="margin-top:12px"></p>
+    <p class="wc-tech" id="wc-tech"></p>
 
     <div class="wc-speed" id="wc-speed"></div>
 
