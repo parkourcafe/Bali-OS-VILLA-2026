@@ -80,7 +80,12 @@ tbody tr{cursor:pointer}
 tbody tr:hover{background:var(--panel-2)}
 tbody tr:last-child td{border-bottom:0}
 .co{font-weight:600}
-.co .site{display:block; font-size:11.5px; color:var(--muted); font-weight:400}
+.coname{vertical-align:middle}
+.co .site{display:block; font-size:11.5px; color:var(--muted); font-weight:400; margin-top:2px}
+.count{display:inline-block; font-size:11px; font-weight:700; padding:1px 8px; border-radius:999px; margin-left:6px; vertical-align:middle; font-variant-numeric:tabular-nums; line-height:1.5; white-space:nowrap}
+.count.managed{background:var(--accent-soft); color:var(--accent)}
+.count.listed{background:var(--send-soft); color:var(--send)}
+.count.unk{background:transparent; border:1px dashed var(--line-strong); color:var(--slate); font-weight:600}
 .num{font-variant-numeric:tabular-nums}
 .send-rail{display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:6px; font-size:12px; font-weight:700; background:var(--send-soft); color:var(--send); font-variant-numeric:tabular-nums}
 .send-rail.blank{background:transparent; color:var(--line-strong)}
@@ -159,6 +164,12 @@ a.link{color:var(--accent); text-decoration:none} a.link:hover{text-decoration:u
     <div class="chips" id="filters"></div>
   </div>
 
+  <div class="legend" style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:0 2px 10px;font-size:12px;color:var(--muted)">
+    <span>Villa count:</span>
+    <span><span class="count managed">80+ villas</span> own / managed (verified)</span>
+    <span><span class="count listed">listed</span> catalogue only — managed share unclear</span>
+    <span><span class="count unk">?</span> not verified yet</span>
+  </div>
   <div class="tablecard">
     <div class="tscroll">
       <table>
@@ -267,6 +278,22 @@ const D=[
  {so:0,co:"Bukit Vista",score:66.6,prio:"C",wave:"Benchmark / later",site:"bukitvista.com",areas:"Bali overall",portfolio:"Unknown",type:"Short-term rental / property mgmt",dm:"Unknown",chan:"Website / LinkedIn",email:"—",phone:"—",ig:"—",pain:"Owner acquisition and guest inquiry pipeline may benefit from faster qualification, but company may already be tool-mature.",pitch:"Fast-response + qualification layer for owner acquisition and guest inquiry pipeline.",next:"Do not prioritize early; use as benchmark.",notes:"Relevant but likely already process/tool mature."}
 ];
 
+// ---- villa counts (managed = their own/managed villas; listed = catalogue only; unk = not verified) ----
+const COUNTS={
+ "Villa Management Bali":["?","unk"], "OriVista":["52+ villas","managed"], "Supala Villa Management":["40+ properties","managed"],
+ "Short Stay Bali / TJM":["70+ villas","managed"], "Balitecture Villa Management":["80+ villas","managed"],
+ "Bingin Villa Management":["boutique","unk"], "Gravity Bali":["40+ villas","managed"], "Nakula":["70+ homes","managed"],
+ "Nagisa Bali":["?","unk"], "My Villa Management":["50 villas","managed"], "Optimum Bali":["56 villas","managed"],
+ "Premier Hospitality Asia":["?","unk"], "Apex Property Bali":["88 villas","managed"], "House of Reservations":["200+ villas","managed"],
+ "Bali Management Villas":["200+ props","managed"], "Sandara Luxury Management":["?","unk"], "BaliSuperHost":["569 villas","managed"],
+ "Manta Villas":["?","unk"], "Bali Luxury Management":["?","unk"], "VPM Bali":["?","unk"], "Maviba Villas and Resorts":["?","unk"],
+ "Vazati Management":["?","unk"], "Cabo Bali":["?","unk"], "Intaran Villa Management":["?","unk"], "Blacksand Villas":["?","unk"],
+ "Alex Villas Indonesia":["large / mixed","unk"], "Villa Bali Management":["160+ villas","managed"], "The Bali Agent":["106 villas","managed"],
+ "STAY Bali":["20 villas","managed"], "Great Bali Villas":["327 listed","listed"], "Bali Luxury Villas":["16+ shown","listed"],
+ "Betterplace":["1000+ listed","listed"], "Balid Villa Management":["?","unk"], "Bukit Vista":["?","unk"]
+};
+const countOf=co=>COUNTS[co]||["?","unk"];
+
 // ---- helpers ----
 const $=s=>document.querySelector(s), rowsEl=$("#rows");
 const waDigits=p=>{if(!p)return"";const first=p.split(";")[0];const d=first.replace(/[^0-9]/g,"");return(d.length>=8&&!/verify/i.test(first))?d:"";};
@@ -323,11 +350,11 @@ function render(){
   });
   rowsEl.innerHTML="";
   list.forEach(d=>{
-    const st=getStatus(d.co), sm=SMAP[st];
+    const st=getStatus(d.co), sm=SMAP[st], [clabel,ccls]=countOf(d.co);
     const tr=document.createElement("tr");
     tr.innerHTML=`
       <td><span class="send-rail ${d.so?'':'blank'}">${d.so||'·'}</span></td>
-      <td class="co">${d.co}<span class="site">${d.site}</span></td>
+      <td class="co"><span class="coname">${d.co}</span><span class="count ${ccls}" title="${d.portfolio}">${clabel}</span><span class="site">${d.site}</span></td>
       <td><span class="score">${d.score}</span></td>
       <td><span class="prio ${d.prio[0]}">${d.prio}</span></td>
       <td class="chan">${d.wave}</td>
@@ -365,7 +392,7 @@ function openDrawer(d){
     <div class="dhead">
       <div class="row1">
         <div>
-          <h2>${d.co}</h2>
+          <h2>${d.co} <span class="count ${countOf(d.co)[1]}" style="font-size:12px" title="${d.portfolio}">${countOf(d.co)[0]}</span></h2>
           <div class="meta"><span class="prio ${d.prio[0]}">${d.prio}</span><span>·</span><span class="score" style="font-size:14px">${d.score}</span><span class="dot"></span><span>${d.wave}</span></div>
         </div>
         <button class="closeb" id="cb" type="button" aria-label="Close">×</button>
