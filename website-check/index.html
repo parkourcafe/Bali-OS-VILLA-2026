@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Instant Website Check — Selena Systems</title>
+<meta name="description" content="A free instant check of any villa website: load speed, how Google sees it, how AI assistants read it, and whether guests can reach you.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2317241f'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%231f6b5b'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css">
+<style>
+  .wc-shell{max-width:760px;margin:0 auto;padding:32px 20px 80px}
+  .wc-intro h1{font-family:var(--serif,'Fraunces',serif);font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.1;margin:8px 0 12px}
+  .wc-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent,#1f6b5b)}
+  .wc-intro p{color:var(--muted,#5b6660);max-width:52ch}
+  .wc-form{display:flex;gap:10px;margin:22px 0 8px;flex-wrap:wrap}
+  .wc-form input{flex:1;min-width:220px;font-size:1rem;padding:14px 16px;border:1px solid var(--line,#d9d5c9);border-radius:10px;font-family:inherit}
+  .wc-form input:focus{outline:none;border-color:var(--accent,#1f6b5b)}
+  .wc-note{font-size:.8rem;color:var(--muted,#5b6660)}
+  .wc-status{margin:24px 0;font-size:.95rem;color:var(--muted,#5b6660)}
+  .wc-status.err{color:#a3352f}
+  .wc-hidden{display:none}
+  .wc-score{display:flex;align-items:center;gap:20px;flex-wrap:wrap;border:1px solid var(--line,#d9d5c9);border-radius:16px;padding:22px;margin:20px 0;background:#fff}
+  .wc-score .num{font-family:var(--serif,serif);font-size:3.2rem;line-height:1}
+  .wc-band{display:inline-block;padding:6px 14px;border-radius:999px;font-weight:700;font-size:.85rem}
+  .wc-band.low{background:#e4f1ea;color:#1f6b4a}.wc-band.med{background:#fdf1dd;color:#8a5a12}
+  .wc-band.medhigh{background:#fce6df;color:#a3502a}.wc-band.high{background:#fbe1de;color:#a3352f}
+  .wc-speed{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+  .wc-speed .card{border:1px solid var(--line,#d9d5c9);border-radius:12px;padding:16px;background:#fff}
+  .wc-speed .card h4{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#5b6660);margin:0 0 10px}
+  .wc-ring{display:inline-flex;align-items:baseline;gap:4px}
+  .wc-ring b{font-family:var(--serif,serif);font-size:1.8rem}
+  .wc-metrics{list-style:none;padding:0;margin:10px 0 0;font-size:.82rem;color:var(--muted,#5b6660)}
+  .wc-metrics li{display:flex;justify-content:space-between;padding:3px 0;border-top:1px solid var(--line,#efece3)}
+  .wc-group{margin:26px 0}
+  .wc-group h3{font-family:var(--serif,serif);font-size:1.25rem;margin:0 0 12px}
+  .wc-check{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line,#efece3)}
+  .wc-badge{flex:none;width:22px;height:22px;border-radius:50%;font-size:.8rem;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;margin-top:2px}
+  .wc-badge.pass{background:#2e8b62}.wc-badge.warn{background:#d69a2a}.wc-badge.fail{background:#c2453c}.wc-badge.info{background:#8a99a0}
+  .wc-check b{display:block;font-size:.95rem}
+  .wc-check span{font-size:.85rem;color:var(--muted,#5b6660)}
+  .wc-tech{font-size:.82rem;color:var(--muted,#5b6660);margin:6px 0 0}
+  .wc-tech .tag{display:inline-block;background:#eef1ec;border-radius:6px;padding:2px 8px;margin:2px 4px 2px 0}
+  .wc-bridge{margin-top:34px;border:1px solid var(--line,#d9d5c9);border-radius:16px;padding:24px;background:#fbfaf6}
+  .wc-bridge h3{font-family:var(--serif,serif);margin:0 0 8px}
+  .wc-disclaim{font-size:.8rem;color:var(--muted,#5b6660);margin-top:22px;border-left:3px solid var(--line,#d9d5c9);padding-left:14px}
+  @media (max-width:560px){.wc-speed{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="site-in">
+    <a class="wordmark" href="/"><b>Selena</b> Systems</a>
+  </div>
+</header>
+
+<main class="wc-shell">
+  <div class="wc-intro">
+    <p class="wc-eyebrow">Free instant website check</p>
+    <h1>See what's slowing your villa website down.</h1>
+    <p>Enter any villa website. In a few seconds you'll see how fast it loads on a phone, how Google and AI assistants read it, and whether guests can actually reach you — all from public data, no login needed.</p>
+  </div>
+
+  <form class="wc-form" id="wc-form" novalidate>
+    <input id="wc-url" type="text" inputmode="url" autocomplete="url" placeholder="yourvilla.com" aria-label="Website address">
+    <button class="btn btn-primary" id="wc-run" type="submit">Check the site</button>
+  </form>
+  <p class="wc-note">Checks the public home page only. It does not measure how fast your team replies to guest messages — that's a separate thing (see below).</p>
+
+  <p class="wc-status wc-hidden" id="wc-status" role="status" aria-live="polite"></p>
+
+  <section class="wc-hidden" id="wc-results" aria-live="polite">
+    <div class="wc-score">
+      <div class="num" id="wc-overall">–</div>
+      <div>
+        <span class="wc-band" id="wc-band">–</span>
+        <p class="wc-note" id="wc-url-label" style="margin-top:8px"></p>
+        <p class="wc-tech" id="wc-tech"></p>
+      </div>
+    </div>
+
+    <div class="wc-speed" id="wc-speed"></div>
+
+    <div id="wc-groups"></div>
+
+    <div class="wc-bridge">
+      <h3>Fast website ≠ fast replies</h3>
+      <p class="wc-note">This checks your <b>website</b>. What actually loses bookings is how fast — and how well — a real guest inquiry gets answered. That's what our Villa Response Readiness assessment measures.</p>
+      <p style="margin-top:14px"><a class="btn btn-primary" href="/score/">Check my response readiness →</a></p>
+    </div>
+
+    <p class="wc-disclaim" id="wc-disclaim"></p>
+  </section>
+</main>
+
+<script type="module" src="/assets/js/site-check.js"></script>
+</body>
+</html>
