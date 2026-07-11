@@ -22,10 +22,10 @@
 - Status: in progress — first 20 companies desktop-scored; 4 verified expansion prospects added unscored.
 - Owner: founder.
 - Inputs: `lead_list.csv` research seed list, ICP_AND_SCORING.md.
-- Deliverable: scored desktop shortlist — see `bali_villa_prospects.csv` (20 scored + 4-company expansion pool; 6 more names held in manual verification queue).
+- Deliverable: scored desktop shortlist — see `bali_villa_prospects.csv` (34-company consolidated master ranking) and `prospect_views.md` (curated dashboard views).
 - Completion criteria: no invented scores; missing data marked unknown.
 - Blockers: time and evidence quality.
-- Next action: desktop-score the 4 expansion prospects; verify contacts flagged "needs verification"; dedupe OriVista against lead_list.csv seed row.
+- Next action: run the first 3 mini-audits (Short Stay Bali, Bingin, Villa Management Bali); verify contacts/portfolio for the Manual Verification view; dedupe OriVista against lead_list.csv seed row.
 
 ## Phase 3: audits
 - Status: not started.
