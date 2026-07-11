@@ -5,7 +5,7 @@ Built from `FINAL_TZ_VILLA_RESPONSE_READINESS_V1.md` as the sole source of truth
 ## Conflicts found in the existing repository and how they were resolved (spec §2.4)
 
 1. **Old marketing landing (`index.html`)** used banned naming ("Book a free AI Audit"), a full-screen hero video (banned by §23.4) and a mailto/WhatsApp form. Per spec priority it was **replaced** by the funnel landing and preserved untouched at `legacy/villa-ops-landing-v0.html` (with its README/fix notes) — nothing was deleted.
-2. **Hosting**: production `main` currently deploys to Vercel. The spec requires a Netlify Function and `netlify.toml`; serverless code here is Netlify-format. **This branch must be deployed to Netlify** — on Vercel the static pages would render but `/api/lead` would 404. `vercel.json` was left untouched so the live Vercel site (old landing on `main`) keeps working until Selena decides.
+2. **Hosting**: production `main` currently deploys to Vercel. The spec requires a Netlify Function + `netlify.toml` (both present). To avoid forcing a host switch, `api/lead.mjs` was added as a thin Vercel adapter that reuses the exact same handler, and `vercel.json` now carries clean URLs, trailing-slash routes, security headers and the result-page noindex. **The funnel therefore deploys and works on Vercel OR Netlify** with the same four env vars; no code is duplicated between hosts.
 3. **`assets/` layout** was reorganized to the spec structure (`assets/css`, `assets/js`, `assets/images`); the existing `og-image.svg` was moved to `assets/images/`.
 4. Legacy GTM documents in the repo root (winning_offer.md, etc.) were left as-is: they are strategy documents, not site content, and the spec's naming rules were applied to the site only.
 
@@ -22,7 +22,7 @@ Built from `FINAL_TZ_VILLA_RESPONSE_READINESS_V1.md` as the sole source of truth
 
 ## Test results (this build)
 
-- `npm test`: **36/36 pass** (scoring incl. §10.3 worked example and band boundaries 39/40/59/60/79/80; channel-control 1-centralized/5-centralized/5-unmanaged; unknown answers; both tie-breaks; gate matrix; validation incl. honeypot, oversize, origin, UUIDs, formula prefixes; handler error contract incl. WEBHOOK_UNAVAILABLE with no fake success).
+- `npm test`: **38/38 pass** (scoring incl. §10.3 worked example and band boundaries 39/40/59/60/79/80; channel-control 1-centralized/5-centralized/5-unmanaged; unknown answers; both tie-breaks; gate matrix; validation incl. honeypot, oversize, origin, UUIDs, formula prefixes; handler error contract incl. WEBHOOK_UNAVAILABLE with no fake success).
 - Server E2E (real function + mock webhook emulating the Apps Script contract): Flow A with idempotent double-submit → one row; audit update by leadId incl. WhatsApp edit; Flow B playbook update; unknown leadId → NOT_FOUND; sub-15s completion → accepted + suspicious flag. **Passed.**
 - Browser E2E (Chromium, 390×844): full 12-step completion, Back preservation, mid-quiz refresh restore, WhatsApp validation error path, canonical result 48/100 rendered from server response, authority checkbox enforcement, audit + playbook confirmations, Sheet assertions, no-session redirect from `/score/result/`. **Passed.** (Console shows only blocked-font network errors specific to the sandbox.)
 - Flow D (webhook outage): retry state with preserved answers, no false success, submit re-enabled. **Passed.**

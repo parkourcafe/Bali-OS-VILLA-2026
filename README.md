@@ -23,7 +23,7 @@ scripts/dev-server.mjs               local static + real function + mock webhook
 ## Local development
 
 ```bash
-npm test          # 36 unit tests: scoring, gate, validation
+npm test          # 38 unit tests: scoring, gate, validation, vercel adapter
 npm run dev       # http://127.0.0.1:8788 — full funnel with in-memory mock webhook
 # GET /mock-sheet shows captured rows; FAIL_WEBHOOK=1 npm run dev simulates outage
 ```
@@ -51,6 +51,21 @@ No dependencies to install: tests use Node's built-in runner (Node 18+).
    ```
    Expect `{"ok":true,"leadId":"…","result":{…}}`, one new Sheet row, one email.
 7. **Rotate the shared secret** whenever needed: set a new value in Script Properties AND Netlify env, then redeploy the Apps Script (Deploy → Manage deployments → Edit → new version).
+
+## Deploy: Vercel or Netlify
+
+The same `/api/lead` runs on either host — the canonical logic lives once in
+`netlify/functions/lead.mjs`; `api/lead.mjs` is a thin Vercel adapter that reuses it.
+
+### Vercel (keeps your existing project)
+
+- `vercel.json` configures clean URLs, trailing-slash routes, security headers and the
+  noindex header for `/score/result/`. Vercel auto-routes `/api/lead` to `api/lead.mjs`.
+- Set the four environment variables in **Project Settings → Environment Variables**
+  (same names as `.env.example`): `APPS_SCRIPT_WEBHOOK_URL`, `APPS_SCRIPT_SHARED_SECRET`,
+  `ALLOWED_ORIGIN`, `IP_HASH_SALT`. Redeploy after setting them.
+- Note: deploying this branch makes the funnel the site root (`index.html`). The previous
+  marketing landing is preserved at `legacy/villa-ops-landing-v0.html`.
 
 ## Netlify deployment
 
