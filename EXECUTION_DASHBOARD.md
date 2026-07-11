@@ -37,6 +37,7 @@
 - Completion criteria: First 3 sent with cold-open soft CTA; sheet Status updated; 48h follow-up due set.
 - Blockers: manual verification blockers listed in `outreach_packs.md` (resolve per lead before send).
 - Next action: assistant imports `crm_google_sheet.csv` into Google Sheet, adds Status dropdown, sends First 3, logs status.
+- Week 1 run plan (day by day): see `week1_plan.md` — Top 10 all get first touch + follow-up 1 by end of week.
 
 ## Phase 3: audits
 - Status: not started.
