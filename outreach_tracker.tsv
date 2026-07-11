@@ -1,21 +1,21 @@
-Send order	Company	Contact person	Channel	Message	Date sent	Status	Follow-up date	Reply	Next step
-1	Villa Management Bali	Desi	WhatsApp	VMB audit teaser		Not sent			Wave 1 (First 3)
-2	OriVista	Manish Agarwal / team	WhatsApp	OriVista audit teaser		Not sent			Wave 1 (First 3)
-3	Supala Villa Management	Unknown	Email	Supala audit teaser		Not sent			Wave 1 (First 3)
-4	Short Stay Bali / TJM	Antoine Cardyn / Reservations	Email	TJM audit teaser		Not sent			Wave 1
-5	Balitecture	Irene / Byron	WhatsApp	Balitecture audit teaser		Not sent			Wave 1
-6	Bingin Villa Management	Reza	IG/WhatsApp	BVM audit teaser		Not sent			Wave 1
-7	Gravity Bali	Ops leadership	Email	Gravity audit teaser		Not sent			Wave 1
-8	Nakula	Management route	Contact form/email	Nakula audit teaser		Not sent			Wave 1 (no WhatsApp)
-9	Nagisa Bali	Management / Sales	Website/email	Nagisa audit teaser		Not sent			Wave 1
-10	My Villa Management	Stephane (Director)	Email	MVM audit teaser		Not sent			Wave 1
-11	Moria Villa Management	Kiana Yudha (Ops Manager)	WhatsApp	Moria audit teaser		Not sent			Wave 1.5 (WhatsApp-ready)
-12	Premier Hospitality Asia	BD team	WhatsApp	Premier audit teaser (no portfolio claim)		Not sent			Wave 1.5
-13	Balinest Villas	Management	WhatsApp	Balinest cautious teaser (verify scale)		Not sent			Wave 1.5 (verify 207 vs 450)
-14	The Lavana	Unknown	WhatsApp	Lavana fit-verification + teaser		Not sent			Wave 1.5
-15	iNi ViE Hospitality	Unknown	WhatsApp	iNi ViE cautious teaser		Not sent			Wave 1.5
-16	Optimum Bali	Unknown	WhatsApp/email	Optimum triage teaser		Not sent			Wave 2
-17	Pramana Experience	I Wayan Suarsa (CEO)	Contact form/phone	Pramana enterprise teaser		Not sent			Wave 2 (no WhatsApp)
-18	LifestyleRetreats	Jose Luis Calle (Founder)	Email	LifestyleRetreats luxury teaser		Not sent			Wave 2
-19	Mahaprana Experience	Putu Eka Richnawan (GM)	WhatsApp	Mahaprana wellness teaser		Not sent			Wave 2
-20	Sandara Luxury Management	Unknown	Verify then WhatsApp/email	Sandara owner-pain teaser		Not sent			Wave 2 (verify contact)
+Send order	Company	Contact person	Channel	Sent (YYYY-MM-DD HH:MM)	Status	Replied?	Reply (YYYY-MM-DD HH:MM)	Response time (h)	Reply summary	Follow-up due	Next step
+1	Villa Management Bali	Desi	WhatsApp		Not sent	No				Wave 1 (First 3)
+2	OriVista	Manish Agarwal / team	WhatsApp		Not sent	No				Wave 1 (First 3)
+3	Supala Villa Management	Unknown	Email		Not sent	No				Wave 1 (First 3)
+4	Short Stay Bali / TJM	Antoine Cardyn / Reservations	Email		Not sent	No				Wave 1
+5	Balitecture	Irene / Byron	WhatsApp		Not sent	No				Wave 1
+6	Bingin Villa Management	Reza	IG/WhatsApp		Not sent	No				Wave 1
+7	Gravity Bali	Ops leadership	Email		Not sent	No				Wave 1
+8	Nakula	Management route	Contact form/email		Not sent	No				Wave 1 (no WhatsApp)
+9	Nagisa Bali	Management / Sales	Website/email		Not sent	No				Wave 1
+10	My Villa Management	Stephane (Director)	Email		Not sent	No				Wave 1
+11	Moria Villa Management	Kiana Yudha (Ops Manager)	WhatsApp		Not sent	No				Wave 1.5
+12	Premier Hospitality Asia	BD team	WhatsApp		Not sent	No				Wave 1.5
+13	Balinest Villas	Management	WhatsApp		Not sent	No				Wave 1.5
+14	The Lavana	Unknown	WhatsApp		Not sent	No				Wave 1.5
+15	iNi ViE Hospitality	Unknown	WhatsApp		Not sent	No				Wave 1.5
+16	Optimum Bali	Unknown	WhatsApp/email		Not sent	No				Wave 2
+17	Pramana Experience	I Wayan Suarsa (CEO)	Contact form/phone		Not sent	No				Wave 2
+18	LifestyleRetreats	Jose Luis Calle (Founder)	Email		Not sent	No				Wave 2
+19	Mahaprana Experience	Putu Eka Richnawan (GM)	WhatsApp		Not sent	No				Wave 2
+20	Sandara Luxury Management	Unknown	Verify then WhatsApp/email		Not sent	No				Wave 2

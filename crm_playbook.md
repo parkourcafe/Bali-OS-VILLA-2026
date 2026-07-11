@@ -71,6 +71,31 @@ what they said (Reply notes), and the suggested next step (usually the reply-han
 Filter by Status to see the funnel: how many `1st touch sent`, how many `Replied`, how many
 `Call booked`. That's your whole dashboard until volume justifies HubSpot.
 
+## 7a. Logging replies + measuring response time
+Two logs, both in the shared Google Sheet:
+
+**A. Outreach log** (`outreach_tracker.tsv`) — did the prospect reply to US, and how fast.
+Fill on send: **Sent (YYYY-MM-DD HH:MM)** + Status = `1st touch sent`. On reply: **Replied? = Yes**,
+**Reply (YYYY-MM-DD HH:MM)**, paste the gist in **Reply summary**, Status = `Replied`, ping founder.
+Use real 24h datetimes (e.g. `2026-07-11 14:30`) so the maths works.
+
+- **Response time (h)** column — paste this formula in row 2 and fill down (E = Sent, H = Reply):
+  `=IF(AND(E2<>"",H2<>""),(H2-E2)*24,"")`
+- **Summary counters** (put in a free cell block, ranges assume rows 2–21):
+  - Sent: `=COUNTIF(F2:F21,"<>Not sent")`
+  - Replied: `=COUNTIF(G2:G21,"Yes")`
+  - Reply rate: `=IFERROR(COUNTIF(G2:G21,"Yes")/COUNTIF(F2:F21,"<>Not sent"),0)` → format as %
+  - Avg time-to-reply (h): `=IFERROR(AVERAGE(I2:I21),"")`
+  - Median time-to-reply (h): `=IFERROR(MEDIAN(I2:I21),"")`
+  - Fastest / slowest: `=MIN(I2:I21)` / `=MAX(I2:I21)`
+
+That answers "how many replied and after how long" automatically — no manual counting.
+
+**B. Audit log** (`audit_log.tsv`) — how fast THEY answer a guest (mystery-shop). Log the test
+datetime and their first-response datetime; their response time = same `(reply-sent)*24` formula.
+This is the evidence for the pitch and the operator's own effectiveness signal. Required caveat
+wording is in the file header. One test = a signal, not proof.
+
 ## 7. When to move to HubSpot
 Move once you have **~3+ active conversations** or want reporting/automation. The import files are
 already prepared: `outreach_crm.tsv` maps cleanly to HubSpot Company properties, and this sheet's
