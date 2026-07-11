@@ -91,7 +91,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);ba
     linear-gradient(180deg,#0b110e 0%, #101915 45%, #0e1512 100%)}
 .hero-media{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .hero-media video,.hero-media .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity 1.4s ease}
-.hero-media .poster{background:url("assets/hero-poster.jpg") center/cover no-repeat}
+.hero-media .poster{background:radial-gradient(120% 90% at 75% 15%, rgba(194,161,93,.28), transparent 55%), radial-gradient(120% 100% at 15% 90%, rgba(46,110,94,.5), transparent 60%), linear-gradient(180deg,#0c1512,#0a100d)}
 .hero-media.show-poster .poster{opacity:.5}
 .hero-media.show-video video{opacity:.55}
 .hero-media.show-video .poster{opacity:0}
@@ -299,7 +299,7 @@ footer a:hover{color:var(--teal)}
 <header class="hero dark" id="top">
   <div class="hero-media" id="hero-media" aria-hidden="true">
     <div class="poster"></div>
-    <video id="hero-video" muted loop playsinline preload="none" poster="assets/hero-poster.jpg"></video>
+    <video id="hero-video" muted loop playsinline preload="none"></video>
     <div class="hero-veil"></div>
   </div>
   <svg class="hero-bg" viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
