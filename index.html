@@ -3,164 +3,818 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Villa Response Readiness Score — Selena Systems</title>
-<meta name="description" content="Complete a 90-second assessment and get your Villa Response Readiness Score. Then, if it fits your operation, test your real guest response flow with an authorised Live Guest Inquiry Audit.">
-<link rel="canonical" href="/">
-<meta property="og:title" content="Find out how ready your villa business is to capture every inquiry.">
-<meta property="og:description" content="A 90-second self-assessment for Bali villa operators. Score based only on your answers — no website or inbox access.">
+<title>Villa Ops Response System — Selena Systems</title>
+<meta name="description" content="AI guest inquiry, qualification and follow-up system for Bali villa management companies. 95% of eligible new inquiries on covered channels receive a first automated response within two minutes.">
+<link rel="canonical" href="https://bali-os-villa-2026.vercel.app/">
+<meta property="og:title" content="Villa Ops Response System — Selena Systems">
+<meta property="og:description" content="AI guest inquiry response, qualification and follow-up system for Bali villa management companies.">
+<meta property="og:image" content="https://bali-os-villa-2026.vercel.app/assets/og-image.svg">
 <meta property="og:type" content="website">
-<meta property="og:image" content="/assets/images/og-image.svg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2317241f'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%231f6b5b'%3ES%3C/text%3E%3C/svg%3E">
+<meta name="twitter:title" content="Villa Ops Response System — Selena Systems">
+<meta name="twitter:description" content="AI guest inquiry response, qualification and follow-up system for Bali villa management companies.">
+<meta name="twitter:image" content="https://bali-os-villa-2026.vercel.app/assets/og-image.svg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e1512'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%23c2a15d'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/styles.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Selena Systems"}
-</script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ Selena Systems design system ============ */
+:root{
+  --ink:#0e1512;          /* dark green-black base */
+  --ink-2:#15201b;
+  --ivory:#f5f0e6;        /* warm light */
+  --ivory-2:#ece5d6;
+  --brass:#c2a15d;        /* metal accent */
+  --brass-soft:#d8bf8d;
+  --teal:#2e6e5e;         /* accent */
+  --teal-bright:#4da58f;
+  --grey:#8a9089;
+  --line:rgba(194,161,93,.22);
+  --line-light:rgba(14,21,18,.14);
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Manrope",-apple-system,"Segoe UI",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+::selection{background:var(--brass);color:var(--ink)}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.01em}
+.dark{color:var(--ivory)}
+.eyebrow{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);margin-bottom:18px}
+.section{padding:110px 0}
+.section-light{background:var(--ivory);color:var(--ink)}
+.section-light .eyebrow,.section .eyebrow{color:var(--teal)}
+.dark .eyebrow{color:var(--brass)}
+h2{font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.12;margin-bottom:20px}
+.lead{font-size:1.12rem;color:rgba(14,21,18,.72);max-width:640px}
+.dark .lead{color:rgba(245,240,230,.78)}
+.small{font-size:.85rem;color:var(--grey)}
+.dark .small{color:rgba(245,240,230,.55)}
+
+/* reveal motion */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .hero-bg,.float-card{animation:none!important;transform:none!important}
+}
+
+/* ============ nav ============ */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);background:rgba(245,240,230,.82);border-bottom:1px solid var(--line-light)}
+.nav-in{max-width:1120px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:28px}
+.logo{font-family:var(--serif);font-size:1.12rem;letter-spacing:.02em;text-decoration:none;color:var(--ink)}
+.hero .logo, .dark .logo{color:var(--ivory)}
+.logo b{color:var(--brass);font-weight:600}
+.nav-links{display:flex;gap:24px;margin-left:auto;align-items:center}
+.nav-links a{text-decoration:none;font-size:.86rem;font-weight:600;color:rgba(14,21,18,.7);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;font-family:var(--sans);font-weight:700;font-size:.9rem;text-decoration:none;cursor:pointer;border:0;transition:transform .25s,box-shadow .25s,background .25s}
+.btn-brass{background:linear-gradient(120deg,var(--brass),var(--brass-soft));color:var(--ink);box-shadow:0 8px 28px rgba(194,161,93,.25)}
+.btn-brass:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(194,161,93,.38)}
+.btn-ghost{border:1px solid rgba(14,21,18,.3);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--brass);color:var(--brass)}
+.dark .btn-ghost,.hero .btn-ghost{border-color:rgba(245,240,230,.35);color:var(--ivory)}
+.dark .btn-ghost:hover,.hero .btn-ghost:hover{color:var(--brass-soft)}
+.nav-cta{padding:10px 20px;font-size:.82rem}
+@media(max-width:820px){.nav-links a:not(.nav-cta){display:none}}
+
+/* ============ hero ============ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
+  background:
+    radial-gradient(1200px 700px at 78% 12%, rgba(194,161,93,.16), transparent 60%),
+    radial-gradient(900px 600px at 12% 88%, rgba(46,110,94,.28), transparent 65%),
+    linear-gradient(180deg,#0b110e 0%, #101915 45%, #0e1512 100%)}
+.hero-media{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.hero-media video,.hero-media .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity 1.4s ease}
+.hero-media .poster{background:url("assets/hero-poster.jpg") center/cover no-repeat}
+.hero-media.show-poster .poster{opacity:.5}
+.hero-media.show-video video{opacity:.55}
+.hero-media.show-video .poster{opacity:0}
+.hero-veil{position:absolute;inset:0;background:
+  linear-gradient(180deg, rgba(11,17,14,.82) 0%, rgba(14,21,18,.55) 45%, rgba(14,21,18,.9) 100%),
+  radial-gradient(900px 600px at 12% 88%, rgba(46,110,94,.25), transparent 65%)}
+@media (prefers-reduced-motion: reduce){.hero-media video{display:none}}
+.hero-bg{position:absolute;inset:auto 0 0 0;height:42vh;opacity:.5;pointer-events:none}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:60px;align-items:center;padding-top:120px;padding-bottom:80px}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.04;margin-bottom:22px}
+.hero h1 em{font-style:italic;color:var(--brass-soft)}
+.hero .sub{font-size:1.16rem;color:rgba(245,240,230,.82);max-width:560px;margin-bottom:14px}
+.promise{display:flex;gap:12px;align-items:flex-start;border-left:2px solid var(--brass);padding:6px 0 6px 16px;margin:22px 0 30px;max-width:560px}
+.promise p{font-size:.95rem;color:rgba(245,240,230,.85)}
+.promise b{color:var(--brass-soft)}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.micro{font-size:.8rem;color:var(--grey);max-width:460px}
+.trust-line{margin-top:38px;display:flex;gap:26px;flex-wrap:wrap;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(245,240,230,.55)}
+.trust-line span{display:flex;gap:8px;align-items:center}
+.trust-line i{width:5px;height:5px;border-radius:50%;background:var(--brass);flex:none}
+
+/* floating demo chat card */
+.float-card{position:relative;background:rgba(21,32,27,.9);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 40px 90px rgba(0,0,0,.5);animation:floaty 7s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.chat-tag{position:absolute;top:-12px;right:18px;background:var(--ink);border:1px solid var(--line);color:var(--brass-soft);font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:999px}
+.chat-head{display:flex;align-items:center;gap:10px;padding-bottom:14px;border-bottom:1px solid rgba(245,240,230,.08);margin-bottom:14px}
+.chat-dot{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--teal-bright));display:flex;align-items:center;justify-content:center;font-family:var(--serif);color:var(--ivory)}
+.chat-head small{display:block;color:var(--grey);font-size:.72rem}
+.msg{max-width:88%;padding:11px 14px;border-radius:14px;font-size:.86rem;line-height:1.5;margin-bottom:10px}
+.msg small{display:block;font-size:.66rem;color:rgba(245,240,230,.45);margin-top:5px}
+.msg-in{background:rgba(245,240,230,.08);border-top-left-radius:4px}
+.msg-out{background:rgba(46,110,94,.35);border:1px solid rgba(77,165,143,.3);border-top-right-radius:4px;margin-left:auto}
+@media(max-width:920px){.hero-in{grid-template-columns:1fr;gap:44px}.float-card{max-width:440px}}
+
+/* ============ chaos → order ============ */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:54px}
+.panel{border-radius:20px;padding:34px 30px;border:1px solid var(--line-light);position:relative;overflow:hidden}
+.panel h3{font-size:1.3rem;margin-bottom:18px}
+.panel-chaos{background:linear-gradient(160deg,#efe7d6,#e7ddc8)}
+.panel-order{background:linear-gradient(160deg,#12241e,#0e1a15);color:var(--ivory);border-color:var(--line)}
+.chip{display:inline-block;font-size:.78rem;font-weight:600;padding:8px 14px;border-radius:999px;margin:0 8px 10px 0;background:rgba(14,21,18,.07);border:1px solid rgba(14,21,18,.12)}
+.chip.rot1{transform:rotate(-2deg)}.chip.rot2{transform:rotate(1.5deg)}.chip.rot3{transform:rotate(-1deg)}
+.panel-chaos p.note{font-size:.88rem;color:rgba(14,21,18,.6);margin-top:14px}
+.flow-item{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid rgba(245,240,230,.08);font-size:.92rem}
+.flow-item:last-child{border:0}
+.flow-item i{flex:none;width:26px;height:26px;border-radius:50%;background:rgba(194,161,93,.15);border:1px solid var(--line);color:var(--brass-soft);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-style:normal;font-weight:700}
+@media(max-width:820px){.split{grid-template-columns:1fr}}
+
+/* ============ mechanism (sticky) ============ */
+.mech{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.mech-sticky{position:sticky;top:110px}
+.mech-card{background:linear-gradient(165deg,#15201b,#0e1712);color:var(--ivory);border:1px solid var(--line);border-radius:20px;padding:26px;min-height:330px;box-shadow:0 30px 70px rgba(14,21,18,.3)}
+.mech-state{display:none}
+.mech-state.active{display:block;animation:fadeUp .5s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.mech-state.active{animation:none}}
+.mech-steps{display:flex;flex-direction:column;gap:8vh;padding:6vh 0}
+.mstep{border-left:2px solid rgba(194,161,93,.45);padding:8px 0 8px 26px;transition:border-color .3s}
+.mstep.active{border-color:var(--brass)}
+.mstep h3{font-size:1.35rem;margin-bottom:10px}
+.mstep p{color:rgba(14,21,18,.65);font-size:.98rem;max-width:420px}
+.mstep .k{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:8px}
+@media(max-width:920px){.mech{grid-template-columns:1fr}.mech-sticky{position:relative;top:0}.mech-steps{gap:34px;padding:30px 0 0}}
+
+/* ============ how it works ============ */
+.days{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:52px}
+.day{background:#fff;border:1px solid var(--line-light);border-radius:16px;padding:22px 18px;box-shadow:0 14px 30px rgba(14,21,18,.06);transition:transform .3s,box-shadow .3s}
+.day:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(14,21,18,.11)}
+.day .k{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:10px}
+.day h3{font-size:1.02rem;margin-bottom:8px}
+.day p{font-size:.83rem;color:rgba(14,21,18,.62)}
+.constraint{margin-top:34px;background:rgba(46,110,94,.08);border:1px solid rgba(46,110,94,.25);border-radius:16px;padding:22px 26px;font-size:.9rem;color:rgba(14,21,18,.78);max-width:860px}
+@media(max-width:980px){.days{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.days{grid-template-columns:1fr}}
+
+/* ============ ICP ============ */
+.icp{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
+.icp ul{list-style:none;margin-top:26px}
+.icp li{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid rgba(14,21,18,.1);font-size:.97rem;color:rgba(14,21,18,.82)}
+.icp li:last-child{border:0}
+.icp li i{flex:none;color:var(--teal);font-style:normal;font-weight:700}
+.icp-side{background:#fff;border:1px solid var(--line-light);border-radius:20px;padding:30px;box-shadow:0 18px 40px rgba(14,21,18,.07)}
+.icp-side h3{font-size:1.15rem;margin-bottom:14px;color:var(--teal)}
+.icp-side p{font-size:.9rem;color:rgba(14,21,18,.65);margin-bottom:14px}
+@media(max-width:900px){.icp{grid-template-columns:1fr}}
+
+/* ============ promise / exclusions ============ */
+.sla{background:linear-gradient(160deg,#12241e,#0d1713);border:1px solid var(--line);border-radius:24px;padding:52px 48px;display:grid;grid-template-columns:1.05fr .95fr;gap:52px}
+.sla h2{font-size:clamp(1.6rem,3vw,2.2rem)}
+.sla .big-num{font-family:var(--serif);font-size:clamp(3.4rem,7vw,5rem);line-height:1;color:var(--brass-soft);margin:16px 0 8px}
+.excl{list-style:none}
+.excl li{display:flex;gap:12px;padding:9px 0;font-size:.9rem;color:rgba(245,240,230,.72);border-bottom:1px solid rgba(245,240,230,.07)}
+.excl li:last-child{border:0}
+.excl li i{flex:none;font-style:normal;color:var(--grey)}
+@media(max-width:900px){.sla{grid-template-columns:1fr;padding:38px 28px}}
+
+/* ============ included grid ============ */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+.inc{background:#fff;border:1px solid var(--line-light);border-radius:16px;padding:26px 24px;transition:transform .3s,box-shadow .3s}
+.inc:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(14,21,18,.1)}
+.inc h3{font-size:1.02rem;margin:14px 0 8px}
+.inc p{font-size:.85rem;color:rgba(14,21,18,.62)}
+.inc .ico{width:40px;height:40px;border-radius:12px;background:rgba(46,110,94,.1);border:1px solid rgba(46,110,94,.2);display:flex;align-items:center;justify-content:center;color:var(--teal);font-family:var(--serif);font-size:1.1rem}
+.notinc{margin-top:44px;border:1px dashed rgba(14,21,18,.25);border-radius:16px;padding:26px 30px;max-width:900px}
+.notinc h3{font-size:1rem;margin-bottom:10px;color:rgba(14,21,18,.8)}
+.notinc p{font-size:.88rem;color:rgba(14,21,18,.6)}
+@media(max-width:900px){.grid3{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.grid3{grid-template-columns:1fr}}
+
+/* ============ proof ============ */
+.proof-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px}
+.pcard{background:#fff;border:1px solid var(--line-light);border-radius:16px;padding:26px 22px;box-shadow:0 14px 30px rgba(14,21,18,.06)}
+.pcard .k{font-family:var(--serif);font-size:1.6rem;color:var(--brass);display:block;margin-bottom:10px}
+.pcard h3{font-size:.98rem;margin-bottom:8px}
+.pcard p{font-size:.83rem;color:rgba(14,21,18,.62)}
+.honest{margin-top:40px;border-left:2px solid var(--brass);padding-left:22px;max-width:760px}
+.honest p{color:rgba(14,21,18,.75);font-size:1rem}
+@media(max-width:980px){.proof-cards{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.proof-cards{grid-template-columns:1fr}}
+
+/* ============ pricing ============ */
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px;align-items:stretch}
+.tier{background:#fff;border:1px solid var(--line-light);border-radius:20px;padding:32px 26px;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.tier:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(14,21,18,.12)}
+.tier.hl{background:linear-gradient(165deg,#12241e,#0e1a15);color:var(--ivory);border-color:var(--brass);box-shadow:0 24px 60px rgba(14,21,18,.25)}
+.tier .name{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.tier.hl .name{color:var(--brass-soft)}
+.tier .price{font-family:var(--serif);font-size:1.9rem;margin-bottom:4px}
+.tier .for{font-size:.82rem;color:rgba(14,21,18,.55);margin-bottom:18px;min-height:3.2em}
+.tier.hl .for{color:rgba(245,240,230,.6)}
+.tier ul{list-style:none;font-size:.84rem;margin-bottom:22px;flex:1}
+.tier li{padding:6px 0 6px 20px;position:relative;color:rgba(14,21,18,.75)}
+.tier.hl li{color:rgba(245,240,230,.8)}
+.tier li:before{content:"—";position:absolute;left:0;color:var(--brass)}
+.tier .btn{text-align:center}
+.terms{margin-top:34px;font-size:.88rem;color:rgba(14,21,18,.65);max-width:820px}
+@media(max-width:1020px){.tiers{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.tiers{grid-template-columns:1fr}}
+
+/* ============ comparison ============ */
+.cmp{width:100%;border-collapse:collapse;margin-top:48px;font-size:.9rem;min-width:640px}
+.cmp th{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(14,21,18,.5);text-align:left;padding:14px 16px;border-bottom:1px solid rgba(14,21,18,.2)}
+.cmp td{padding:15px 16px;border-bottom:1px solid rgba(14,21,18,.1);color:rgba(14,21,18,.72);vertical-align:top}
+.cmp td:first-child{color:var(--ink);font-weight:600}
+.cmp .yes{color:var(--teal);font-weight:600}
+.cmp-scroll{overflow-x:auto}
+
+/* ============ FAQ ============ */
+.faq{max-width:800px;margin:52px auto 0}
+.faq details{border-bottom:1px solid rgba(14,21,18,.14);padding:6px 0}
+.faq summary{cursor:pointer;font-family:var(--serif);font-size:1.12rem;padding:18px 40px 18px 0;list-style:none;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font-family:var(--sans);color:var(--teal);font-size:1.3rem;transition:transform .3s}
+.faq details[open] summary:after{transform:translateY(-50%) rotate(45deg)}
+.faq .a{padding:0 0 20px;font-size:.94rem;color:rgba(14,21,18,.68);max-width:700px}
+
+/* ============ final CTA + form ============ */
+.final{position:relative;overflow:hidden;background:
+  radial-gradient(1000px 600px at 20% 0%, rgba(46,110,94,.3), transparent 60%),
+  radial-gradient(800px 500px at 90% 100%, rgba(194,161,93,.14), transparent 60%),
+  linear-gradient(180deg,#0e1512,#0a100d)}
+.final-in{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.form-card{background:rgba(21,32,27,.85);border:1px solid var(--line);border-radius:22px;padding:36px;box-shadow:0 40px 90px rgba(0,0,0,.45)}
+.form-card label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,230,.55);margin:18px 0 7px}
+.form-card input,.form-card select,.form-card textarea{width:100%;background:rgba(14,21,18,.7);border:1px solid rgba(245,240,230,.15);border-radius:10px;color:var(--ivory);font-family:var(--sans);font-size:.95rem;padding:13px 14px;transition:border-color .2s}
+.form-card input:focus,.form-card select:focus,.form-card textarea:focus{outline:none;border-color:var(--brass)}
+.checks{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.checks label{display:flex;align-items:center;gap:7px;margin:0;font-size:.8rem;text-transform:none;letter-spacing:0;font-weight:600;color:rgba(245,240,230,.75);background:rgba(14,21,18,.6);border:1px solid rgba(245,240,230,.14);border-radius:999px;padding:8px 14px;cursor:pointer}
+.checks input{width:auto;accent-color:var(--brass)}
+.form-note{font-size:.76rem;color:var(--grey);margin-top:16px}
+.form-out{display:none;margin-top:18px;background:rgba(14,21,18,.8);border:1px solid var(--line);border-radius:12px;padding:16px;font-size:.83rem;white-space:pre-wrap;color:rgba(245,240,230,.85)}
+#send-btn{width:100%;margin-top:24px}
+.ok-msg{display:none;margin-top:14px;color:var(--teal-bright);font-size:.86rem;font-weight:600}
+.err-msg{display:none;margin-top:14px;color:#f0a6a6;font-size:.86rem;font-weight:600}
+@media(max-width:920px){.final-in{grid-template-columns:1fr}}
+
+/* mobile sticky CTA */
+.msticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(245,240,230,.92);backdrop-filter:blur(12px);border-top:1px solid rgba(14,21,18,.12)}
+.msticky .btn{display:block;text-align:center}
+@media(max-width:680px){.msticky{display:block}body{padding-bottom:70px}}
+
+footer{border-top:1px solid rgba(14,21,18,.12);padding:44px 0 60px;font-size:.82rem;color:rgba(14,21,18,.55);background:var(--ivory-2)}
+.foot{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start}
+footer a{color:rgba(14,21,18,.7);text-decoration:none}
+footer a:hover{color:var(--teal)}
+</style>
 </head>
 <body>
 
-<header class="site">
-  <div class="site-in">
-    <a class="wordmark" href="/"><b>Selena</b> Systems</a>
-    <nav class="site-nav" aria-label="Main">
-      <a href="#how">How it works</a>
-      <a href="#measures">What it measures</a>
-      <a href="#live-audit">Live audit</a>
-      <a class="btn btn-primary" style="min-height:44px;padding:10px 20px;font-size:.85rem" href="/score/" data-track="landing_cta_clicked">Check my readiness</a>
-    </nav>
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="#top"><b>Selena</b> Systems</a>
+    <div class="nav-links">
+      <a href="#system">The System</a>
+      <a href="#process">14 Days</a>
+      <a href="#fit">Who It's For</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-brass nav-cta" href="/score/">Check my readiness</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero dark" id="top">
+  <div class="hero-media" id="hero-media" aria-hidden="true">
+    <div class="poster"></div>
+    <video id="hero-video" muted loop playsinline preload="none" poster="assets/hero-poster.jpg"></video>
+    <div class="hero-veil"></div>
+  </div>
+  <svg class="hero-bg" viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <path d="M0,240 C120,200 200,240 300,220 C380,205 420,170 500,175 C560,178 600,210 680,205 C760,200 800,150 900,155 C980,160 1020,205 1120,200 C1220,195 1280,160 1440,185 L1440,320 L0,320 Z" fill="#0a0f0c"/>
+    <path d="M620,205 l0,-70 55,-32 55,32 0,70" fill="none" stroke="rgba(194,161,93,.35)" stroke-width="1.5"/>
+    <path d="M640,205 l0,-40 m30,40 l0,-52 m35,52 l0,-40" stroke="rgba(194,161,93,.2)" stroke-width="1"/>
+  </svg>
+  <div class="wrap hero-in">
+    <div>
+      <p class="eyebrow rv">Selena Systems · Bali</p>
+      <h1 class="rv">Stop losing villa inquiries <em>after hours.</em></h1>
+      <p class="sub rv">An AI response and follow-up system for Bali villa operators — WhatsApp, website, Instagram, email and OTA inboxes — installed in 14 days.</p>
+      <div class="promise rv">
+        <p><b>Proof line:</b> 95% of eligible new inquiries answered within 2 minutes, tested against 40 scenarios before final payment. Exclusions stated openly below.</p>
+      </div>
+      <div class="cta-row rv">
+        <a class="btn btn-brass" href="/score/">Check my readiness</a>
+        <a class="btn btn-ghost" href="#system">See how it works</a>
+      </div>
+      <p class="micro rv">A 90-second assessment gives you your Villa Response Readiness Score and your three highest-risk areas. Score based only on your answers — no website or inbox access.</p>
+      <div class="trust-line rv">
+        <span><i></i>Fixed scope, fixed price</span>
+        <span><i></i>40-scenario acceptance suite</span>
+        <span><i></i>You own the accounts</span>
+      </div>
+    </div>
+    <div class="rv">
+      <div class="float-card" aria-label="Demo conversation, illustrative scenario">
+        <span class="chat-tag">Demo scenario</span>
+        <div class="chat-head">
+          <div class="chat-dot">S</div>
+          <div><strong style="font-size:.9rem">Villa Demo Selena</strong><small>Response system · demo knowledge base</small></div>
+        </div>
+        <div class="msg msg-in">Hi! Is the 3-bedroom villa free Aug 14–19 for 5 people? What's the rate with airport pickup?<small>Guest · 11:42 pm</small></div>
+        <div class="msg msg-out">Hello! Yes — those dates are open for Villa Demo A (sleeps 6). The nightly rate for August is in the approved range I can quote, and airport pickup is included for 5+ night stays. May I ask what brings you to Bali — holiday or a longer stay? I'll match the right villa and hold the details for the team.<small>System · 11:43 pm · first response in 1m 12s</small></div>
+        <div class="msg msg-in">Can you do 40% off if we stay a month?<small>Guest · 11:47 pm</small></div>
+        <div class="msg msg-out">That's a decision for our reservations team — I've flagged your request with full context and someone will confirm options in the morning. Meanwhile, I can share monthly-stay information that's already approved.<small>System · 11:47 pm · escalated to human</small></div>
+      </div>
+    </div>
   </div>
 </header>
 
-<main>
-  <!-- Hero (§7.2) -->
-  <section class="section" style="padding-top:72px">
-    <div class="wrap">
-      <p class="eyebrow rv">Villa inquiry response assessment</p>
-      <h1 class="rv" style="max-width:760px">Find out how ready your villa business is to capture every inquiry.</h1>
-      <p class="lead rv" style="margin-top:18px">Complete a 90-second assessment and get your Villa Response Readiness Score. Then, if it makes sense for your operation, test your actual guest response flow with an authorised Live Guest Inquiry Audit.</p>
-      <p class="rv" style="margin-top:28px">
-        <a class="btn btn-primary" href="/score/" data-track="landing_cta_clicked">Check my response readiness</a>
-      </p>
-      <p class="small rv" style="margin-top:12px">Score based only on your answers. No website or inbox access.</p>
-    </div>
-  </section>
-
-  <!-- Problem (§7.3) -->
-  <section class="section section-alt">
-    <div class="wrap">
-      <h2 class="rv">Most inquiry leaks are operational, not technical.</h2>
-      <p class="lead rv">A guest can message through WhatsApp, a website form, Instagram or an OTA. The problem starts when nobody owns the next step: the first answer is late, basic details are collected inconsistently, quiet leads are forgotten, and management cannot see where the conversation stopped.</p>
-    </div>
-  </section>
-
-  <!-- How it works (§7.4) -->
-  <section class="section" id="how">
-    <div class="wrap">
-      <p class="eyebrow rv">How it works</p>
-      <h2 class="rv">Three steps, honest at every stage</h2>
-      <div class="cards">
-        <div class="card rv"><div class="num">1</div><h3>Describe your operation</h3><p>Describe how your operation handles guest inquiries.</p></div>
-        <div class="card rv"><div class="num">2</div><h3>Get your score</h3><p>Get a readiness score and your three highest-risk areas.</p></div>
-        <div class="card rv"><div class="num">3</div><h3>Approve a live test</h3><p>For eligible operators, approve a live test of one public inquiry channel.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What the score measures (§7.5) -->
-  <section class="section section-alt" id="measures">
-    <div class="wrap">
-      <p class="eyebrow rv">What the score measures</p>
-      <h2 class="rv">Six operational areas</h2>
-      <div class="cards">
-        <div class="card rv"><div class="num">01</div><h3>Response coverage</h3><p>How quickly and consistently inquiries are covered, including after hours.</p></div>
-        <div class="card rv"><div class="num">02</div><h3>Qualification</h3><p>Whether dates, guest count and budget are collected before human handoff.</p></div>
-        <div class="card rv"><div class="num">03</div><h3>Follow-up discipline</h3><p>Whether quiet inquiries receive structured day 1 / 3 / 7 follow-up.</p></div>
-        <div class="card rv"><div class="num">04</div><h3>Channel control</h3><p>Whether multiple channels have clear ownership and a central operating view.</p></div>
-        <div class="card rv"><div class="num">05</div><h3>Escalation readiness</h3><p>Whether complaints and unusual requests reach the right person.</p></div>
-        <div class="card rv"><div class="num">06</div><h3>Management visibility</h3><p>Whether leaders can see response time and inquiry status without asking around.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Live audit (§7.6) -->
-  <section class="section" id="live-audit">
-    <div class="wrap">
-      <p class="eyebrow rv">Live Guest Inquiry Audit</p>
-      <h2 class="rv">Measure the real guest experience.</h2>
-      <p class="lead rv">With your approval, we send one realistic inquiry to one public channel during an agreed test window. Your team is not told the exact moment.</p>
-      <div class="cards" style="grid-template-columns:repeat(2,1fr);max-width:820px">
-        <div class="card rv">
-          <h3>We assess</h3>
-          <p>First-response time · usefulness of the first answer · qualification · escalation · follow-up after silence for seven days.</p>
+<!-- ================= CHAOS → ORDER ================= -->
+<section class="section section-light">
+  <div class="wrap">
+    <p class="eyebrow rv">The problem</p>
+    <h2 class="rv">Where bookings quietly leak</h2>
+    <p class="lead rv">An inquiry arrives at 11pm. The guest is comparing several villas at once. If the answer waits until morning, the guest may already be gone. In a market where occupancy is under pressure and rates are discounted, the inquiry you already earned matters more than ever.</p>
+    <div class="split">
+      <div class="panel panel-chaos rv">
+        <h3>Today: five inboxes, one hope</h3>
+        <div>
+          <span class="chip rot1">WhatsApp · 11:42 pm · unread</span>
+          <span class="chip rot2">Instagram DM · 2 days</span>
+          <span class="chip rot3">Website form → inbox?</span>
+          <span class="chip rot1">Email · flagged, forgotten</span>
+          <span class="chip rot2">OTA inbox · separate app</span>
+          <span class="chip rot3">“I thought you replied?”</span>
         </div>
-        <div class="card rv">
-          <h3>We never touch</h3>
-          <p>We do not access private inboxes, guest data, your PMS or internal systems. No test is sent until an authorised representative confirms the channel, scenario and test window.</p>
+        <p class="note">Answers depend on who is awake, who is on shift, and whose personal phone the conversation lives on. Follow-up is manual — or absent. Slow responses can also hurt OTA ranking, which is partly based on response rate.</p>
+      </div>
+      <div class="panel panel-order rv">
+        <h3>With the system: one flow, owned</h3>
+        <div>
+          <div class="flow-item"><i>1</i>Every covered inquiry answered from your approved information — within two minutes, day or night</div>
+          <div class="flow-item"><i>2</i>Serious guests qualified: dates, party size, budget, purpose, property fit, urgency</div>
+          <div class="flow-item"><i>3</i>Quiet conversations followed up on day 1, 3, and 7 — with your approved wording</div>
+          <div class="flow-item"><i>4</i>Complaints, emergencies, refunds and sensitive topics routed straight to your team</div>
+          <div class="flow-item"><i>5</i>One pipeline with status and ownership — nothing lives on a personal phone</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Product bridge (§7.7) -->
-  <section class="section section-alt">
-    <div class="wrap">
-      <p class="eyebrow rv">When the diagnosis shows a real gap</p>
-      <h2 class="rv">Villa Ops Response System</h2>
-      <p class="lead rv">Villa Ops Response System installs the operating layer behind a reliable guest response process: approved first replies, structured qualification, day 1 / 3 / 7 follow-up, human escalation and a simple response log.</p>
-      <p class="lead rv" style="margin-top:12px">Implementation is fixed-scope and designed to go live in 14 days.</p>
+<!-- ================= MECHANISM ================= -->
+<section class="section" id="system">
+  <div class="wrap">
+    <p class="eyebrow rv">The core mechanism</p>
+    <h2 class="rv">A response system, not a chatbot</h2>
+    <p class="lead rv">An AI layer installed over the channels you already use. It answers from your approved knowledge base only — and when it isn't sure, it hands off to a human instead of improvising.</p>
+    <div class="mech" style="margin-top:56px">
+      <div class="mech-steps">
+        <div class="mstep" data-state="0">
+          <span class="k">01 · Inquiry</span>
+          <h3>A guest writes at 11pm</h3>
+          <p>WhatsApp, website chat — whichever channels are in your signed scope. Time zone doesn't matter anymore; AU and EU guests inquire while Bali sleeps.</p>
+        </div>
+        <div class="mstep" data-state="1">
+          <span class="k">02 · Response</span>
+          <h3>Answered within two minutes</h3>
+          <p>Accurate, in the guest's language, from information you approved: properties, ranges it may quote, house rules, logistics. Never an invented rate — that guardrail is contractual.</p>
+        </div>
+        <div class="mstep" data-state="2">
+          <span class="k">03 · Qualification</span>
+          <h3>Serious inquiries get shaped</h3>
+          <p>Dates, guests, budget, purpose, property fit, urgency — collected conversationally, so your team wakes up to a qualified lead instead of a cold "hi, price?"</p>
+        </div>
+        <div class="mstep" data-state="3">
+          <span class="k">04 · Follow-up</span>
+          <h3>Silence gets a second chance</h3>
+          <p>Conversations that go quiet are followed up on day 1, 3, and 7 with messaging you approved. The inquiries you already earned stop evaporating.</p>
+        </div>
+        <div class="mstep" data-state="4">
+          <span class="k">05 · Handoff</span>
+          <h3>Humans take what humans should</h3>
+          <p>Complaints, emergencies, refund requests, sensitive personal information, unusual requests, and anything you mark as mandatory human review — escalated instantly with full context. And there's always a pause-AI procedure.</p>
+        </div>
+      </div>
+      <div class="mech-sticky">
+        <div class="mech-card">
+          <div class="mech-state active" data-state="0">
+            <span class="chat-tag" style="position:static;display:inline-block;margin-bottom:16px">Demo scenario</span>
+            <div class="msg msg-in">Hi! Do you have a villa near Canggu for 4 adults, Sep 2–8? Quiet area if possible 🙏<small>Guest · 11:03 pm</small></div>
+            <p class="small" style="margin-top:14px">The inquiry lands in the system the moment it arrives — no one has to be awake.</p>
+          </div>
+          <div class="mech-state" data-state="1">
+            <span class="chat-tag" style="position:static;display:inline-block;margin-bottom:16px">Demo scenario</span>
+            <div class="msg msg-out">Hello! Yes — two of our villas near Canggu are open Sep 2–8 and both sit in quiet lanes. Villa Demo A sleeps 4 with a private pool; Villa Demo B adds a garden studio. I can share approved rates for both.<small>System · 11:04 pm · 58 seconds</small></div>
+            <p class="small" style="margin-top:14px">Answers come only from the approved knowledge base.</p>
+          </div>
+          <div class="mech-state" data-state="2">
+            <span class="chat-tag" style="position:static;display:inline-block;margin-bottom:16px">Demo scenario</span>
+            <div class="msg msg-out">To point you right: is this a holiday or a work trip? And is your budget closer to the Villa A range or flexible for something larger?<small>System</small></div>
+            <div class="msg msg-in">Holiday! Budget around Villa A, dates are fixed.<small>Guest</small></div>
+            <p class="small" style="margin-top:14px">Dates ✓ · Party ✓ · Budget ✓ · Purpose ✓ — logged to the pipeline as a qualified inquiry.</p>
+          </div>
+          <div class="mech-state" data-state="3">
+            <span class="chat-tag" style="position:static;display:inline-block;margin-bottom:16px">Demo scenario</span>
+            <div class="msg msg-out">Hi again! Just checking in — Villa Demo A is still open for Sep 2–8. If dates or plans changed, tell me and I'll adjust. Happy to hold the details either way.<small>System · day 3 follow-up · approved wording</small></div>
+            <p class="small" style="margin-top:14px">Day 1 / 3 / 7 sequences, written with you, approved by you.</p>
+          </div>
+          <div class="mech-state" data-state="4">
+            <span class="chat-tag" style="position:static;display:inline-block;margin-bottom:16px">Demo scenario</span>
+            <div class="msg msg-in">Our villa's AC broke and my kids can't sleep. This is unacceptable!!<small>Guest · 1:12 am</small></div>
+            <div class="msg msg-out">I'm sorry — that's not the night you booked. I've alerted our on-call team right now with your villa and details; a human will take this from here.<small>System · escalated · full context attached</small></div>
+            <p class="small" style="margin-top:14px">Complaints and emergencies never get "handled" by AI — they get humans, fast.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Trust & privacy (§7.8) -->
-  <section class="section">
-    <div class="wrap">
-      <h2 class="rv" style="font-size:1.3rem">Your information, plainly</h2>
-      <p class="lead rv" style="font-size:.95rem">We use your information only to calculate and save the assessment, deliver any audit or playbook you request, and contact you about that request.</p>
-      <p class="lead rv" style="font-size:.95rem;margin-top:10px">Your data may be processed by our hosting, analytics and Google Workspace service providers. We do not sell it or add you to bulk marketing lists. <a href="/privacy/">Privacy notice</a></p>
-      <p class="rv" style="margin-top:30px"><a class="btn btn-primary" href="/score/" data-track="landing_cta_clicked">Check my response readiness</a></p>
+<!-- ================= HOW IT WORKS / 14 DAYS ================= -->
+<section class="section section-light" id="process">
+  <div class="wrap">
+    <p class="eyebrow rv">How it works</p>
+    <h2 class="rv">Installed in a 14-day sprint</h2>
+    <p class="lead rv">One scoped implementation. Built around WhatsApp and website chat — Instagram or email only if included in scope. You own the accounts, the documentation, and the handover.</p>
+    <div class="days">
+      <div class="day rv"><span class="k">Days 1–2</span><h3>Map &amp; lock scope</h3><p>Kickoff, access collected, scope frozen. No new channels after day 2 without a change request.</p></div>
+      <div class="day rv"><span class="k">Days 3–7</span><h3>Knowledge base &amp; agent</h3><p>Your docs become the approved knowledge base; the response agent and qualification + escalation routes are built.</p></div>
+      <div class="day rv"><span class="k">Days 8–10</span><h3>Follow-up &amp; dashboard</h3><p>Day 1/3/7 sequences, unified pipeline with ownership, response-time dashboard live.</p></div>
+      <div class="day rv"><span class="k">Days 11–12</span><h3>Acceptance tests</h3><p>The formal 40-scenario suite: 20 historical inquiries, 10 adversarial, 10 operational/failure-mode. Required tests — run together, before go-live.</p></div>
+      <div class="day rv"><span class="k">Days 13–14</span><h3>Training &amp; shadow go-live</h3><p>60-minute team training, pause-AI procedure, joint acceptance, handover — then 14 days of post-launch tuning.</p></div>
     </div>
-  </section>
-</main>
+    <div class="constraint rv">
+      <strong>The honest fine print:</strong> the 14-day promise applies when scope is locked by day 2, WhatsApp/API access is available or not on the critical path, a maximum of two initial channels are included, one availability source is used, no custom PMS integration is required, the knowledge base is approved on time, and rollout starts in shadow mode. Larger portfolios or custom integrations get a longer, honest quote.
+    </div>
+  </div>
+</section>
 
-<footer class="site">
-  <div class="footer-in">
+<!-- ================= ICP ================= -->
+<section class="section" id="fit">
+  <div class="wrap icp">
     <div>
-      <span class="wordmark" style="font-size:1rem"><b>Selena</b> Systems</span>
-      <p style="margin-top:8px" id="footer-contact"></p>
+      <p class="eyebrow rv">Who it's for</p>
+      <h2 class="rv">Built for operators with real inquiry flow</h2>
+      <ul>
+        <li class="rv"><i>✓</i>Bali villa management company or multi-property rental operator</li>
+        <li class="rv"><i>✓</i>Ideally 20–60 managed villas — minimum 15 premium villas or ~30 standard villas</li>
+        <li class="rv"><i>✓</i>At least 2 people handling reservations or guest inquiries</li>
+        <li class="rv"><i>✓</i>Preferably 150–300+ direct inquiry conversations per month</li>
+        <li class="rv"><i>✓</i>Meaningful direct flow via WhatsApp, website, Instagram, email, or direct booking</li>
+        <li class="rv"><i>✓</i>Internationally oriented or premium segment</li>
+        <li class="rv"><i>✓</i>Owner, GM, operations director, or head of reservations accessible</li>
+      </ul>
+    </div>
+    <div class="icp-side rv">
+      <h3>Smaller operator?</h3>
+      <p>Below the threshold, the full build usually isn't worth your money — and we'll say so. Operators under the line may qualify for a <strong>reduced-scope Pilot</strong> ($1,500–2,500): one channel, limited properties, a narrow acceptance test.</p>
+      <h3 style="margin-top:26px">When we'll tell you no</h3>
+      <p>No meaningful direct inquiry flow; a mature AI response system already in place; custom PMS integration required inside the first 14 days; or a request for revenue, occupancy, or guaranteed-booking claims — we don't make those.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROMISE / EXCLUSIONS ================= -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sla rv dark">
+      <div>
+        <p class="eyebrow">The commercial promise</p>
+        <div class="big-num">95%<span style="font-size:.35em;color:var(--ivory);opacity:.7"> / 2 min</span></div>
+        <h2>of eligible new inquiries on covered channels receive a first automated response within two minutes.</h2>
+        <p style="margin-top:16px;font-size:.92rem;color:rgba(245,240,230,.65)">"Eligible" means new, non-spam guest and reservation inquiries on the channels explicitly covered in your signed scope. This is an acceptance criterion in the contract — measured on the dashboard you keep.</p>
+      </div>
+      <div>
+        <p class="eyebrow" style="color:var(--grey)">What the promise doesn't cover</p>
+        <ul class="excl">
+          <li><i>—</i>Meta, BSP, PMS, hosting, internet, or other third-party outages</li>
+          <li><i>—</i>Spam and duplicate messages</li>
+          <li><i>—</i>Channels not included in the signed scope</li>
+          <li><i>—</i>Messages outside the agreed automation scope</li>
+          <li><i>—</i>Messages requiring mandatory human review</li>
+          <li><i>—</i>Client-side access or configuration failures</li>
+        </ul>
+        <p class="small" style="margin-top:14px">We'd rather you read this list now than discover it later. Failure modes — outages, stale data, human takeover, pause-AI — are part of the 40-scenario acceptance suite.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT'S INCLUDED ================= -->
+<section class="section section-light">
+  <div class="wrap">
+    <p class="eyebrow rv">Deliverables</p>
+    <h2 class="rv">What gets built — fixed scope</h2>
+    <div class="grid3">
+      <div class="inc rv"><div class="ico">01</div><h3>AI response agent</h3><p>On scoped channels — normally WhatsApp Business API and website chat; Instagram DM only if included in scope.</p></div>
+      <div class="inc rv"><div class="ico">02</div><h3>Inquiry qualification</h3><p>Dates, guests, budget, purpose, property fit, and urgency — collected conversationally.</p></div>
+      <div class="inc rv"><div class="ico">03</div><h3>Follow-up engine</h3><p>Approved day-1 / 3 / 7 messaging for conversations that go quiet.</p></div>
+      <div class="inc rv"><div class="ico">04</div><h3>Guest FAQ automation</h3><p>Check-in, directions, house rules, amenities, and basic logistics — from your approved knowledge base.</p></div>
+      <div class="inc rv"><div class="ico">05</div><h3>Escalation rules</h3><p>Complaints, emergencies, refunds, sensitive personal information, unusual requests, mandatory human review.</p></div>
+      <div class="inc rv"><div class="ico">06</div><h3>Unified pipeline</h3><p>One inbox/pipeline view with conversation status and ownership.</p></div>
+      <div class="inc rv"><div class="ico">07</div><h3>Response dashboard</h3><p>Inquiries, first-response timing, handoff, and follow-up status — your own proof, live.</p></div>
+      <div class="inc rv"><div class="ico">08</div><h3>Docs &amp; training</h3><p>Documentation, account handover, 60-minute team training.</p></div>
+      <div class="inc rv"><div class="ico">09</div><h3>14 days of tuning</h3><p>Post-launch fixes and tuning included. Optional care plan afterwards, from $400/month.</p></div>
+    </div>
+    <div class="notinc rv">
+      <h3>Explicitly not included</h3>
+      <p>Channel-manager or PMS replacement and custom PMS integration · dynamic pricing · OTA listing optimization · content and advertising · payment processing · revenue, occupancy, or booking guarantees · legal/accounting setup (unless separately scoped with local advisors).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROOF / TRUST ================= -->
+<section class="section" id="proof">
+  <div class="wrap">
+    <p class="eyebrow rv">Proof &amp; trust</p>
+    <h2 class="rv">Judge the work, not the promises</h2>
+    <p class="lead rv">Selena Systems is a new practice. You should ask about proof — here's the honest answer.</p>
+    <div class="proof-cards">
+      <div class="pcard rv"><span class="k">01</span><h3>The audit is the portfolio</h3><p>Before you pay anything: a 3-minute video reviewing one real, dated, properly-labeled inquiry scenario — and what we'd automate first.</p></div>
+      <div class="pcard rv"><span class="k">02</span><h3>A demo you can message</h3><p>A live demo agent on the fictional "Villa Demo Selena" — test it yourself with your hardest questions before signing anything.</p></div>
+      <div class="pcard rv"><span class="k">03</span><h3>40 acceptance scenarios</h3><p>Go-live requires passing a formal test suite together: 20 of your historical inquiries, 10 adversarial cases, 10 failure modes.</p></div>
+      <div class="pcard rv"><span class="k">04</span><h3>Your dashboard is the proof</h3><p>After launch, your own response-time dashboard shows the before and after. That becomes the case study — with your permission, or not at all.</p></div>
+    </div>
+    <div class="honest rv">
+      <p>We do not invent case studies, testimonials, or numbers. A single mystery-shop test is a signal worth reviewing — never presented as proof of systemic failure. The first three founding clients receive Pilot/Core pricing in exchange for a written, client-approved case study. Local delivery in Bali is supported by an established local partner company; the exact contracting structure is confirmed with you before signing.</p>
+    </div>
+    <div class="notinc rv" style="margin-top:34px">
+      <h3>Message the demo on WhatsApp</h3>
+      <p>The demo should use a safe demo number or sandbox, not a production client number. When configured, this button opens WhatsApp with a prefilled guest question.</p>
+      <div class="cta-row" style="margin:18px 0 10px">
+        <a class="btn btn-brass" id="demo-wa-link" href="#" rel="noopener">Message the demo on WhatsApp</a>
+      </div>
+      <p class="small">Try: "Do you have a 3-bedroom villa in Canggu for July 12–15?" · "Is airport pickup included?" · "Can I check in late at night?"</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AUDIT DELIVERABLE ================= -->
+<section class="section section-light" id="audit-deliverable">
+  <div class="wrap">
+    <p class="eyebrow rv">The assessment</p>
+    <h2 class="rv">What your Villa Response Readiness Score gives you</h2>
+    <div class="grid3">
+      <div class="inc rv"><div class="ico">01</div><h3>An instant score / 100</h3><p>Your response readiness across six operational areas — calculated from your answers.</p></div>
+      <div class="inc rv"><div class="ico">02</div><h3>Your three highest-risk areas</h3><p>Where guest inquiries are most likely leaking in your operation today.</p></div>
+      <div class="inc rv"><div class="ico">03</div><h3>Your strongest area</h3><p>What already works in your response process, so you keep what's good.</p></div>
+      <div class="inc rv"><div class="ico">04</div><h3>A clear next step</h3><p>Eligible operators are offered a Live Guest Inquiry Audit; owner-run portfolios get the Villa Response Playbook.</p></div>
+      <div class="inc rv"><div class="ico">05</div><h3>No access needed</h3><p>No website, inbox, PMS or Instagram scanning. The score is based only on your answers.</p></div>
+      <div class="inc rv"><div class="ico">06</div><h3>About 90 seconds</h3><p>A short, mobile-friendly self-assessment. No call required to get your result.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <p class="eyebrow rv">Pricing</p>
+    <h2 class="rv">Fixed scope. Published prices.</h2>
+    <p class="lead rv">Almost nobody in this market publishes prices. We think a fixed scope deserves a fixed, visible number.</p>
+    <div class="tiers">
+      <div class="tier rv">
+        <div class="name">Pilot</div>
+        <div class="price">$1,500–2,500</div>
+        <p class="for">Reduced scope for smaller operators or first-case clients.</p>
+        <ul><li>One channel</li><li>Limited properties</li><li>No custom integration</li><li>Narrow acceptance test</li></ul>
+        <a class="btn btn-ghost" href="/score/">Check my readiness</a>
+      </div>
+      <div class="tier hl rv">
+        <div class="name">Core</div>
+        <div class="price">$5,000</div>
+        <p class="for">The primary fixed-scope implementation for qualified operators.</p>
+        <ul><li>Up to two channels</li><li>Full deliverables list</li><li>40-scenario acceptance</li><li>Training + 14 days tuning</li></ul>
+        <a class="btn btn-brass" href="/score/">Check my readiness</a>
+      </div>
+      <div class="tier rv">
+        <div class="name">Growth</div>
+        <div class="price">$7,500–9,500</div>
+        <p class="for">Larger portfolio, additional channel, richer dashboard or follow-up logic.</p>
+        <ul><li>Everything in Core</li><li>Added channel</li><li>Richer routing/dashboard</li><li>Extended follow-up logic</li></ul>
+        <a class="btn btn-ghost" href="/score/">Check my readiness</a>
+      </div>
+      <div class="tier rv">
+        <div class="name">Enterprise</div>
+        <div class="price">from $12,000</div>
+        <p class="for">Multi-brand, complex routing, custom integration, expanded governance.</p>
+        <ul><li>Multi-brand operations</li><li>Complex routing</li><li>Custom integration</li><li>Longer, honest timeline</li></ul>
+        <a class="btn btn-ghost" href="/score/">Check my readiness</a>
+      </div>
+    </div>
+    <p class="terms rv"><strong>Terms:</strong> 50% on signing, 50% at go-live/acceptance. Running tool and API costs are paid directly by you and estimated before signing — no markups. Optional care plan after the included 14 days: $400–700/month (monitoring, monthly tuning, one-page monthly report). A request or an audit is not a payment and creates no obligation.</p>
+  </div>
+</section>
+
+<!-- ================= COMPARISON ================= -->
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow rv">The alternatives</p>
+    <h2 class="rv">Compared honestly</h2>
+    <div class="cmp-scroll rv">
+      <table class="cmp">
+        <tr><th>What matters to an operator</th><th>Do nothing</th><th>Hire more staff</th><th>Self-serve chatbot SaaS</th><th class="yes">Villa Ops Response System</th></tr>
+        <tr><td>Night &amp; weekend coverage</td><td>None</td><td>Only with shifts</td><td>Partial — if configured well</td><td class="yes">24/7 by design</td></tr>
+        <tr><td>First-response time</td><td>Hours</td><td>Depends on load &amp; shift</td><td>Fast but often generic</td><td class="yes">2-minute SLA, measured, with stated exclusions</td></tr>
+        <tr><td>Qualification &amp; follow-up</td><td>Manual or absent</td><td>Manual, inconsistent</td><td>Rarely included</td><td class="yes">Built in — day 1/3/7, approved wording</td></tr>
+        <tr><td>Who configures &amp; owns edge cases</td><td>—</td><td>You (training, churn)</td><td>You (setup is your job)</td><td class="yes">Done for you, tested via 40 scenarios</td></tr>
+        <tr><td>Cost shape</td><td>Invisible: leaked bookings</td><td>Recurring salary, forever</td><td>Monthly per-seat/usage, forever</td><td class="yes">One fixed project + your own tool costs</td></tr>
+        <tr><td>Works without a PMS</td><td>—</td><td>Yes</td><td>Usually assumes a PMS</td><td class="yes">Yes — built for WhatsApp + simple availability sources</td></tr>
+      </table>
+    </div>
+    <p class="small rv" style="margin-top:20px">Staff stay essential — they take escalations, judgment calls, and guests in the villa. The system takes the 11pm inquiry and the fortieth identical question of the day.</p>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section section-light" id="faq">
+  <div class="wrap">
+    <p class="eyebrow rv">FAQ</p>
+    <h2 class="rv">Fair questions, straight answers</h2>
+    <div class="faq rv">
+      <details>
+        <summary>Will it say something wrong to a guest?</summary>
+        <p class="a">It answers only from the knowledge base you approve. Unknown pricing, unavailable dates, discount requests beyond your approved range — those are among the adversarial scenarios in the acceptance suite, and the correct behavior is to route to your team, not to improvise. There is also a documented pause-AI procedure your staff controls.</p>
+      </details>
+      <details>
+        <summary>We already have auto-replies.</summary>
+        <p class="a">Auto-replies acknowledge. This system answers, qualifies, follows up on day 1/3/7, and hands off with context. The difference shows up in your pipeline, not your greeting message.</p>
+      </details>
+      <details>
+        <summary>What if we use a PMS or channel manager?</summary>
+        <p class="a">We can read from simple availability sources where available. Custom PMS integration is explicitly not part of the 14-day scope — if you need it, we'll say so and quote it separately rather than pretending it fits.</p>
+      </details>
+      <details>
+        <summary>Who owns the system afterwards?</summary>
+        <p class="a">You do, subject to final contracting and account setup: accounts are created in your name wherever possible, documentation and credentials are handed over, and the included training covers editing the knowledge base yourself.</p>
+      </details>
+      <details>
+        <summary>What does ROI actually mean here?</summary>
+        <p class="a">For management companies, ROI is estimated from retained management revenue — recovered bookings × average booking value × your management commission — plus staff hours saved. Not total guest booking value, unless you own the property and keep that revenue. All ROI figures are estimates built from your own inputs, never guarantees.</p>
+      </details>
+      <details>
+        <summary>What happens during an outage — Meta, hosting, internet?</summary>
+        <p class="a">Third-party outages are excluded from the SLA — we can't promise Meta's uptime — but they're not ignored: outage behavior, escalation failure, and human takeover are tested scenarios in the acceptance suite, and the documented failure mode routes inquiries to your team rather than silence.</p>
+      </details>
+      <details>
+        <summary>Do you have case studies?</summary>
+        <p class="a">Not yet — and we won't invent any. That's why the readiness assessment is free, the demo agent is public, prices are published, acceptance is a formal 40-scenario test you witness, and founding clients get Pilot/Core pricing in exchange for a written case study they approve.</p>
+      </details>
+      <details>
+        <summary>Is my guests' data safe?</summary>
+        <p class="a">Guest data is processed only to operate the system, in accounts you own. Sensitive personal information is a mandatory human-review category by default. Data-processing responsibility is confirmed in the contracting checklist before signing.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA / FORM ================= -->
+<section class="section final dark" id="audit">
+  <div class="wrap final-in">
+    <div>
+      <p class="eyebrow rv">The next step</p>
+      <h2 class="rv">Find out how ready your villa business is.</h2>
+      <p class="lead rv">Complete a 90-second assessment and get your Villa Response Readiness Score, plus your three highest-risk areas. Then, if it makes sense for your operation, approve a Live Guest Inquiry Audit that tests your real response flow on one channel you choose.</p>
+      <div class="trust-line rv" style="margin-top:30px">
+        <span><i></i>90-second assessment</span>
+        <span><i></i>Based only on your answers</span>
+        <span><i></i>No website or inbox access</span>
+      </div>
+      <p class="small rv" style="margin-top:26px">A live inquiry test is run only after an authorised representative approves the channel, scenario and test window — nothing is sent before that.</p>
+    </div>
+    <div class="form-card rv">
+      <div style="display:flex;flex-direction:column;gap:16px;text-align:center;padding:8px 4px">
+        <div style="font-family:var(--serif);font-size:2rem;line-height:1.12">Your Villa Response<br>Readiness Score</div>
+        <p style="color:rgba(245,240,230,.75);font-size:.95rem;margin:0 auto;max-width:340px">Six operational areas, one clear number out of 100, and your three highest-risk areas — in about 90 seconds.</p>
+        <a class="btn btn-brass" href="/score/" style="align-self:center">Check my response readiness</a>
+        <p class="small" style="margin:0">No call required · No obligation · <a href="/privacy/" style="color:var(--brass-soft)">Privacy</a></p>
+      </div>
+  </div>
+</section>
+
+<!-- ================= PRIVACY / CONTACT ================= -->
+<section class="section section-light" id="privacy">
+  <div class="wrap">
+    <p class="eyebrow rv">Privacy &amp; Contact</p>
+    <h2 class="rv">Simple data handling</h2>
+    <div class="split">
+      <div class="panel panel-chaos rv">
+        <h3>Privacy</h3>
+        <p class="note">Selena Systems collects the details you submit only to calculate and save your readiness assessment and deliver any audit or playbook you request. We aim to respond within 24–48 hours where feasible. Your data is not sold, rented, or added to unrelated lists. To request deletion or contact removal, use the contact details below.</p>
+      </div>
+      <div class="panel panel-chaos rv">
+        <h3>Contact</h3>
+        <p class="note">For audit requests, partnership questions, or data deletion requests, use the configured form destination or contact Selena Systems directly. Before launch, set the contact email, WhatsApp number, and form endpoint in the page configuration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <a class="logo" href="#top" style="font-size:1rem"><b>Selena</b> Systems</a>
+      <p style="margin-top:10px;max-width:340px">AI-powered operating systems for growing businesses. Bali, Indonesia — delivery supported by an established local partner company.</p>
     </div>
     <div>
-      <p><a href="/privacy/">Privacy</a></p>
-      <p id="footer-year"></p>
+      <p style="margin-bottom:8px"><a href="#system">The System</a> · <a href="#process">14 Days</a> · <a href="#pricing">Pricing</a> · <a href="#faq">FAQ</a> · <a href="/score/">Check readiness</a> · <a href="/privacy/">Privacy</a> · <a href="#privacy">Contact</a></p>
+      <p>© Selena Systems. No invented case studies, no fake urgency, no guaranteed-revenue claims — by policy.</p>
     </div>
   </div>
 </footer>
 
-<script type="module">
-  import { SITE_CONFIG, has } from '/assets/js/site-config.js';
-  import { initAnalytics, track } from '/assets/js/analytics.js';
-  import { captureUtm } from '/assets/js/storage.js';
+<div class="msticky"><a class="btn btn-brass" href="/score/">Check my readiness</a></div>
 
-  initAnalytics();
-  captureUtm();
+<script>
+/* ====== CONFIG — set before launch (see SITE_README.md) ====== */
+var CONTACT_EMAIL = "";      // e.g. "hello@yourdomain.com"
+var CONTACT_WHATSAPP = "";   // digits only, e.g. "62812xxxxxxx"
+var DEMO_WHATSAPP = "";      // safe demo number or sandbox, digits only
 
-  document.getElementById('footer-year').textContent = '© ' + new Date().getFullYear() + ' Selena Systems';
-  const contact = document.getElementById('footer-contact');
-  const bits = [];
-  if (has(SITE_CONFIG.WHATSAPP_PUBLIC_URL)) bits.push('<a href="' + SITE_CONFIG.WHATSAPP_PUBLIC_URL + '" data-track="whatsapp_clicked" rel="noopener">WhatsApp</a>');
-  if (has(SITE_CONFIG.CONTACT_EMAIL)) bits.push('<a href="mailto:' + SITE_CONFIG.CONTACT_EMAIL + '">' + SITE_CONFIG.CONTACT_EMAIL + '</a>');
-  contact.innerHTML = bits.join(' · '); // config-controlled values only, never user input
+/* hero video: desktop only, respects reduced-motion & Save-Data, poster fallback everywhere else */
+(function(){
+  var media = document.getElementById('hero-media');
+  var vid = document.getElementById('hero-video');
+  if(!media || !vid) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var saveData = navigator.connection && navigator.connection.saveData;
+  var desktop = window.matchMedia('(min-width: 900px)').matches;
+  var SOURCES = [
+    'assets/hero.mp4', /* preferred: local file in the repo (add it to override the CDN copy) */
+    'https://d8j0ntlcm91z4.cloudfront.net/user_3EKntK4EDjG8nay4H1dy1TK30mB/hf_20260710_155958_d3c22fbc-b192-4f33-a0a6-0e622d83beb9.mp4'
+  ];
+  if (desktop && !reduced && !saveData) {
+    var i = 0;
+    var tryNext = function(){
+      if (i >= SOURCES.length) { media.classList.add('show-poster'); return; }
+      vid.src = SOURCES[i++];
+      vid.play().catch(function(){ tryNext(); });
+    };
+    vid.addEventListener('playing', function(){ media.classList.add('show-video'); });
+    vid.addEventListener('error', function(){ tryNext(); });
+    tryNext();
+  } else {
+    media.classList.add('show-poster'); /* light poster image only — no video download */
+  }
+})();
 
-  document.querySelectorAll('[data-track]').forEach((el) => {
-    el.addEventListener('click', () => track(el.getAttribute('data-track')));
-  });
+/* reveal on scroll */
+(function(){
+  var els = document.querySelectorAll('.rv');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in')}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+  },{threshold:.12});
+  els.forEach(function(e){ io.observe(e); });
+})();
 
-  const io = ('IntersectionObserver' in window)
-    ? new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .1 })
-    : null;
-  document.querySelectorAll('.rv').forEach((el) => io ? io.observe(el) : el.classList.add('in'));
+/* sticky mechanism state switching */
+(function(){
+  var steps = document.querySelectorAll('.mstep');
+  var states = document.querySelectorAll('.mech-state');
+  if(!steps.length) return;
+  function activate(i){
+    steps.forEach(function(s){ s.classList.toggle('active', s.dataset.state==i); });
+    states.forEach(function(s){ s.classList.toggle('active', s.dataset.state==i); });
+  }
+  activate(0);
+  if(!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ activate(en.target.dataset.state); } });
+  },{rootMargin:'-40% 0px -40% 0px'});
+  steps.forEach(function(s){ io.observe(s); });
+})();
+
+/* demo WhatsApp CTA: hidden until a safe demo number is configured */
+(function(){
+  var link = document.getElementById('demo-wa-link');
+  if(!link) return;
+  var text = 'Hi, do you have a 3-bedroom villa in Canggu for July 12–15?';
+  if (DEMO_WHATSAPP) {
+    link.href = 'https://wa.me/' + DEMO_WHATSAPP + '?text=' + encodeURIComponent(text);
+    link.target = '_blank';
+  } else {
+    link.textContent = 'Demo WhatsApp coming soon';
+    link.setAttribute('aria-disabled','true');
+    link.style.pointerEvents = 'none';
+    link.style.opacity = '.65';
+  }
+})();
+
+/* Lead capture now happens inside the funnel at /score/ — no on-page form here. */
 </script>
 </body>
 </html>
