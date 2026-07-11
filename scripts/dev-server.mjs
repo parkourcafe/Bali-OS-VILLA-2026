@@ -13,6 +13,7 @@ import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { join, extname, normalize } from 'node:path';
 import { handler } from '../netlify/functions/lead.mjs';
+import { handler as siteAudit } from '../netlify/functions/site-audit.mjs';
 
 const PORT = Number(process.argv[2] || 8788);
 const ROOT = new URL('..', import.meta.url).pathname;
@@ -99,6 +100,17 @@ createServer(async (req, res) => {
       const out = await handler({
         httpMethod: req.method,
         headers: Object.fromEntries(Object.entries(req.headers)),
+        body,
+      });
+      res.writeHead(out.statusCode, out.headers);
+      return res.end(out.body);
+    }
+    if (url.pathname === '/api/site-audit') {
+      const body = await readBody(req);
+      const out = await siteAudit({
+        httpMethod: req.method,
+        headers: Object.fromEntries(Object.entries(req.headers)),
+        queryStringParameters: Object.fromEntries(url.searchParams),
         body,
       });
       res.writeHead(out.statusCode, out.headers);

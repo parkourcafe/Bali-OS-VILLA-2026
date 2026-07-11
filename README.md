@@ -86,6 +86,24 @@ The same `/api/lead` runs on either host — the canonical logic lives once in
 - [ ] Production domain connected (explicit decision)
 - [ ] Manual QA pass per `docs/MANUAL_QA.md` on a deploy preview
 
+## Instant Website Check (`/website-check/`) — bonus tool
+
+A free, standalone auditor: a visitor enters any villa website and gets an instant report on
+load speed (Google PageSpeed), mobile-friendliness, how Google & AI assistants read it, and
+whether guests can reach them. It bridges to the readiness funnel ("fast website ≠ fast replies").
+
+- Core logic: `lib/site-audit.mjs` (pure parsers + PageSpeed call; unit-tested with fixtures).
+- API: `api/site-audit.mjs` (Vercel) and `netlify/functions/site-audit.mjs` (parity) — `GET|POST /api/site-audit?url=…`.
+- Page: `website-check/index.html` + `assets/js/site-check.js`.
+- **Config:** set `PAGESPEED_API_KEY` (free Google key) in the host's env for reliable speed
+  scores; without it the speed check may be rate-limited but the other checks still run.
+- **Honesty guardrails baked in:** it checks the public home page only, never logs in or reads
+  private data, does NOT claim Google index coverage (impossible without the owner's Search
+  Console), and states plainly that it does not measure guest-reply speed. Best-effort SSRF
+  guard blocks private/internal hosts (`isPublicHost`).
+- **Scope note:** this is a V2-style feature the funnel spec deferred; it lives alongside the
+  funnel, not inside it, and uses none of the funnel's locked "Readiness" naming.
+
 ## Documentation
 
 - `docs/AUDIT_OPERATIONS.md` — manual Live Guest Inquiry Audit protocol (hard gates, scripts, report templates)
