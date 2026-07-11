@@ -1,2 +1,5 @@
-Date	Company	Channel tested	Test sent (YYYY-MM-DD HH:MM)	Their first response (YYYY-MM-DD HH:MM)	Their response time	Answered fully?	Answer quality (1-5)	Did they qualify you? (Y/N)	Did they follow up? (Y/N)	Brand tone (1-5)	Notes	Caveat
-# Secret Guest Audit log. We message the operator AS A GUEST and measure THEIR first-response time + quality. Required wording when reporting: "In one test on {date}, the response took {X}. This does not establish normal performance, but it identified a scenario worth reviewing." One test = a signal, not systemic proof. Keep it respectful and single.
+Date	Company	Channel tested	Sent?	Test sent (YYYY-MM-DD HH:MM)	First message (what we sent)	Auto-reply?	Auto-reply time	Human replied?	Human reply (YYYY-MM-DD HH:MM)	Human response time (h)	Answer quality (1-5)	Qualified you? (Y/N)	Followed up? (Y/N)	Brand tone (1-5)	Outcome	Notes
+# Secret Guest Audit log — we message the operator AS A GUEST and measure THEIR response.
+# KEY DISTINCTION: an auto-responder answering in seconds is NOT good service. What matters is the HUMAN response time (column K) and quality. Log both.
+# Human replied? = Yes / No reply (leave blank until decided). Human response time (h): =IF(AND(E2<>"",J2<>""),(J2-E2)*24,"")
+# Required wording when reporting a result: "In one test on {date}, the (human) response took {X}. This does not establish normal performance, but it identified a scenario worth reviewing." One test = a signal, not proof.

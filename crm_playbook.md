@@ -91,10 +91,16 @@ Use real 24h datetimes (e.g. `2026-07-11 14:30`) so the maths works.
 
 That answers "how many replied and after how long" automatically — no manual counting.
 
-**B. Audit log** (`audit_log.tsv`) — how fast THEY answer a guest (mystery-shop). Log the test
-datetime and their first-response datetime; their response time = same `(reply-sent)*24` formula.
-This is the evidence for the pitch and the operator's own effectiveness signal. Required caveat
-wording is in the file header. One test = a signal, not proof.
+**B. Audit log** (`audit_log.tsv`) — how fast THEY answer a guest (mystery-shop). Columns:
+`Sent?` · `Test sent` · `First message` (what we sent) · `Auto-reply?` + `Auto-reply time` ·
+`Human replied?` (Yes / No reply) · `Human reply` + `Human response time (h)` ·
+`Answer quality (1-5)` · `Qualified you?` · `Followed up?` · `Brand tone (1-5)` · `Outcome`.
+- **Log the auto-responder separately from the human.** A bot answering in seconds is NOT good
+  service — the number that matters is the **human response time** and quality.
+- Human response time formula (E = Test sent, J = Human reply): `=IF(AND(E2<>"",J2<>""),(J2-E2)*24,"")`
+- Mark `Human replied? = No reply` when they never answer — that's itself a finding.
+- This is the evidence for the pitch and the operator's own effectiveness signal. Required caveat
+  wording is in the file header. One test = a signal, not proof.
 
 ## 7. When to move to HubSpot
 Move once you have **~3+ active conversations** or want reporting/automation. The import files are
