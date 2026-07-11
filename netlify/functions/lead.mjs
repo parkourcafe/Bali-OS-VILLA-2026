@@ -182,9 +182,12 @@ export async function handler(event) {
   }
 
   // Origin allowlist (same-origin posts may omit Origin; reject only a mismatch).
-  const allowedOrigin = process.env.ALLOWED_ORIGIN || '';
-  const origin = event.headers?.origin || event.headers?.Origin || '';
-  if (allowedOrigin && origin && origin !== allowedOrigin) {
+  // ALLOWED_ORIGIN may be a comma-separated list (e.g. production + Vercel preview);
+  // a trailing slash on any entry is tolerated since browsers send Origin without one.
+  const allowedOrigins = (process.env.ALLOWED_ORIGIN || '')
+    .split(',').map((o) => o.trim().replace(/\/$/, '')).filter(Boolean);
+  const origin = (event.headers?.origin || event.headers?.Origin || '').replace(/\/$/, '');
+  if (allowedOrigins.length && origin && !allowedOrigins.includes(origin)) {
     return fail(403, 'VALIDATION_ERROR', 'Request origin not allowed.');
   }
 
