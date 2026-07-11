@@ -33,7 +33,7 @@
 - System of record: shared Google Sheet built from `crm_google_sheet.csv`; operated per `crm_playbook.md`. HubSpot later.
 - Inputs: `outreach_packs.md` (Top 10 packs, both CTA variants), `crm_google_sheet.csv` (import into Google Sheet), `crm_playbook.md` (SOP), `outreach_crm.tsv` (HubSpot-ready reference for later).
 - Deliverable: first-touch messages sent to the Top 10 in send order, logged in the sheet.
-- Send order: (1) Villa Management Bali, (2) OriVista, (3) Supala — then Short Stay Bali, Balitecture, Bingin — then Gravity, Nakula, Nagisa, My Villa Management.
+- Send order expanded to Top 20: (1-3) Villa Management Bali, OriVista, Supala — (4-10) Short Stay Bali, Balitecture, Bingin, Gravity, Nakula, Nagisa, My Villa Management — (11-20) Moria, Premier Hospitality Asia, Balinest Villas, The Lavana, iNi ViE, Optimum Bali, Pramana, LifestyleRetreats, Mahaprana, Sandara. Master list now 50 prospects.
 - Completion criteria: First 3 sent with cold-open soft CTA; sheet Status updated; 48h follow-up due set.
 - Blockers: manual verification blockers listed in `outreach_packs.md` (resolve per lead before send).
 - Next action: assistant imports `crm_google_sheet.csv` into Google Sheet, adds Status dropdown, sends First 3, logs status.
