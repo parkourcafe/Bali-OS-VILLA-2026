@@ -1,4 +1,4 @@
-<title>Anjuna — Positioning, Pricing & Go-To-Market</title>
+<title>Anjuna — Positioning, Pricing & Go-To-Market (v2)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 :root{
@@ -19,127 +19,168 @@ body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMac
 .wrap{max-width:900px;margin:0 auto;padding:32px 22px 70px}
 .eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:10.5px;font-weight:700;color:var(--sea)}
 .mast{border-bottom:2px solid var(--ink);padding-bottom:15px}
-h1{margin:8px 0 0;font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1.1;text-wrap:balance}
+h1{margin:8px 0 0;font-size:29px;font-weight:600;letter-spacing:-.02em;line-height:1.1;text-wrap:balance}
+.v2{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;background:var(--good);color:#fff;border-radius:5px;padding:2px 8px;vertical-align:6px;margin-left:8px}
+.subnote{margin-top:8px;font-size:11.5px;color:var(--muted)}
 .pos{margin-top:14px;background:linear-gradient(180deg,var(--sea-soft),var(--card));border:1px solid color-mix(in srgb,var(--sea) 26%,transparent);border-radius:var(--r);padding:14px 16px}
 .pos .k{font-size:10px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--sea)}
-.pos .p{font-family:Georgia,serif;font-size:16px;margin:4px 0 6px}
+.pos .p{font-family:Georgia,serif;font-size:15.5px;margin:4px 0 6px}
 .pos .g{font-size:12px;color:var(--muted)}
+.pre{margin-top:12px;background:var(--coral-soft);border:1px solid color-mix(in srgb,var(--coral) 30%,transparent);border-radius:var(--r);padding:13px 16px}
+.pre .k{font-size:10px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--coral)}
+.pre ol{margin:6px 0 0;padding-left:18px}.pre li{margin:4px 0;font-size:12.5px}
 .stage{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:14px 16px 14px 14px;margin-top:12px;display:grid;grid-template-columns:30px 1fr;gap:12px;break-inside:avoid}
-.stage .n{font-family:Georgia,serif;font-weight:600;font-size:17px;color:#fff;background:var(--sea);border-radius:8px;width:30px;height:30px;display:flex;align-items:center;justify-content:center}
-.stage h3{margin:2px 0 4px;font-size:15.5px}
-.stage .verdict{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:1px 8px;border-radius:5px;margin-left:8px;vertical-align:2px}
-.v-yes{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}
+.stage .n{font-family:Georgia,serif;font-weight:600;font-size:16px;color:#fff;background:var(--sea);border-radius:8px;width:30px;height:30px;display:flex;align-items:center;justify-content:center}
+.stage h3{margin:2px 0 4px;font-size:15px}
 .stage p{margin:0;font-size:12.5px;color:var(--muted)}
 .stage ul{margin:6px 0 0;padding-left:17px}.stage li{margin:3px 0;font-size:12.5px;color:var(--muted)}
 .stage b{color:var(--ink)}
 h2{font-size:18px;margin:26px 0 4px;letter-spacing:-.01em}
-.kick{font-size:10px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--sun)}
 .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);margin-top:10px}
-table{border-collapse:collapse;width:100%;min-width:640px;font-size:11.5px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:11.5px;background:var(--card)}
 th{text-align:left;font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700;padding:8px 9px;border-bottom:2px solid var(--line2);background:var(--card)}
 td{padding:8px 9px;border-bottom:1px solid var(--line);vertical-align:top}
 tr:last-child td{border-bottom:0}
-td:first-child{font-weight:700;color:var(--sea);white-space:nowrap}
+td:first-child{font-weight:700;color:var(--sea)}
 .price{margin-top:10px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 @media(max-width:640px){.price{grid-template-columns:1fr}}
 .pc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:13px 15px;box-shadow:var(--shadow);border-top:3px solid var(--sun)}
 .pc .t{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
-.pc .old{font-size:12px;color:var(--bad);text-decoration:line-through;margin-top:4px}
-.pc .new{font-family:Georgia,serif;font-size:22px;font-weight:600;color:var(--good)}
+.pc .old{font-size:11.5px;color:var(--muted);margin-top:4px}
+.pc .new{font-family:Georgia,serif;font-size:21px;font-weight:600;color:var(--good)}
+.rules{margin-top:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:13px 16px;box-shadow:var(--shadow)}
+.rules ol{margin:4px 0 0;padding-left:18px}.rules li{margin:4px 0;font-size:12.5px;color:var(--muted)}
+.rules b{color:var(--ink)}
+.warn{margin-top:12px;background:var(--sun-soft);border-left:3px solid var(--sun);border-radius:0 8px 8px 0;padding:11px 14px;font-size:12.5px}
 .seq{margin-top:10px}
-.seq .row{display:grid;grid-template-columns:88px 1fr;gap:12px;padding:7px 0;border-top:1px solid var(--line);font-size:12.5px}
+.seq .row{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:7px 0;border-top:1px solid var(--line);font-size:12.5px}
 .seq .row:first-child{border-top:0}.seq .w{font-family:Georgia,serif;font-weight:600;color:var(--sea)}
 .foot{margin-top:26px;border-top:1px solid var(--line2);padding-top:12px;font-size:10.5px;color:var(--muted)}
-@media print{@page{size:A4;margin:11mm} .wrap{padding:0;max-width:none} .tablewrap{overflow:visible} table{min-width:0} .stage,.pc,.seq .row{break-inside:avoid}}
+@media print{@page{size:A4;margin:11mm} .wrap{padding:0;max-width:none} .tablewrap{overflow:visible} table{min-width:0} .stage,.pc,.seq .row,.rules,.pre{break-inside:avoid}}
 </style>
 
 <div class="wrap">
  <div class="mast">
   <div class="eyebrow">Selena Systems · Strategy · Anjuna Surf &amp; Sunset Villas</div>
-  <h1 class="serif">Positioning, Pricing &amp; Go-To-Market</h1>
+  <h1 class="serif">Positioning, Pricing &amp; Go-To-Market<span class="v2">v2 · reviewed</span></h1>
+  <div class="subnote">v2 corrected after independent adversarial review (performance-marketing + revenue-management/CFO lenses; 30 findings applied). Unverified numbers are labelled as such.</div>
+ </div>
+
+ <div class="pre">
+  <div class="k">Week 0 — preconditions (the 90-day clock starts at signing)</div>
+  <ol>
+   <li><b>Brand license</b> — "Anjuna Bay" belongs to the developer; written naming rights before any site/ads/handles.</li>
+   <li><b>Guesty data pull</b> — real ADR &amp; occupancy. Public "1BR $66" is one low-confidence Agoda snippet; the verified anchor is 2BR $144. No final ladder before real rates.</li>
+   <li><b>Per-unit inventory audit</b> — villas are sold to investors: handover ✓ furnished ✓ pondok wisata license ✓ owner mandate ✓. Forecast on confirmed-mandate units only.</li>
+   <li><b>Web estate clarity</b> — developer site vs operator Guesty page vs the NEW guest site; every task names which it touches.</li>
+  </ol>
  </div>
 
  <div class="pos">
   <div class="k">Positioning</div>
   <div class="p serif">"Brand-new cliffside pool villas, a short walk from Thomas Beach — the view, the private pool and the privacy people come to Uluwatu for, without the Canggu crowds."</div>
-  <div class="g"><b>For:</b> couples/honeymooners + surfers first, then luxury &amp; nomads. <b>Why it wins:</b> travelers' top-3 loves are exactly cliff/sunset view, private pool, quiet privacy — Anjuna has all three but sells unit codes. <b>Guardrail:</b> "next Canggu" sentiment + on-site construction is real — lean into quiet/private/walk-to-beach and disclose construction honestly.</div>
+  <div class="g"><b>For:</b> couples/honeymooners + premium surf travelers, then luxury. <b>Guardrail:</b> construction &amp; nightlife are audible and documented — disclosure ships Week 1, before any price move, and inside ad creative. Selling "quiet privacy" over rock-breaker noise manufactures the market's "photos ≠ reality" complaint.</div>
  </div>
 
  <h2 class="serif">The plan, step by step</h2>
 
  <div class="stage"><div class="n">1</div><div>
-  <h3>Own website + Google <span class="verdict v-yes">Yes</span></h3>
-  <p>Anjuna's direct booking is the <b>weakest in the whole comp set</b> (Guesty, 1 unit indexed) while COZ, NOUR, Zyloh, Young Villas, Uluwatu Surf all run own sites. Direct saves 15–18% commission + builds a guest database. You already have Guesty — it's design+config, not new tech.</p>
-  <ul><li>Fast mobile site, real-time availability, one page per villa, <b>WhatsApp button</b> (guests expect it), <b>book-direct incentive</b> (best rate + free airport transfer — answers the #1 complaint).</li>
-   <li><b>Google Business Profile — create it (missing).</b> Free; puts villas on Maps + the "villas in Uluwatu" map-pack.</li>
-   <li><b>Google Vacation Rentals / free booking links</b> — direct site shows commission-free next to OTAs.</li>
-   <li><b>Google Ads: yes but small, after the profile+site</b> — (a) brand-defense on "Anjuna Bay villa"; (b) a tight "Uluwatu private pool villa" search campaign, geo AU/EU → direct site.</li></ul>
+  <h3>Own website + Google — corrected mechanics</h3>
+  <ul>
+   <li><b>New direct site</b> (brand-licensed): Guesty engine, page per villa, WhatsApp button. Direct economics stated <b>net</b>: after ~3% processing + perk + acquisition, year-one advantage ≈ 5–10% — the bigger prize is the <b>guest database, repeat stays and parity leverage</b>.</li>
+   <li><b>Parity — compliant:</b> public rates at parity everywhere (Booking/Agoda clauses bind in Indonesia); direct wins via <b>closed member rates</b> + perks + repeat codes. Week 1: remove the "book on Airbnb for best rates" message.</li>
+   <li><b>Google Business Profile — conditional:</b> unstaffed vacation rentals are ineligible; verify a staffed reception first. Otherwise the map path is the <b>Google Vacation Rentals feed via Guesty</b> (engine live + 8 photos/listing, ~3-week approval) — incremental upside, not a pillar.</li>
+   <li><b>Google Ads — capped &amp; gated:</b> brand = exact match [anjuna bay villa]/[anjuna bay uluwatu], negatives goa/india/anjunabeats/anjunadeep, geo-exclude India, cap $100–200/mo (anti-conquesting only). Generic "uluwatu private pool villa" launches only after tracking is live.</li>
+  </ul>
  </div></div>
 
  <div class="stage"><div class="n">2</div><div>
-  <h3>Own advertising — paid social <span class="verdict v-yes">Yes</span></h3>
-  <p>The Inspiration stage (30–180 days out) where Anjuna has zero presence. Small budget, tight targeting.</p>
-  <ul><li><b>Creative = the top-3 loves:</b> cliff/sunset view, private pool, walk to Thomas Beach — sunset pool reels beat any text.</li>
-   <li><b>Targeting:</b> Australia first (dominant origin), then EU couples/honeymooners + surfers; retarget site/IG visitors.</li>
-   <li><b>Timing:</b> weight spend 2–6 months before AU/EU high season (their booking windows).</li>
-   <li>Split the guest brand from @anjunabay (which sells real estate) — guests ≠ buyers.</li></ul>
+  <h3>Measurement — hard gate before any spend <span style="font-size:10px;color:var(--coral);font-weight:700">WAS MISSING</span></h3>
+  <p>Weeks 1–2: GA4 + Guesty purchase event · Meta pixel + CAPI · UTM schema · WhatsApp click tracking · attribution sheet. <b>No ad spend before this exists.</b> Retargeting staged for month 3+ (audience ≈ zero until then — prospecting carries the plan).</p>
  </div></div>
 
  <div class="stage"><div class="n">3</div><div>
-  <h3>SEO <span class="verdict v-yes">Yes — paired with ads</span></h3>
-  <ul><li><b>Local SEO first</b> (fastest, missing): Google Business Profile + reviews flow — where "villa Uluwatu" map searches convert.</li>
-   <li><b>On-site:</b> one indexable page per villa with landmark benefit titles ("2BR Cliffside Pool Villa, 5-min walk to Thomas Beach"); fix the 5-page thin site + title typo.</li>
-   <li><b>Content (medium-term):</b> blog owning long-tail — "where to stay in Uluwatu for surfers", "honeymoon villa Uluwatu near Padang Padang" (how Uluwatu Surf Villas / Cabo win research-first guests).</li>
-   <li>SEO is slow → Google Business + ads bridge the gap now.</li></ul>
+  <h3>Photography — new line item <span style="font-size:10px;color:var(--coral);font-weight:700">WAS MISSING</span></h3>
+  <p>Weeks 1–3, before renaming/repricing/ads: professional photo + drone + vertical video, honestly framing construction. ~$1–2k. Photos = 20/100 of the guest decision; every other move consumes these assets.</p>
  </div></div>
 
  <div class="stage"><div class="n">4</div><div>
-  <h3>Links</h3>
-  <ul><li><b>Link-in-bio (Linktree):</b> IG/TikTok → booking engine + WhatsApp + Google reviews (every strong rival has one; Anjuna none).</li>
-   <li><b>Consistent listing links/naming across OTAs</b> — same landmark name + photos everywhere (fixes B10-only-Booking, B3-only-Agoda fragmentation).</li>
-   <li><b>Earned/backlinks:</b> get into "best villas in Uluwatu/Bingin" roundups + surf-travel resellers (Perfect Wave, The Perfect Hideaway); partner links — Canna Beach Club, surf schools, wedding planners.</li>
-   <li>Google Business + review links on the site and in post-stay follow-ups.</li></ul>
+  <h3>Paid social + SEO + links</h3>
+  <ul>
+   <li><b>Meta/TikTok:</b> AU first → UK/DE/FR → US; Brazil organic-only; Asia = later test cell. Budget $1–2k/mo test scale; creative from the shoot with honest framing.</li>
+   <li><b>SEO:</b> local surface per GBP verification; landmark benefit titles on the new site; content pages months 3–12 (new-domain SEO honestly = 6–12 mo; Ads/GVR bridge).</li>
+   <li><b>Links:</b> Linktree hub; consistent naming/photos across OTAs; roundups + surf resellers (Perfect Wave) + partners (Canna, surf schools, wedding planners).</li>
+  </ul>
  </div></div>
 
- <h2 class="serif">The first 3 target segments</h2>
+ <h2 class="serif">Target segments (corrected)</h2>
  <div class="tablewrap"><table>
-  <thead><tr><th>Segment</th><th>Countries</th><th>Who</th><th>How to reach</th><th>Price</th></tr></thead>
+  <thead><tr><th>Segment</th><th>Countries (paid)</th><th>Reach</th><th>Price</th></tr></thead>
   <tbody>
-   <tr><td>Couples / honeymoon</td><td>Australia, then UK/FR/DE, US</td><td>28–45, mid-high budget, want view+pool+romance, book 60–180d out</td><td>IG/Meta ads (AU/EU); Booking+Airbnb "romantic" copy; honeymoon roundups; direct site</td><td>1–2BR <b>$200–300</b>, free-cancel; direct = best + floating breakfast</td></tr>
-   <tr><td>Surfers (int–adv)</td><td>Australia, Brazil, EU, US</td><td>Solo/small groups, 14–60d window, weeks-long, want minutes to the breaks, value-conscious</td><td>Surf resellers (Perfect Wave), surf schools, surf forums, IG surf content, Single Fin-adjacent</td><td>1BR / group-share 2BR, <b>value-to-mid</b>; long-stay discount; "walk to the break"</td></tr>
-   <tr><td>Digital nomads / long-stay</td><td>Brazil, Portugal, wider EU</td><td>Relocating from Canggu for a slower pace, monthly, need vetted fast wifi + desk</td><td>Nomad guides, coworking partners, "work-from-Uluwatu" IG, direct monthly rate + WhatsApp</td><td><b>Monthly discount</b>; lead with dedicated fiber + workspace</td></tr>
+   <tr><td>Couples / honeymoon</td><td>AU → UK/DE/FR → US</td><td>Meta/IG; "romantic" OTA copy; honeymoon roundups; direct</td><td><b>Ladder rates</b> (2BR peak-weighted); free-cancel; direct = member rate + perk</td></tr>
+   <tr><td>Premium surf stay <span style="font-size:9.5px;color:var(--coral)">(was "value surfers")</span></td><td>AU → US/EU; Brazil organic</td><td>Surf resellers, surf schools, IG surf content</td><td><b>Full ladder</b> + 10–15% weekly LOS discount (7+ nights). Copy: walk-times to breaks, board storage</td></tr>
+   <tr><td>Low-season long-stay <span style="font-size:9.5px;color:var(--coral)">(nomads demoted — math failed)</span></td><td>organic only, zero paid</td><td>nomads.com listing, coworking partners</td><td>Monthly rate <b>only in Jan–Mar/Nov troughs</b>; affluent remote couples, not $1.5k/mo median; verify fiber first</td></tr>
   </tbody>
  </table></div>
- <p style="font-size:11.5px;color:var(--muted);margin-top:8px">Owner contacts aren't public — owner-side first touch is IG DM @anjunabay or the site's WhatsApp; the pitch to the owner uses the audit + this plan.</p>
+ <p style="font-size:11.5px;color:var(--muted);margin-top:8px">Nomad demotion: their all-in Uluwatu budget is ~$1,200–1,800/mo (our research) — a month at ladder rates exceeds it. Paid acquisition of a segment that can't afford the product contradicted the repricing thesis.</p>
 
- <h2 class="serif">Pricing — reprice with a guarded ladder</h2>
- <p style="font-size:12.5px;color:var(--muted);margin:2px 0 0">Today near the bottom of the set with the worst terms. Market: median ADR $216, 2–3BR ADR $259, top-25% $313+.</p>
+ <h2 class="serif">Pricing — one rate card, stepped &amp; gated</h2>
+ <p style="font-size:12px;color:var(--muted);margin:2px 0 0">Verified anchor: 2BR $144 non-refundable. 1BR baseline unverified (one low-confidence $66 Agoda snippet). Market (AirROI 2026): avg ADR $267 · median $216 · 2–3BR ~$259 · RevPAR $130 · top-25% $313+.</p>
  <div class="price">
-  <div class="pc"><div class="t">1 Bedroom</div><div class="old">from $66</div><div class="new">$110–140</div></div>
-  <div class="pc"><div class="t">2 Bedroom</div><div class="old">$144 non-ref</div><div class="new">$190–240<span style="font-size:12px;color:var(--muted)"> · peak $280+</span></div></div>
-  <div class="pc"><div class="t">3 Bedroom</div><div class="old">—</div><div class="new">$280–350</div></div>
+  <div class="pc"><div class="t">1 Bedroom</div><div class="old">baseline unverified → Guesty pull</div><div class="new">$110–140</div></div>
+  <div class="pc"><div class="t">2 Bedroom</div><div class="old">today $144 non-ref</div><div class="new">$190–240<span style="font-size:12px;color:var(--muted)"> · peak $280+</span></div></div>
+  <div class="pc"><div class="t">3 Bedroom</div><div class="old">$300+ = milestone (score &gt;9.0 + construction end)</div><div class="new">$280–350</div></div>
  </div>
- <ul style="margin-top:10px;font-size:12.5px;color:var(--muted)">
-  <li><b>Add a free-cancellation rate</b> beside the non-ref one — rivals win on flexibility.</li>
-  <li><b>Fix rate parity</b> — direct must be the best price (+ perk); stop the "book on Airbnb for best rate" message.</li>
-  <li><b>Daily dynamic pricing</b> (PriceLabs-class). Benchmark: Lago Villas (Bingin, same Guesty stack) = 92% occupancy at <b>+48% RevPAR vs market</b>. Estimated lift: RevPAR ~$122 → ~$150–160 per available 2BR night.</li>
- </ul>
+ <div class="rules">
+  <b>Rollout rules (no 2× jump):</b>
+  <ol>
+   <li><b>Disclosure first</b> (Week 1) — honest construction/nightlife copy before any increase.</li>
+   <li><b>Stepped:</b> +15–20% per 4–6-week cycle, watched on 30-day pickup pace.</li>
+   <li><b>Season-gated:</b> peak stay-dates first; shoulder slower. <b>Unit-gated:</b> quiet units first; noise-exposed units keep a disclosed "construction rate".</li>
+   <li><b>Grandfather</b> existing bookings; new rates on stay-dates 60+ days out; scripted reservations answer.</li>
+   <li><b>Auto-rollback:</b> pickup pace −15% vs LY pauses the ladder. Free-cancellation rate added alongside non-ref.</li>
+   <li><b>Dynamic pricing</b> (~$20/listing/mo). Lago Villas "92%/+48%" = <b>vendor claim, unverified</b> — same skepticism as Balinest's 85%. Verified support: top-quartile sustains $313+ here.</li>
+  </ol>
+ </div>
+ <div class="tablewrap" style="margin-top:10px"><table>
+  <thead><tr><th>RevPAR sensitivity (est., conditioned on Guesty pull)</th><th>Occ 55%</th><th>Occ 70%</th><th>Occ 85%</th></tr></thead>
+  <tbody>
+   <tr><td>ADR +20% ($173)</td><td>$95</td><td>$121</td><td>$147</td></tr>
+   <tr><td>ADR +40% ($202)</td><td>$111</td><td>$141</td><td><b>$172</b></td></tr>
+  </tbody>
+ </table></div>
+ <p style="font-size:11.5px;color:var(--muted);margin-top:6px">Base ~$122 rests on the operator's unverified 85% claim. If true occupancy is near market (~50%), the problem is demand, not rate — sequencing shifts to distribution/brand first. Occupancy floor pauses the ladder.</p>
 
- <h2 class="serif">What to improve — priority order</h2>
+ <h2 class="serif">Review equity — platform-correct <span style="font-size:10px;color:var(--coral);font-weight:700">PREVIOUS WORDING WAS DANGEROUS</span></h2>
+ <div class="rules"><ol>
+  <li><b>Never delete or re-create listing IDs</b> — Airbnb reviews are welded to the listing; "transfer" is impossible. Renaming in place is safe.</li>
+  <li>Airbnb: consolidate under <b>one Superhost host profile</b> (the only transferable equity); new units start at zero — plan a first-10-reviews push.</li>
+  <li>Booking: add new units as <b>room types under the existing scored property page</b> — the one legitimate consolidation.</li>
+ </ol></div>
+
+ <h2 class="serif">Budget, KPIs &amp; the lag warning <span style="font-size:10px;color:var(--coral);font-weight:700">WAS MISSING</span></h2>
+ <div class="tablewrap"><table>
+  <thead><tr><th>Item</th><th>Cost</th><th>Payback</th></tr></thead>
+  <tbody>
+   <tr><td>Renaming · parity cleanup · disclosure · cancel-rate · repricing</td><td>≈ $0</td><td>Weeks — self-funding</td></tr>
+   <tr><td>Photo/video shoot</td><td>$1–2k one-off</td><td>Feeds everything</td></tr>
+   <tr><td>Direct site build</td><td>$2–5k one-off</td><td>With member-rate program</td></tr>
+   <tr><td>Google Ads (brand cap $100–200 + generic)</td><td>$600–1,700/mo</td><td>CPA target ≤ $30–45 commission displaced</td></tr>
+   <tr><td>Meta/TikTok prospecting</td><td>$1,000–2,000/mo</td><td>Q+2 (see lag)</td></tr>
+   <tr><td>Dynamic pricing tool</td><td>~$20/listing/mo</td><td>First repriced peak</td></tr>
+  </tbody>
+ </table></div>
+ <p style="font-size:12px;margin-top:8px"><b>KPIs:</b> direct share % · RevPAR index vs market · ADR by unit · 30-day pickup pace · CPA per booked night · Booking score 8.7→9.0+ · review velocity · engine CVR.</p>
+ <div class="warn"><b>⚠ Results lag, stated plainly:</b> target guests book 60–180 days out — month-1 spend produces stays in months 3–7. Days 0–90 are judged on leading indicators (CTR, engine sessions, WhatsApp starts, forward-dated bookings); realized ADR/occupancy reads at days 90–270. An owner not told this will kill the program at exactly the wrong moment.</div>
+
+ <h2 class="serif">90 days from signing</h2>
  <div class="seq">
-  <div class="row"><span class="w">#1</span><span><b>List ALL completed inventory</b> on every major channel; onboard Palms on handover — multiplies booking count (the top lever).</span></div>
-  <div class="row"><span class="w">#2</span><span><b>Rename every listing</b> to landmark benefit titles; kill unit codes; fix the typo + Agoda mismatch.</span></div>
-  <div class="row"><span class="w">#3</span><span><b>Reprice + free-cancel + parity + dynamic pricing</b> — captures the ~24% rate gap.</span></div>
-  <div class="row"><span class="w">#4</span><span><b>Google Business Profile + own site + WhatsApp + book-direct incentive</b> — closes the weakest-in-set direct-booking gap.</span></div>
-  <div class="row"><span class="w">#5</span><span><b>Consolidate review equity</b> + start a Google review flow — lifts the 8.7 Booking flank, transfers proof to new units.</span></div>
-  <div class="row"><span class="w">#6</span><span><b>Manage construction/noise in copy</b> (honest disclosure + mitigation) — protects the 4.9★ through 2026.</span></div>
-  <div class="row"><span class="w">#7</span><span><b>Add missing channels</b> — Vrbo/Expedia, Traveloka, TripAdvisor, metasearch, luxury agencies, surf resellers.</span></div>
-  <div class="row"><span class="w">#8</span><span><b>2-minute response layer + weekly owner report</b> — the pre-arrival WhatsApp guests expect + the owner visibility that's missing.</span></div>
+  <div class="row"><span class="w">Week 0</span><span>Preconditions: brand license · Guesty pull · unit audit (mandates/licenses) · web-estate access.</span></div>
+  <div class="row"><span class="w">Weeks 1–2</span><span>Disclosure copy · remove "Airbnb best rate" message · rename in place · photography · <b>tracking stack (hard gate)</b> · align public rates.</span></div>
+  <div class="row"><span class="w">Weeks 2–4</span><span>Reprice phase 1 (quiet units, peak dates) · free-cancel rate · direct-site build starts · GVR prerequisites.</span></div>
+  <div class="row"><span class="w">Weeks 4–6</span><span>Brand Ads (capped/exact/negatives) · member-rate program · GVR submission (~3-wk approval) · first-10-reviews push.</span></div>
+  <div class="row"><span class="w">Weeks 6–12</span><span>Paid social prospecting (AU couples + premium surf) · content SEO · channel expansion (Vrbo/Expedia, Traveloka low-season, TripAdvisor, luxury agencies) · response layer + weekly owner report · reprice phase 2 per pickup data.</span></div>
  </div>
- <p style="font-size:12.5px;margin-top:12px;padding:11px 14px;background:var(--sun-soft);border-radius:var(--r);border:1px solid color-mix(in srgb,var(--sun) 26%,transparent)"><b>Keep (don't touch):</b> the on-ground service (Booking Staff 9.5, welcome-WhatsApp), the Guesty stack, and the top-tier review ratings. Change the commercial wrapper, not the hospitality.</p>
 
- <div class="foot">Grounded in the Anjuna audit, competitor metrics, guest-view scorecard, booking-journey map and Voice-of-Traveler research (public data; estimates labelled). Prepared by Selena Systems, Bali — independent; not affiliated with Anjuna Bay or Balinest Villas.</div>
+ <div class="foot">v2 — corrected after two independent adversarial reviews (30 findings; all critical/major applied). Grounded in the audit, competitor metrics, scorecard, booking-journey and voice-of-traveler research; estimates labelled; unverified figures marked. Prepared by Selena Systems, Bali — independent; not affiliated with Anjuna Bay or Balinest Villas.</div>
 </div>
-<script>
-document.getElementById?.("themebtn");
-</script>
