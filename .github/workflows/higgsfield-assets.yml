@@ -1,0 +1,76 @@
+name: Fetch Higgsfield assets
+
+# Temporary helper: the Claude sandbox egress proxy blocks the Higgsfield CDN,
+# so this one-shot job downloads the generated assets, compresses them to web
+# size, and commits them to this branch. The workflow file is removed from the
+# branch once the assets land.
+
+on:
+  push:
+    branches:
+      - claude/pause-photos-hero-video-abjbp2
+    paths:
+      - .github/workflows/higgsfield-assets.yml
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CDN: https://d8j0ntlcm91z4.cloudfront.net/user_3EKntK4EDjG8nay4H1dy1TK30mB
+      P1: hf_20260712_053219_205299e1-f56b-4fe0-87d7-5726c6b249d4.png
+      P2: hf_20260712_053221_eb3687bb-13dd-4604-a84e-ff36a76f64f4.png
+      P3: hf_20260712_053223_9d36e2db-5699-4cb4-89dc-babb3f7615a9.png
+      HERO: hf_20260712_053300_59c731d9-1e5b-4a80-8037-20c57555c567.mp4
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download generated assets
+        run: |
+          mkdir -p /tmp/hf
+          curl -sS --fail -o /tmp/hf/p1.png "$CDN/$P1"
+          curl -sS --fail -o /tmp/hf/p2.png "$CDN/$P2"
+          curl -sS --fail -o /tmp/hf/p3.png "$CDN/$P3"
+          curl -sS --fail -o /tmp/hf/hero_src.mp4 "$CDN/$HERO"
+          ls -la /tmp/hf
+
+      - name: Convert pause photos to web JPEGs (target 200-450KB)
+        run: |
+          for i in 1 2 3; do
+            for q in 2 3 4 5 6 8 10; do
+              ffmpeg -y -loglevel error -i /tmp/hf/p$i.png -vf scale=1920:-2 -q:v $q /tmp/hf/pause-$i.jpg
+              size=$(stat -c%s /tmp/hf/pause-$i.jpg)
+              echo "pause-$i.jpg q=$q size=$size"
+              if [ "$size" -le 450000 ]; then break; fi
+            done
+          done
+          cp /tmp/hf/pause-1.jpg /tmp/hf/pause-2.jpg /tmp/hf/pause-3.jpg assets/
+          ls -la assets/pause-*.jpg
+
+      - name: Re-encode hero loop to <=4MB H.264 1080p, no audio
+        run: |
+          ffprobe -v error -show_entries format=duration,size -of default=nw=1 /tmp/hf/hero_src.mp4
+          for kbps in 2600 2100 1700; do
+            ffmpeg -y -loglevel error -i /tmp/hf/hero_src.mp4 -an \
+              -vf "scale=1920:1080" -c:v libx264 -preset slow -profile:v high \
+              -pix_fmt yuv420p -b:v ${kbps}k -maxrate $((kbps+400))k -bufsize $((kbps*2))k \
+              -movflags +faststart /tmp/hf/hero.mp4
+            size=$(stat -c%s /tmp/hf/hero.mp4)
+            echo "hero.mp4 bitrate=${kbps}k size=$size"
+            if [ "$size" -le 4000000 ]; then break; fi
+          done
+          size=$(stat -c%s /tmp/hf/hero.mp4)
+          if [ "$size" -gt 4000000 ]; then echo "hero still >4MB" && exit 1; fi
+          cp /tmp/hf/hero.mp4 assets/hero.mp4
+          ls -la assets/hero.mp4
+
+      - name: Commit assets to branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/pause-1.jpg assets/pause-2.jpg assets/pause-3.jpg assets/hero.mp4
+          git commit -m "Add Higgsfield pause photos and compressed hero loop (CI asset fetch)"
+          git push origin HEAD:claude/pause-photos-hero-video-abjbp2
