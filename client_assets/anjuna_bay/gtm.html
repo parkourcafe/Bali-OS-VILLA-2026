@@ -1,0 +1,145 @@
+<title>Anjuna — Positioning, Pricing & Go-To-Market</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+ --paper:#F3EEE4;--card:#FFFFFF;--ink:#182430;--muted:#5C6A74;--line:#E6DDCC;--line2:#D3C8B3;
+ --sea:#116A86;--sea-soft:#E3EFF3;--sun:#BE7C22;--sun-soft:#F4E7D2;--coral:#C1543C;--coral-soft:#F6E5DE;--good:#2E8B57;--bad:#B9503A;
+ --shadow:0 1px 2px rgba(24,36,48,.05),0 10px 26px rgba(24,36,48,.07);--r:12px;
+}
+@media (prefers-color-scheme:dark){:root{
+ --paper:#0E151B;--card:#182129;--ink:#EAF1F0;--muted:#95A3AD;--line:#26313A;--line2:#374350;
+ --sea:#48B2CC;--sea-soft:#0E2B34;--sun:#DDA748;--sun-soft:#2C2113;--coral:#E0765C;--coral-soft:#2E1B15;--good:#54B47C;--bad:#E0765C;
+ --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 30px rgba(0,0,0,.45);
+}}
+:root[data-theme="light"]{--paper:#F3EEE4;--card:#FFFFFF;--ink:#182430;--muted:#5C6A74;--line:#E6DDCC;--line2:#D3C8B3;--sea:#116A86;--sea-soft:#E3EFF3;--sun:#BE7C22;--sun-soft:#F4E7D2;--coral:#C1543C;--coral-soft:#F6E5DE;--good:#2E8B57;--bad:#B9503A;--shadow:0 1px 2px rgba(24,36,48,.05),0 10px 26px rgba(24,36,48,.07);}
+:root[data-theme="dark"]{--paper:#0E151B;--card:#182129;--ink:#EAF1F0;--muted:#95A3AD;--line:#26313A;--line2:#374350;--sea:#48B2CC;--sea-soft:#0E2B34;--sun:#DDA748;--sun-soft:#2C2113;--coral:#E0765C;--coral-soft:#2E1B15;--good:#54B47C;--bad:#E0765C;--shadow:0 1px 2px rgba(0,0,0,.35),0 12px 30px rgba(0,0,0,.45);}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.serif{font-family:Georgia,"Iowan Old Style","Times New Roman",serif}
+.wrap{max-width:900px;margin:0 auto;padding:32px 22px 70px}
+.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:10.5px;font-weight:700;color:var(--sea)}
+.mast{border-bottom:2px solid var(--ink);padding-bottom:15px}
+h1{margin:8px 0 0;font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1.1;text-wrap:balance}
+.pos{margin-top:14px;background:linear-gradient(180deg,var(--sea-soft),var(--card));border:1px solid color-mix(in srgb,var(--sea) 26%,transparent);border-radius:var(--r);padding:14px 16px}
+.pos .k{font-size:10px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--sea)}
+.pos .p{font-family:Georgia,serif;font-size:16px;margin:4px 0 6px}
+.pos .g{font-size:12px;color:var(--muted)}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:14px 16px 14px 14px;margin-top:12px;display:grid;grid-template-columns:30px 1fr;gap:12px;break-inside:avoid}
+.stage .n{font-family:Georgia,serif;font-weight:600;font-size:17px;color:#fff;background:var(--sea);border-radius:8px;width:30px;height:30px;display:flex;align-items:center;justify-content:center}
+.stage h3{margin:2px 0 4px;font-size:15.5px}
+.stage .verdict{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:1px 8px;border-radius:5px;margin-left:8px;vertical-align:2px}
+.v-yes{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}
+.stage p{margin:0;font-size:12.5px;color:var(--muted)}
+.stage ul{margin:6px 0 0;padding-left:17px}.stage li{margin:3px 0;font-size:12.5px;color:var(--muted)}
+.stage b{color:var(--ink)}
+h2{font-size:18px;margin:26px 0 4px;letter-spacing:-.01em}
+.kick{font-size:10px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--sun)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);margin-top:10px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:11.5px;background:var(--card)}
+th{text-align:left;font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700;padding:8px 9px;border-bottom:2px solid var(--line2);background:var(--card)}
+td{padding:8px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:700;color:var(--sea);white-space:nowrap}
+.price{margin-top:10px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:640px){.price{grid-template-columns:1fr}}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:13px 15px;box-shadow:var(--shadow);border-top:3px solid var(--sun)}
+.pc .t{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.pc .old{font-size:12px;color:var(--bad);text-decoration:line-through;margin-top:4px}
+.pc .new{font-family:Georgia,serif;font-size:22px;font-weight:600;color:var(--good)}
+.seq{margin-top:10px}
+.seq .row{display:grid;grid-template-columns:88px 1fr;gap:12px;padding:7px 0;border-top:1px solid var(--line);font-size:12.5px}
+.seq .row:first-child{border-top:0}.seq .w{font-family:Georgia,serif;font-weight:600;color:var(--sea)}
+.foot{margin-top:26px;border-top:1px solid var(--line2);padding-top:12px;font-size:10.5px;color:var(--muted)}
+@media print{@page{size:A4;margin:11mm} .wrap{padding:0;max-width:none} .tablewrap{overflow:visible} table{min-width:0} .stage,.pc,.seq .row{break-inside:avoid}}
+</style>
+
+<div class="wrap">
+ <div class="mast">
+  <div class="eyebrow">Selena Systems · Strategy · Anjuna Surf &amp; Sunset Villas</div>
+  <h1 class="serif">Positioning, Pricing &amp; Go-To-Market</h1>
+ </div>
+
+ <div class="pos">
+  <div class="k">Positioning</div>
+  <div class="p serif">"Brand-new cliffside pool villas, a short walk from Thomas Beach — the view, the private pool and the privacy people come to Uluwatu for, without the Canggu crowds."</div>
+  <div class="g"><b>For:</b> couples/honeymooners + surfers first, then luxury &amp; nomads. <b>Why it wins:</b> travelers' top-3 loves are exactly cliff/sunset view, private pool, quiet privacy — Anjuna has all three but sells unit codes. <b>Guardrail:</b> "next Canggu" sentiment + on-site construction is real — lean into quiet/private/walk-to-beach and disclose construction honestly.</div>
+ </div>
+
+ <h2 class="serif">The plan, step by step</h2>
+
+ <div class="stage"><div class="n">1</div><div>
+  <h3>Own website + Google <span class="verdict v-yes">Yes</span></h3>
+  <p>Anjuna's direct booking is the <b>weakest in the whole comp set</b> (Guesty, 1 unit indexed) while COZ, NOUR, Zyloh, Young Villas, Uluwatu Surf all run own sites. Direct saves 15–18% commission + builds a guest database. You already have Guesty — it's design+config, not new tech.</p>
+  <ul><li>Fast mobile site, real-time availability, one page per villa, <b>WhatsApp button</b> (guests expect it), <b>book-direct incentive</b> (best rate + free airport transfer — answers the #1 complaint).</li>
+   <li><b>Google Business Profile — create it (missing).</b> Free; puts villas on Maps + the "villas in Uluwatu" map-pack.</li>
+   <li><b>Google Vacation Rentals / free booking links</b> — direct site shows commission-free next to OTAs.</li>
+   <li><b>Google Ads: yes but small, after the profile+site</b> — (a) brand-defense on "Anjuna Bay villa"; (b) a tight "Uluwatu private pool villa" search campaign, geo AU/EU → direct site.</li></ul>
+ </div></div>
+
+ <div class="stage"><div class="n">2</div><div>
+  <h3>Own advertising — paid social <span class="verdict v-yes">Yes</span></h3>
+  <p>The Inspiration stage (30–180 days out) where Anjuna has zero presence. Small budget, tight targeting.</p>
+  <ul><li><b>Creative = the top-3 loves:</b> cliff/sunset view, private pool, walk to Thomas Beach — sunset pool reels beat any text.</li>
+   <li><b>Targeting:</b> Australia first (dominant origin), then EU couples/honeymooners + surfers; retarget site/IG visitors.</li>
+   <li><b>Timing:</b> weight spend 2–6 months before AU/EU high season (their booking windows).</li>
+   <li>Split the guest brand from @anjunabay (which sells real estate) — guests ≠ buyers.</li></ul>
+ </div></div>
+
+ <div class="stage"><div class="n">3</div><div>
+  <h3>SEO <span class="verdict v-yes">Yes — paired with ads</span></h3>
+  <ul><li><b>Local SEO first</b> (fastest, missing): Google Business Profile + reviews flow — where "villa Uluwatu" map searches convert.</li>
+   <li><b>On-site:</b> one indexable page per villa with landmark benefit titles ("2BR Cliffside Pool Villa, 5-min walk to Thomas Beach"); fix the 5-page thin site + title typo.</li>
+   <li><b>Content (medium-term):</b> blog owning long-tail — "where to stay in Uluwatu for surfers", "honeymoon villa Uluwatu near Padang Padang" (how Uluwatu Surf Villas / Cabo win research-first guests).</li>
+   <li>SEO is slow → Google Business + ads bridge the gap now.</li></ul>
+ </div></div>
+
+ <div class="stage"><div class="n">4</div><div>
+  <h3>Links</h3>
+  <ul><li><b>Link-in-bio (Linktree):</b> IG/TikTok → booking engine + WhatsApp + Google reviews (every strong rival has one; Anjuna none).</li>
+   <li><b>Consistent listing links/naming across OTAs</b> — same landmark name + photos everywhere (fixes B10-only-Booking, B3-only-Agoda fragmentation).</li>
+   <li><b>Earned/backlinks:</b> get into "best villas in Uluwatu/Bingin" roundups + surf-travel resellers (Perfect Wave, The Perfect Hideaway); partner links — Canna Beach Club, surf schools, wedding planners.</li>
+   <li>Google Business + review links on the site and in post-stay follow-ups.</li></ul>
+ </div></div>
+
+ <h2 class="serif">The first 3 target segments</h2>
+ <div class="tablewrap"><table>
+  <thead><tr><th>Segment</th><th>Countries</th><th>Who</th><th>How to reach</th><th>Price</th></tr></thead>
+  <tbody>
+   <tr><td>Couples / honeymoon</td><td>Australia, then UK/FR/DE, US</td><td>28–45, mid-high budget, want view+pool+romance, book 60–180d out</td><td>IG/Meta ads (AU/EU); Booking+Airbnb "romantic" copy; honeymoon roundups; direct site</td><td>1–2BR <b>$200–300</b>, free-cancel; direct = best + floating breakfast</td></tr>
+   <tr><td>Surfers (int–adv)</td><td>Australia, Brazil, EU, US</td><td>Solo/small groups, 14–60d window, weeks-long, want minutes to the breaks, value-conscious</td><td>Surf resellers (Perfect Wave), surf schools, surf forums, IG surf content, Single Fin-adjacent</td><td>1BR / group-share 2BR, <b>value-to-mid</b>; long-stay discount; "walk to the break"</td></tr>
+   <tr><td>Digital nomads / long-stay</td><td>Brazil, Portugal, wider EU</td><td>Relocating from Canggu for a slower pace, monthly, need vetted fast wifi + desk</td><td>Nomad guides, coworking partners, "work-from-Uluwatu" IG, direct monthly rate + WhatsApp</td><td><b>Monthly discount</b>; lead with dedicated fiber + workspace</td></tr>
+  </tbody>
+ </table></div>
+ <p style="font-size:11.5px;color:var(--muted);margin-top:8px">Owner contacts aren't public — owner-side first touch is IG DM @anjunabay or the site's WhatsApp; the pitch to the owner uses the audit + this plan.</p>
+
+ <h2 class="serif">Pricing — reprice with a guarded ladder</h2>
+ <p style="font-size:12.5px;color:var(--muted);margin:2px 0 0">Today near the bottom of the set with the worst terms. Market: median ADR $216, 2–3BR ADR $259, top-25% $313+.</p>
+ <div class="price">
+  <div class="pc"><div class="t">1 Bedroom</div><div class="old">from $66</div><div class="new">$110–140</div></div>
+  <div class="pc"><div class="t">2 Bedroom</div><div class="old">$144 non-ref</div><div class="new">$190–240<span style="font-size:12px;color:var(--muted)"> · peak $280+</span></div></div>
+  <div class="pc"><div class="t">3 Bedroom</div><div class="old">—</div><div class="new">$280–350</div></div>
+ </div>
+ <ul style="margin-top:10px;font-size:12.5px;color:var(--muted)">
+  <li><b>Add a free-cancellation rate</b> beside the non-ref one — rivals win on flexibility.</li>
+  <li><b>Fix rate parity</b> — direct must be the best price (+ perk); stop the "book on Airbnb for best rate" message.</li>
+  <li><b>Daily dynamic pricing</b> (PriceLabs-class). Benchmark: Lago Villas (Bingin, same Guesty stack) = 92% occupancy at <b>+48% RevPAR vs market</b>. Estimated lift: RevPAR ~$122 → ~$150–160 per available 2BR night.</li>
+ </ul>
+
+ <h2 class="serif">What to improve — priority order</h2>
+ <div class="seq">
+  <div class="row"><span class="w">#1</span><span><b>List ALL completed inventory</b> on every major channel; onboard Palms on handover — multiplies booking count (the top lever).</span></div>
+  <div class="row"><span class="w">#2</span><span><b>Rename every listing</b> to landmark benefit titles; kill unit codes; fix the typo + Agoda mismatch.</span></div>
+  <div class="row"><span class="w">#3</span><span><b>Reprice + free-cancel + parity + dynamic pricing</b> — captures the ~24% rate gap.</span></div>
+  <div class="row"><span class="w">#4</span><span><b>Google Business Profile + own site + WhatsApp + book-direct incentive</b> — closes the weakest-in-set direct-booking gap.</span></div>
+  <div class="row"><span class="w">#5</span><span><b>Consolidate review equity</b> + start a Google review flow — lifts the 8.7 Booking flank, transfers proof to new units.</span></div>
+  <div class="row"><span class="w">#6</span><span><b>Manage construction/noise in copy</b> (honest disclosure + mitigation) — protects the 4.9★ through 2026.</span></div>
+  <div class="row"><span class="w">#7</span><span><b>Add missing channels</b> — Vrbo/Expedia, Traveloka, TripAdvisor, metasearch, luxury agencies, surf resellers.</span></div>
+  <div class="row"><span class="w">#8</span><span><b>2-minute response layer + weekly owner report</b> — the pre-arrival WhatsApp guests expect + the owner visibility that's missing.</span></div>
+ </div>
+ <p style="font-size:12.5px;margin-top:12px;padding:11px 14px;background:var(--sun-soft);border-radius:var(--r);border:1px solid color-mix(in srgb,var(--sun) 26%,transparent)"><b>Keep (don't touch):</b> the on-ground service (Booking Staff 9.5, welcome-WhatsApp), the Guesty stack, and the top-tier review ratings. Change the commercial wrapper, not the hospitality.</p>
+
+ <div class="foot">Grounded in the Anjuna audit, competitor metrics, guest-view scorecard, booking-journey map and Voice-of-Traveler research (public data; estimates labelled). Prepared by Selena Systems, Bali — independent; not affiliated with Anjuna Bay or Balinest Villas.</div>
+</div>
+<script>
+document.getElementById?.("themebtn");
+</script>
