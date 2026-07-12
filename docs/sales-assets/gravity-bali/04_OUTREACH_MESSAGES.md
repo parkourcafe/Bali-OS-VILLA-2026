@@ -75,10 +75,14 @@ then continue in English.
 > times), the current vs proposed enquiry flow, an honest cost model with all
 > assumptions visible, and what a 14-day fix would look like. If any finding
 > is factually wrong, tell me and I'll correct it the same day.
+> The fun part: there's an interactive demo inside — you play a guest
+> messaging about Villa Kelanah on a Saturday night and watch what your team
+> would see. Two minutes, worth it.
 
 **Short version:**
 > Private review link: {{AUDIT_URL}} — 7 min read, only you have it. 5
-> findings, each marked observed vs inferred, plus the 14-day fix plan.
+> findings, each marked observed vs inferred, plus an interactive demo where
+> you play a Saturday-night guest and watch your team's side react.
 
 **CTA:** implicit (open the link) + correction invite (disarms defensiveness).
 

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Villa Ops OS — interactive demo for Gravity Bali</title>
+  <meta name="description" content="Interactive demonstration of Villa Ops OS on Gravity Bali's enquiry scenarios. Simulated data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450..650&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/audit.css">
+  <style>
+    /* Demo-specific layout (extends audit.css tokens) */
+    .demo-note {
+      background: rgba(163,116,42,.12); border: 1px solid rgba(163,116,42,.35);
+      border-radius: 10px; padding: 10px 16px; font-size: .82rem; color: var(--warning);
+      display: inline-block; margin-top: 14px;
+    }
+    .scenario-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 20px; }
+    .scenario-tab {
+      font: inherit; font-size: .86rem; font-weight: 600; cursor: pointer;
+      border: 1.5px solid var(--line); background: #fff; color: var(--ink);
+      border-radius: 999px; padding: 10px 18px;
+    }
+    .scenario-tab[aria-selected="true"] { border-color: var(--accent); background: var(--accent); color: var(--accent-ink); }
+    .scenario-desc { font-size: .88rem; color: rgba(23,36,31,.75); max-width: 720px; min-height: 44px; }
+
+    .demo-stage { display: grid; grid-template-columns: 340px 1fr; gap: 26px; margin-top: 22px; align-items: start; }
+    @media (max-width: 900px) { .demo-stage { grid-template-columns: 1fr; } }
+
+    /* Phone */
+    .demo-phone {
+      border: 1.5px solid var(--line); border-radius: 28px; background: #fff;
+      box-shadow: var(--shadow); overflow: hidden; position: sticky; top: 14px;
+    }
+    @media (max-width: 900px) { .demo-phone { position: static; } }
+    .dp-head { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--accent); color: var(--accent-ink); }
+    .dp-head .ph-avatar { background: var(--accent-ink); color: var(--accent); font-weight: 700; }
+    .dp-head b { font-size: .88rem; display: block; }
+    .dp-head span { font-size: .68rem; opacity: .85; }
+    .dp-msgs { padding: 14px 12px; display: flex; flex-direction: column; gap: 8px; min-height: 380px; max-height: 480px; overflow-y: auto; background: var(--paper); }
+    .dp-msg { max-width: 88%; padding: 9px 12px; border-radius: 13px; font-size: .82rem; line-height: 1.45; position: relative; animation: pop .18s ease; }
+    @keyframes pop { from { opacity: 0; transform: translateY(6px); } }
+    .dp-in  { background: #fff; border: 1px solid var(--line); align-self: flex-start; border-bottom-left-radius: 4px; }
+    .dp-out { background: rgba(31,107,91,.16); align-self: flex-end; border-bottom-right-radius: 4px; }
+    .dp-staff { background: rgba(46,125,79,.14); align-self: flex-end; border-bottom-right-radius: 4px; border: 1px dashed rgba(46,125,79,.5); }
+    .dp-msg time { display: block; font-size: .62rem; color: var(--muted); margin-top: 4px; text-align: right; }
+    .dp-sys { align-self: center; font-size: .66rem; color: var(--muted); background: rgba(23,36,31,.06); border-radius: 999px; padding: 3px 12px; text-align: center; }
+    .dp-typing { align-self: flex-end; background: rgba(31,107,91,.16); border-radius: 13px; padding: 10px 14px; }
+    .dp-typing i { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); margin: 0 1.5px; animation: blink 1s infinite; }
+    .dp-typing i:nth-child(2) { animation-delay: .2s; } .dp-typing i:nth-child(3) { animation-delay: .4s; }
+    @keyframes blink { 0%,60%,100% { opacity: .25; } 30% { opacity: 1; } }
+    .dp-replies { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 12px 14px; background: var(--paper); border-top: 1px solid var(--line); min-height: 54px; }
+    .dp-chip {
+      font: inherit; font-size: .78rem; font-weight: 600; cursor: pointer;
+      border: 1.5px solid var(--accent); color: var(--accent); background: #fff;
+      border-radius: 999px; padding: 7px 14px; animation: pop .18s ease;
+    }
+    .dp-chip:hover { background: rgba(31,107,91,.08); }
+    .dp-hint { font-size: .68rem; color: var(--muted); align-self: center; }
+
+    /* Ops board */
+    .ops-board { display: grid; gap: 16px; }
+    .ops-title { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .ops-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    @media (max-width: 560px) { .ops-metrics { grid-template-columns: 1fr; } }
+    .metric { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+    .metric b { font-family: var(--serif); font-size: 1.35rem; color: var(--accent); display: block; }
+    .metric.flash b { animation: flashv .8s ease; }
+    @keyframes flashv { 0% { color: var(--success); transform: scale(1.15); } }
+    .metric span { font-size: .7rem; color: var(--muted); }
+
+    .lead-panel { background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+    .lead-panel .lp-head { padding: 10px 16px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; font-size: .8rem; font-weight: 600; }
+    .status-pill { font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; background: rgba(31,107,91,.12); color: var(--accent); border-radius: 999px; padding: 4px 10px; transition: all .3s; }
+    .lp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 18px; padding: 12px 16px; font-size: .78rem; }
+    @media (max-width: 560px) { .lp-grid { grid-template-columns: 1fr; } }
+    .lp-grid dt { color: var(--muted); }
+    .lp-grid dd { margin: 0 0 6px; font-weight: 600; min-height: 1.2em; }
+    .lp-grid dd.pending { color: rgba(23,36,31,.3); font-weight: 400; }
+    .lp-grid dd.set { animation: flashv .8s ease; }
+
+    .pipe { display: flex; gap: 6px; padding: 0 16px 14px; flex-wrap: wrap; }
+    .pipe span { font-size: .66rem; border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; color: var(--muted); }
+    .pipe span.done { background: rgba(46,125,79,.12); color: var(--success); border-color: rgba(46,125,79,.4); }
+    .pipe span.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+    .notif-feed { display: grid; gap: 8px; }
+    .notif {
+      background: var(--ink); color: var(--accent-ink); border-radius: 10px; padding: 10px 14px;
+      font-size: .78rem; display: flex; gap: 10px; align-items: flex-start; animation: pop .25s ease;
+    }
+    .notif b { color: #fff; }
+    .notif .n-ico { font-size: 1rem; }
+    .notif time { margin-left: auto; font-size: .64rem; opacity: .7; white-space: nowrap; }
+    .demo-controls { display: flex; gap: 12px; align-items: center; margin-top: 18px; flex-wrap: wrap; }
+    .replay-btn { font: inherit; font-size: .82rem; font-weight: 600; cursor: pointer; background: none; border: 1.5px solid var(--line); border-radius: 999px; padding: 8px 16px; color: var(--ink); }
+  </style>
+</head>
+<body data-audit-asset="gravity-bali">
+
+<header class="wrap audit-topbar">
+  <a class="brand" href="../">← Back to the audit</a>
+  <span class="private-badge">Interactive demo · simulated data</span>
+</header>
+
+<section class="wrap audit-hero" style="padding-bottom:20px">
+  <p class="eyebrow">Villa Ops OS · live simulation</p>
+  <h1 style="max-width:800px">This is what your guests — and your team — would actually get.</h1>
+  <p class="lead">Play the guest. Tap the reply chips in the phone and watch the right side: the lead card fills itself, your team gets notified, nothing waits and nothing is forgotten. Three scenarios, each built from a finding in your audit.</p>
+  <p class="demo-note">⚠ Demonstration with simulated data — not a live system. The real implementation is configured to Gravity Bali's villas, tone of voice and handoff rules during the 14 days, and your team approves every template before launch.</p>
+
+  <div class="scenario-tabs" role="tablist" id="tabs">
+    <button class="scenario-tab" role="tab" data-s="s1" aria-selected="true">1 · Saturday-night enquiry</button>
+    <button class="scenario-tab" role="tab" data-s="s2" aria-selected="false">2 · The guest who went quiet</button>
+    <button class="scenario-tab" role="tab" data-s="s3" aria-selected="false">3 · Complex request → human</button>
+  </div>
+  <p class="scenario-desc" id="scenario-desc"></p>
+</section>
+
+<section class="wrap" style="padding-bottom:70px" data-track-section="demo-stage">
+  <div class="demo-stage">
+    <div class="demo-phone" aria-label="Simulated WhatsApp conversation">
+      <div class="dp-head">
+        <span class="ph-avatar">G</span>
+        <div><b>Gravity Bali</b><span id="dp-status">online · replies instantly</span></div>
+      </div>
+      <div class="dp-msgs" id="dp-msgs"></div>
+      <div class="dp-replies" id="dp-replies"><span class="dp-hint">Loading scenario…</span></div>
+    </div>
+
+    <div class="ops-board">
+      <div>
+        <p class="ops-title">What your team sees — live</p>
+        <div class="ops-metrics">
+          <div class="metric" id="m-ack"><b>—</b><span>first acknowledgement</span></div>
+          <div class="metric" id="m-ctx"><b>0/4</b><span>guest details captured</span></div>
+          <div class="metric" id="m-promise"><b>—</b><span>your “&lt;1 hour” promise</span></div>
+        </div>
+      </div>
+
+      <div class="lead-panel">
+        <div class="lp-head"><span id="lead-title">Lead #— · —</span><span class="status-pill" id="lead-status">no lead yet</span></div>
+        <dl class="lp-grid">
+          <div><dt>Villa</dt><dd id="lf-villa" class="pending">—</dd></div>
+          <div><dt>Dates</dt><dd id="lf-dates" class="pending">—</dd></div>
+          <div><dt>Guests</dt><dd id="lf-guests" class="pending">—</dd></div>
+          <div><dt>Occasion / notes</dt><dd id="lf-notes" class="pending">—</dd></div>
+          <div><dt>Source</dt><dd id="lf-source" class="pending">—</dd></div>
+          <div><dt>Owner</dt><dd id="lf-owner" class="pending">unassigned</dd></div>
+        </dl>
+        <div class="pipe" id="pipe">
+          <span data-p="new">New</span><span data-p="ack">Acknowledged</span><span data-p="qual">Qualified</span>
+          <span data-p="handoff">Handed off</span><span data-p="follow">Follow-up</span><span data-p="won">Won</span>
+        </div>
+      </div>
+
+      <div>
+        <p class="ops-title">Notifications to your team</p>
+        <div class="notif-feed" id="notifs"><p class="small" style="color:var(--muted)">— none yet —</p></div>
+      </div>
+
+      <div class="demo-controls">
+        <button class="replay-btn" id="replay">↻ Replay scenario</button>
+        <span class="small" id="demo-progress"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-row" style="margin-top:44px">
+    <a class="btn-primary" href="../#demo" data-cta="demo-walkthrough">Book the 20-minute walkthrough</a>
+    <a class="btn-ghost" href="https://wa.me/6282339630988?text=Hi%20Selena%20—%20just%20tried%20the%20Gravity%20Bali%20demo.%20Question%3A" target="_blank" rel="noopener" data-cta="demo-whatsapp">Ask a question on WhatsApp</a>
+  </div>
+  <p class="disclaimer">Interactive demonstration prepared for discussion with Gravity Bali. Simulated conversations and data; villa names are used for realism from public listings. Response phrasing shown is a draft — your team edits and approves every template during Days 3–4 and 8–10. Not affiliated with or endorsed by Gravity Bali.</p>
+</section>
+
+<script type="module">
+import { initAnalytics, track } from '/assets/js/analytics.js';
+initAnalytics();
+const ASSET = 'gravity-bali';
+track('audit_demo_opened', { asset: ASSET });
+document.querySelectorAll('[data-cta]').forEach((el) =>
+  el.addEventListener('click', () => track('audit_cta_click', { asset: ASSET, cta: el.dataset.cta })));
+
+/* ---------- tiny scenario engine ---------- */
+const $ = (id) => document.getElementById(id);
+const msgs = $('dp-msgs'), replies = $('dp-replies'), notifs = $('notifs');
+let runToken = 0; // invalidates a running scenario on switch/replay
+
+const wait = (ms, token) => new Promise((r) => setTimeout(() => r(token === runToken), ms));
+
+function clearStage() {
+  msgs.innerHTML = ''; replies.innerHTML = '';
+  notifs.innerHTML = '<p class="small" style="color:var(--muted)">— none yet —</p>';
+  $('m-ack').firstElementChild.textContent = '—';
+  $('m-ctx').firstElementChild.textContent = '0/4';
+  $('m-promise').firstElementChild.textContent = '—';
+  $('lead-title').textContent = 'Lead #— · —';
+  setStatus('no lead yet');
+  for (const f of ['villa','dates','guests','notes','source','owner']) {
+    const el = $('lf-' + f); el.textContent = f === 'owner' ? 'unassigned' : '—';
+    el.className = 'pending';
+  }
+  document.querySelectorAll('#pipe span').forEach((s) => s.className = '');
+}
+
+function bubble(kind, html, t) {
+  const div = document.createElement('div');
+  div.className = 'dp-msg ' + (kind === 'guest' ? 'dp-in' : kind === 'staff' ? 'dp-staff' : 'dp-out');
+  div.innerHTML = html + (t ? `<time>${t}</time>` : '');
+  msgs.appendChild(div); msgs.scrollTop = msgs.scrollHeight;
+}
+function sys(text) {
+  const div = document.createElement('div');
+  div.className = 'dp-sys'; div.textContent = text;
+  msgs.appendChild(div); msgs.scrollTop = msgs.scrollHeight;
+}
+async function typing(ms, token) {
+  const div = document.createElement('div');
+  div.className = 'dp-typing'; div.innerHTML = '<i></i><i></i><i></i>';
+  msgs.appendChild(div); msgs.scrollTop = msgs.scrollHeight;
+  const ok = await wait(ms, token); div.remove(); return ok;
+}
+function chips(options, token) {
+  return new Promise((resolve) => {
+    replies.innerHTML = '';
+    const hint = document.createElement('span');
+    hint.className = 'dp-hint'; hint.textContent = 'You are the guest — tap a reply:';
+    replies.appendChild(hint);
+    options.forEach((opt) => {
+      const b = document.createElement('button');
+      b.className = 'dp-chip'; b.textContent = opt;
+      b.onclick = () => { if (token !== runToken) return; replies.innerHTML = ''; resolve(opt); };
+      replies.appendChild(b);
+    });
+  });
+}
+function setField(f, val) { const el = $('lf-' + f); el.textContent = val; el.className = 'set'; }
+function setStatus(s) { $('lead-status').textContent = s; }
+function setPipe(stage) {
+  const order = ['new','ack','qual','handoff','follow','won'];
+  const idx = order.indexOf(stage);
+  document.querySelectorAll('#pipe span').forEach((el) => {
+    const i = order.indexOf(el.dataset.p);
+    el.className = i < idx ? 'done' : i === idx ? 'active' : '';
+  });
+}
+function metric(id, val) { const m = $(id); m.firstElementChild.textContent = val; m.classList.remove('flash'); void m.offsetWidth; m.classList.add('flash'); }
+function notify(ico, html, t) {
+  if (notifs.firstElementChild?.tagName === 'P') notifs.innerHTML = '';
+  const div = document.createElement('div');
+  div.className = 'notif'; div.innerHTML = `<span class="n-ico">${ico}</span><span>${html}</span><time>${t}</time>`;
+  notifs.prepend(div);
+}
+let ctxCount = 0;
+function ctx() { ctxCount++; metric('m-ctx', ctxCount + '/4'); }
+
+/* ---------- scenarios ---------- */
+const DESC = {
+  s1: 'From your audit, Finding 03: your concierge is described as closed on weekends. It’s Saturday 22:41 — a guest from Sydney found Villa Kelanah on your website. Watch what happens instead of silence until Monday.',
+  s2: 'Finding 05: no visible follow-up system. A qualified guest received a quote… and went quiet. Today that thread depends on someone’s memory. Watch the system remember for you.',
+  s3: 'Your boutique promise, protected: the responder recognises a complex request instantly and steps aside for your team — with full context attached. AI never negotiates, never improvises on special occasions.',
+};
+
+async function s1(token) {
+  $('dp-status').textContent = 'Saturday · 22:41 WITA';
+  sys('Saturday · 22:41 — office closed, concierge offline');
+  await wait(600, token);
+  bubble('guest', 'Hi! I’m interested in <b>Villa Kelanah</b>, 12–16 Aug, for 6 guests.', 'Sat 22:41');
+  sys('arrived via villa page link — villa, dates & source attached automatically');
+  setField('villa', 'Villa Kelanah (5BR)'); setField('dates', '12–16 Aug (4 nights)'); setField('guests', '6');
+  setField('source', 'Website · villa page'); $('lead-title').textContent = 'Lead #341 · Villa Kelanah';
+  setStatus('New'); setPipe('new');
+  ctxCount = 3; metric('m-ctx', '3/4');
+  if (!await typing(900, token)) return;
+  bubble('ai', 'Good evening, and thank you for choosing <b>Villa Kelanah</b> 🌴 I’ve noted <b>12–16 Aug for 6 guests</b> — the villa sleeps up to 10, so you’ll be very comfortable. May I ask: is this a special occasion, and will any children be joining?', 'Sat 22:41');
+  metric('m-ack', '6 sec'); metric('m-promise', 'kept ✓'); setStatus('Acknowledged'); setPipe('ack');
+  const c1 = await chips(['Anniversary trip! No kids', 'Just friends, 2 kids joining', 'What’s the price for these dates?'], token);
+  if (token !== runToken) return;
+  bubble('guest', c1, 'Sat 22:42');
+  setField('notes', c1); ctx();
+  if (!await typing(1100, token)) return;
+  bubble('ai', 'Wonderful — I’ve added that to your request. Our reservations team prepares every quote personally (that’s the Gravity way 🙂). They’re offline right now, so here’s exactly what happens: <b>your request is #1 in the queue and you’ll have your personalised quote by 9:00 tomorrow morning</b>. Meanwhile — would photos of the pool and the chef-service menu be useful?', 'Sat 22:42');
+  setStatus('Qualified'); setPipe('qual');
+  notify('📥', '<b>New qualified lead</b> — Kelanah · 12–16 Aug · 6p · anniversary. Queued for morning quote. <b>No action needed tonight.</b>', 'Sat 22:42');
+  const c2 = await chips(['Yes, send the photos!', 'Just the quote is fine'], token);
+  if (token !== runToken) return;
+  bubble('guest', c2, 'Sat 22:43');
+  if (!await typing(700, token)) return;
+  bubble('ai', c2.startsWith('Yes') ? 'Sent! 📷 Check the gallery link above. See you at 9:00 with your quote — sleep well!' : 'Perfect. Your quote will be with you by 9:00 — have a lovely evening!', 'Sat 22:43');
+  await wait(900, token);
+  sys('Sunday · 08:52 — reservations team opens the day');
+  notify('☀️', '<b>Morning digest</b> — 1 hot lead waiting: Kelanah anniversary, full context on the card. One tap to open the thread.', 'Sun 08:52');
+  await wait(700, token);
+  bubble('staff', 'Good morning! This is Ayu from Gravity Bali ☺️ Happy early anniversary! Here is your personalised quote for Villa Kelanah, 12–16 Aug — with our direct-booking perks: best rate, daily breakfast and a welcome floating tray…', 'Sun 08:58');
+  setField('owner', 'Ayu (Reservations)'); setStatus('Handed off'); setPipe('handoff');
+  metric('m-promise', 'kept ✓');
+  notify('✅', '<b>Handoff complete</b> — first human reply 9h 17m after a Saturday-night enquiry, guest informed & engaged the whole time.', 'Sun 08:58');
+  await wait(400, token);
+  sys('Demo point: instead of ~36h of weekend silence — instant answer, full context, a promise made and kept.');
+  $('demo-progress').textContent = 'Scenario complete ✓ — try scenario 2';
+  track('audit_demo_scenario', { asset: ASSET, section: 's1-complete' });
+}
+
+async function s2(token) {
+  $('dp-status').textContent = 'Tuesday · 14:05 WITA';
+  sys('Earlier: guest received a quote for Villa Simprana, 3–8 Sep');
+  bubble('staff', '…so that’s the full quote for <b>Villa Simprana, 3–8 Sep, 4 guests</b> — valid for 7 days. Anything else I can clarify?', 'Tue 14:05');
+  $('lead-title').textContent = 'Lead #347 · Villa Simprana';
+  setField('villa', 'Villa Simprana (4BR)'); setField('dates', '3–8 Sep (5 nights)'); setField('guests', '4');
+  setField('source', 'Instagram DM'); setField('owner', 'Ayu (Reservations)'); setField('notes', 'Quote sent, valid 7 days');
+  ctxCount = 4; metric('m-ctx', '4/4'); metric('m-ack', '4 sec'); metric('m-promise', 'kept ✓');
+  setStatus('Quoted'); setPipe('handoff');
+  await wait(1200, token);
+  sys('… 48 hours pass — no reply (time compressed for the demo) …');
+  setStatus('Follow-up due'); setPipe('follow');
+  notify('⏰', '<b>Follow-up reminder</b> — Simprana lead quiet for 48h, quote expires in 5 days. Draft nudge ready for approval.', 'Thu 14:05');
+  await wait(900, token);
+  if (!await typing(900, token)) return;
+  bubble('ai', 'Hi again! Ayu asked me to check in 🙂 Your Villa Simprana quote for <b>3–8 Sep</b> is still held for you — those dates are getting popular for September. Is there anything holding you back that we could help with?', 'Thu 14:06');
+  const c1 = await chips(['Actually — can we add a late checkout?', 'We chose another villa, sorry', 'Still deciding…'], token);
+  if (token !== runToken) return;
+  bubble('guest', c1, 'Thu 14:32');
+  if (c1.startsWith('We chose')) {
+    if (!await typing(700, token)) return;
+    bubble('ai', 'Thank you for telling us — genuinely helpful! If plans change, your quote stays in our system and re-activating it takes one message. Wishing you a wonderful trip 🌴', 'Thu 14:33');
+    setStatus('Lost — competitor'); setField('notes', 'Lost: chose another villa (recorded)');
+    notify('📊', '<b>Outcome recorded</b> — lost to competitor. Reason saved: now “why didn’t they book?” has an answer in your weekly report.', 'Thu 14:33');
+    sys('Demo point: even a “no” becomes data — lost-reasons feed the weekly funnel report.');
+  } else if (c1.startsWith('Actually')) {
+    if (!await typing(700, token)) return;
+    bubble('ai', 'Late checkout — let me get Ayu to confirm options for the 8th right away. One moment!', 'Thu 14:32');
+    notify('🔥', '<b>Lead re-engaged!</b> — Simprana guest is back, asking about late checkout. Assigned: Ayu. Thread open.', 'Thu 14:32');
+    await wait(1000, token);
+    bubble('staff', 'Hi, Ayu here! Great news — late checkout until 16:00 works for the 8th. Shall I add it to the quote and hold the dates?', 'Thu 14:41');
+    const c2 = await chips(['Yes — book it! 🎉', 'Let me check with the group'], token);
+    if (token !== runToken) return;
+    bubble('guest', c2, 'Thu 14:44');
+    if (c2.startsWith('Yes')) {
+      setStatus('Won 🎉'); setPipe('won'); setField('notes', 'Won · late checkout added · $2,430');
+      notify('🏆', '<b>Booking won</b> — Simprana, 3–8 Sep, $2,430. A lead that yesterday would have silently expired.', 'Thu 14:45');
+      if (!await typing(600, token)) return;
+      bubble('staff', 'Booked! 🎉 Confirmation and payment link coming right up. We can’t wait to host you.', 'Thu 14:45');
+      sys('Demo point: this booking existed only because a reminder fired on a quiet thread.');
+    } else {
+      setStatus('Follow-up scheduled'); setField('notes', 'Checking with group — next nudge Mon');
+      notify('📅', '<b>Next follow-up scheduled</b> — Monday 10:00, automatically.', 'Thu 14:45');
+      sys('Demo point: “let me check” never becomes “forgotten” — the next touch is already scheduled.');
+    }
+  } else {
+    if (!await typing(700, token)) return;
+    bubble('ai', 'Of course — no rush at all. I’ll keep your quote active and check back once before it expires. If any question pops up meanwhile, I’m right here 🙂', 'Thu 14:33');
+    setStatus('Nurture'); setField('notes', 'Deciding — final nudge before expiry');
+    notify('📅', '<b>Final pre-expiry touch scheduled</b> — automatic, day before the quote lapses.', 'Thu 14:33');
+    sys('Demo point: undecided guests get exactly one respectful, well-timed reminder — never spam.');
+  }
+  $('demo-progress').textContent = 'Scenario complete ✓ — try scenario 3';
+  track('audit_demo_scenario', { asset: ASSET, section: 's2-complete' });
+}
+
+async function s3(token) {
+  $('dp-status').textContent = 'Wednesday · 11:20 WITA';
+  await wait(400, token);
+  bubble('guest', 'Hello! We’re planning a <b>wedding proposal dinner</b> at one of your villas next month — need a private chef, decoration, maybe a photographer. Also, is the price negotiable for 5 nights?', 'Wed 11:20');
+  $('lead-title').textContent = 'Lead #352 · Special event';
+  setField('source', 'WhatsApp direct'); setField('notes', 'Proposal dinner + chef + photographer + price question');
+  setStatus('New'); setPipe('new');
+  ctxCount = 1; metric('m-ctx', '1/4');
+  if (!await typing(800, token)) return;
+  bubble('ai', 'How exciting — congratulations in advance! 🥂 A proposal dinner deserves our team’s personal attention, so I’m bringing in our guest-experience specialist right now. While they join: which dates are you considering, and for how many guests?', 'Wed 11:20');
+  metric('m-ack', '5 sec'); metric('m-promise', 'kept ✓'); setStatus('Escalated to human'); setPipe('handoff');
+  notify('🚨', '<b>Instant escalation</b> — special event + negotiation detected. AI answered, gathered basics, and stepped aside. Assigned: Celine.', 'Wed 11:20');
+  const c1 = await chips(['Sept 14–19, just the two of us', 'Not sure on dates yet'], token);
+  if (token !== runToken) return;
+  bubble('guest', c1, 'Wed 11:22');
+  if (c1.startsWith('Sept')) { setField('dates', '14–19 Sep (5 nights)'); setField('guests', '2'); ctxCount = 3; metric('m-ctx', '3/4'); }
+  await wait(1100, token);
+  bubble('staff', 'Bonjour! Celine from Gravity Bali here — I personally love arranging these ✨ Yes to the chef, yes to decoration, and our photographer partner is wonderful. Let me put together a little proposal-package for your dates and call you this afternoon — does 15:00 work?', 'Wed 11:26');
+  setField('owner', 'Celine (Founder)'); setStatus('In personal care');
+  notify('✅', '<b>Human in charge</b> — 6 min from first message to founder-level attention, with dates & context already on the card. AI is now silent on this thread.', 'Wed 11:26');
+  const c2 = await chips(['15:00 is perfect!', 'Could we do tomorrow morning?'], token);
+  if (token !== runToken) return;
+  bubble('guest', c2, 'Wed 11:27');
+  await wait(600, token);
+  bubble('staff', c2.startsWith('15:00') ? 'Perfect — talk at 15:00! 📞' : 'Of course — 9:30 tomorrow it is! 📞', 'Wed 11:28');
+  setField('notes', 'Proposal package · call scheduled'); setStatus('Call scheduled'); setPipe('follow');
+  notify('📅', '<b>Call on the calendar</b> — reminder will fire 15 min before. Nothing rests on memory.', 'Wed 11:28');
+  sys('Demo point: complex = human, instantly. The AI never negotiates prices and never improvises on the moments that matter.');
+  $('demo-progress').textContent = 'Scenario complete ✓ — book the walkthrough below';
+  track('audit_demo_scenario', { asset: ASSET, section: 's3-complete' });
+}
+
+/* ---------- wiring ---------- */
+const SCENARIOS = { s1, s2, s3 };
+async function run(id) {
+  runToken++;
+  const token = runToken;
+  clearStage();
+  $('scenario-desc').textContent = DESC[id];
+  $('demo-progress').textContent = 'Scenario running — you play the guest.';
+  track('audit_demo_scenario', { asset: ASSET, section: id + '-start' });
+  await SCENARIOS[id](token);
+}
+let current = 's1';
+document.querySelectorAll('.scenario-tab').forEach((tab) => {
+  tab.addEventListener('click', () => {
+    current = tab.dataset.s;
+    document.querySelectorAll('.scenario-tab').forEach((t) => t.setAttribute('aria-selected', t === tab ? 'true' : 'false'));
+    run(current);
+  });
+});
+$('replay').addEventListener('click', () => run(current));
+run('s1');
+</script>
+</body>
+</html>

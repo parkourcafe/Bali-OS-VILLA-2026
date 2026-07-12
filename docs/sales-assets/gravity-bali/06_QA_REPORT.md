@@ -27,6 +27,7 @@ Build date: 2026-07-12 · Branch: `claude/villa-ops-bali-sales-vwmqdj`
 |---|---|
 | Microsite renders desktop + mobile, all 11 sections | ✅ (screenshots reviewed) |
 | Deck renders; print stylesheet present (`Save as PDF` button) | ✅ |
+| Interactive demo `/audit/gravity-bali/demo/`: all 3 scenarios click through end-to-end (chips → ops panel: metrics, lead card, pipeline, notifications); S2 "won" branch reaches `Won 🎉`; replay + tab-switch mid-run don't crash; mobile renders; noindex meta; zero JS errors | ✅ |
 | Form: fill → submit → success box shown only after server 200; row saved | ✅ |
 | Console errors | Only sandbox-expected: Google Fonts blocked (`ERR_CONNECTION_RESET`) and by-design 404 probes for not-yet-captured screenshot slots |
 | `noindex` | `<meta name="robots" content="noindex, nofollow">` on page + deck ✅; `X-Robots-Tag` for `/audit/*` in `netlify.toml` + `vercel.json` ✅; `Disallow: /audit/` in robots.txt ✅; no links from public site ✅ |
@@ -78,6 +79,7 @@ the deck slide 3, and `02_AUDIT.md` before sending. Accuracy is the asset.
 | 4–7 | Site / WhatsApp / booking-flow audit + loss map | `02_AUDIT.md` |
 | 8 | Before/after visualization (+ concept mockups) | microsite §§4–6, deck slides 4–5 |
 | 9 | Personal microsite (noindex, analytics, form) | `audit/gravity-bali/index.html` |
+| 9a | Interactive product demo (3 scenarios, guest-playable) | `audit/gravity-bali/demo/index.html` |
 | 10 | Audit deck 8 slides, editable, PDF-ready | `audit/gravity-bali/deck/index.html` |
 | 11 | Personal proposal | `03_PROPOSAL.md` |
 | 12–13 | 5-message sequence, WA/email/IG versions | `04_OUTREACH_MESSAGES.md` |

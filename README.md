@@ -27,7 +27,9 @@ scripts/capture-evidence.mjs         local Playwright screenshot capture for aud
 ## Private audit microsites (`/audit/<company-slug>/`)
 
 One-client sales assets: a passive public audit of a specific villa management
-company plus a Villa Ops OS proposal, deck and demo-booking form.
+company plus a Villa Ops OS proposal, deck, an interactive product demo
+(`/audit/<slug>/demo/` — playable guest scenarios with a live ops panel,
+clearly labelled as simulated) and a demo-booking form.
 
 - **Privacy:** `noindex` meta + `X-Robots-Tag` header (netlify.toml / vercel.json)
   + `robots.txt` disallow. No links from the public site. Share the URL privately only.

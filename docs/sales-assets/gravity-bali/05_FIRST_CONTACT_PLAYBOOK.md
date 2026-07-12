@@ -12,9 +12,10 @@
    Commit the PNGs; every slot in the page and deck fills automatically.
 3. **Deploy** — push to the Vercel/Netlify project (env vars per README §5;
    the same 4 vars serve `/api/demo-request`). Verify:
-   `https://<domain>/audit/gravity-bali/` renders; `X-Robots-Tag: noindex`
-   header present; demo form submits to the Sheet (send one test, then mark
-   the row TEST).
+   `https://<domain>/audit/gravity-bali/` renders; the interactive demo at
+   `/audit/gravity-bali/demo/` plays scenario 1 end-to-end; `X-Robots-Tag:
+   noindex` header present; demo form submits to the Sheet (send one test,
+   then mark the row TEST).
 4. **Analytics** — set `PLAUSIBLE_DOMAIN` or `GA4_MEASUREMENT_ID` in
    `assets/js/site-config.js`; confirm `audit_page_view` fires.
 5. **Export the deck** — open `/audit/gravity-bali/deck/`, "Save as PDF"
