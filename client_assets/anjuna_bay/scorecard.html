@@ -1,0 +1,127 @@
+<title>Anjuna vs Competitors — Guest-Appeal Scorecard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+ --paper:#F4EFE6;--card:#FFFFFF;--ink:#172029;--muted:#5D6B72;--line:#E6DECF;--line2:#D3C9B2;
+ --sea:#0F6B7A;--sea-soft:#E4F0F0;--coral:#C4553D;--coral-soft:#F6E6DF;--gold:#C0872B;--good:#2E8B57;
+ --shadow:0 1px 2px rgba(23,32,41,.05),0 10px 26px rgba(23,32,41,.07);--r:12px;
+}
+@media (prefers-color-scheme:dark){:root{
+ --paper:#0F1519;--card:#18211F;--ink:#ECF1F0;--muted:#93A29B;--line:#28322E;--line2:#37413B;
+ --sea:#49B7C2;--sea-soft:#0E2C30;--coral:#E0765C;--coral-soft:#2E1B15;--gold:#DDA748;--good:#54B47C;
+ --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 30px rgba(0,0,0,.45);
+}}
+:root[data-theme="light"]{--paper:#F4EFE6;--card:#FFFFFF;--ink:#172029;--muted:#5D6B72;--line:#E6DECF;--line2:#D3C9B2;--sea:#0F6B7A;--sea-soft:#E4F0F0;--coral:#C4553D;--coral-soft:#F6E6DF;--gold:#C0872B;--good:#2E8B57;--shadow:0 1px 2px rgba(23,32,41,.05),0 10px 26px rgba(23,32,41,.07);}
+:root[data-theme="dark"]{--paper:#0F1519;--card:#18211F;--ink:#ECF1F0;--muted:#93A29B;--line:#28322E;--line2:#37413B;--sea:#49B7C2;--sea-soft:#0E2C30;--coral:#E0765C;--coral-soft:#2E1B15;--gold:#DDA748;--good:#54B47C;--shadow:0 1px 2px rgba(0,0,0,.35),0 12px 30px rgba(0,0,0,.45);}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.serif{font-family:Georgia,"Iowan Old Style","Times New Roman",serif}
+.wrap{max-width:1000px;margin:0 auto;padding:30px 22px 80px}
+.eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:10.5px;font-weight:700;color:var(--sea)}
+.mast{border-bottom:2px solid var(--ink);padding-bottom:16px;display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}
+h1{margin:8px 0 0;font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1.1;text-wrap:balance}
+.sub{margin:9px 0 0;color:var(--muted);max-width:66ch;font-size:12.5px}
+.themebtn{border:1px solid var(--line2);background:var(--card);color:var(--ink);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:12px;font-weight:600}
+.banner{margin-top:16px;background:var(--coral-soft);border:1px solid color-mix(in srgb,var(--coral) 30%,transparent);border-radius:var(--r);padding:11px 14px;font-size:12px}
+.banner b{color:var(--coral)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin:20px 0 8px;font-size:11.5px;color:var(--muted);align-items:center}
+.dot{display:inline-block;width:11px;height:11px;border-radius:3px;vertical-align:-1px;margin-right:5px}
+.row{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:13px 16px;margin-bottom:10px;display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:start}
+.row.anjuna{border:2px solid var(--coral);background:linear-gradient(180deg,var(--coral-soft),var(--card))}
+.rank{font-family:Georgia,serif;font-size:15px;font-weight:600;color:var(--muted);text-align:center;padding-top:2px}
+.row.anjuna .rank{color:var(--coral)}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.name{font-weight:700;font-size:15.5px}
+.name .fn{font-weight:400;font-size:11px;color:var(--muted);margin-left:6px}
+.total{font-family:Georgia,serif;font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+.total small{font-size:11px;color:var(--muted);font-weight:400}
+.bars{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:9px 0 8px}
+.metric .ml{font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700;display:flex;justify-content:space-between}
+.metric .ml b{color:var(--ink);font-variant-numeric:tabular-nums}
+.track{height:7px;border-radius:4px;background:var(--sea-soft);overflow:hidden;margin-top:3px}
+.fill{height:100%;border-radius:4px;background:var(--sea)}
+.fill.pos{background:var(--gold)} .fill.soc{background:var(--good)} .fill.pri{background:var(--sea)}
+.why{font-size:12px;color:var(--muted)}
+.row.anjuna .why{color:var(--ink)}
+.diag{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:20px 22px}
+.diag h2{margin:0 0 4px;font-size:20px}
+.diag .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.14em;color:var(--coral);font-weight:700}
+.diag ul{margin:12px 0 0;padding-left:0;list-style:none}
+.diag li{padding:9px 0;border-top:1px solid var(--line);font-size:13px}
+.diag li b{color:var(--ink)}
+.tag{display:inline-block;font-size:10px;font-weight:700;padding:1px 7px;border-radius:5px;margin-right:6px}
+.tag.bad{background:var(--coral-soft);color:var(--coral)} .tag.good{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}
+.take{margin-top:14px;padding:13px 16px;background:var(--sea-soft);border-left:3px solid var(--sea);border-radius:0 8px 8px 0;font-size:13px}
+.foot{margin-top:26px;border-top:1px solid var(--line2);padding-top:12px;font-size:11px;color:var(--muted)}
+@media(max-width:560px){.bars{grid-template-columns:1fr}.mast h1{font-size:24px}}
+</style>
+
+<div class="wrap">
+ <header class="mast">
+  <div>
+   <div class="eyebrow">Selena Systems · Preliminary · Public data (pre-sweep)</div>
+   <h1 class="serif">Anjuna vs 14 Competitors — How Guests Choose in the Same Search</h1>
+   <p class="sub">Scored on the three dimensions we can evidence today — positioning, social proof, price &amp; value — each anchored to the best listing in the set, with the reason next to every score.</p>
+  </div>
+  <button class="themebtn" id="themebtn" type="button">◐ Theme</button>
+ </header>
+
+ <div class="banner"><b>Preliminary (out of 30, not 100).</b> Photos, booking friction and cross-channel consistency (the other 70 pts) come from the browser sweep on fixed test dates. This ranks the evidenced dimensions only — directional, upgradeable, honest.</div>
+
+ <div class="legend">
+  <span><span class="dot" style="background:var(--gold)"></span>Positioning &amp; title /10</span>
+  <span><span class="dot" style="background:var(--good)"></span>Social proof /10</span>
+  <span><span class="dot" style="background:var(--sea)"></span>Price &amp; value /10</span>
+ </div>
+
+ <div id="rows"></div>
+
+ <div class="diag">
+  <div class="k">Diagnosis</div>
+  <h2 class="serif">Great villa. Weak listing.</h2>
+  <p style="font-size:13px;color:var(--muted);margin:6px 0 0">Anjuna ranks near the bottom (13/30) on the evidenced dimensions — despite having, in reality, one of the best products and review records in the set. The gap is packaging, not hospitality.</p>
+  <ul>
+   <li><span class="tag bad">2 / 10</span><b>Positioning — worst in set.</b> Titles are unit codes ("Anjuna B10", "2A5"). Every rival sells a benefit in the title — beach walk-time, "brand new", "architect-designed". A guest scanning the grid reads a code and scrolls past. <b>The cheapest fix on this page.</b></li>
+   <li><span class="tag good">7 / 10</span><b>Social proof — a hidden strength.</b> On Airbnb it's a moat: B1's 4.87 on <b>86 reviews</b> out-depths almost every new-build rival (Ayora 9, Marghe 4). Held back only because on Booking the 8.7/59 sits below the 9.0+ "Exceptional" wall the whole Pecatu grid shows.</li>
+   <li><span class="tag bad">4 / 10</span><b>Price — cheap without a story.</b> $144 is low, but <b>non-refundable with no visible inclusions</b>, while Ayora ($117) and Marghe ($136) undercut from below <i>with free cancellation</i>, and Hakuna Matata wins by bundling breakfast/wifi/transfer.</li>
+  </ul>
+  <div class="take"><b>For the owner, in one line:</b> your villas out-review most rivals, but your listings sell a unit code at a non-refundable discount — so guests pick a competitor that simply reads better in the same search. Fix the packaging and the existing 5-star product converts far more of the traffic it already gets.</div>
+ </div>
+
+ <div class="foot">Preliminary v0 — public evidence only (ratings, indexed prices, titles). Fragile where review counts are tiny (Ayora 9, Marghe 4). The full /100 with photos, friction, consistency and a screenshot behind every cell follows the assistant browser sweep (test dates 17–20 Aug &amp; 21–28 Dec 2026). Not affiliated with Anjuna Bay or Balinest Villas.</div>
+</div>
+
+<script>
+const D=[
+ {r:1,n:"Hakuna Matata",fn:"Airbnb+Booking",pos:7,soc:9,pri:9,why:"240 Booking reviews (9.1) = deep trust; breakfast/wifi/shuttle bundled IN CAPS = strong value story"},
+ {r:2,n:"COZ Bali Boutique",fn:"Booking",pos:9,soc:8,pri:6,why:"“Walking distance to Padang Padang” in the NAME + 9.6 Exceptional — wins the same-street search"},
+ {r:2,n:"Uluwatu Surf Villas",fn:"Google",pos:8,soc:8,pri:7,why:"Owned brand in every roundup; 204 TA reviews; $150 + $25pp incl. pickup/breakfast — a lifestyle compound"},
+ {r:4,n:"Ayora Villas",fn:"Booking+Airbnb",pos:9,soc:4,pri:9,why:"“Brand New · Ocean view · Architect-Designed” + $117 undercuts everyone. Thin reviews (9) — the doppelganger to watch"},
+ {r:5,n:"Bingin Castaways",fn:"Airbnb+Booking",pos:6,soc:7,pri:7,why:"Decade of reviews (8.9) + daily breakfast + staff praised by name; “from $199”"},
+ {r:5,n:"Zyloh collection",fn:"Airbnb",pos:8,soc:6,pri:6,why:"“New, Luxury, Sea View” title formula + 4.89★; amenity stacking (cinema, floating breakfast)"},
+ {r:5,n:"Marghe (Valentina)",fn:"Booking",pos:8,soc:4,pri:8,why:"“5 mins to Thomas Beach · Romantic” + $136 with free cancellation — undercuts Anjuna on the same street; 4 reviews"},
+ {r:8,n:"KELUK Villas",fn:"Booking",pos:8,soc:5,pri:6,why:"“Private Pool & 7min Walk to Bingin” in title + location 9.7"},
+ {r:9,n:"The Young Villas",fn:"Airbnb+Booking",pos:6,soc:4,pri:7,why:"Brand ecosystem: 24h concierge + 10% keychain-discount network; covers every BR size"},
+ {r:9,n:"Bukit Vista (Bingin)",fn:"Google",pos:7,soc:4,pri:6,why:"Manager-optimized titles/photos + dynamic pricing — professional, but per-unit proof thin"},
+ {r:11,n:"Villa Yin",fn:"Booking",pos:7,soc:3,pri:6,why:"“8-minute walk from Thomas Beach” + full kitchen at budget 1BR price"},
+ {r:11,n:"Amaya 1BR",fn:"Airbnb",pos:6,soc:5,pri:5,why:"Superhost + “uninterrupted ocean views” honeymoon copy at 1BR price"},
+ {r:13,n:"Makai Uluwatu",fn:"Airbnb",pos:5,soc:5,pri:4,why:"Stunning infinity-pool photography, but name = just “Makai” and top-end price (~$350–430)"},
+ {r:13,n:"Villa Palmera",fn:"Airbnb+Booking",pos:5,soc:4,pri:5,why:"Sunken-living-room photos + “retreat” positioning; mid-band"},
+ {r:15,n:"ANJUNA (B1 / 2BR)",fn:"our villas",pos:2,soc:7,pri:4,why:"Great product, weak listing — see diagnosis below",anjuna:true},
+];
+const rowsEl=document.getElementById("rows");
+D.forEach(d=>{
+ const total=d.pos+d.soc+d.pri;
+ const bar=(cls,v)=>`<div class="metric"><div class="ml">${cls==='pos'?'Positioning':cls==='soc'?'Social':'Price'}<b>${v}</b></div><div class="track"><div class="fill ${cls}" style="width:${v*10}%"></div></div></div>`;
+ rowsEl.insertAdjacentHTML('beforeend',`<div class="row ${d.anjuna?'anjuna':''}">
+  <div class="rank">${d.anjuna?'▶':d.r}</div>
+  <div>
+   <div class="head"><div class="name">${d.n}<span class="fn">${d.fn}</span></div><div class="total">${total}<small>/30</small></div></div>
+   <div class="bars">${bar('pos',d.pos)}${bar('soc',d.soc)}${bar('pri',d.pri)}</div>
+   <div class="why">${d.why}</div>
+  </div></div>`);
+});
+document.getElementById("themebtn").onclick=()=>{const c=document.documentElement.getAttribute("data-theme");
+ const dark=c?c==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
+ document.documentElement.setAttribute("data-theme",dark?"light":"dark");};
+</script>
