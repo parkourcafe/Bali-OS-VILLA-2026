@@ -1,0 +1,135 @@
+<title>Voice of the Uluwatu Traveler 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+ --paper:#F2ECE0;--card:#FFFFFF;--ink:#1B2733;--muted:#5E6B75;--line:#E5DCCB;--line2:#D2C7B2;
+ --sea:#116A86;--sea-soft:#E3EFF3;--sun:#C67A2A;--sun-soft:#F4E7D4;--coral:#C1543C;--coral-soft:#F6E5DE;
+ --good:#2E8B57;--bad:#B9503A;--warn:#B4801F;
+ --shadow:0 1px 2px rgba(27,39,51,.05),0 10px 26px rgba(27,39,51,.07);--r:12px;
+}
+@media (prefers-color-scheme:dark){:root{
+ --paper:#0E151B;--card:#182129;--ink:#EAF1F0;--muted:#94A2AC;--line:#26313A;--line2:#374350;
+ --sea:#48B2CC;--sea-soft:#0E2B34;--sun:#DDA748;--sun-soft:#2C2113;--coral:#E0765C;--coral-soft:#2E1B15;
+ --good:#54B47C;--bad:#E0765C;--warn:#DDA748;--shadow:0 1px 2px rgba(0,0,0,.35),0 12px 30px rgba(0,0,0,.45);
+}}
+:root[data-theme="light"]{--paper:#F2ECE0;--card:#FFFFFF;--ink:#1B2733;--muted:#5E6B75;--line:#E5DCCB;--line2:#D2C7B2;--sea:#116A86;--sea-soft:#E3EFF3;--sun:#C67A2A;--sun-soft:#F4E7D4;--coral:#C1543C;--coral-soft:#F6E5DE;--good:#2E8B57;--bad:#B9503A;--warn:#B4801F;--shadow:0 1px 2px rgba(27,39,51,.05),0 10px 26px rgba(27,39,51,.07);}
+:root[data-theme="dark"]{--paper:#0E151B;--card:#182129;--ink:#EAF1F0;--muted:#94A2AC;--line:#26313A;--line2:#374350;--sea:#48B2CC;--sea-soft:#0E2B34;--sun:#DDA748;--sun-soft:#2C2113;--coral:#E0765C;--coral-soft:#2E1B15;--good:#54B47C;--bad:#E0765C;--warn:#DDA748;--shadow:0 1px 2px rgba(0,0,0,.35),0 12px 30px rgba(0,0,0,.45);}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.serif{font-family:Georgia,"Iowan Old Style","Times New Roman",serif}
+.wrap{max-width:920px;margin:0 auto;padding:32px 22px 70px}
+.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:10.5px;font-weight:700;color:var(--sea)}
+.mast{border-bottom:2px solid var(--ink);padding-bottom:16px;display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}
+h1{margin:8px 0 0;font-size:32px;font-weight:600;letter-spacing:-.02em;line-height:1.08;text-wrap:balance}
+.sub{margin:9px 0 0;color:var(--muted);max-width:64ch;font-size:12.5px}
+.themebtn{border:1px solid var(--line2);background:var(--card);color:var(--ink);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:12px;font-weight:600}
+.note{margin-top:14px;background:var(--sun-soft);border:1px solid color-mix(in srgb,var(--sun) 32%,transparent);border-radius:var(--r);padding:11px 14px;font-size:11.5px;color:var(--ink)}
+.note b{color:var(--sun)}
+section{margin-top:26px;break-inside:avoid}
+.kick{font-size:10.5px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--sea)}
+h2{font-size:19px;font-weight:600;margin:3px 0 8px;letter-spacing:-.01em}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:15px 18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+ul{margin:6px 0 0;padding-left:18px} li{margin:4px 0}
+.tag{font-size:9.5px;font-weight:700;padding:1px 6px;border-radius:4px;margin-left:5px;vertical-align:1px}
+.t-h{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}
+.t-m{background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--warn)}
+.rank{list-style:none;padding:0;margin:6px 0 0;counter-reset:n}
+.rank li{counter-increment:n;padding:6px 0;border-top:1px solid var(--line);display:flex;gap:10px;align-items:baseline}
+.rank li:first-child{border-top:0}
+.rank li::before{content:counter(n);font-family:Georgia,serif;font-weight:600;color:var(--sea);flex:0 0 18px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chip{font-size:11.5px;background:var(--sea-soft);color:var(--sea);border:1px solid color-mix(in srgb,var(--sea) 20%,transparent);border-radius:999px;padding:3px 10px;font-weight:600}
+.chip.sun{background:var(--sun-soft);color:var(--sun);border-color:color-mix(in srgb,var(--sun) 26%,transparent)}
+.key{background:linear-gradient(180deg,var(--sea-soft),var(--card));border:1px solid color-mix(in srgb,var(--sea) 28%,transparent)}
+.key h2{color:var(--sea)}
+.imp{background:linear-gradient(180deg,var(--coral-soft),var(--card));border:1px solid color-mix(in srgb,var(--coral) 30%,transparent)}
+.imp h2{color:var(--coral)}
+.stat{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px}
+.stat .s{font-size:12px;color:var(--muted)} .stat .s b{color:var(--ink);font-family:Georgia,serif;font-size:16px;display:block}
+.foot{margin-top:26px;border-top:1px solid var(--line2);padding-top:12px;font-size:10.5px;color:var(--muted)}
+</style>
+
+<div class="wrap">
+ <header class="mast">
+  <div>
+   <div class="eyebrow">Selena Systems · Demand-side research · 2026</div>
+   <h1 class="serif">Voice of the Uluwatu Traveler</h1>
+   <p class="sub">Who comes to Uluwatu, why, how they travel, what they spend, what they love and what they complain about — and what it means for the Anjuna villas.</p>
+  </div>
+  <button class="themebtn" id="themebtn" type="button">◐ Theme</button>
+ </header>
+
+ <div class="note"><b>How to read this.</b> Reddit is blocked to automated tools, so this is <b>not</b> verbatim Reddit — it's a synthesis of what the search index surfaced from travel forums, nomad guides, blogs and tourism statistics (which draw on Reddit-adjacent content). "Frequency" is directional, not a counted tally; confidence is tagged <span class="tag t-h">High</span> / <span class="tag t-m">Med</span>. For literal Reddit quotes with permalinks, a manual pull is needed.</div>
+
+ <section><div class="kick">§1 · Who comes</div><h2 class="serif">Surfers own the identity, couples & luxury own the volume</h2>
+  <div class="card">
+   <div class="chips"><span class="chip">Surfers — identity</span><span class="chip">Couples / honeymoon — volume</span><span class="chip">Luxury — volume, growing</span><span class="chip sun">Digital nomads — growth</span><span class="chip sun">Wellness / yoga — growth</span><span class="chip">Party / families — minor</span></div>
+   <p style="margin:10px 0 0;font-size:12.5px;color:var(--muted)"><b>Origins:</b> Australia dominant (~25% of arrivals + surf heritage), then India · China · South Korea · UK · France · US · Singapore. Nomads skew Brazil/Portugal/Europe. <b>2024→26 shift:</b> toward Asian markets, a rising Russian cohort, and longer villa stays over hotels <span class="tag t-m">Med</span> — favorable to villa inventory.</p>
+  </div>
+ </section>
+
+ <section class="card key"><div class="kick">§2 · The key finding</div><h2 class="serif">Two journeys into Uluwatu — opposite reasons</h2>
+  <div class="grid2" style="margin-top:6px">
+   <div><b>Leisure tourists — Uluwatu is the FINALE</b> <span class="tag t-h">High</span><br><span style="font-size:12.5px;color:var(--muted)">Canggu/Seminyak (arrival, social) → Ubud (culture) → <b>Uluwatu last</b> as the scenic wind-down before flying out (airport is close). They don't relocate away from crowds — they sequence Uluwatu at the end.</span></div>
+   <div><b>Nomads — RELOCATE from Canggu</b> <span class="tag t-m">Med-High</span><br><span style="font-size:12.5px;color:var(--muted)">The classic "left Canggu because too crowded" move, mid-trip, for a slower pace. Surfers & retreat guests base in Uluwatu the whole time.</span></div>
+  </div>
+ </section>
+
+ <section><div class="kick">§3 · Why Uluwatu & the economics</div><h2 class="serif">The draw, the stay, the spend</h2>
+  <div class="grid2">
+   <div class="card"><b>Why Uluwatu (ranked)</b> <span class="tag t-h">High</span>
+    <ol class="rank"><li>World-class reef breaks</li><li>Clifftop scenery & sunsets</li><li>"Not-Canggu" calm / slower pace</li><li>Romance & premium privacy</li></ol></div>
+   <div class="card"><b>Length & spend</b> <span class="tag t-m">Med-High</span>
+    <div class="stat"><div class="s"><b>2–3 nts</b>modal (leisure)<br>4–5 "should've"</div><div class="s"><b>$30–65</b>per day (budget-mid)</div><div class="s"><b>+15–20%</b>vs Canggu (monthly)</div></div>
+    <p style="font-size:12px;color:var(--muted);margin:8px 0 0">Villas a clear step above Canggu; surf/nomad/wellness stay weeks-to-months. Price complaints cluster on overpriced, crowded <b>beach clubs</b> (Single Fin sunset, 21% tax) and Western restaurants.</p></div>
+  </div>
+ </section>
+
+ <section><div class="kick">§4 · What they love</div><h2 class="serif">Ranked by how often it comes up</h2>
+  <div class="card">
+   <ol class="rank">
+    <li><b>Cliffs + sunset views</b> — the #1 draw, near-universal</li>
+    <li><b>World-class surf breaks</b> (Uluwatu, Padang Padang, Bingin, Impossibles)</li>
+    <li><b>Beaches / hidden coves</b> (Padang Padang, Bingin, Suluban, Dreamland, Balangan, Thomas)</li>
+    <li><b>Quieter / slower than Canggu</b> — eroding (see §6)</li>
+    <li><b>Uluwatu Temple + Kecak fire dance</b></li>
+    <li><b>Beach-club / cliff-bar sunset scene</b></li>
+   </ol>
+  </div>
+ </section>
+
+ <section><div class="kick">§5 · Where they go</div><h2 class="serif">Venues travelers name</h2>
+  <div class="grid2">
+   <div class="card"><b>Beach clubs / cliff bars</b><div class="chips" style="margin-top:8px"><span class="chip">Single Fin (icon)</span><span class="chip">Savaya</span><span class="chip">Ulu Cliffhouse</span><span class="chip">El Kabron</span><span class="chip">Sundays</span><span class="chip">Oneeighty°</span><span class="chip">Karma Beach</span><span class="chip">Mana</span><span class="chip">Omnia</span></div></div>
+   <div class="card"><b>Cafes / restaurants</b><div class="chips" style="margin-top:8px"><span class="chip sun">Suka Espresso</span><span class="chip sun">Drifter</span><span class="chip sun">The Cashew Tree</span><span class="chip sun">The Loft</span><span class="chip sun">Bukit Cafe</span><span class="chip sun">Mana</span></div><p style="font-size:11px;color:var(--muted);margin:8px 0 0">Correction: La Brisa is in Canggu, not Uluwatu.</p></div>
+  </div>
+ </section>
+
+ <section><div class="kick">§6 · Complaints & the 2024→26 shift</div><h2 class="serif">What frustrates them — and the warning sign</h2>
+  <div class="grid2">
+   <div class="card"><b>Top complaints (ranked)</b>
+    <ol class="rank"><li>Need a scooter — spread out, not walkable <span class="tag t-h">Very high</span></li><li>Isolated listings 2–6km from the beach</li><li>Construction noise & dust (2024–26 boom)</li><li>Traffic, esp. 4–7pm sunset rush</li><li>Steep stairs / tide-dependent beach access</li><li>"Boujee" / overpriced clubs & villas</li><li>Taxi mafia blocking Grab/Gojek</li><li>Photos ≠ reality / misleading location</li></ol></div>
+   <div class="card" style="border-top:3px solid var(--coral)"><b>Sentiment shift — confirmed</b> <span class="tag t-h">High</span>
+    <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0">A clear, growing narrative: <b>"Uluwatu is becoming the next Canggu"</b> — over-developed, more crowded, losing charm. Flashpoints: Bingin Beach redevelopment (40+ villas demolished), the "Cube Apartment" project, the coastal road cutting the cliffs above the breaks. Uluwatu's #1 differentiator — "quieter than Canggu" — is <b>actively eroding.</b></p></div>
+  </div>
+ </section>
+
+ <section class="card imp"><div class="kick">§7 · What this means for Anjuna</div><h2 class="serif">Turn the demand truth into moves</h2>
+  <ul>
+   <li><b>Target</b> Australians + couples/honeymooners + surfers first; growth from nomads/wellness & Asian markets. Sell <b>the view + private pool + privacy</b> — the exact top-3 things travelers love.</li>
+   <li><b>Be visible 2–6 months out</b> (AU/EU/honeymoon booking windows) — the Inspiration stage where Anjuna currently has no guest-facing brand.</li>
+   <li><b>Pre-empt the top objections in listing copy:</b> scooter/transport help, exact walk-times to Thomas Beach, honest construction disclosure + mitigation, airport transfer. These are the market's #1–5 complaints — answering them converts.</li>
+   <li><b>WhatsApp pre-arrival is the expected norm</b> for Uluwatu villas — reinforces the response-system + owner-brand moves.</li>
+   <li><b>Risk:</b> the "next Canggu" sentiment + Anjuna's own on-site construction is a live reputation threat — manage it in copy now, not after the reviews land.</li>
+  </ul>
+ </section>
+
+ <div class="foot">Synthesis of travel forums, nomad guides, blogs, and BPS/tourism arrivals data via public search indexing (Reddit and most blogs 403-block automated fetch). Frequency is directional; confidence tagged per finding. Not verbatim Reddit. Prepared by Selena Systems, Bali — independent; not affiliated with Anjuna Bay or Balinest Villas.</div>
+</div>
+<script>
+document.getElementById("themebtn").onclick=()=>{const c=document.documentElement.getAttribute("data-theme");
+ const dark=c?c==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
+ document.documentElement.setAttribute("data-theme",dark?"light":"dark");};
+</script>
