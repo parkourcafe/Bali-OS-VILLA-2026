@@ -1,0 +1,27 @@
+Unit / listing name,Channel,URL / ID,Type (unit|aggregate),BR,Live? (verified at checkout),Price for test dates,Rating,Reviews,Notes
+Anjuna A3,Airbnb,airbnb.com/rooms/1528696130381899937,unit,1BR,TO VERIFY,,,,
+Anjuna B1,Airbnb,airbnb.com/rooms/1647076484277431363,unit,1BR,TO VERIFY,,4.87,86,Superhost
+Anjuna B2,Airbnb,airbnb.com/rooms/1650058710181211040,unit,1BR,TO VERIFY,,,,
+Anjuna B2,Trip.com,ctrip hotel 134307711,unit,1BR,TO VERIFY,,,,'By Balinest Villas'
+Anjuna 2A5 / A13,Airbnb,airbnb.com/rooms/1528749163289022085,unit,2BR,TO VERIFY,,,,same room ID under 2 titles - dedupe!
+Anjuna A14,Airbnb,(find via host profile),unit,3BR,TO VERIFY,,5.0,44,Guest favorite
+Anjuna A15,Airbnb,airbnb.com/rooms/1538877998571031981,unit,3BR,TO VERIFY,,,,title typo 'A15–'
+Anjuna 2BR (generic),Airbnb,airbnb.com/rooms/1668888955974657076,unit,2BR,TO VERIFY,,5.0,6,Guest favorite
+Anjuna 2A1,Guesty direct,balinestvillas.guestybookings.com/en/properties/68ec8227a8f9930012874225,unit,2BR,TO VERIFY,,,,only Anjuna unit indexed on direct site
+Anjuna B10,Booking.com,booking: anjuna-b10-surf-amp-sunset-1br-villa,unit,1BR,TO VERIFY,,,,ONLY on Booking
+Anjuna 1BR Villas (aggregate),Booking.com,booking: ...-1br-villa-in-uluwatu-1a3,aggregate,1BR,TO VERIFY,,,,open to count rooms inside
+Anjuna 2BR Villas (aggregate),Booking.com,booking: anjuna-surf-amp-sunset-2br-villas,aggregate,2BR,TO VERIFY,,8.7,59,from $144 non-refundable
+"Anjuna 3BR (aggregate, slug 3b)",Booking.com,booking: anjuna-3b-...-3br-villa,aggregate,3BR,TO VERIFY,,,,
+Anjuna Bay Villa Thomas Beach,Booking.com,booking: anjuna-bay-villa-thomas-beach (BC-16163274),unit,2BR,TO VERIFY,,,,
+Anjuna B3,Agoda,agoda: 'Anjuna B3 Surf & Sunset 1BR Villa',unit,1BR,TO VERIFY,,,,ONLY on Agoda
+Anjuna 2BR estate listing,Trip.com,trip.com hotel 132714887,aggregate,2BR,TO VERIFY,,,,
+Anjuna 2BR Surf & Sunset,Marriott H&V,homes-and-villas.marriott.com/en/properties/40791834,unit,2BR,TO VERIFY,,,,only Marriott listing
+(new finding),Airbnb (host profile sweep),,,,,,,,
+(new finding),Booking.com,,,,,,,,
+(new finding),Agoda,,,,,,,,
+(new finding),Trip.com,,,,,,,,
+(new finding),Traveloka,,,,,,,,
+(new finding),Expedia/Vrbo,,,,,,,,
+(new finding),TripAdvisor,,,,,,,,
+(new finding),Google VR,,,,,,,,
+(new finding),Guesty direct,,,,,,,,
