@@ -1,0 +1,233 @@
+<title>Anjuna Surf &amp; Sunset — Takeover Due Diligence Data Request</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+ --paper:#FFFFFF;--ink:#172029;--muted:#5D6B72;--line:#E4DCCB;--line2:#D3C9B2;
+ --sea:#0F6B7A;--sea-soft:#EAF3F4;--coral:#C96F4A;--coral-soft:#F8EDE6;--sand:#F3EEE4;
+ --good:#2E8B57;--bad:#B9503A;
+}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.serif{font-family:Georgia,"Iowan Old Style","Times New Roman",serif}
+.wrap{max-width:800px;margin:0 auto;padding:34px 30px 60px}
+.eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:10px;font-weight:700;color:var(--sea)}
+.mast{border-bottom:3px solid var(--ink);padding-bottom:16px}
+h1{margin:8px 0 0;font-size:27px;font-weight:600;letter-spacing:-.02em;line-height:1.12;text-wrap:balance}
+.sub{margin:9px 0 0;color:var(--muted);max-width:70ch;font-size:12.5px}
+.metabar{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;font-size:11px;color:var(--muted)}
+.metabar b{color:var(--ink)}
+.intro{margin:18px 0 0;padding:13px 16px;background:var(--sand);border-radius:10px;font-size:12.5px}
+.legend{display:flex;gap:18px;margin-top:12px;font-size:11.5px;color:var(--muted)}
+.legend b{font-weight:700}
+section{margin-top:26px;break-inside:avoid-page}
+h2{font-size:16.5px;font-weight:700;margin:0 0 2px;color:var(--ink)}
+h2 .id{font-weight:400;color:var(--muted);font-size:12px;font-style:italic}
+.secbar{height:3px;width:44px;background:var(--sea);border-radius:2px;margin:6px 0 12px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 26px}
+.cols.three{grid-template-columns:1fr 1fr 1fr}
+.item{display:flex;gap:8px;align-items:baseline;padding:2.5px 0;font-size:12.5px}
+.item .box{flex:0 0 auto;width:11px;height:11px;border:1.6px solid var(--line2);border-radius:3px;position:relative;top:1px}
+.item.done .box{border-color:var(--good);background:var(--good)}
+.item.done .box::after{content:"✓";color:#fff;font-size:9px;position:absolute;top:-2.5px;left:1px;font-weight:700}
+.item.done{color:var(--good)}
+.item.done .note{color:var(--muted)}
+.item .note{color:var(--muted);font-size:11.5px}
+.prefill{margin-top:10px;background:var(--sea-soft);border-left:3px solid var(--sea);border-radius:0 8px 8px 0;padding:10px 14px;font-size:12px}
+.prefill .t{font-size:10px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;color:var(--sea);margin-bottom:5px}
+.prefill ul{margin:0;padding-left:16px}
+.prefill li{margin:3px 0}
+.crit{margin-top:10px;background:var(--coral-soft);border-left:3px solid var(--coral);border-radius:0 8px 8px 0;padding:10px 14px;font-size:12px}
+.crit .t{font-size:10px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;color:var(--coral);margin-bottom:5px}
+table{border-collapse:collapse;width:100%;font-size:11.8px;margin-top:8px}
+th{text-align:left;font-size:9.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);padding:7px 9px;border-bottom:2px solid var(--line2)}
+td{padding:8px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child{font-family:Georgia,serif;font-weight:600;white-space:nowrap;color:var(--sea)}
+.risk{counter-reset:r;margin-top:8px}
+.risk .r{display:flex;gap:11px;padding:7px 0;border-bottom:1px solid var(--line);font-size:12.5px;align-items:baseline}
+.risk .r:last-child{border-bottom:0}
+.risk .n{flex:0 0 22px;height:22px;border-radius:50%;background:var(--coral-soft);color:var(--coral);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:11px}
+.outputs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.out{border:1px solid var(--line2);border-radius:10px;padding:13px 15px}
+.out .k{font-family:Georgia,serif;font-size:15px;font-weight:600;color:var(--sea)}
+.out p{margin:5px 0 0;font-size:12px;color:var(--muted)}
+.foot{margin-top:34px;border-top:1px solid var(--line2);padding-top:12px;font-size:10.5px;color:var(--muted)}
+@media print{ .wrap{padding:0} section{margin-top:20px} }
+</style>
+
+<div class="wrap">
+ <header class="mast">
+  <div class="eyebrow">Confidential · Prepared for the Owner Side</div>
+  <h1 class="serif">Anjuna Surf &amp; Sunset Villas — Management Takeover: Due Diligence Data Request</h1>
+  <p class="sub">Data to obtain from the current operator (Balinest Villas) and the owner's records before management handover, so the incoming team starts from facts. Items already established by the independent public audit (12 July 2026) are pre-filled — the remainder must come from internal records.</p>
+  <div class="metabar">
+   <span>Property: <b>Anjuna Surf &amp; Sunset Villas, Thomas Beach, Uluwatu</b></span>
+   <span>Candidate operator: <b>Fadjri D. Roesman, cSMH</b></span>
+   <span>Date: <b>July 2026</b></span>
+  </div>
+  <div class="legend"><span><b style="color:var(--good)">✓ green</b> — already answered by the public audit (verify against internals)</span><span><b>☐ open</b> — request from owner / current operator</span></div>
+ </header>
+
+ <section>
+  <h2>1. Financial data <span class="id">· Data Keuangan (last 2–3 years)</span></h2>
+  <div class="secbar"></div>
+  <div class="cols">
+   <div class="item"><span class="box"></span>Profit &amp; Loss statements</div>
+   <div class="item"><span class="box"></span>Balance Sheet</div>
+   <div class="item"><span class="box"></span>Cash Flow statements</div>
+   <div class="item"><span class="box"></span>General Ledger</div>
+   <div class="item"><span class="box"></span>Bank statements</div>
+   <div class="item"><span class="box"></span>AR / AP aging</div>
+   <div class="item"><span class="box"></span>Tax reports</div>
+   <div class="item"><span class="box"></span>Cost structure: payroll % · utilities % · OTA commission % · maintenance % · marketing % · laundry %</div>
+   <div class="item"><span class="box"></span>Net profit margin &amp; liabilities</div>
+   <div class="item"><span class="box"></span>Monthly revenue / occupancy / ADR / RevPAR trend</div>
+  </div>
+  <div class="prefill"><div class="t">Pre-filled by public audit — verify against internals</div>
+   <ul>
+    <li>ADR signal: 2BR lead-in <b>$144/night</b> (non-refundable), 1BR from ~$66 — vs Uluwatu median ~$216, 2–3BR ADR ~$259. Expect internal ADR well below market.</li>
+    <li>RevPAR estimate ≈ <b>$122</b>/available night — parity with the average Uluwatu listing despite 4.9★-level reviews.</li>
+    <li>OTA contribution: expect near-100% of bookings OTA-sourced → heavy commission line.</li>
+   </ul>
+  </div>
+ </section>
+
+ <section>
+  <h2>2. Villa operations <span class="id">· Data Operasional Villa</span></h2>
+  <div class="secbar"></div>
+  <div class="cols">
+   <div class="item"><span class="box"></span>SOPs: front office · housekeeping · engineering · guest complaint · emergency</div>
+   <div class="item"><span class="box"></span>Occupancy history (per unit, monthly)</div>
+   <div class="item"><span class="box"></span>Complaint records &amp; maintenance log</div>
+   <div class="item"><span class="box"></span>Accident / incident reports</div>
+   <div class="item done"><span class="box"></span>Guest review scores <span class="note">— Airbnb 4.87–5.0★/unit (B1: 86 reviews), Booking 8.7/10, Staff 9.5</span></div>
+   <div class="item done"><span class="box"></span>Superhost / partner status <span class="note">— Superhost + Guest favorite confirmed</span></div>
+   <div class="item done"><span class="box"></span>Channels live <span class="note">— Airbnb, Booking, Agoda, Trip.com/Ctrip, Marriott H&amp;V, Guesty direct</span></div>
+   <div class="item done"><span class="box"></span>Channels absent <span class="note">— Expedia/Vrbo, Traveloka, TripAdvisor, metasearch, luxury agencies</span></div>
+   <div class="item"><span class="box"></span>OTA commission levels &amp; property ranking (extranet)</div>
+  </div>
+  <div class="crit"><div class="t">Critical ask</div>
+   <b>Full unit census:</b> how many villas are completed vs listed vs held back. Public search surfaces only ~10–15 live units; Palms (15 townhouses, due Jun 2026) has no rental presence anywhere. Whatever the exact number, bookable inventory is a fraction of the estate — this caps booking volume before anything else.</div>
+ </section>
+
+ <section>
+  <h2>3. Running contracts <span class="id">· Kontrak yang Masih Berjalan (hidden obligations)</span></h2>
+  <div class="secbar"></div>
+  <div class="cols three">
+   <div class="item"><span class="box"></span>Laundry</div>
+   <div class="item"><span class="box"></span>Internet</div>
+   <div class="item"><span class="box"></span>Security</div>
+   <div class="item"><span class="box"></span>Pest control</div>
+   <div class="item"><span class="box"></span>Pool maintenance</div>
+   <div class="item"><span class="box"></span>Accounting</div>
+   <div class="item"><span class="box"></span>Digital marketing</div>
+   <div class="item"><span class="box"></span>Long-stay guests</div>
+   <div class="item"><span class="box"></span>Corporate agreements</div>
+   <div class="item"><span class="box"></span>Travel-agent agreements</div>
+  </div>
+  <div class="crit"><div class="t">Management agreement with Balinest — examine before any termination notice</div>
+   Base fee · incentive fee · revenue share · owner &amp; operator obligations · <b>termination clause</b> · <b>non-compete</b> · and above all: <b>who owns the OTA listings and their review history</b>. Airbnb/Booking account transferability is the single biggest handover risk — losing B1's 86 reviews means every unit relaunches from zero.</div>
+ </section>
+
+ <section>
+  <h2>4. Assets &amp; building condition <span class="id">· Data Aset &amp; Kondisi Bangunan</span></h2>
+  <div class="secbar"></div>
+  <div class="cols three">
+   <div class="item"><span class="box"></span>Furniture inventory</div>
+   <div class="item"><span class="box"></span>Linen stock</div>
+   <div class="item"><span class="box"></span>Kitchen equipment</div>
+   <div class="item"><span class="box"></span>AC units &amp; condition</div>
+   <div class="item"><span class="box"></span>TVs / electronics</div>
+   <div class="item"><span class="box"></span>Generator</div>
+   <div class="item"><span class="box"></span>Pool equipment</div>
+   <div class="item"><span class="box"></span>Structure / roof / waterproofing</div>
+   <div class="item"><span class="box"></span>Plumbing &amp; electrical</div>
+   <div class="item"><span class="box"></span>Septic tank</div>
+   <div class="item"><span class="box"></span>Pool leakage</div>
+   <div class="item"><span class="box"></span>Engineering audit / QS / property inspector</div>
+  </div>
+  <div class="prefill"><div class="t">Public flag</div>
+   <ul><li>Active phase-2 construction adjacent to operating villas (daily rock-breaker per guest reviews) and a nightclub next door (20:00–03:00). Inspect insulation, get the construction schedule, and plan noise mitigation — this is already visible in review subscores.</li></ul>
+  </div>
+ </section>
+
+ <section>
+  <h2>5. Digital &amp; branding ownership <span class="id">· Data Digital &amp; Branding</span></h2>
+  <div class="secbar"></div>
+  <div class="cols">
+   <div class="item"><span class="box"></span>Website &amp; domain</div>
+   <div class="item"><span class="box"></span>Company email accounts</div>
+   <div class="item"><span class="box"></span>OTA extranet access (all channels)</div>
+   <div class="item done"><span class="box"></span>Channel manager / PMS <span class="note">— Guesty confirmed; only 1 Anjuna property indexed on the direct site</span></div>
+   <div class="item"><span class="box"></span>WhatsApp Business number</div>
+   <div class="item"><span class="box"></span>Instagram / Facebook / TikTok</div>
+   <div class="item done"><span class="box"></span>Google Business Profile <span class="note">— does not exist for the rental operation; must be created, not transferred</span></div>
+   <div class="item"><span class="box"></span>Booking sources report · ROAS · SEO · repeat-guest %</div>
+   <div class="item"><span class="box"></span><b>Guest database export from Guesty</b> (explicit handover item)</div>
+  </div>
+  <div class="prefill"><div class="t">Pre-filled by public audit</div>
+   <ul><li>No guest-facing rental brand exists anywhere (@anjunabay markets real-estate sales; operator's channels target villa owners). Expect no ROAS/SEO/database of substance to inherit — plan to <b>build</b>, not migrate.</li></ul>
+  </div>
+ </section>
+
+ <section>
+  <h2>6. Business reputation <span class="id">· Data Reputasi Bisnis</span></h2>
+  <div class="secbar"></div>
+  <div class="cols">
+   <div class="item done"><span class="box"></span>OTA reviews <span class="note">— strong: 4.87–5.0★ Airbnb, 8.7/10 Booking</span></div>
+   <div class="item done"><span class="box"></span>Google reviews <span class="note">— no rental profile exists</span></div>
+   <div class="item"><span class="box"></span>Social media complaints</div>
+   <div class="item"><span class="box"></span>Blacklist issues</div>
+  </div>
+  <div class="prefill"><div class="t">Read</div><ul><li>Reputation is an asset to protect through the handover (see §3 listing ownership), not a problem to fix. Recurring themes to manage in copy: construction noise, nightlife, scooter access.</li></ul></div>
+ </section>
+
+ <section>
+  <h2>Advisory team &amp; target outputs</h2>
+  <div class="secbar"></div>
+  <div class="cols">
+   <div class="item"><span class="box"></span>Property &amp; hospitality lawyer</div>
+   <div class="item"><span class="box"></span>Tax consultant</div>
+   <div class="item"><span class="box"></span>Accountant / auditor</div>
+   <div class="item"><span class="box"></span>Engineering inspector</div>
+   <div class="item"><span class="box"></span>HR consultant — staff transfer: who employs the praised villa team; keeping them keeps the 9.5 Staff score</div>
+  </div>
+  <div class="outputs">
+   <div class="out"><div class="k">Output 1</div><p>Business plan &amp; 2026 revenue target — built on internal actuals plus market benchmarks (Uluwatu median $216; top-quartile $313+).</p></div>
+   <div class="out"><div class="k">Output 2</div><p>Post-takeover ROI estimate — inventory activation + repricing + direct-demand scenarios.</p></div>
+  </div>
+ </section>
+
+ <section>
+  <h2>7. Revenue strategy after takeover <span class="id">· Strategy Baru untuk Meningkatkan Revenue</span></h2>
+  <div class="secbar"></div>
+  <table>
+   <tr><th>#</th><th>Strategy</th><th>Audit backing / how it lands</th></tr>
+   <tr><td>1</td><td>Aggressive offline + online sales — beyond Airbnb only</td><td>Confirms audit leak: 5 channels live, most units single-channel. Add Expedia/Vrbo, Traveloka, TripAdvisor, metasearch, luxury agencies, corporate &amp; travel-agent contracts.</td></tr>
+   <tr><td>2</td><td>Monetize the venue — weddings, birthdays, social events</td><td>New income stream; cliff-front + Anjuna Village commercial zone is an event asset. Needs owner sign-off + event SOP.</td></tr>
+   <tr><td>3</td><td>Collaborate with Canna Bali Beach Club for guest experiences</td><td>Cross-sell income + turns the nightlife-noise objection into a managed feature.</td></tr>
+   <tr><td>4</td><td>Fast response to every inquiry — email, WA, social, DM</td><td>Governed response layer: approved first reply &lt;2 min, 24/7, qualification, D1/D3/D7 follow-up, escalation.</td></tr>
+   <tr><td>5</td><td>Dynamic rate strategy for revenue optimization</td><td>Confirms rate leak ($144 vs $216 median). Daily revenue management; reposition 2BR at $210–300. Nearby benchmark (Bingin, same Guesty stack): 92% occupancy at +48% RevPAR.</td></tr>
+   <tr><td>6</td><td>Partner for prestigious events &amp; new business</td><td>Extends #2; MICE/brand events.</td></tr>
+   <tr><td>+</td><td><b>List ALL completed inventory; onboard Palms on handover day</b></td><td>From the audit — the only move that multiplies booking <i>count</i>; confirm exact availability in §2.</td></tr>
+   <tr><td>+</td><td><b>Build the guest-facing brand; consolidate review equity</b></td><td>Google profile, landmark listing names, review continuity — protects and compounds everything above.</td></tr>
+  </table>
+  <div class="prefill" style="margin-top:12px"><div class="t">Keep from the current operation</div>
+   <ul><li>The on-ground service standard (Staff 9.5, welcome-WhatsApp ritual) and the Guesty stack — change the commercial layer, not the hospitality.</li></ul></div>
+ </section>
+
+ <section>
+  <h2>Handover risk checklist — top 5</h2>
+  <div class="secbar"></div>
+  <div class="risk">
+   <div class="r"><span class="n">1</span><span><b>OTA listing &amp; review-history transferability</b> (Airbnb account ownership) — negotiate BEFORE any termination notice.</span></div>
+   <div class="r"><span class="n">2</span><span><b>Termination + non-compete terms</b> in the Balinest management agreement.</span></div>
+   <div class="r"><span class="n">3</span><span><b>Staff continuity</b> — who employs the villa team; re-hire terms to keep service scores.</span></div>
+   <div class="r"><span class="n">4</span><span><b>Guest database export</b> from Guesty.</span></div>
+   <div class="r"><span class="n">5</span><span><b>Forward bookings ledger</b> — deposits held by the current operator for stays after handover date.</span></div>
+  </div>
+ </section>
+
+ <div class="foot">
+  Pre-filled items derive from an independent public-data audit (12 July 2026): OTA listing &amp; review data, airbtics/airroi benchmarks, FazWaz &amp; asia.villas project statuses, read via public search indexing. Figures marked as estimates are directional, to be verified against internal records during due diligence. Prepared by Selena Systems, Bali — independent; not affiliated with Anjuna Bay or Balinest Villas.
+ </div>
+</div>
