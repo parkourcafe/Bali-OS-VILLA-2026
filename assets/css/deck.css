@@ -1,0 +1,102 @@
+/* Audit deck — self-contained slide deck styles (/audit/<slug>/deck/).
+   Editable HTML; prints to PDF via the browser (one slide per page). */
+
+:root {
+  --ink: #17241f;
+  --paper: #faf6ee;
+  --surface: #f1ead9;
+  --muted: #6d7570;
+  --line: rgba(23, 36, 31, .14);
+  --accent: #1f6b5b;
+  --accent-ink: #f4efe2;
+  --success: #2e7d4f;
+  --warning: #a3742a;
+  --danger: #a3402e;
+  --serif: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  --sans: "Public Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #d8d2c4; font-family: var(--sans); color: var(--ink); }
+
+.deck-toolbar {
+  position: sticky; top: 0; z-index: 5; display: flex; gap: 14px; align-items: center;
+  background: var(--ink); color: var(--accent-ink); padding: 10px 20px; font-size: .82rem;
+}
+.deck-toolbar b { font-family: var(--serif); }
+.deck-toolbar .spacer { flex: 1; }
+.deck-toolbar button {
+  font: inherit; background: var(--accent); color: var(--accent-ink); border: none;
+  border-radius: 999px; padding: 7px 16px; cursor: pointer;
+}
+
+.slide {
+  width: 1120px; max-width: calc(100vw - 24px); aspect-ratio: 16 / 9;
+  background: var(--paper); margin: 26px auto; padding: 56px 64px;
+  box-shadow: 0 18px 44px rgba(23,36,31,.18); border-radius: 6px;
+  display: flex; flex-direction: column; position: relative; overflow: hidden;
+}
+.slide-num {
+  position: absolute; bottom: 20px; right: 28px; font-size: .7rem; color: var(--muted);
+}
+.slide-foot {
+  position: absolute; bottom: 20px; left: 64px; font-size: .66rem; color: var(--muted); max-width: 75%;
+}
+
+.slide .eyebrow {
+  font-size: .7rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 12px;
+}
+.slide h1 { font-family: var(--serif); font-size: 2.6rem; line-height: 1.08; font-weight: 550; }
+.slide h2 { font-family: var(--serif); font-size: 1.9rem; line-height: 1.12; font-weight: 550; margin-bottom: 20px; }
+.slide h3 { font-size: 1rem; margin-bottom: 8px; }
+.slide p, .slide li { font-size: .95rem; line-height: 1.5; color: rgba(23,36,31,.82); }
+.slide ul { margin-left: 20px; display: grid; gap: 7px; }
+.slide .small { font-size: .76rem; color: var(--muted); }
+
+.cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; flex: 1; min-height: 0; }
+.cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; flex: 1; min-height: 0; }
+
+.card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+.card h4 { font-size: .82rem; margin-bottom: 8px; }
+.card p, .card li { font-size: .8rem; }
+.card ul { margin-left: 16px; }
+
+.tag { display: inline-block; font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; border-radius: 5px; padding: 2px 7px; vertical-align: middle; }
+.tag-observed { background: rgba(31,107,91,.12); color: var(--accent); }
+.tag-inferred { background: rgba(163,116,42,.14); color: var(--warning); }
+.tag-nottested { background: rgba(23,36,31,.08); color: var(--muted); }
+.tag-assumption { background: rgba(163,116,42,.14); color: var(--warning); }
+
+.kpi { font-family: var(--serif); font-size: 2rem; color: var(--accent); }
+
+.flow { display: flex; gap: 6px; align-items: stretch; margin: 12px 0; }
+.flow-step { flex: 1; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 9px 8px; font-size: .68rem; text-align: center; }
+.flow-step strong { display: block; font-size: .7rem; margin-bottom: 2px; }
+.flow-step.leak { border-color: rgba(163,64,46,.5); background: rgba(163,64,46,.06); }
+.flow-step.gain { border-color: rgba(46,125,79,.45); background: rgba(46,125,79,.06); }
+.flow-arrow { align-self: center; color: var(--muted); font-size: .8rem; }
+
+.shot-slot {
+  border: 1.5px dashed var(--line); border-radius: 8px; background: var(--surface);
+  min-height: 120px; display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: .72rem; text-align: center; padding: 12px;
+}
+.shot-slot img { max-width: 100%; border-radius: 6px; }
+
+.price-line { display: flex; align-items: baseline; gap: 14px; margin: 14px 0; }
+.price-line .amount { font-family: var(--serif); font-size: 2.6rem; color: var(--accent); }
+
+table.simple { width: 100%; border-collapse: collapse; font-size: .78rem; }
+table.simple th, table.simple td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); }
+table.simple th { font-size: .64rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+@media print {
+  body { background: #fff; }
+  .deck-toolbar { display: none; }
+  .slide {
+    width: 100%; max-width: none; margin: 0; border-radius: 0; box-shadow: none;
+    page-break-after: always; aspect-ratio: auto; height: 100vh;
+  }
+}
+@page { size: 297mm 167mm; margin: 0; }

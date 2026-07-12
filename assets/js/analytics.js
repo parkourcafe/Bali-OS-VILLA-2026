@@ -5,7 +5,11 @@
  */
 import { SITE_CONFIG, has } from './site-config.js';
 
-const ALLOWED_PROPS = new Set(['step', 'gate', 'scoreBand', 'device', 'referrerCategory', 'utmCampaign', 'code']);
+const ALLOWED_PROPS = new Set([
+  'step', 'gate', 'scoreBand', 'device', 'referrerCategory', 'utmCampaign', 'code',
+  // Private audit microsites (/audit/<slug>/): anonymous engagement props only.
+  'asset', 'section', 'cta',
+]);
 
 function deviceClass() {
   try {

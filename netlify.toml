@@ -13,6 +13,11 @@
   to = "/.netlify/functions/lead"
   status = 200
 
+[[redirects]]
+  from = "/api/demo-request"
+  to = "/.netlify/functions/demo-request"
+  status = 200
+
 # Legacy / stray score routes land safely on the assessment
 [[redirects]]
   from = "/score"
@@ -47,6 +52,12 @@
 # Result page must not be indexed
 [[headers]]
   for = "/score/result/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# Private audit microsites must not be indexed (per-client sales assets)
+[[headers]]
+  for = "/audit/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 

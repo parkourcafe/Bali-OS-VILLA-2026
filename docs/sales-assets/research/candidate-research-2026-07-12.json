@@ -1,0 +1,1191 @@
+{
+ "profiles": [
+  {
+   "company_name": "Bukit Vista (Bukit Vista Hospitality Services)",
+   "exists": true,
+   "facts": "[\"VERIFIED-RECENT: Operating in July 2026 — official blog posts dated April 2026 ('Sanur 10 April 2026: Bukit Vista Ground Truth Update', 'Bali Property Investment Guide for Foreign Investors 2026') indexed at bukitvista.com/blog\", \"OBSERVED: Portfolio 170-180+ properties under exclusive management (crunchbase.com/person/jing-cho-yang '180+ properties'; cabobali.com roundup '170+ villa partners'; company claims 'largest Airbnb host community in Indonesia, 30,000+ OTA reviews')\", \"OBSERVED: Founder/CEO Jing Cho Yang (Jingcho Yang) publicly confirmed — own site bukitvista.com/about-our-founder, public LinkedIn id.linkedin.com/in/jingcho-yang-030b152bb ('Chief Executive Officer at Bukit Vista Hospitality Services'), Crunchbase; UC Berkeley EECS, ex-Airbnb Lead Market Manager Indonesia; started 2009\", \"OBSERVED: Revenue-share management model — 15% (Business) / 20% (Inspired Investment), zero fixed fees, same commission on all channels (bukitvista.com/pricing, /blog/bukit-vistas-commission-2025 via search snippets)\", \"OBSERVED: Already runs in-house AI enquiry stack — GAIA (Guest AI Assistant, OpenAI-powered, automates WhatsApp conversations, auto-collects structured guest requirements, 24/7) and RAIA (Reservation AI Assistant), centralized inbox across Airbnb/WhatsApp/direct (bukitvista.com/gaia, /blog/guest-communication-bukit-vista-2026; third-party confirmation telkomuniversity.ac.id GAIA project article)\", \"OBSERVED: Own tech beyond GAIA — guest portal guest.bukitvista.com, BV GO app (bukitvista.com/bv-go-app), internal tool bigrr.bukitvista.com, 'AI Full-Stack Engineer' on staff (ZoomInfo)\", \"OBSERVED: Dedicated Sales & Reservation team — Guest Experience Manager job post: 'When guests make first contact... they rely on the knowledge of reservation teams... this is a sales job' (bukitvista.com/jobs/guest-experience-manager)\", \"OBSERVED: Team 40-66 staff (LinkedIn '40+ hospitality entrepreneurs'; RocketReach 47; ZoomInfo 66), remote-first, HQ Jimbaran; LinkedIn 5,307 followers; ~5,000 travelers/month\", \"OBSERVED: Instagram @bukitvista ~6,608 followers, 1,576 posts\", \"OBSERVED: Contacts — office/mobile +62 821-4522-4584 and propertypartners@bukitvistabali.com at Jimbaran address (bukitvista.com/agency/bukit-vista); guest enquiries +62 853-3758-2425; careers WhatsApp +62 813-9146-5175; contact page offers WhatsApp chat / phone / consultation booking\", \"OBSERVED: Property pages on own site carry 'View On Airbnb' links; direct bookings exist ('direct bookings are settled 1-3 days post booking' in owner docs)\", \"OBSERVED: Guest reviews predominantly positive on TripAdvisor (Asri Village, Despacito Loft 4/5, Poling Sea View — communication praised); Glassdoor EMPLOYEE rating 2.4/5 (27 reviews)\", \"OBSERVED: Budget-to-mid segment — e.g. ~$127/night private room Bingin, long stays from $790/month; godulu.com: 'strongest in the lower to mid-tier market'\", \"NOT TESTED: wa.me link hrefs, prefilled WhatsApp text, booking-engine scripts — bukitvista.com returns HTTP 403 to all non-browser fetchers and this session's egress proxy denied raw curl to all hosts, so page HTML could not be inspected; all official-site facts captured via search-engine-indexed snippets\", \"INFERRED: Poor buyer for external $5-9.5k enquiry system — building this tech in-house is their public brand ('data-driven hospitality innovation') and they employ engineers to do it\"]",
+   "website": "https://www.bukitvista.com",
+   "website_reachable": true,
+   "area": "South Bali / Bukit Peninsula concentration — Jimbaran (HQ), Uluwatu/Pecatu (Bingin, Padang Padang), Ungasan, plus Kerobokan, Sanur, Nusa Penida, and an expansion portfolio in Yogyakarta (Java). Sources: bukitvista.com/area/jimbaran, /area/uluwatu, TripAdvisor listings in Pecatu/Nusa Penida, Crunchbase (\"across the island and Yogyakarta\").",
+   "management_model": "Full-service property management on a revenue-share model: \"Business\" package at 15% revenue share and \"Inspired Investment\" at 20%, zero fixed monthly fees, commission identical across booking channels (OBSERVED via search snippets of bukitvista.com/pricing, /blog/villa-management-fee-2025, /blog/bukit-vistas-commission-2025). Also offers property valuation, business-plan and onboarding services (\"go live in under 14 days\").",
+   "portfolio_size": "180+ properties under exclusive management (OBSERVED: https://www.crunchbase.com/person/jing-cho-yang \"portfolio of over 180+ properties\"; https://www.cabobali.com/blog/best-villa-management-companies-bali cites \"170+ villa partners\"; company claims \"largest Airbnb host community in Indonesia, 30,000+ OTA reviews\" on bukitvista.com/about-us via search snippet). Range 170-180+, cross-confirmed by 3 sources.",
+   "price_segment": "Budget-to-mid market. Example rates: private room at Bingin Beach ~$127/night (OBSERVED, Airbnb via search snippet), long stays from $790/month (OBSERVED, bukitvista.com property snippet), Despacito Loft rated 4/5 on TripAdvisor as \"Specialty Inn\". Third-party review (godulu.com/review/developers/bukit-vista/) says portfolio is \"strongest in the lower to mid-tier market — budget to mid-range villas\". Portfolio includes guesthouses, bungalows, lofts, tree-houses, not just villas (LinkedIn company page).",
+   "direct_booking": "Mixed OTA-first model: own WordPress site lists properties at bukitvista.com/property/* with \"View On Airbnb\" links pushing guests to Airbnb (OBSERVED via Google-indexed snippets); direct bookings also exist (owner docs state \"direct bookings are settled 1-3 days post booking\" — OBSERVED). Guest enquiries funnel through WhatsApp/phone handled by GAIA, their in-house OpenAI-powered Guest AI Assistant that \"handles queries, manages reservations, and streamlines arrival coordination\" 24/7 (OBSERVED: bukitvista.com/gaia, /blog/guest-communication-bukit-vista-2026). Post-booking, guests use a self-service portal at guest.bukitvista.com. NOT TESTED: exact wa.me hrefs, prefilled text, whether villa/dates carry into WhatsApp — bukitvista.com returns HTTP 403 to non-browser fetchers and the session egress proxy denied raw curl, so page HTML could not be inspected.",
+   "booking_engine": "No third-party PMS/booking engine (Guesty, Lodgify, etc.) detected; evidence points to a custom in-house stack on WordPress: guest portal (guest.bukitvista.com), internal tool bigrr.bukitvista.com, \"BV GO\" app (bukitvista.com/bv-go-app), GAIA/RAIA AI assistants built by their own engineering team (bukitvista.com/gaia; ZoomInfo lists an \"AI Full-Stack Engineer\" employee). Classification: OBSERVED for the in-house tools' existence; NOT TESTED at HTML/script level (site blocked non-browser access).",
+   "whatsapp": "+62 821-4522-4584 listed as office/mobile on their own agency page bukitvista.com/agency/bukit-vista (OBSERVED via search snippet); +62 853-3758-2425 given for guest enquiries on official pages (OBSERVED via search snippet); +62 813-9146-5175 \"WhatsApp Only\" for careers (bukitvista.com/jobs). Contact page offers \"Chat with Us on WhatsApp\" (bukitvista.com/contact, OBSERVED via snippet). wa.me link hrefs and any prefilled message text: NOT TESTED — raw HTML inaccessible in this session.",
+   "instagram": "@bukitvista — approx 6,608 followers, 1,576 posts (OBSERVED via Google-indexed Instagram snippet, instagram.com/bukitvista). Side accounts: @bukitvistalife (employer brand), @journeyatbv; Linktree at linktr.ee/bukitvista.id.",
+   "decision_maker": "Jing Cho Yang (Jingcho Yang), Founder and CEO — publicly confirmed on the company's own site (https://www.bukitvista.com/about-our-founder), his public LinkedIn \"Jingcho Yang - Chief Executive Officer at Bukit Vista Hospitality Services\" (https://id.linkedin.com/in/jingcho-yang-030b152bb), and Crunchbase (https://www.crunchbase.com/person/jing-cho-yang). UC Berkeley EECS grad, ex-Airbnb Lead Market Manager Indonesia; started Bukit Vista 2009. Co-founder Wayana Yang named on Crunchbase (OBSERVED).",
+   "team_signals": "Strong: 40-66 staff (\"diverse team of over 40 hospitality entrepreneurs\" per LinkedIn company page; RocketReach/ZoomInfo report 47-66 — OBSERVED). Dedicated \"Sales and Reservation team\" confirmed by their own Guest Experience Manager job post: \"When guests make first contact... they rely on the knowledge of reservation teams... this is a sales job\" (bukitvista.com/jobs/guest-experience-manager, OBSERVED). Also employs engineers (AI Full-Stack Engineer on ZoomInfo) and runs a GES (Guest Experience Supervisor) program. Remote-first, HQ Jimbaran. LinkedIn 5,307 followers.",
+   "marketing_activity": "Very active: data-heavy blog with multiple 2026 posts including \"Sanur 10 April 2026: Bukit Vista Ground Truth Update\" (confirms operating in 2026); active LinkedIn (CEO posting startup-masterclass content); Instagram moderate (6.6k followers); listed across Airbnb, Booking.com, TripAdvisor (multiple \"by Bukit Vista\" properties); claims 30,000+ OTA reviews and 5,000 monthly travelers (LinkedIn company page); press coverage (Rental Scale-Up CEO interview by PriceLabs; Telkom University GAIA project writeup).",
+   "public_contacts": "propertypartners@bukitvistabali.com and office/mobile +62 821-4522-4584, address Jalan Anggrek I5 No.2, Sektor Bunga, Jl. Puri Gading, Jimbaran, Badung 80361 (bukitvista.com/agency/bukit-vista — OBSERVED); guest enquiries +62 853-3758-2425 (official pages, OBSERVED); careers@bukitvistabali.com / +62 813-9146-5175 WhatsApp (bukitvista.com/jobs); contact page bukitvista.com/contact offers WhatsApp chat, phone call, and consultation \"round-table\" booking. All are public business contacts.",
+   "revenue_capacity_signal": "Could easily afford $5,000-9,500: 170-180+ properties on 15-20% revenue share, ~5,000 travelers/month, ~$6.5M AUM revenue figure cited on Crunchbase (OBSERVED), 40-66 paid staff including engineers, 17-year operating history. Budget is not the obstacle — INFERRED: build-vs-buy posture is; they fund an internal engineering team and publicly brand their proprietary AI (GAIA/RAIA), so external spend on a competing system is unlikely.",
+   "visible_problems": [
+    "Property pages push guests off-site to Airbnb ('View On Airbnb' links), leaking direct-booking margin on their own domain — OBSERVED via Google-indexed snippets of bukitvista.com/property/* pages",
+    "Fragmented contact identity: at least three public phone numbers (+62 821-4522-4584 office, +62 853-3758-2425 guest enquiries, +62 813-9146-5175 careers) and a legacy email domain bukitvistabali.com alongside bukitvista.com — OBSERVED across bukitvista.com/agency/bukit-vista and /jobs",
+    "Website returns HTTP 403 to all non-browser user agents (Cloudflare-class bot protection), which also blocks link-preview bots and some crawlers — OBSERVED directly (every fetch of bukitvista.com URLs returned 403)",
+    "Instagram audience small relative to portfolio scale (6.6k followers vs 180+ properties) — OBSERVED, instagram.com/bukitvista snippet",
+    "Glassdoor employee rating 2.4/5 from 27 reviews, 32% would recommend — possible ops-staff churn risk behind the guest-facing polish — OBSERVED, glassdoor.com/Reviews/Bukit-Vista-Reviews-E2263147.htm",
+    "wa.me prefill quality (villa name/dates carrying into WhatsApp) could not be audited — NOT TESTED, HTML inaccessible this session"
+   ],
+   "fit_score": 2,
+   "confidence_score": 7,
+   "notes": "Company verifiably exists and is highly active in July 2026 (April-2026 blog posts, 2026 market reports, active LinkedIn). BUT it is a poor Villa Ops OS prospect: Bukit Vista is arguably the most tech-forward manager in Bali and has ALREADY BUILT the exact product in-house — GAIA (Guest AI Assistant: OpenAI-powered WhatsApp first responder that auto-collects structured guest requirements, manages reservations, runs 24/7) and RAIA (Reservation AI Assistant), plus a centralized multi-channel inbox across Airbnb/WhatsApp/direct, a guest portal, and an internal engineering team that co-develops with university interns (Telkom University GAIA project). Selling them a $5-9.5k external enquiry system duplicates their core competency and brand story ('data-driven hospitality innovation'). They fit the surface profile (10+ villas, WhatsApp, own site, reservations staff, identifiable decision maker Jing Cho Yang) but fail on need. Recommend deprioritizing as a sales target — better used as a competitor benchmark, or approached for a niche gap (e.g. owner-lead/B2B enquiry pipeline rather than guest enquiries), and choosing a less tech-mature 10-30-villa operator as the actual buyer. Research caveat: bukitvista.com serves HTTP 403 to non-browser fetchers and this session's egress proxy denied raw curl to all external hosts, so every official-site fact was captured from search-engine-indexed snippets of official pages (classified OBSERVED) rather than direct page loads; HTML-level checks (wa.me hrefs, prefill text, booking-engine scripts) are NOT TESTED. No forms were submitted and no one was contacted.",
+   "sources": [
+    {
+     "url": "https://www.bukitvista.com/about-our-founder",
+     "what": "Official founder page confirming Jing Cho Yang as founder (via search snippet)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://id.linkedin.com/in/jingcho-yang-030b152bb",
+     "what": "Public LinkedIn: Jingcho Yang, CEO Bukit Vista Hospitality Services, UC Berkeley EECS, ex-Airbnb",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.crunchbase.com/person/jing-cho-yang",
+     "what": "Founder/CEO profile; 180+ properties under exclusive management; ~$6.5M AUM revenue; co-founder Wayana Yang",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.linkedin.com/company/bukitvista/",
+     "what": "Company LinkedIn: 5,307 followers, 40+ team, 5,000 monthly travelers, remote-first, Jimbaran HQ",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.instagram.com/bukitvista/",
+     "what": "Instagram @bukitvista: ~6,608 followers, 1,576 posts",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.bukitvista.com/gaia",
+     "what": "GAIA Guest AI Assistant product page — OpenAI-powered WhatsApp automation",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.bukitvista.com/blog/guest-communication-bukit-vista-2026",
+     "what": "2026 blog: GAIA + RAIA assistants, centralized inbox across Airbnb/WhatsApp/direct",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://telkomuniversity.ac.id/en/mahasiswa-tel-u-berhasil-tuntaskan-proyek-inovatif-guest-ai-assistant-gaia-bersama-bukitvista/",
+     "what": "Third-party press: Telkom University students completed GAIA project with Bukit Vista",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.bukitvista.com/blog/bukit-vistas-commission-2025",
+     "what": "Commission structure: 15% Business / 20% Inspired Investment revenue share",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.bukitvista.com/jobs/guest-experience-manager",
+     "what": "Job post confirming dedicated Sales and Reservation team handling first guest contact",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.bukitvista.com/agency/bukit-vista",
+     "what": "Office address Jimbaran, phone +62 821-4522-4584, email propertypartners@bukitvistabali.com",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://guest.bukitvista.com/",
+     "what": "Guest portal subdomain (existence; page itself blocked 403)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.bukitvista.com/blog/sanur-10-april-2026-bukit-vista-ground-truth-update",
+     "what": "April 2026 blog post proving current operation",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://godulu.com/review/developers/bukit-vista/",
+     "what": "Third-party 2025 review: budget-to-mid-tier strength, systems/volume value proposition",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.cabobali.com/blog/best-villa-management-companies-bali",
+     "what": "2026 roundup citing 170+ villa partners",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.tripadvisor.com/Hotel_Review-g1380108-d17463064-Reviews-Despacito_Loft_By_Bukit_Vista-Pecatu_Bukit_Peninsula_Bali.html",
+     "what": "TripAdvisor: Despacito Loft by Bukit Vista 4/5; guest reviews praise communication",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://en.planetofhotels.com/indonesia/uluwatu/seashell-bingin-villas-bukit-vista",
+     "what": "Pricing example, Seashell Bingin Villas, 20 reviews",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.glassdoor.com/Reviews/Bukit-Vista-Reviews-E2263147.htm",
+     "what": "Glassdoor employee rating 2.4/5 (27 reviews)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.rentalscaleup.com/vacation-rental-management-conference-innovation-at-a-bali-villa-rental-management-company-with-bukit-vista-ceo/",
+     "what": "Rental Scale-Up (PriceLabs) CEO interview on innovation",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.bukitvista.com/contact",
+     "what": "Contact page offering WhatsApp chat, phone, consultation booking (via search snippet)",
+     "accessed": "2026-07-12"
+    }
+   ]
+  },
+  {
+   "company_name": "Nagisa Bali Villa Management & Marketing (PT. Nagisa Bali; part of Nagisa Bali Group / NBG)",
+   "exists": true,
+   "facts": "[\"VERIFIED (DNS lookup 2026-07-12): legacy domain www.management.nagisabalienterprises.com no longer resolves (ENOTFOUND) yet still ranks in search results.\", \"OBSERVED (paradises.com directory + official-site snippets): portfolio of over 50 villas across Bali; established 2006.\", \"OBSERVED (asiadreams.com press interview): Lina Goh is Founder & CEO; company co-founded with Yosuke Shimizu on May 12, 2006, starting with 3 villas and 3 employees.\", \"OBSERVED (nagisa-bali.com/contact-us/ snippet): contacts info@nagisa-bali.com, +62 361 490165, +62 852-5371-7571, +62 856-8163936; HQ Jl. Nakula Timur No 5 i & p, Seminyak.\", \"OBSERVED (instagram.com/nagisa_bali_group snippet): ~83K followers, active reels through late 2025 announcing new villas.\", \"OBSERVED (nagisa-bali.com blog): Valentine's Day 2026, Chinese New Year 2026 and Early Ramadhan 2026 promos — company actively operating in 2026.\", \"OBSERVED (makemytrip.com, planetofhotels.com): flagship Villa Casis (6BR, Sanur) from ~USD 360–461/night; listed on Booking, Agoda, Expedia, Hotels.com, Traveloka, Trip.com with 2026-updated pages.\", \"OBSERVED (LinkedIn/ZoomInfo snippet): 11–50 employees; LinkedIn company page nagisa-bali-property-management exists.\", \"OBSERVED (villa page snippets): own site offers Book Now + Best Rate Guarantee per villa; owner Registration Form page exists.\", \"OBSERVED (TripAdvisor Bay View Villas): mixed reviews incl. villa staff who 'spoke no English'; management responses signed by a Marketing Communications Manager — evidence of comms staff.\", \"INFERRED: WordPress CMS (URL structure /category/, /tag/, archive pages; sister domain nagisabalivillas.com shows default WordPress title).\", \"NOT TESTED: wa.me links/prefill, booking-engine scripts, response-time promises — sandbox egress proxy (403 policy denial) blocked all direct fetches of nagisa-bali.com, nagisabaligroup.com, balivillas.co and web.archive.org.\", \"NOT FOUND: any public connection between balivillas.co and Nagisa Bali — hint domain appears unrelated or defunct.\", \"OBSERVED: 'Nagisa Bali Easy Living' is a 7-villa complex in Berawa/Canggu (booking.com, trip.com), not Sanur; the 'Sanur-based' hint is inaccurate — HQ is Seminyak with a strong Sanur villa cluster (Villa Casis, Villa Hibiscus, Casa De Gracia).\"]",
+   "website": "https://www.nagisa-bali.com (group site: https://nagisabaligroup.com)",
+   "website_reachable": true,
+   "area": "Island-wide, HQ in Seminyak (Jl. Nakula Timur No 5 i & p). Villas in Seminyak, Sanur (Villa Casis, Villa Hibiscus, Casa De Gracia), Canggu/Berawa/Tibubeneng (Easy Living complex, Jadine, Pure Villa), Kuta/Legian, Nusa Dua/Tanjung Benoa (Bay View Villas), Jimbaran, Ungasan/Bukit (Villa Lidwina), Umalas, Ubud, Tabanan.",
+   "portfolio_size": "50+ villas — \"ever-expanding portfolio of over 50 villas throughout Bali\" (OBSERVED on https://paradises.com/destinations/asia/indonesia/bali/seminyak-canggu-tanah-lot/nagisa-bali-villa/ and echoed in indexed snippets of nagisa-bali.com). Exact current count unconfirmed; started with 3 villas in 2006.",
+   "management_model": "Full-service villa management + marketing + rentals (\"Villa Management and Marketing\"; dedicated villa manager per property). Group also runs renovation/maintenance, weddings & events, transport, tours and travel divisions. Villas branded \"… by Nagisa Bali\" and distributed under their flag on OTAs — hotel-style full management, not marketing-only.",
+   "price_segment": "Premium with mid-range units: Villa Casis (6BR, Sanur) from ~USD 360–461/night (OBSERVED: makemytrip.com, en.planetofhotels.com); 2–3BR units (Easy Living Canggu, Silk Umalas) mid-market; most villas described as 4-star+ with butler/housekeeping. Blended mid-to-luxury.",
+   "direct_booking": "Own WordPress site with per-villa pages, \"Book Now\" buttons and \"Best Rate Guarantee\" badges (OBSERVED in indexed snippets, e.g. https://www.nagisa-bali.com/villas/canggu-villa-go-by-nagisa-bali/), a villa \"book information\" page pattern (https://www.nagisa-bali.com/villa-casis-book-information/), and seasonal promo landing pages. On-page enquiry mechanics (form vs wa.me, villa/date prefill) NOT TESTED — sandbox egress proxy 403-blocked nagisa-bali.com and web.archive.org, so raw HTML could not be inspected. Heavy parallel OTA distribution: Booking.com, Agoda, Expedia, Hotels.com, Traveloka, Trip.com, plus reseller guestreservations.com.",
+   "booking_engine": "Not confirmed (NOT TESTED — site HTML unreachable from this environment). WordPress CMS INFERRED from URL structure (/category/blog/, /tag/…); sister domain nagisabalivillas.com shows default \"Just another WordPress site\" title (OBSERVED). No third-party PMS/engine (Guesty, Lodgify, etc.) visible in any indexed snippet.",
+   "whatsapp": "No public wa.me link confirmed (NOT TESTED — HTML blocked). Contact page (http://www.nagisa-bali.com/contact-us/, via snippet) lists office line +62 361 490165 plus mobiles +62 852-5371-7571 and +62 856-8163936 — Indonesian mobile numbers typically WhatsApp-capable, but WhatsApp use and prefill behavior unverified.",
+   "instagram": "@nagisa_bali_group, ~83K followers (OBSERVED via search snippet); active reels incl. new-villa announcements through late 2025. Satellite accounts: @nagisabalivillas, @nagisabalibayview, @nagisabalijapan (Japanese market), CEO account @linagohmichiko.",
+   "decision_maker": "Lina Goh (also Lina Shimizu / Lina Goh Michiko) — Founder & CEO, publicly confirmed by Asia Dreams press interview (https://www.asiadreams.com/lina-goh-founder-and-ceo-of-nagisa-bali-luxury-villa-management-marketing/) and the company's own blog \"Behind the Scenes with Nagisa Bali's CEO\" (https://www.nagisa-bali.com/behind-the-scenes-with-nagisa-balis-ceo-insights-from-an-exclusive-interview-with-exquisite-media/). Co-founded May 12, 2006 with husband Yosuke Shimizu.",
+   "team_signals": "11–50 employees (OBSERVED, LinkedIn/ZoomInfo snippet; company page linkedin.com/company/nagisa-bali-property-management). Careers page https://www.nagisa-bali.com/career/ (\"teammates across two continents\"). Dedicated villa manager per property. TripAdvisor responses signed by a Marketing Communications Manager (\"Mona Cella\") — evidence of comms/guest-relations staff. Employee wellness event on company blog.",
+   "marketing_activity": "High: active blog with dated 2026 campaigns (Valentine's 2026 \"Love in Paradise\", Lunar New Year 2026, Early Ramadhan 2026); Instagram ~83K followers with recent reels; Facebook pages, Pinterest, X (@nagisa_bali); broad OTA presence with 2026-updated listings; 2020 \"Indonesia's Highly Recommended Hospitality Awards\"; promo packages (Day Use, Work From Villa, Book Now Stay Later, 50% voucher).",
+   "public_contacts": "info@nagisa-bali.com; +62 361 490165 (office); +62 852-5371-7571; +62 856-8163936; PT. Nagisa Bali Villa Management, Jl. Nakula Timur No 5 i & p, Seminyak, Bali 80361/80119; contact page http://www.nagisa-bali.com/contact-us/ (all OBSERVED via search snippets of official pages).",
+   "revenue_capacity_signal": "Strong. 50+ villas managed for ~20 years (est. 2006), flagship units at USD 360–460+/night, 11–50 staff, multi-division group (villas, weddings/events, transport, tours), Seminyak office. A $5,000–9,500 one-off equals roughly 1–3 nights of portfolio-wide revenue or ~2 weeks of one flagship villa. INFERRED from public facts — no financials published.",
+   "visible_problems": [
+    "INFERRED (from OBSERVED domain sprawl): fragmented web estate splits the funnel — nagisa-bali.com, nagisabaligroup.com, nagisabalivillas.com (default 'Just another WordPress site' title in Google — OBSERVED https://nagisabalivillas.com/), plus dead legacy domain management.nagisabalienterprises.com (VERIFIED: DNS ENOTFOUND 2026-07-12) still ranking in search.",
+    "OBSERVED: brand-demand leakage — markup reseller guestreservations.com ranks for 'Nagisa Bali Easy Living' booking queries (https://www.guestreservations.com/nagisa-bali-easy-living/booking); flagship villas bookable on 6+ OTAs while the site's own Best Rate Guarantee competes for the same guest.",
+    "OBSERVED: no wa.me deep link or WhatsApp CTA visible in any indexed snippet of the contact page — enquiry path leads with office phone + email (http://www.nagisa-bali.com/contact-us/); friction for a WhatsApp-first guest market. Live HTML NOT TESTED (egress blocked).",
+    "INFERRED: no response-time promise found anywhere in indexed site content or OTA profiles.",
+    "OBSERVED: review evidence of communication/quality gaps — villa staff 'spoke no English' (TripAdvisor Bay View Villas, https://www.tripadvisor.com/Hotel_Review-g297698-d6613728-Reviews-Nagisa_Bali_Bay_View_Villas-Nusa_Dua_Benoa_South_Kuta_Bali.html); mould/bug complaint at one managed property reportedly not addressed (Wanderlog/Booking snippets).",
+    "INFERRED: enquiries fan out across 3+ phone numbers, an email, 4+ Instagram accounts, 2+ Facebook pages and multiple domains with no visible unified pipeline — exactly the fragmentation Villa Ops OS targets."
+   ],
+   "sources": [
+    {
+     "url": "https://www.nagisa-bali.com/",
+     "what": "Official site — company name, 'since 2006', services, villa areas (via search snippets; direct fetch blocked)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://paradises.com/destinations/asia/indonesia/bali/seminyak-canggu-tanah-lot/nagisa-bali-villa/",
+     "what": "Directory listing — 'portfolio of over 50 villas', est. 2006, areas served",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.asiadreams.com/lina-goh-founder-and-ceo-of-nagisa-bali-luxury-villa-management-marketing/",
+     "what": "Press interview confirming Lina Goh as Founder & CEO",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.nagisa-bali.com/behind-the-scenes-with-nagisa-balis-ceo-insights-from-an-exclusive-interview-with-exquisite-media/",
+     "what": "Company blog CEO interview; founding story (Yosuke Shimizu & Lina, 3 villas/3 staff, May 12 2006)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "http://www.nagisa-bali.com/contact-us/",
+     "what": "Contact page — email, office phone, two mobile numbers, Seminyak address (via snippet)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.instagram.com/nagisa_bali_group/",
+     "what": "Instagram main account, ~83K followers, active reels incl. 18th-anniversary (May 2024) and new-villa posts (late 2025)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.nagisa-bali.com/nagisa-bali-valentine-day-promo/",
+     "what": "Valentine's Day 2026 promo — proves active operation in 2026",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.makemytrip.com/hotels-international/en-us/indonesia/bali-hotels/villa_casis_by_nagisa_bali-details.html",
+     "what": "Villa Casis rate from USD 360/night",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://en.planetofhotels.com/indonesia/sanur/villa-casis-nagisa-bali",
+     "what": "Villa Casis 2026-updated listing, rates from ~USD 461",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.tripadvisor.com/Hotel_Review-g297698-d6613728-Reviews-Nagisa_Bali_Bay_View_Villas-Nusa_Dua_Benoa_South_Kuta_Bali.html",
+     "what": "TripAdvisor reviews — mixed feedback, mgmt responses by Marketing Communications Manager",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.zoominfo.com/c/nagisa-bali/348499669",
+     "what": "Company overview; 11–50 employees signal (via snippet)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://linkedin.com/company/nagisa-bali-property-management",
+     "what": "LinkedIn company page (exists; not fetchable from sandbox)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.nagisa-bali.com/career/",
+     "what": "Careers page — hiring, team across two continents",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.guestreservations.com/nagisa-bali-easy-living/booking",
+     "what": "Third-party reseller capturing brand booking searches",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.booking.com/hotel/id/nagisa-bali-easy-living-canggu.html",
+     "what": "Easy Living Canggu — 7-villa complex in Berawa, Canggu (not Sanur)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://wanderlog.com/place/details/10342489/nagisa-bali-villa-management-and-marketing",
+     "what": "Aggregated Google reviews of the management company incl. mould/bug complaint at one property",
+     "accessed": "2026-07-12"
+    }
+   ],
+   "fit_score": 8,
+   "confidence_score": 6.5,
+   "notes": "IMPORTANT ENVIRONMENT LIMITATION: this sandbox's egress proxy returned 403 (policy denial) for nagisa-bali.com, nagisabaligroup.com, balivillas.co, paradises.com, asiadreams.com and web.archive.org — every direct WebFetch/curl was blocked, so nothing here is verified on live HTML; official-site facts are OBSERVED via search-engine snippets and third-party sources. Raw wa.me hrefs, booking-engine scripts and response-time promises are NOT TESTED and must be re-checked from an unrestricted network before outreach. website_reachable=true reflects public reachability (2026-dated content indexed, OTA listings updated for 2026), not a direct fetch. HINT CORRECTIONS: (1) company is Seminyak-headquartered with a strong Sanur villa cluster, not 'Sanur-based'; (2) 'Nagisa Bali Easy Living' is a 7-villa complex in Berawa/Canggu, not Sanur; (3) no public tie between balivillas.co and Nagisa was found — that domain appears unrelated or defunct. FIT RATIONALE (8/10): 50+ villa premium portfolio, 20 years operating, direct-booking site with Best Rate Guarantee competing against 6+ OTAs, 83K-follower Instagram, international (incl. Japanese) guest mix, press-visible CEO (Lina Goh), staffed comms/reservations function, and visible funnel fragmentation (multi-domain sprawl, no visible WhatsApp CTA, reseller brand-jacking) that Villa Ops OS directly addresses. Deductions: enquiry mechanics unverified; an established 'Japanese-standard' operation may already have internal SOPs and a slower, relationship-driven sales cycle. Confidence 6.5: existence, leadership, scale, contacts and 2026 activity are multi-source corroborated; on-site funnel details are not."
+  },
+  {
+   "company_name": "Bali Management Villas (BMV), balimanagement.villas — a.k.a. \"Bali Management Villa\"; distinct from similarly named competitors Villa Bali Management (villabalimanagement.com), Villa Management Bali (villa-management-bali.com), Bali Villa Management (balivillamanagement.com)",
+   "exists": true,
+   "website": "https://balimanagement.villas/",
+   "website_reachable": true,
+   "area": "Island-wide Bali (office in Kerobokan/Kuta Utara area per directory listings — exact address unconfirmed due to conflicting snippets), with operations also cited on the Gili Islands and Nusa Ceningan (OBSERVED, LinkedIn company description via search index)",
+   "management_model": "Full villa management at 18% commission of published rate (no monthly fee) plus a cheaper 9% \"Digital Marketing Service\" (marketing-only) tier — OBSERVED from official pricing page https://balimanagement.villas/pricing/ (\"Villa Management Fees in Bali: Only 18% from Your Published Rate\") via search index. Mid- to high-end villas and resorts. Also launched a sister real-estate investment brand, Oniriq Property (oniriqproperty.com).",
+   "portfolio_size": "150–200+ villas (company's own claims vary across pages): \"directly manages over 200 villa properties\" (homepage/about snippets, https://balimanagement.villas/about-us/), \"trusted by more than 160 property owners\" (https://www.linkedin.com/company/balimanagementvillas snippet), \"manages over 150 mid-end to high-end properties\" (https://contactout.com/company/Bali-Management-Villas-88800). Airbtics reports +68.38% listings growth over the last 12 months (https://airbtics.com/airbnb-management-companies/bali-management-villas-1717331). Classification: OBSERVED (company self-claims via search snippets); exact number unconfirmed.",
+   "price_segment": "Mid-to-premium (\"mid to high end villas and resorts\" — company's own description, OBSERVED). No specific nightly rates for their own villas could be confirmed (villa detail pages not retrievable); Bali market ADR benchmark ~USD 90, luxury villa average ~USD 230/night (OBSERVED, airbtics.com Bali market page). Claimed assets under management > USD 60M and 80,000+ guests welcomed (OBSERVED, about-us snippet).",
+   "direct_booking": "Owner-facing site with a contact form on https://balimanagement.villas/contact/ (\"fill out the contact form... team will reply in short time\" — OBSERVED via search snippet). Guest bookings appear predominantly OTA-driven: ~5,000 Airbnb reviews at 4.8/5 claimed (OBSERVED). Whether villa pages on their own domain have a live booking engine, availability calendar, or wa.me links is NOT TESTED — every direct fetch (site, Trustpilot, LinkedIn, archive.org, even wikipedia.org) returned 403 through this session's egress proxy, so raw HTML could not be inspected.",
+   "booking_engine": "NOT TESTED / not detected. No booking-engine or PMS brand (Guesty, Lodgify, etc.) surfaced in any indexed snippet; site is WordPress-style content/SEO heavy (blog + large \"dictionaries\" glossary section). Company advertises a \"real-time dashboard\" and \"monthly profit/loss reports\" for owners (OBSERVED, homepage snippet), implying some internal PMS/reporting stack, vendor unknown.",
+   "whatsapp": "Not found in any indexed snippet; wa.me links and prefilled-text behavior NOT TESTED (raw HTML unreachable through session proxy — all CONNECTs to the domain returned 403). Phone numbers surfaced in mixed search results (+62 8133 7334 871, +62 853 3800 2448) were traced to OTHER similarly named companies (villa-management-bali.com and Optimum Bali respectively) and must NOT be attributed to this target.",
+   "instagram": "@balimanagementvillas — approx. 14K followers, 283 posts, bio \"1st Villa Management Agency in Bali\" (OBSERVED, https://www.instagram.com/balimanagementvillas/ via search snippet)",
+   "marketing_activity": "Active: blog posts dated Feb 9, 2026 (byline Armel Theurillat), Feb 6, 2026 (byline Frieska Zain), Dec 29, 2025 (OBSERVED, https://balimanagement.villas/blogs/ snippet) — confirms operating in 2026. Instagram ~14K followers/283 posts; YouTube channel (youtube.com/@balimanagement.villas) with villa video content; Facebook page (facebook.com/BaliManagement.Villa/); heavy SEO investment (glossary \"dictionaries\" pages, service/pricing landing pages); claimed >80% occupancy via \"professional marketing\"; strong Airbnb OTA presence (~5,000 reviews, 4.8–5.0 rating per Airbtics).",
+   "team_signals": "Strong: company claims 200+ (one snippet: 500+) trained employees incl. reservations, guest satisfaction, marketing, photo/video, and web-development functions (OBSERVED, about/services snippets). RocketReach org chart lists Raphaël Leonardi (marketing) and Gede Destrawan (web developer) (OBSERVED, https://rocketreach.co/bali-management-villas-management_b450ffccfc7ef037). JobStreet employer profile with 4.7 employee rating and active job listings (OBSERVED, https://id.jobstreet.com/companies/bali-management-villas-168550584187881/reviews; employer page appears linked to legal entity \"PT Bahasa Property Management\" — unconfirmed).",
+   "decision_maker": "Armel Theurillat, General Manager — OBSERVED via ZoomInfo (https://www.zoominfo.com/p/Armel-Theurillat/4038208541, \"General Manager at Bali Management Villa\", email pattern a***@balimanagement.villas), RocketReach (https://rocketreach.co/armel-theurillat-email_100406308), public LinkedIn profile (linkedin.com/in/armel-theurillat-6a94a4139), and bylined author on the company's own blog (Feb 2026 post, https://balimanagement.villas/blogs/). One aggregator (ContactOut) titles him CEO. KEDGE Business School digital-marketing background. Not directly page-verified (fetches blocked); treat as publicly confirmed via multiple independent public sources.",
+   "public_contacts": "Contact form at https://balimanagement.villas/contact/ (primary public channel). Email domain @balimanagement.villas (pattern a***@balimanagement.villas per ZoomInfo). LinkedIn: linkedin.com/company/balimanagementvillas; Instagram: @balimanagementvillas; Facebook: facebook.com/BaliManagement.Villa; YouTube: youtube.com/@balimanagement.villas. No verified phone/WhatsApp number — numbers in search results belong to similarly named competitors. Office cited around Jalan Raya Kerobokan, Kuta Utara, Badung (ContactOut/directory snippets — unconfirmed, conflicting).",
+   "visible_problems": [
+    "OBSERVED — Trustpilot profile has only 1 review, and it is scathing (guest at managed property Villa Sivana: 34°C room, broken AC, 'kept waiting for hours without response', refund refused) with no visible company reply — a reputation and response-time leak at the exact guest-communication layer Villa Ops OS addresses. Source: https://www.trustpilot.com/review/balimanagement.villas",
+    "INFERRED — Guest revenue appears heavily OTA-dependent (~5,000 Airbnb reviews vs an owner-acquisition-oriented website), suggesting weak direct-booking capture on their own domain; no booking engine or guest WhatsApp path surfaced in the search index. Sources: https://airbtics.com/airbnb-management-companies/bali-management-villas-1717331 , https://balimanagement.villas/",
+    "NOT TESTED — wa.me links, prefilled WhatsApp text, form handlers, and booking-engine scripts could not be inspected: all direct HTTPS fetches (balimanagement.villas, Trustpilot, LinkedIn, archive.org, wikipedia.org) returned 403 through this session's egress proxy, so HTML-level funnel checks were impossible.",
+    "OBSERVED — Inconsistent public numbers across their own materials (150+ vs 160+ vs 200+ villas; 200+ vs 500+ staff), which weakens credibility of claims and suggests unmaintained marketing pages. Sources: https://balimanagement.villas/about-us/ , https://www.linkedin.com/company/balimanagementvillas , https://contactout.com/company/Bali-Management-Villas-88800",
+    "OBSERVED — Severe brand-confusion exposure: at least four near-identically named Bali competitors (villabalimanagement.com, villa-management-bali.com, balivillamanagement.com, balimanagementsolutions.com) interleave with them in search results, and even search-engine answer boxes mis-attribute competitors' phone numbers and emails to them — enquiries can leak to rivals at the search step. Evidence: mixed SERPs for 'Bali Management Villas contact' captured 2026-07-12."
+   ],
+   "revenue_capacity_signal": "Can comfortably afford USD 5,000–9,500: at a claimed 150–200+ villas under an 18%-of-published-rate commission, even conservative assumptions (150 villas × ~USD 150 ADR × 63% market occupancy) imply roughly USD 5M+ gross booking value and ~USD 900K+ annual commission revenue; company also claims >USD 60M assets under management, 80,000+ guests served, 200+ staff, and spun off a real-estate arm (Oniriq Property). Risk to the sale is not budget but build-vs-buy: they employ an in-house web developer and market a proprietary owner dashboard, so they may believe they can build enquiry tooling themselves. INFERRED from OBSERVED claims (about-us, pricing page, Airbtics, RocketReach).",
+   "fit_score": 6.5,
+   "confidence_score": 5.5,
+   "notes": "Company verifiably exists and is active in July 2026 (blog posts Feb 2026, Airbtics listings growth data through Jan 2026, active job listings June 2026). METHODOLOGY CAVEAT: this session's egress proxy returned 403 on every direct page fetch (including wikipedia.org control test), so NOTHING here is VERIFIED by direct page load — all facts are OBSERVED via search-engine snippets of official/third-party pages or INFERRED, and all HTML-level checks (wa.me hrefs, prefilled WhatsApp text, booking-engine scripts, form actions, response-time promises) are NOT TESTED and must be redone with working network access before using this audit in outreach. Second caveat: search results repeatedly conflated this target with 4+ near-identically named competitors; two phone numbers and one office address surfaced in answer boxes were positively traced to OTHER companies and excluded — re-verify any contact detail before use. Fit assessment: matches the ideal profile on portfolio size (150–200+ villas), premium segment, own website, active Instagram, international guests, reservations staff, and an identifiable, digital-marketing-literate decision maker (GM Armel Theurillat), and shows a real observed communication leak (unanswered scathing Trustpilot review citing hours-long response waits). Works against fit: they are much larger than a typical $5–9.5k buyer, have in-house web/dev capability and a proprietary owner dashboard (build-vs-buy objection), and their guest funnel runs mostly through Airbnb rather than a direct WhatsApp pipeline — the strongest angle may be enquiry ops for their OWNER-acquisition funnel and direct-booking recapture rather than a first WhatsApp responder alone.",
+   "sources": [
+    {
+     "url": "https://balimanagement.villas/",
+     "what": "Official homepage (via search snippets; direct fetch 403): services, 18% commission, 200+ villas, 500+ staff, >80% occupancy, 4.8/5 Airbnb, 80,000+ guests, >$60M assets",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://balimanagement.villas/about-us/",
+     "what": "About page (via snippets): 10+ years, 160-200+ villas, 200+ employees, team expertise, French company, Gili/Nusa Ceningan operations",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://balimanagement.villas/pricing/",
+     "what": "Pricing page title: 'Villa Management Fees in Bali: Only 18% from Your Published Rate'; 9% digital-marketing tier",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://balimanagement.villas/contact/",
+     "what": "Contact page exists; contact form as primary channel (via snippet)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://balimanagement.villas/blogs/",
+     "what": "Blog index: posts dated 2026-02-09 (Armel Theurillat), 2026-02-06 (Frieska Zain), 2025-12-29 — proof of 2026 activity",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.trustpilot.com/review/balimanagement.villas",
+     "what": "Trustpilot profile: 1 review, highly negative (Villa Sivana; refund refused, hours-long response waits), no visible company reply",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.instagram.com/balimanagementvillas/",
+     "what": "Instagram: ~14K followers, 283 posts, bio '1st Villa Management Agency in Bali'",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.linkedin.com/company/balimanagementvillas",
+     "what": "LinkedIn company page: 160+ property owners, service list, employee claims",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://airbtics.com/airbnb-management-companies/bali-management-villas-1717331",
+     "what": "Airbtics profile: Airbnb avg rating 5.0, listings +68.38% in last 12 months; Bali market ADR/occupancy benchmarks",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.zoominfo.com/p/Armel-Theurillat/4038208541",
+     "what": "ZoomInfo: Armel Theurillat, General Manager, email pattern a***@balimanagement.villas",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://rocketreach.co/armel-theurillat-email_100406308",
+     "what": "RocketReach: Armel Theurillat GM profile; KEDGE Business School background",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://rocketreach.co/bali-management-villas-management_b450ffccfc7ef037",
+     "what": "RocketReach org chart: Raphael Leonardi (marketing), Gede Destrawan (web developer)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://contactout.com/company/Bali-Management-Villas-88800",
+     "what": "ContactOut: 150+ mid-to-high-end properties; titles Armel Theurillat as CEO; Jalan Raya Kerobokan office (unconfirmed)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://oniriqproperty.com/about-us",
+     "what": "Oniriq Property: BMV's real-estate investment spinoff, '10+ years managing hundreds of villas'",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://id.jobstreet.com/companies/bali-management-villas-168550584187881/reviews",
+     "what": "JobStreet employer profile: 4.7 employee rating; active hiring; apparent legal entity PT Bahasa Property Management (unconfirmed)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.youtube.com/@balimanagement.villas",
+     "what": "Official YouTube channel with villa video content",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.facebook.com/BaliManagement.Villa/",
+     "what": "Facebook page (Denpasar)",
+     "accessed": "2026-07-12"
+    }
+   ],
+   "facts": "[\"OBSERVED — Company operates full villa management at 18% commission plus 9% marketing-only tier (https://balimanagement.villas/pricing/, via search index, 2026-07-12)\", \"OBSERVED — Self-claimed portfolio 150-200+ villas, 200+ staff, >$60M assets, 80,000+ guests, >80% occupancy (https://balimanagement.villas/ and /about-us/ snippets)\", \"OBSERVED — Active in 2026: blog posts Feb 9 and Feb 6, 2026; Airbtics shows +68.38% listings growth in trailing 12 months; job listings June 2026 (balimanagement.villas/blogs/, airbtics.com, id.indeed.com)\", \"OBSERVED — Decision maker: Armel Theurillat, General Manager (ZoomInfo, RocketReach, LinkedIn /in/armel-theurillat-6a94a4139, and company blog byline)\", \"OBSERVED — Instagram @balimanagementvillas ~14K followers, 283 posts\", \"OBSERVED — Trustpilot: single unanswered negative review alleging hours-long response waits and refused refund (trustpilot.com/review/balimanagement.villas)\", \"OBSERVED — Guest distribution is Airbnb-heavy: ~5,000 Airbnb reviews at 4.8-5.0 rating (homepage claim + Airbtics)\", \"INFERRED — Direct-booking capture on own domain appears weak; site is owner-acquisition oriented\", \"NOT TESTED — wa.me links, prefilled WhatsApp text, booking-engine scripts, form handlers: all direct fetches blocked with 403 by session egress proxy (control test wikipedia.org also 403)\", \"NOT TESTED — Google Maps rating and exact office address (conflicting third-party attributions; two candidate phone numbers proven to belong to other companies)\"]"
+  },
+  {
+   "company_name": "Cabo Bali (cabobali.com)",
+   "exists": true,
+   "website": "https://www.cabobali.com",
+   "website_reachable": true,
+   "area": "Bukit Peninsula (Uluwatu, Bingin, Pecatu, Ungasan, Nyang Nyang, Pandawa) plus Canggu/Pererenan — per cabobali.com service pages and villa-collection pages (Lago=Bingin, Kona=Nyang Nyang, Marevita=Pecatu, Vela=Pererenan)",
+   "management_model": "Full-service villa management (guest bookings, maintenance at cost, marketing, operations) at a published 13% of gross revenue + IDR 2.5M/month admin fee, no lock-in (OBSERVED via Google snippets of cabobali.com/villa-management and /blog/bali-villa-management-fees). They also operate as a consumer-facing rental brand: 'curated luxury villas' bookable direct on their own site and Guesty-hosted booking sites, plus OTA distribution (Airbnb, Booking.com, VRBO, Agoda).",
+   "portfolio_size": "Ambiguous between 6 and 20+: their June-2026 case-study byline says 'Cabo Bali... manages 20+ boutique villas across Uluwatu, Bingin and Canggu' (https://www.cabobali.com/blog/lago-villas-performance-case-study, seen in Google snippet), while their own performance-data post reports on a '6-villa portfolio in the trailing 12 months to April 2026' at 91% occupancy (https://www.cabobali.com/blog/bali-villa-performance-2026). Named collections visible: Lago Villas, Kona Villas, Marevita Villas, Vela Villas. Exact independent count: unconfirmed.",
+   "price_segment": "Premium. Lago Villas Airbnb listings observed at ~$230/night (1-2BR, May 2025) and $460/night (2BR, Feb 2025) — https://www.airbnb.com/rooms/1219276410399635829 and /rooms/1315076233046103406 (OBSERVED via search snippets). Their own blog cites $170-220 ADR for well-managed 1BR Uluwatu villas and 91% portfolio occupancy vs 55-65% market (cabobali.com/blog/bali-villa-performance-2026). Airbnb 'Guest Favourite', Superhost, and 'top 10% trophy' claims on two villas (cabobali.com/blog/top-10-percent-villas-uluwatu-cabo-bali).",
+   "booking_engine": "Guesty — VERIFIED via two live Guesty-hosted direct-booking domains indexed by Google: https://cabobali.guestybookings.com/en/properties/6965f68ddc8ccc00152a5ea7 ('Ocean View · Near Six Senses · Marevita Villas | CABO BALI') and https://lagovillas.guestybookings.com/en/properties ('LAGO VILLAS | Accommodation'). guestybookings.com is Guesty's hosted booking-engine product, implying Guesty PMS + channel manager behind Airbnb/Booking/VRBO distribution. Main site claims a 'real direct-booking engine' and 'book direct save up to 10%' (OBSERVED, cabobali.com snippets).",
+   "direct_booking": "Direct booking is a core pitch: 'book directly through their website and enjoy up to 10% off', 'best price guaranteed with no booking fees' (OBSERVED via snippets of cabobali.com). Mechanics: villa-collection pages on cabobali.com plus at least two separate Guesty booking subdomains (cabobali.guestybookings.com and lagovillas.guestybookings.com). Contact page titled 'Contact Us | Book Your Stay in Bali' offers email hello@cabobali.com and phone/WhatsApp +62 821-4484-2660 (OBSERVED via snippets of cabobali.com/contact-us). NOT TESTED: on-page wa.me link hrefs, prefilled text, and whether villa name/dates carry into WhatsApp — cabobali.com returns HTTP 403 to automated fetchers and the session's egress proxy denies raw curl, so raw HTML could not be inspected.",
+   "whatsapp": "+62 821-4484-2660 presented as phone/WhatsApp on cabobali.com/contact-us (OBSERVED via search snippet of the official contact page; snippet also states 'guests can start a WhatsApp chat with Cabo Bali'). Their ops blog describes using 'WhatsApp groups and a dashboard' for guest and owner communication (cabobali.com blog snippets). wa.me href and prefill behavior: NOT TESTED (HTML not fetchable).",
+   "instagram": "Company: @cabo.bali — bio 'Book Bali's Best Villas' (https://www.instagram.com/cabo.bali/, follower count not visible to tools). Property brands run separate accounts: @lago.villas ~14K followers, bio notes 'managed by @cabo.bali' (OBSERVED via search results). Recent Reels/posts on @lago.villas indicate ongoing activity.",
+   "marketing_activity": "Very active and sophisticated: large SEO blog with 2026-dated posts (e.g. 'Best Villa Management Companies in Bali 2026', 'Bali Villa Performance Data 2026', case study 'Updated June 2026'); founders' background is Google/performance marketing; creator/influencer program offering comp stays for content (cabobali.com/collaborations and /partnerships); per-villa Instagram brand accounts; full OTA presence (Airbnb Superhost/Guest Favourite, Agoda, Booking.com, VRBO). Note: the '#1 villa management company' ranking is their own blog ranking themselves (self-published).",
+   "team_signals": "Strong. Their 'Behind the Scenes: Inside Cabo Bali's 24/7 Villa Management HQ' post (https://www.cabobali.com/blog/behind-the-scenes-cabo-bali-office, OBSERVED via snippets) describes a purpose-built Bukit Peninsula HQ housing engineering (day/night rotations), ecommerce, concierge hosts, marketing and management teams, 'almost every department has multiple team members'; monthly per-villa reviews by 'accountant, owner relationship manager, and ecommerce manager'. No LinkedIn company page surfaced in searches (NOT FOUND).",
+   "decision_maker": "Keanu Fischell, Co-Founder — publicly confirmed by his byline on the company's own site: 'By Keanu Fischell, Co-Founder, Cabo Bali · Updated June 2026' on https://www.cabobali.com/blog/lago-villas-performance-case-study (seen in Google result snippet). Background: ex-Google and ex-Microsoft paid-marketing specialist (https://contra.com/keanu_fischell_kn6hor83); LinkedIn ie.linkedin.com/in/keanufischell surfaced in search. A second co-founder 'Ogie' is referenced in indexed Cabo Bali content but not sufficiently confirmed by name/surname on an official page, so not asserted here.",
+   "public_contacts": "hello@cabobali.com (email) and +62 821-4484-2660 (phone/WhatsApp) — both OBSERVED via Google snippets of https://www.cabobali.com/contact-us; contact page https://www.cabobali.com/contact-us; partnerships page https://www.cabobali.com/partnerships for collab enquiries.",
+   "visible_problems": [
+    "OBSERVED: Direct-booking flow is split across at least two separate Guesty subdomains (cabobali.guestybookings.com AND lagovillas.guestybookings.com) plus the main cabobali.com villa pages — a guest landing from @lago.villas Instagram enters a different funnel than one landing from cabobali.com. Evidence: https://cabobali.guestybookings.com/en/properties/6965f68ddc8ccc00152a5ea7 and https://lagovillas.guestybookings.com/en/properties",
+    "OBSERVED: Brand fragmentation — separate per-property Instagram accounts (@lago.villas ~14K) alongside @cabo.bali, each generating DMs/enquiries in different inboxes; enquiries also arrive via email (hello@cabobali.com), WhatsApp (+62 821-4484-2660), site contact form page, and 4+ OTA channels. Evidence: https://www.instagram.com/lago.villas/, https://www.instagram.com/cabo.bali/, https://www.cabobali.com/contact-us",
+    "OBSERVED: No response-time promise found anywhere in indexed site content (no 'we reply within X' claim surfaced across ~15 crawled-page snippets of cabobali.com).",
+    "OBSERVED: No Google Maps business reviews and no LinkedIn company page surfaced for 'Cabo Bali' the management company — third-party trust for the owner-acquisition side rests on self-published blog rankings (their own post names themselves best manager in Bali 2026: https://www.cabobali.com/blog/best-villa-management-companies-bali).",
+    "NOT TESTED: wa.me link prefill behavior, whether villa name/dates carry from villa page into the WhatsApp thread, form fields, and chat-widget presence — cabobali.com serves HTTP 403 to automated fetchers (Wix/CDN-level bot protection) and this session's egress proxy denied raw curl, so page HTML could not be read.",
+    "INFERRED: With a 24/7 ops team oriented around engineering/housekeeping and a Guesty unified inbox for OTA messages, the weakest link is likely pre-booking WhatsApp/IG-DM enquiry capture and follow-up across the fragmented brand funnels — exactly the layer Guesty does not natively own for wa.me walk-ins from Instagram bios."
+   ],
+   "revenue_capacity_signal": "Can afford $5,000-9,500: at their published 13% of gross + IDR 2.5M/month per villa, even the conservatively-documented 6-villa core portfolio at ~$200+ ADR and 91% occupancy implies roughly $30-45k/month gross rents => ~$5-7k/month management revenue, and their own June-2026 content claims 20+ villas under management (3x that). They state they spent 'almost every dollar for the first two years' on revenue-management tools, OTA distribution tech, 24/7 engineering rotation and ecommerce managers (behind-the-scenes blog) — i.e., they demonstrably buy ops technology. Founder is an ex-Google ads specialist who has managed $16M+/yr in ad spend, so a $5-9.5k tooling project is small relative to their spend norms. Counter-signal: same tech-forward DNA means they may attempt to build/configure it themselves.",
+   "fit_score": 7.5,
+   "confidence_score": 6.5,
+   "notes": "Verification method caveat: cabobali.com, Instagram, LinkedIn, Wayback and builtwith all returned 403 to this session's fetchers, and the egress proxy denied raw curl CONNECT, so no page HTML (wa.me hrefs, booking scripts) could be inspected directly; every official-site fact above was captured from Google-indexed snippets of official pages (classified OBSERVED) or third-party listings. Company is clearly operating as of July 2026 (blog posts 'Updated June 2026', 2026 performance data to April 2026, live Guesty booking domains). Sales angle: they are a marketing-led, direct-booking-obsessed premium operator (13% fee, 91% occupancy claim, 'book direct save 10%') already paying for Guesty — pitch Villa Ops OS as the WhatsApp-first pre-booking layer (IG bio -> wa.me with villa/dates context, AI first response, lead qualification, follow-up analytics) that unifies their fragmented multi-brand funnel, not as a PMS replacement. Decision maker to approach: co-founder Keanu Fischell (publicly bylined). Risks: portfolio may be only ~6 core villas (smaller than ideal 10+), and the founders' engineering/marketing self-sufficiency raises build-vs-buy objection likelihood.",
+   "sources": [
+    {
+     "url": "https://www.cabobali.com/",
+     "what": "Official homepage — company positioning 'Curated Luxury Villas & Property Management' (via Google snippets; direct fetch 403)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.cabobali.com/villa-management",
+     "what": "Management services page — full-service scope, fee positioning",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.cabobali.com/contact-us",
+     "what": "Contact page — hello@cabobali.com, +62 821-4484-2660, 'Book Your Stay in Bali' (via snippets)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.cabobali.com/blog/bali-villa-performance-2026",
+     "what": "Self-published performance data: 6-villa portfolio, 91% occupancy TTM to April 2026",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.cabobali.com/blog/lago-villas-performance-case-study",
+     "what": "Byline 'By Keanu Fischell, Co-Founder, Cabo Bali · Updated June 2026'; claims 20+ boutique villas managed; Lago 92% occupancy, +48% RevPAR",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.cabobali.com/blog/behind-the-scenes-cabo-bali-office",
+     "what": "24/7 Bukit HQ; engineering/ecommerce/concierge/marketing teams; accountant + owner relationship manager + ecommerce manager",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.cabobali.com/blog/best-villa-management-companies-bali",
+     "what": "Self-ranking post: 13% fee + IDR 2.5M/month admin, no lock-in, maintenance at cost, 'real direct-booking engine'",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://cabobali.guestybookings.com/en/properties/6965f68ddc8ccc00152a5ea7",
+     "what": "VERIFIED Guesty-hosted Cabo Bali direct booking site (Marevita Villas listing)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://lagovillas.guestybookings.com/en/properties",
+     "what": "VERIFIED second Guesty booking domain for Lago Villas brand",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.instagram.com/cabo.bali/",
+     "what": "Company Instagram — bio 'Book Bali's Best Villas'",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.instagram.com/lago.villas/",
+     "what": "Managed-property brand Instagram, ~14K followers, 'managed by @cabo.bali'",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.airbnb.com/rooms/1219276410399635829",
+     "what": "Lago Villas Airbnb listing ~$230/night (premium segment evidence)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.agoda.com/new-2-bed-villa-with-pool-in-bingin-by-lago-villas/hotel/bali-id.html",
+     "what": "Agoda OTA listing for Lago Villas 2BR (multi-OTA distribution evidence)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://contra.com/keanu_fischell_kn6hor83",
+     "what": "Keanu Fischell public freelance profile — ex-Google/Microsoft, paid marketing specialist",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.cabobali.com/all-villas",
+     "what": "Villa list page 'Curated Stays in Bingin & Uluwatu'",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.cabobali.com/collaborations",
+     "what": "Creator collaborations program (comp stays for content)",
+     "accessed": "2026-07-12"
+    }
+   ],
+   "facts": "[\"VERIFIED: Cabo Bali runs Guesty-hosted direct booking sites at cabobali.guestybookings.com and lagovillas.guestybookings.com (live, Google-indexed URLs)\", \"OBSERVED (official-site snippets): full-service management at 13% gross + IDR 2.5M/month, maintenance at cost, no lock-in\", \"OBSERVED (official-site snippet): 'By Keanu Fischell, Co-Founder, Cabo Bali · Updated June 2026' — public decision maker\", \"OBSERVED (official-site snippets): contact = hello@cabobali.com, +62 821-4484-2660 (phone/WhatsApp), contact page titled 'Book Your Stay in Bali'\", \"OBSERVED: portfolio claims conflict — '20+ boutique villas' (June 2026 byline) vs '6-villa portfolio' in their April-2026 performance data; exact count unconfirmed\", \"OBSERVED: premium rates ~$230-460/night on Airbnb (Lago Villas); Airbnb Superhost/Guest Favourite; Agoda/Booking/VRBO distribution\", \"OBSERVED: 24/7 ops HQ on the Bukit with engineering, ecommerce, concierge, marketing, accountant and owner-relationship roles\", \"OBSERVED: active in 2026 — blog posts updated June 2026, 2026 performance data, active Instagram (@cabo.bali, @lago.villas ~14K)\", \"NOT TESTED: wa.me hrefs/prefill, form fields, chat widgets — site serves 403 to fetchers and proxy denied raw curl\", \"INFERRED: pre-booking enquiry capture across fragmented brand funnels (per-villa IGs, two booking domains, WhatsApp, email, OTAs) is the most likely funnel leak and the natural Villa Ops OS wedge\"]"
+  },
+  {
+   "company_name": "Gravity Bali (Gravity Villa Management) — gravitybali.com",
+   "exists": true,
+   "facts": "[\"VERIFIED-via-search (official site snippet): Gravity Bali is a boutique villa management & marketing company founded 2017 by Olivier Cancé; Celine Cancé is Co-Director; founders bought their first Seminyak villa in 2013 — https://gravitybali.com/en/our-history-founders/\", \"OBSERVED (LinkedIn public profile): Celine Cance listed as 'Co Director - Gravity Bali villa management' — https://id.linkedin.com/in/celine-cance-b2828374\", \"OBSERVED (press, April 15 2026): founder interview and feature naming Olivier & Celine Cancé, 40+ villas — https://indonesiadesign.com/story/gravity-villa-management-crafting-elevated-villa-living-in-bali and https://indonesiadesign.com/story/from-first-villa-to-a-boutique-vision-in-bali-a-conversation-with-olivier-and-celine-cance\", \"VERIFIED-via-search (official pages): manages 'more than 40 exclusive villas' across Canggu, Seminyak, Balangan, Uluwatu (one snippet says 35) — https://gravitybali.com/en/about-us/\", \"VERIFIED-via-search (official contact page): contact@gravitybali.com, +62 813-5370-4430, office Jl. Mertanadi No.39, Kerobokan Kelod, Kuta Utara, Badung 80361; contact via form, email, WhatsApp, office or online call — https://gravitybali.com/en/contact-us/\", \"VERIFIED-via-search (official guest FAQ): guests book 'directly on the website, via WhatsApp, or through OTAs like Airbnb and Booking.com'; direct booking = best price + free breakfast + welcome floating tray — https://gravitybali.com/en/faqs-for-guests/\", \"VERIFIED-via-search (official villa page + reserve page): 'check availability' = enquiry form 'sent directly to our marketing team' who reply 'with a personalized quote' — manual quote flow, no instant booking engine visible — https://gravitybali.com/en/property/villa-kelanah/ and https://gravitybali.com/en/reserve-your-stay/\", \"VERIFIED-via-search (official pages): public response-time promises — concierge 'average response time under five minutes', booking requests answered 'under 1 hour', urgent issues 'within the hour'; every guest gets a dedicated WhatsApp concierge — https://gravitybali.com/en/gravity-bali-guest-experience-secrets/\", \"OBSERVED (official pages, contradiction): '24/7 WhatsApp concierge / 7 days a week' vs 'concierge service is closed on weekends — for urgent requests contact your villa manager' — https://gravitybali.com/en/gravity-conciergerie/ vs https://gravitybali.com/en/faqs-for-guests/\", \"OBSERVED (Instagram snippet): @bali.gravity has ~958 followers, 572 posts — https://www.instagram.com/bali.gravity/\", \"OBSERVED (official property pages / OTA): premium rates — Villa Simprana Seminyak 4BR ~US$343/night (https://gravitybali.com/en/property/villa-simprana/); Villa Kelanah 5BR from ~US$486/night on https://www.villa-bali.com/en/villa/kerobokan/villa-kelanah\", \"OBSERVED (Glints + official): active hiring in housekeeping/maintenance/management/marketing/sales/office, hr@gravitybali.com; team incl. office staff, business developers, accountants, managers — https://glints.com/id/en/companies/gravity-bali/44246549-53c9-4dfc-8da5-3a058ca2774c\", \"OBSERVED (third party, 2026): listed in balidoneright.com 'Best property management Bali 2026' roundup with testimonial — https://www.balidoneright.com/best-property-management-bali/\", \"OBSERVED: parallel domain gravitybali.net with overlapping About content — https://gravitybali.net/about/; separate LinkedIn arm 'Gravity Bali Invest' — https://www.linkedin.com/company/gravity-bali-invest/\", \"NOT TESTED: wa.me link hrefs / prefilled text, booking-engine scripts/iframes, form handlers, Instagram recency, Google Maps rating — this sandbox's egress policy returned 403 on all direct fetches (curl CONNECT and WebFetch, even example.com), so HTML-level checks were impossible\", \"INFERRED: 'Gravity Bali Hotel' (Pecatu) and 'Gravity Eco Boutique Hotel' are unrelated businesses; their TripAdvisor reviews must not be attributed to this company\"]",
+   "website": "https://gravitybali.com/en/",
+   "website_reachable": true,
+   "area": "Canggu, Seminyak, Kerobokan, Balangan, Uluwatu (\"and other prime destinations\"); office in Kerobokan Kelod, Kuta Utara, Badung",
+   "management_model": "Full-service boutique villa management + marketing (maintenance, staffing, guest support, booking management, in-house marketing, revenue management, concierge); also a real-estate investment arm (Gravity Bali Invest). Owner-operated since 2017.",
+   "portfolio_size": "35–40+ villas — \"more than 40 exclusive villas\" per https://gravitybali.com/en/about-us/ and https://www.balidoneright.com/best-property-management-bali/ (one official snippet says 35); OBSERVED via search snippets, exact count unconfirmed at HTML level",
+   "price_segment": "Premium: Villa Simprana Seminyak 4BR ~US$343/night (gravitybali.com/en/property/villa-simprana/), Villa Kelanah 5BR from ~US$486/night (villa-bali.com listing); market context $250–800/night for Seminyak/Canggu pool villas",
+   "direct_booking": "Actively promoted: villa-page enquiry form → marketing team → manual personalized quote (gravitybali.com/en/property/villa-kelanah/, /en/reserve-your-stay/); or WhatsApp; direct-booking perks = best price + free breakfast + welcome floating tray (/en/faqs-for-guests/). No instant online checkout observed. HTML inspection NOT TESTED (egress blocked).",
+   "booking_engine": "None detected guest-side — enquiry-form + manual quote flow (OBSERVED via official page snippets). Internal \"hotel-grade revenue management software\" claimed but unnamed. Page scripts/iframes NOT TESTED: sandbox egress policy blocked all direct fetches of gravitybali.com (proxy 403 on curl CONNECT and WebFetch).",
+   "whatsapp": "+62 813-5370-4430 on contact page (likely WhatsApp line); WhatsApp is an advertised booking channel and every guest gets a dedicated concierge WhatsApp contact \"7 days a week\" (gravitybali.com/en/contact-us/, /en/faqs-for-guests/, /en/gravity-conciergerie/). wa.me hrefs and prefilled text NOT TESTED — direct HTML fetch blocked by sandbox egress policy.",
+   "instagram": "@bali.gravity — ~958 followers, 572 posts (OBSERVED via search snippet of instagram.com/bali.gravity/; posting recency NOT TESTED)",
+   "decision_maker": "Olivier Cancé, founder (own site: https://gravitybali.com/en/our-history-founders/ — \"Olivier founded the company to care for his own villa\"; press interview: https://indonesiadesign.com/story/from-first-villa-to-a-boutique-vision-in-bali-a-conversation-with-olivier-and-celine-cance). Celine Cancé, Co-Director (public LinkedIn: https://id.linkedin.com/in/celine-cance-b2828374 — \"Co Director - Gravity Bali villa management\").",
+   "team_signals": "Guest enquiries handled by a \"marketing team\" issuing personalized quotes; dedicated per-guest concierges; staff roles include office staff, personal assistants, business developers, accountants, managers, technicians; active hiring incl. sales/marketing/office via hr@gravitybali.com (official FAQ content + Glints careers page https://glints.com/id/en/companies/gravity-bali/44246549-53c9-4dfc-8da5-3a058ca2774c)",
+   "marketing_activity": "Active: SEO blog with 2026-dated posts (\"What's New for Villa Owners... in 2026\"), April 2026 press feature (indonesiadesign.com), YouTube channel (@GravityBali), OTA distribution (Airbnb, Booking.com per own FAQ; villa-bali.com listing), listed in 2026 balidoneright.com directory; Instagram present but small (~958 followers)",
+   "public_contacts": "contact@gravitybali.com; +62 813-5370-4430; hr@gravitybali.com (careers); contact form at https://gravitybali.com/en/contact-us/; office Jl. Mertanadi No.39, Kerobokan Kelod, Kuta Utara, Badung, Bali 80361",
+   "visible_problems": [
+    "Direct 'check availability' is a manual enquiry form routed to the marketing team for a personalized quote — no instant quote/booking; every direct lead depends on human response speed (OBSERVED: gravitybali.com/en/property/villa-kelanah/, /en/reserve-your-stay/)",
+    "Aggressive public response-time promises (concierge <5 min average, booking requests <1 hour, urgent <60 min) rest on manual WhatsApp/form handling — peak-season breach risk (promises OBSERVED: /en/gravity-bali-guest-experience-secrets/; risk INFERRED)",
+    "Contradiction on own pages: '24/7 WhatsApp concierge, 7 days a week' vs 'concierge service is closed on weekends' (OBSERVED: /en/gravity-conciergerie/ vs /en/faqs-for-guests/)",
+    "Instagram audience (~958 followers) tiny vs 40-villa premium portfolio — weak owned-audience funnel; direct-booking perks under-amplified (OBSERVED: instagram.com/bali.gravity/)",
+    "Whether villa name/dates carry into WhatsApp from villa pages (wa.me prefill) NOT TESTED — direct HTML fetch blocked by sandbox egress policy; context loss between website form → WhatsApp → quote is likely given form-first flow (INFERRED)",
+    "Brand fragmentation: parallel domain gravitybali.net with overlapping About content (OBSERVED: gravitybali.net/about/)"
+   ],
+   "revenue_capacity_signal": "35–40+ premium villas at $343–486+/night with claimed >80% peak occupancy implies portfolio gross booking volume in the millions USD/yr; at a typical 15–20% management commission, roughly $500k–1M+ annual company revenue. They already pay for in-house marketing, revenue-management software, SEO content and concierge staff — a $5,000–9,500 one-off equals ~1–2 villa-nights of portfolio revenue. INFERRED from OBSERVED portfolio and rates (gravitybali.com/en/about-us/, /en/property/villa-simprana/, villa-bali.com Kelanah listing).",
+   "sources": [
+    {
+     "url": "https://gravitybali.com/en/",
+     "what": "Official homepage — positioning, services, areas (via search snippet; direct fetch blocked by sandbox)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://gravitybali.com/en/our-history-founders/",
+     "what": "Founders page: 2013 first villa, company founded 2017, Olivier founder, Celine co-director",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://indonesiadesign.com/story/from-first-villa-to-a-boutique-vision-in-bali-a-conversation-with-olivier-and-celine-cance",
+     "what": "Press interview naming Olivier & Celine Cancé as founders",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://indonesiadesign.com/story/gravity-villa-management-crafting-elevated-villa-living-in-bali",
+     "what": "Press feature (April 15, 2026): 40+ villas, boutique model; proves current operation",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://id.linkedin.com/in/celine-cance-b2828374",
+     "what": "Public LinkedIn: Celine Cance, Co Director, Gravity Bali villa management",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://gravitybali.com/en/contact-us/",
+     "what": "Contact page: contact@gravitybali.com, +62 813-5370-4430, Kerobokan office, form/email/WhatsApp options",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://gravitybali.com/en/faqs-for-guests/",
+     "what": "Guest FAQ: book via website/WhatsApp/OTAs; direct perks; concierge weekend closure note",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://gravitybali.com/en/property/villa-kelanah/",
+     "what": "Sample villa page: 5BR; availability via form to marketing team for personalized quote",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://gravitybali.com/en/property/villa-simprana/",
+     "what": "Sample villa page: 4BR Seminyak ~US$343/night",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.villa-bali.com/en/villa/kerobokan/villa-kelanah",
+     "what": "OTA listing, Villa Kelanah from ~US$486/night — OTA channel presence",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.instagram.com/bali.gravity/",
+     "what": "Instagram @bali.gravity: ~958 followers, 572 posts (via search snippet)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.balidoneright.com/best-property-management-bali/",
+     "what": "Third-party 2026 directory listing Gravity Bali with testimonial, 40+ villas",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://gravitybali.com/en/reserve-your-stay/",
+     "what": "Reservation flow: form → marketing team → personalized quote",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://gravitybali.com/en/gravity-conciergerie/",
+     "what": "Concierge page: dedicated WhatsApp concierge per guest, 7 days/week claim",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://gravitybali.com/en/gravity-bali-guest-experience-secrets/",
+     "what": "Official response-time claims: concierge <5 min average; booking requests <1 hour",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://glints.com/id/en/companies/gravity-bali/44246549-53c9-4dfc-8da5-3a058ca2774c",
+     "what": "Glints careers page — active hiring, roles, hr@gravitybali.com",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.linkedin.com/company/gravity-bali-invest/",
+     "what": "LinkedIn page for Gravity Bali Invest (investment arm)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://gravitybali.net/about/",
+     "what": "Parallel domain with duplicate About content — brand fragmentation",
+     "accessed": "2026-07-12"
+    }
+   ],
+   "fit_score": 9,
+   "confidence_score": 7,
+   "notes": "METHOD CAVEAT: this sandbox's egress policy blocked ALL direct page fetches (proxy answered 403 to curl CONNECT for every host incl. archive.org; WebFetch 403 even for example.com), so all site facts were gathered via WebSearch snippets of official/third-party pages — treat official-site facts as OBSERVED-via-search, not HTML-verified. NOT TESTED: wa.me hrefs/prefill, booking-engine scripts, form handlers, Instagram recency, Google Maps rating; re-run the HTML-level audit from an unrestricted network before outreach. DISAMBIGUATION: 'Gravity Bali Hotel' (Pecatu, TripAdvisor d10512504) and 'Gravity Eco Boutique Hotel' are unrelated businesses — do not use their reviews. A snippet about 'slow communication' complaints came from a competitor's generic blog (balimanagement.villas), not attributable to Gravity Bali; no Gravity-specific negative reviews surfaced. Company verifiably operates in July 2026 (April 2026 press, 2026 blog posts, 2026 directory). FIT RATIONALE (9/10): 35–40+ premium villas; direct bookings pushed with perks but fulfilled by a manual form→marketing-team→quote flow; WhatsApp-centric guest ops with published sub-5-minute/sub-1-hour response promises and a self-contradictory weekend concierge gap; identifiable owner-operators (Olivier & Celine Cancé); hiring sales/office staff. Pitch angle: Villa Ops OS protects their published response-time promises 24/7 (incl. weekends), carries villa/date context from website into WhatsApp, and lifts direct-vs-OTA conversion. Deduction: boutique 'personal touch' identity may create resistance to AI-assisted first response — frame as augmenting, not replacing, their concierges."
+  },
+  {
+   "company_name": "OriVista (formerly Azure Bali / Azure International)",
+   "exists": true,
+   "facts": "[\"VERIFIED: Portfolio of 52 private pool villas — page title 'All Villas — 52 Private Pool Villas in Bali | OriVista Bali' (https://orivista.com/villas).\", \"VERIFIED: Operates across Canggu, Seminyak, Ubud, Uluwatu, Pererenan — homepage title (https://orivista.com/).\", \"VERIFIED: Full-service management — guest experience end-to-end, dynamic pricing, staff/vendors, owner dashboard, claimed '30%+ direct booking rate' (https://orivista.com/property-management).\", \"VERIFIED: Direct booking site book.orivista.com with /search and /listings/{id} pages, e.g. /listings/148160 Villa Alba, /listings/97447 Villa Kenza (indexed pages).\", \"OBSERVED: Founder is 'Manish A.' per public LinkedIn headline 'Founder at Orivista (formerly Azure Bali)' (https://in.linkedin.com/in/manish-a-7774ab111); search summaries expand to 'Manish Agarwal'; 0→52+ villas in 2 years; 60+ properties.\", \"OBSERVED: Rebranded from Azure Bali — rebrand page https://azurebali.com/orivista/ (info@orivista.com, Jl Nelayan Canggu, '60+ high-end villas', mentions 'AI automation').\", \"OBSERVED: Instagram @orivistaofficial ~6,216 followers, 431 posts (Google snippet of instagram.com/orivistaofficial); YouTube @orivistaofficial 'Orivista (formerly Azure Bali)'.\", \"OBSERVED: Public contacts — phone +62 8113 8036 00, email support@azurebali.com (legacy email still shown with Orivista contact info), address Jl Raya Padonan, Tibubeneng, Kuta Utara, Badung 80361; office hours Mon–Fri 9–5, Sat–Sun 9–2 (indexed orivista.com content; matches Waze/Places pin 'OriVista (Azure Bali) Villa rentals & Management').\", \"OBSERVED: Site copy promises WhatsApp responses 'within 30 minutes' for guests and confirms guests' preferred channel (WhatsApp/SMS/phone) on arrival (indexed orivista.com content).\", \"OBSERVED: Listed on 8+ OTAs — Booking.com, Expedia, Hotels.com, Travelocity, Klook, Traveloka, tiket.com, MakeMyTrip, Airbnb, Marriott Homes & Villas — many still under legacy 'by Azure' names (e.g. booking.com/hotel/id/villa-kenza-canggu-by-azure.html).\", \"OBSERVED: Price point example — 4BR Villa Kenza Canggu ~US$344/night (https://thebaliguideline.com/stay/canggu/villa-kenza-canggu-by-azure).\", \"OBSERVED: Back-office in Bhubaneswar, India — LinkedIn shows company 'managed from Bhubaneswar' and hiring there incl. Revenue Manager in Patia (https://id.linkedin.com/company/orivista).\", \"OBSERVED: Active in 2026 — 2026-dated blog posts (bali-villa-compliance-2026-owner-guide, technology-bali-property-management-2026), presence at Bali Villa Connect 2026 (May 26–27, 2026) per founder LinkedIn, '2026' OTA listing pages.\", \"INFERRED: Booking engine is a hosted PMS engine most consistent with Hostaway — /listings/{6-digit-id} + /search structure, identical listing ID 97447 on both book.orivista.com and legacy book.azurebali.com; vendor not confirmed (HTML unreachable).\", \"NOT TESTED: wa.me links, WhatsApp prefill text, booking-engine scripts, response-time banners — orivista.com/book.orivista.com/azurebali.com and OTA pages all returned HTTP 403 to every fetcher available in this environment; all site facts derive from search-indexed snippets.\"]",
+   "website": "https://orivista.com (booking subdomain: https://book.orivista.com; legacy: azurebali.com / book.azurebali.com)",
+   "website_reachable": true,
+   "area": "Canggu (HQ, Tibubeneng/Jl Raya Padonan), Seminyak, Ubud, Uluwatu, Pererenan — Badung Regency, Bali",
+   "management_model": "Full-service villa management (end-to-end guest experience, dynamic pricing/revenue management, housekeeping/maintenance staff & vendors, monthly owner payouts, owner app/dashboard, claimed \"30%+ direct booking rate\") plus villa rentals and real-estate consulting — VERIFIED via orivista.com/property-management and homepage snippets",
+   "portfolio_size": "52 private pool villas — VERIFIED via page title \"All Villas — 52 Private Pool Villas in Bali | OriVista Bali\" (https://orivista.com/villas); founder's LinkedIn says \"60+ properties\" and \"0 to 52+ managed villas in 2 years\" (https://in.linkedin.com/in/manish-a-7774ab111, OBSERVED)",
+   "price_segment": "Mid-to-premium (\"luxury private pool villas\" positioning). Example: 4BR Villa Kenza Canggu ~US$344/night (OBSERVED via https://thebaliguideline.com/stay/canggu/villa-kenza-canggu-by-azure); guest ratings 4.85–5.00 claimed on own site. Portfolio spans 1BR mid-range to 4BR premium.",
+   "direct_booking": "Yes — dedicated booking site book.orivista.com (\"Best Bali Villas - Orivista\") with /search page and per-villa /listings/{id} pages (e.g. https://book.orivista.com/listings/148160 Villa Alba, /97447 Villa Kenza, /364528 Villa Amara, /415813 Villa Anaya) — VERIFIED via indexed pages. Direct-booking incentives on orivista.com: \"best rates, free beach club access, personal concierge\" exclusively for direct bookers, not OTA guests (VERIFIED via homepage snippet). Site HTML was not inspectable from this environment (all fetchers received 403), so form-vs-wa.me enquiry flow on villa pages is NOT TESTED.",
+   "booking_engine": "Hosted PMS booking engine, most consistent with Hostaway (INFERRED): URL structure /search + /listings/{6-digit-numeric-id} on book.orivista.com matches Hostaway direct-booking sites, and the identical listing ID 97447 appears on both book.orivista.com/listings/97447 and legacy book.azurebali.com/listings/97447 — same backend across both brand domains (OBSERVED). Broad channel distribution (Booking.com, Expedia/Hotels.com/Travelocity, Klook, Traveloka, tiket.com, MakeMyTrip, Airbnb, Marriott Homes & Villas) implies channel-manager PMS (OBSERVED). Vendor name NOT VERIFIED — page scripts unreachable (403 to all fetchers).",
+   "whatsapp": "No wa.me link could be captured (site HTML blocked to fetchers — NOT TESTED). Public contact number +62 8113 8036 00 listed with orivista.com contact info (OBSERVED via Google-indexed snippet) — Indonesian mobile format, plausibly WhatsApp-capable. Site copy states guests \"can ask questions through WhatsApp and receive responses within 30 minutes\" and guests' preferred channel (WhatsApp/SMS/phone) is confirmed on arrival (OBSERVED via indexed orivista.com content).",
+   "instagram": "@orivistaofficial — ~6,216 followers, 431 posts, bio \"Connecting soulful travellers with story-rich villas… Because luxury is in the quiet details\" (OBSERVED via Google snippet of instagram.com/orivistaofficial, 2026-07-12). Also YouTube @orivistaofficial and legacy Facebook page facebook.com/azureintbali.",
+   "decision_maker": "Manish A. — public LinkedIn headline \"Founder at Orivista (formerly Azure Bali)\", https://in.linkedin.com/in/manish-a-7774ab111 (headline visible in indexed public profile). Search-result summaries expand the name as \"Manish Agarwal\" (OBSERVED, surname not directly confirmed on-page). Profile describes first-generation entrepreneur, 0→52+ villas in 2 years, presence at Bali Villa Connect 2026 (May 2026).",
+   "team_signals": "LinkedIn company page exists (https://id.linkedin.com/company/orivista). Back-office/reservations operations centralized in Bhubaneswar, India — LinkedIn snippets state the company is \"managed from Bhubaneswar\" with in-office hiring there, including a Revenue Manager opening in Patia, Bhubaneswar (OBSERVED). Local villa/hospitality staff in Bali per property-management page (\"Trusted Staff & Vendors\", VERIFIED snippet). Office hours published: Mon–Fri 9:00–17:00, Sat–Sun 9:00–14:00 (OBSERVED).",
+   "public_contacts": "Phone +62 8113 8036 00; email support@azurebali.com (legacy-brand email shown with Orivista contact info — OBSERVED via indexed orivista.com content); info@orivista.com (on rebrand page https://azurebali.com/orivista/); address Jl Raya Padonan, Tibubeneng, Kec. Kuta Utara, Badung, Bali 80361 (OBSERVED; matches Waze/Places entry \"OriVista (Azure Bali) Villa rentals & Management, Jl. Raya Padonan\"); rebrand page also lists Jl Nelayan, Canggu.",
+   "marketing_activity": "Very active: large owner-education SEO blog with 2026-dated content (orivista.com/bali-villa-compliance-2026-owner-guide, /technology-bali-property-management-2026, ROI/how-to-pick-a-manager guides) — VERIFIED titles; LinkedIn Pulse articles (OBSERVED); Instagram 431 posts; YouTube channel; presence at Bali Villa Connect 2026 (May 26–27, 2026) per founder LinkedIn (OBSERVED); listed on 8+ OTAs including Booking.com, Expedia, Hotels.com, Klook, Traveloka, tiket.com, MakeMyTrip, Marriott Homes & Villas, Airbnb (OBSERVED) — international guest base.",
+   "visible_problems": [
+    "OBSERVED: Legacy-brand email support@azurebali.com still published alongside Orivista contact details on orivista.com (via Google-indexed snippet) — post-rebrand funnel/brand leak that confuses direct enquirers.",
+    "OBSERVED: Dual-brand booking split — legacy book.azurebali.com listing pages (e.g. book.azurebali.com/listings/97447) remain live/indexed in parallel with book.orivista.com, and OTA listings still carry old names ('Villa Kenza Canggu by Azure' at booking.com/hotel/id/villa-kenza-canggu-by-azure.html; Expedia URL 'Villa-Casa-Gypsy-By-Azure') — direct-booking traffic and SEO equity split across two domains/brands.",
+    "OBSERVED + INFERRED: Published office hours (Mon–Fri 9am–5pm, weekends 9am–2pm) for a business serving international enquirers across time zones — off-hours enquiry coverage gap that an always-on WhatsApp first responder would close.",
+    "OBSERVED: Site promises WhatsApp responses 'within 30 minutes' — a public SLA currently dependent on human staffing (coverage NOT TESTED); protecting it 24/7 is a direct Villa Ops OS pitch.",
+    "INFERRED: Marketing site (orivista.com) and booking engine (book.orivista.com) are separate systems, so enquiry context (villa name, dates) likely does not carry across the website→WhatsApp→booking hop; wa.me prefill NOT TESTED (site HTML returns 403 to fetchers).",
+    "OBSERVED: No consolidated Google Business review profile under the new 'Orivista' brand surfaced in search — only a Waze/Places pin 'OriVista (Azure Bali)'; review equity fragmented across the old Azure name and per-villa OTA listings."
+   ],
+   "revenue_capacity_signal": "Strong. 52 managed villas (VERIFIED count) at observed rates around US$150–350/night (4BR Kenza ~$344) implies portfolio GMV plausibly in the low millions USD/year; at typical Bali management commissions (15–25%) company revenue is comfortably six figures USD. They already fund a physical Canggu office, an India back-office with a dedicated Revenue Manager hire, a hosted PMS/booking engine, 8+ OTA channels, and trade-show presence — a $5,000–9,500 one-time ops project is affordable. Counter-signal: their own copy already touts 'AI automation' (azurebali.com/orivista snippet), so they may believe this is solved internally — pitch should lead with measurable gaps (rebrand leaks, 30-min SLA protection, off-hours coverage).",
+   "fit_score": 8.5,
+   "confidence_score": 7,
+   "notes": "Company verifiably operates in July 2026 (2026-dated blog posts, May 2026 Bali Villa Connect presence, 2026 OTA listing pages). Key research limitation: orivista.com, book.orivista.com, azurebali.com and all OTA pages returned HTTP 403 to every fetcher available in this environment (WebFetch blocked by the sites, and the egress proxy denied direct curl CONNECT as a policy matter), so raw HTML — wa.me hrefs, prefilled WhatsApp text, booking-engine scripts — could NOT be inspected; all site facts come from Google-indexed titles/snippets and third-party sources and are classified accordingly. Before outreach, manually verify from a normal browser: (1) exact enquiry path on a villa page (form vs wa.me, prefill), (2) booking engine vendor via page source, (3) whether support@azurebali.com is still the visible contact email. The ~2025 rebrand (Azure Bali → OriVista) is the strongest hook: visible funnel fragmentation across two brands is concrete, demonstrable, and fixable within a 14-day engagement. Passive research only was performed — no forms submitted, no messages sent, no bookings created.",
+   "sources": [
+    {
+     "url": "https://orivista.com/",
+     "what": "Homepage title/snippets: 'Luxury Villas in Bali with Private Pool by OriVista — Canggu, Seminyak, Ubud & Uluwatu'; 50+ handpicked villas; direct-booking perks (best rates, beach club, concierge)",
+     "accessed": "2026-07-12 via Google-indexed snippets (direct fetch returned 403)"
+    },
+    {
+     "url": "https://orivista.com/villas",
+     "what": "Page title 'All Villas — 52 Private Pool Villas in Bali | OriVista Bali' — portfolio size",
+     "accessed": "2026-07-12 via search index"
+    },
+    {
+     "url": "https://orivista.com/property-management",
+     "what": "Full-management services, owner dashboard, '30%+ direct booking rate' claim",
+     "accessed": "2026-07-12 via search index"
+    },
+    {
+     "url": "https://book.orivista.com/",
+     "what": "Direct booking site 'Best Bali Villas - Orivista' with /search and /listings/{id} pages",
+     "accessed": "2026-07-12 via search index"
+    },
+    {
+     "url": "https://book.orivista.com/listings/148160",
+     "what": "Sample villa booking page (Villa Alba Canggu); /listings/{6-digit-id} pattern used for booking-engine inference",
+     "accessed": "2026-07-12 via search index"
+    },
+    {
+     "url": "https://book.azurebali.com/listings/97447",
+     "what": "Same listing ID live on legacy Azure Bali booking domain — dual-brand booking split evidence",
+     "accessed": "2026-07-12 via search index"
+    },
+    {
+     "url": "https://in.linkedin.com/in/manish-a-7774ab111",
+     "what": "Public LinkedIn: 'Manish A. - Founder at Orivista (formerly Azure Bali)'; 60+ properties; 0→52 villas in 2 years; Bali Villa Connect 2026",
+     "accessed": "2026-07-12 via search index"
+    },
+    {
+     "url": "https://id.linkedin.com/company/orivista",
+     "what": "LinkedIn company page; Bhubaneswar back-office and hiring (incl. Revenue Manager, Patia)",
+     "accessed": "2026-07-12 via search index"
+    },
+    {
+     "url": "https://www.instagram.com/orivistaofficial/",
+     "what": "Instagram: 6,216 followers, 431 posts, Canggu location tag",
+     "accessed": "2026-07-12 via Google snippet"
+    },
+    {
+     "url": "https://azurebali.com/orivista/",
+     "what": "Rebrand announcement 'ORIVISTA - Azure Bali'; info@orivista.com; Jl Nelayan, Canggu; '60+ high-end villas'; mentions AI automation",
+     "accessed": "2026-07-12 via search index"
+    },
+    {
+     "url": "https://www.booking.com/hotel/id/villa-kenza-canggu-by-azure.html",
+     "what": "OTA listing still under legacy 'by Azure' name — brand fragmentation on OTAs",
+     "accessed": "2026-07-12 via search index"
+    },
+    {
+     "url": "https://thebaliguideline.com/stay/canggu/villa-kenza-canggu-by-azure",
+     "what": "Third-party listing; 4BR Villa Kenza ~US$344/night price point",
+     "accessed": "2026-07-12 via search index"
+    },
+    {
+     "url": "https://www.expedia.com/Canggu-Hotels-Villa-Casa-Gypsy-By-Azure-Private-Pool.h88436979.Hotel-Information",
+     "what": "'Villa Casa Gypsy By OriVista Reviews, Deals & Photos 2026' — 2026-current OTA presence; URL retains 'By-Azure'",
+     "accessed": "2026-07-12 via search index"
+    },
+    {
+     "url": "https://www.waze.com/fil/live-map/directions/id/bali/orivista-(azure-bali)-villa-rentals-and-management",
+     "what": "Map/Places entry 'OriVista (Azure Bali) Villa rentals & Management, Jl. Raya Padonan' — physical office confirmed",
+     "accessed": "2026-07-12 via search index"
+    },
+    {
+     "url": "https://www.youtube.com/@orivistaofficial",
+     "what": "YouTube channel 'Orivista (formerly Azure Bali)'",
+     "accessed": "2026-07-12 via search index"
+    },
+    {
+     "url": "https://orivista.com/bali-villa-compliance-2026-owner-guide",
+     "what": "2026-dated owner-education content — proves current operation and content marketing",
+     "accessed": "2026-07-12 via search index"
+    },
+    {
+     "url": "https://homes-and-villas.marriott.com/en/properties/40280654-canggu-kenza-modern-industrial-and-earthy-style-villa-in-canggu",
+     "what": "Marriott Homes & Villas cross-listing — premium channel requiring professional PMS connectivity",
+     "accessed": "2026-07-12 via search index"
+    },
+    {
+     "url": "https://www.tripadvisor.com/VacationRentalReview-g5323528-d23658676-4BR_Villa_Kenza_Canggu_by_Azure-Pererenan_Canggu_North_Kuta_Bali.html",
+     "what": "TripAdvisor vacation-rental listing under legacy Azure name",
+     "accessed": "2026-07-12 via search index"
+    }
+   ]
+  },
+  {
+   "company_name": "The Bali Agent",
+   "exists": true,
+   "website": "https://www.thebaliagent.com",
+   "website_reachable": true,
+   "area": "Southwest Bali core: Seminyak, Legian, Kerobokan, Umalas (marketed as \"near Canggu\"); office at Jalan Kerobokan 88X, gang taman sari 3, Kerobokan",
+   "management_model": "Full-service villa management + direct-booking rental agency: marketing, reservations, guest handling, staff recruitment/training, housekeeping/maintenance, monthly owner reports. Commission model: 20% on direct bookings, 10% on referral bookings, \"no hidden fees\" (VERIFIED via thebaliagent.com/villa-management and /faq content surfaced in search). Rents villas daily and monthly.",
+   "portfolio_size": "90+ villas (OBSERVED — Instagram bio/profile snippet for @thebaliagent surfaced via search: \"manages over 90 villas... 14 years of professional villa management experience... Superhost on Airbnb\", https://www.instagram.com/thebaliagent/). Site villa index at https://www.thebaliagent.com/villa; exact on-site count not directly countable in this sandbox.",
+   "price_segment": "Mid-to-premium. Example: Villa Sukacita, 4BR Seminyak — from ~US$362/night (villa-finder.com/en/seminyak/villa-sukacita) with another source showing from $495/night; 4-7BR villas in Seminyak/Kerobokan/Umalas. Not ultra-luxury (not Elite Havens tier), squarely mid-premium family/group segment.",
+   "direct_booking": "Own website with per-villa pages (URL pattern /villa/daily/{slug}, e.g. /villa/daily/villa-sukacita) and daily/monthly rental index. Booking is enquiry-led, not instant: FAQ/T&C state 50% deposit to secure, balance due 60 days before arrival, full payment if booking <30 days out, and bookings held only \"2 working days\" pending deposit (VERIFIED via /faq and /terms-condition content in search index). Homepage promotes direct-booking discounts \"save up to 30% on last-minute bookings (within 2 weeks) or by booking 15+ days in advance\". Contact page offers phone (09:00-17:00) and \"chat via WhatsApp\". Exact enquiry form fields and wa.me hrefs NOT TESTED — raw HTML inspection was impossible from this sandbox (egress proxy policy blocked all direct fetches; see notes).",
+   "booking_engine": "Historical evidence: site rebuilt ~2016 by Studio WMT, whose case study says the site \"runs with a Booking Sync System powered by a powerful booking cross-channel system\" — i.e. BookingSync (now Smily) PMS/channel manager (OBSERVED, https://studio-wmt.com/websites-travel-agencies/the-bali-agent/). Consistent with wide OTA sync (Agoda/Booking.com/Airbnb/VRBO listings \"by The Bali Agent\"). Whether BookingSync/Smily still powers the 2026 site: NOT TESTED (HTML not inspectable from this environment).",
+   "whatsapp": "WhatsApp offered as a primary contact channel on thebaliagent.com/contact (\"call 09.00-17.00 or chat via WhatsApp\" — VERIFIED via search index of official page). Exact wa.me number and any prefilled-text parameter NOT TESTED (no raw HTML access). Historical mobile +62 81 999 555 955 appears in a 2015 TripAdvisor forum post quoting \"Benjamin Moureau of The Bali Agent\" (OBSERVED, likely outdated). Office line +62 361 731332 is a fixed line, not WhatsApp-capable evidence.",
+   "instagram": "@thebaliagent — approx 4,732 followers (OBSERVED via Instagram profile snippet in search results, July 2026)",
+   "marketing_activity": "Active in 2026: blog post dated 24 Nov 2025 targeting Christmas/NY 2026 (thebaliagent.com/blog/bali-family-villas-for-the-holidays-christmas-new-year-2026); SEO landing pages (/villa-bali-umalas \"Reserve Your Perfect Retreat Now!\", /villa-management); Trustindex \"Reviews 2026\" page live; YouTube channel @TheBaliAgent; Facebook page (94% recommend, 21 reviews); heavy OTA distribution — Agoda listings \"by The Bali Agent\" with 2026 deals, Booking.com, Airbnb (Superhost claim), VRBO, plus third-party resellers (villa-finder, villa-bali.com, vilondo, ministryofvillas, makemytrip). Instagram modest (~4.7k) for a 90-villa portfolio.",
+   "team_signals": "Dedicated \"Booking & Reservations\" function: services page states the team \"handles everything from initial inquiries to guest check-out, prioritizing efficient communication... and personalized guest interactions\" (VERIFIED via thebaliagent.com/services/villa-operations snippet). They also recruit/train villa staff (housekeeping, maintenance). No LinkedIn company page found; no public team/staff names page found; no job posts found in searches.",
+   "decision_maker": "Not publicly confirmed. Only trace: a 2015 TripAdvisor forum post quotes contact details for \"Benjamin Moureau of The Bali Agent\" (https://www.tripadvisor.com/ShowTopic-g608487-i12329-k8369958-The_Bali_Agent_Villa_Suliak_in_Seminyak-Legian_Kuta_District_Bali.html) — dated, third-party, no matching current LinkedIn profile found; must NOT be presented as current owner/GM. No founder/director named on site, Instagram, Facebook, or press in 2024-2026 searches.",
+   "public_contacts": "bookings@thebaliagent.com; +62 361 731332 (office, hours 09:00-17:00); WhatsApp chat via contact page https://www.thebaliagent.com/contact; address Jalan Kerobokan 88X, gang taman sari 3, Kerobokan, Bali. Socials: instagram.com/thebaliagent, facebook.com/thebaliagent, youtube.com/@TheBaliAgent.",
+   "revenue_capacity_signal": "INFERRED but strong: 90+ villas under management at 20% commission on direct bookings, with flagship 4BR villas at US$362-495/night. Even at conservative 50% occupancy and $300 avg nightly on a fraction of the portfolio, direct-booking commission alone runs tens of thousands of USD/month; 14 years in business (since 2012), survived COVID, actively onboarding renovated villas (Villa Bumi) and running multi-OTA distribution. A $5,000-9,500 one-off ops project equals roughly the commission on 2-4 villa-weeks — affordable. Counter-signal: mid-market margins and Indonesian cost base mean price sensitivity; they already advertise \"no hidden fees\" frugality.",
+   "visible_problems": [
+    "INFERRED (from VERIFIED contact page hours): contact page advertises phone support only 09:00-17:00 Bali time — Australian evening and all-day European/US enquiry windows fall outside staffed hours; no visible response-time promise anywhere in indexed site content. An after-hours AI first responder directly addresses this. Evidence: https://www.thebaliagent.com/contact snippet via search.",
+    "VERIFIED (FAQ/T&C via search index): enquiry-led, manual booking flow — 50% bank deposit to secure, hold expires after only 2 working days, full payment <30 days out. High-friction vs instant OTA checkout; every direct lead requires fast human follow-up or it defects to Agoda/Booking.com where the same villa is instantly bookable. Evidence: https://www.thebaliagent.com/faq, https://www.thebaliagent.com/terms-condition.",
+    "OBSERVED: same villas are live on Agoda, Booking.com, villa-finder, villa-bali.com, vilondo, makemytrip etc. ('Villa Sukacita by The Bali Agent') — heavy OTA dependence leaks 15-20% commissions on bookings their own site could capture; direct-booking discount banner (up to 30%) shows they know it. Evidence: https://www.agoda.com/villa-sukacita-by-the-bali-agent_2/hotel/bali-id.html, https://www.booking.com/hotel/id/villa-sukacita-by-the-bali-agent.id.html.",
+    "NOT TESTED: whether the WhatsApp entry point carries villa name/dates into the chat (wa.me prefilled text) — raw HTML was not inspectable from this sandbox; treat as unknown, verify before pitching. Same for presence of a live booking-engine widget vs plain enquiry form on villa pages.",
+    "OBSERVED: no visible unified lead capture across channels — enquiries arrive via WhatsApp, bookings@ email, contact form, Facebook, Instagram DM, and 6+ OTA inboxes; with a stated 'Booking & Reservations team' handling 'initial inquiries to check-out', pipeline fragmentation risk is structural. Evidence: contact channels listed across https://www.thebaliagent.com/contact and socials.",
+    "OBSERVED: Instagram only ~4.7k followers for a 90+ villa portfolio and no LinkedIn presence — under-invested owner-acquisition and direct-demand funnel relative to inventory size. Evidence: https://www.instagram.com/thebaliagent/.",
+    "OBSERVED (counter-signal for pitch framing): public reviews praise communication ('communication and response time were faultless', 4.9/5 across ~3,079 reviews on Trustindex) — the pitch must target scale, after-hours coverage and lead capture, NOT poor service. Evidence: https://www.trustindex.io/reviews/www.thebaliagent.com."
+   ],
+   "fit_score": 8,
+   "confidence_score": 6.5,
+   "notes": "Company verifiably exists and is active in July 2026 (Nov-2025 blog post for NY 2026, Trustindex 'Reviews 2026' page, Agoda 2026 deals on 'by The Bali Agent' properties). IMPORTANT RESEARCH LIMITATION: this sandbox's egress proxy blocked ALL direct HTML fetches (curl CONNECT 403 policy denial; WebFetch returned 403 even for wikipedia.org, proving the block was environment-side, not the target site). Every fact here was therefore gathered through search-engine-indexed content of official and third-party pages — no raw HTML (wa.me hrefs, booking-engine scripts, form markup) could be inspected. Before outreach, manually verify from a normal browser: (1) exact wa.me link + prefilled text on /contact and villa pages, (2) current booking engine (BookingSync/Smily was installed ~2016 per Studio WMT case study), (3) live villa count on /villa, (4) Google Maps rating. Fit assessment: matches the ideal Villa Ops OS profile on portfolio size (90+), direct booking with manual 50%-deposit flow, WhatsApp as stated channel, own website, international guests (AU/EU per OTA reviews), and a named reservations function; weaker on publicly identifiable decision maker (none confirmed — outreach must go through bookings@ / WhatsApp / IG DM) and modest social following. Best pitch angle: capture-and-convert (after-hours first response, OTA-to-direct shift, 2-working-day deposit-hold follow-up automation), not 'your service is slow' — public reviews say their communication is excellent.",
+   "sources": [
+    {
+     "url": "https://www.thebaliagent.com/",
+     "what": "Official homepage — positioning, 'carefully selected villas across Bali', direct-booking discount promo (via search index)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.thebaliagent.com/villa-management",
+     "what": "Commission structure: 20% direct / 10% referral, monthly owner reports, no hidden fees",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.thebaliagent.com/contact",
+     "what": "Contact channels: phone 09:00-17:00, WhatsApp chat, +62 361 731332, bookings@thebaliagent.com, Kerobokan address",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.thebaliagent.com/faq",
+     "what": "Booking flow: 50% deposit, balance 60 days prior, 2-working-day hold, full payment <30 days",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.thebaliagent.com/terms-condition",
+     "what": "Non-refundable payment terms, modification policy",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.thebaliagent.com/services/villa-operations",
+     "what": "Booking & Reservations team 'from initial inquiries to guest check-out'; staff recruitment/training",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.thebaliagent.com/villa/daily/villa-sukacita",
+     "what": "Sample villa page URL pattern (4BR Seminyak)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.thebaliagent.com/blog/bali-family-villas-for-the-holidays-christmas-new-year-2026",
+     "what": "Blog post dated 24 Nov 2025 — proof of current operation and content marketing",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.instagram.com/thebaliagent/",
+     "what": "Instagram profile: ~4,732 followers; bio claims 90+ villas, 14 years experience, Airbnb Superhost",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.facebook.com/thebaliagent/",
+     "what": "Facebook page: vacation home rental, 94% recommend, 21 reviews",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://studio-wmt.com/websites-travel-agencies/the-bali-agent/",
+     "what": "Web agency case study (~2016/2017): site rebuild, 'Booking Sync System... booking cross-channel system' (BookingSync PMS), 'since 2012' history",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.trustindex.io/reviews/www.thebaliagent.com",
+     "what": "Aggregated reviews: 4.9 stars, ~3,079 customers, 2026-dated page; reviews praise communication and response time",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.villa-finder.com/en/seminyak/villa-sukacita",
+     "what": "Third-party rate benchmark: Villa Sukacita 4BR from ~US$362/night",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.agoda.com/villa-sukacita-by-the-bali-agent_2/hotel/bali-id.html",
+     "what": "Agoda OTA listing 'by The Bali Agent' — OTA distribution evidence",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.booking.com/hotel/id/villa-sukacita-by-the-bali-agent.id.html",
+     "what": "Booking.com listing of same villa — direct-vs-OTA leakage evidence",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.tripadvisor.com/ShowTopic-g608487-i12329-k8369958-The_Bali_Agent_Villa_Suliak_in_Seminyak-Legian_Kuta_District_Bali.html",
+     "what": "2015 TripAdvisor forum thread quoting 'Benjamin Moureau of The Bali Agent' + mobile +62 81 999 555 955 (historical, unconfirmed)",
+     "accessed": "2026-07-12"
+    }
+   ],
+   "facts": "[\"VERIFIED (official site via search index): The Bali Agent is a Bali villa management + direct-booking agency operating since 2012, charging 20% commission on direct bookings / 10% on referrals — thebaliagent.com/villa-management, studio-wmt.com case study\", \"OBSERVED (Instagram profile snippet): manages 90+ villas, 14 years experience, Airbnb Superhost, ~4,732 followers — instagram.com/thebaliagent\", \"VERIFIED (official contact page): phone support 09:00-17:00, WhatsApp chat offered, +62 361 731332, bookings@thebaliagent.com, office Jalan Kerobokan 88X gang taman sari 3 — thebaliagent.com/contact\", \"VERIFIED (official FAQ/T&C): enquiry-led booking — 50% deposit secures, hold lapses after 2 working days, balance due 60 days out, full payment <30 days, payments non-refundable — thebaliagent.com/faq, /terms-condition\", \"OBSERVED (web agency case study ~2016): site built by Studio WMT on a 'Booking Sync' cross-channel system (BookingSync, now Smily) — studio-wmt.com/websites-travel-agencies/the-bali-agent/; current engine NOT TESTED\", \"OBSERVED (OTA/third-party listings): villas distributed on Agoda, Booking.com, villa-finder, villa-bali.com, vilondo, makemytrip as 'by The Bali Agent'; Villa Sukacita 4BR Seminyak from ~US$362/night — villa-finder.com, agoda.com\", \"OBSERVED (Trustindex 2026): 4.9/5 across ~3,079 reviews; communication praised as 'faultless' — trustindex.io/reviews/www.thebaliagent.com; no public complaints about slow responses found\", \"VERIFIED (official blog): active as of Nov 2025-2026 season (Christmas/NY 2026 blog post; 2026 OTA deals live) — thebaliagent.com/blog/...new-year-2026\", \"NOT TESTED: exact wa.me hrefs/prefilled text, enquiry form fields, live booking widget — raw HTML fetch blocked by sandbox egress proxy (curl CONNECT 403; WebFetch 403 even on wikipedia.org, confirming environment-side block)\", \"INFERRED: decision maker not publicly confirmed; only a 2015 TripAdvisor forum mention of 'Benjamin Moureau of The Bali Agent' (dated, unverified, no current LinkedIn match) — do not use as current owner/GM\"]"
+  },
+  {
+   "company_name": "Hideaway Villas Bali (brand of Kanaan Hospitality / Kanaan Holding)",
+   "exists": true,
+   "website": "https://hideawayvillasbali.com/",
+   "website_reachable": true,
+   "area": "Bukit Peninsula (Uluwatu/Pecatu and Ungasan) plus Ubud — three properties in South Bali and Central Bali",
+   "management_model": "Full hospitality management of own-brand villa complexes: properties developed by Kanaan Land and operated end-to-end by Kanaan Hospitality under the Hideaway brand (VERIFIED via https://bbtf.co.id/exhibitor-directory/profile/279-Hideaway+Villas/ and https://kanaanhospitality.com/about-us/). Closer to a boutique villa-resort operator than a third-party owner-marketing agency; runs restaurants (Base, Pudak), spa, weddings alongside villas.",
+   "portfolio_size": "~70 villa units across 3 properties: Uluwatu 34 villas (OBSERVED — Expedia listing 34-room property, https://www.expedia.com/Pecatu-Hotels-Hideaway-Villas-Bali.h13123041.Hotel-Information; also cited on Kanaan Land page https://kanaanland.co.id/hideaway-villas-bali-uluwatu/), Ungasan 26 units (OBSERVED — Booking.com https://www.booking.com/hotel/id/hideaway-residence-kabupaten-badung.html), Ubud 10 units (OBSERVED — Booking.com https://www.booking.com/hotel/id/hideaway-village-bali-ubud-by-kanaan-hospitality.html)",
+   "price_segment": "Mid-market. Uluwatu average $101–150/night, from ~$153 on aggregators, discounted OTA rates seen as low as $65 (OBSERVED — https://en.planetofhotels.com/indonesia/uluwatu/hideaway-villas-bali and https://www.tripadvisor.com/Hotel_Review-g8366411-d9459085-Reviews-or20-Hideaway_Villas_Bali-Uluwatu_Bali.html); Ubud from ~$111–119 (OBSERVED — https://www.makemytrip.global/hotels-international/en-us/indonesia/bali-hotels/hideaway_villas_bali_ubud_by_kanaan_hospitality-details.html)",
+   "direct_booking": "Official WordPress-style site with \"Book Now\" CTAs on home, location and special-offer pages, book-direct/best-rate messaging and Early Bird 90-day offers (VERIFIED via indexed pages e.g. https://hideawayvillasbali.com/ubud/special-offers-ubud/best-jungle-view-villa-in-ubud/ and https://hideawayvillasbali.com/uluwatu/). The underlying booking engine could NOT be identified from public search results, and raw HTML inspection was blocked by this sandbox's egress policy (all curl/WebFetch to the domain denied) — engine, wa.me hrefs and prefill behavior are NOT TESTED. Contact pages state communication is available via WhatsApp with separate reservation phone/email per property (VERIFIED — https://hideawayvillasbali.com/uluwatu/contact-us-uluwatu/, https://hideawayvillasbali.com/contact-us-01/).",
+   "booking_engine": "Not identified (NOT TESTED). Site is WordPress-pattern (URL structure /special-offers-*/, blog posts); no engine subdomain, BookAndLink/STAAH/SiteMinder/HotelLink signature surfaced in the search index; direct HTML inspection impossible from this environment (proxy denies CONNECT to the domain; WebFetch 403). Distributes widely via Agoda, Booking.com, Expedia, Trip.com, Traveloka (OBSERVED).",
+   "whatsapp": "Official contact pages state \"communications is available via WhatsApp\"; Front Office +62 878-0015-1000 and Reservations +62 878-0016-1000 (VERIFIED — https://hideawayvillasbali.com/uluwatu/contact-us-uluwatu/ and https://hideawayvillasbali.com/contact-us-01/ via search snippets). A separate WhatsApp 62 822-4752-1152 is listed on their wedding-venue profile (OBSERVED — https://www.weddingku.com/wedding-vendors/venue-restaurant/hideaway-villas-bali). wa.me link presence and prefilled text in hrefs: NOT TESTED (HTML inaccessible from sandbox).",
+   "instagram": "Fragmented across 4 accounts: @hideawayvillasbali ~9,901 followers; @hideawayvillasbali.uluwatu ~17K; @hideawayvillasbali.ungasan ~2,730; @hideawayvillasbali.ubud ~961 (OBSERVED via Google-indexed Instagram profiles, accessed 2026-07-12)",
+   "marketing_activity": "Active: SEO blog content dated 2026 (\"Best Things To Do in Ubud... 2026\" on official site), special-offer landing pages per property, TripAdvisor Travelers' Choice Award 2026 and Agoda Gold Circle Award 2025 announced on own site (VERIFIED — https://hideawayvillasbali.com/hideaway-villas-bali-uluwatu-recognized-with-agoda-gold-circle-award-2025/); listed on all major OTAs; exhibitor at Bali & Beyond Travel Fair (OBSERVED — bbtf.co.id profile); 4 Instagram accounts + Facebook pages per property.",
+   "team_signals": "Dedicated reservations function: separate Reservations line (+62 878-0016-1000) and emails rsv.uluwatu@hideawayvillasbali.com / reservation@hideawayvillasbali.com distinct from Front Office (VERIFIED — official contact pages). ZoomInfo lists ~70 employees at the Uluwatu corporate address (OBSERVED — https://www.zoominfo.com/pic/hideaway-villas/371244113). LinkedIn company page exists: https://www.linkedin.com/company/hideaway-villas-uluwatu-bali (OBSERVED). Management actively responds to TripAdvisor reviews (OBSERVED).",
+   "decision_maker": "Two publicly confirmed: (1) Kristian Kuntadi Tjahjosarwono — Chief Operating Officer, Kanaan Holding (parent of Kanaan Hospitality), public LinkedIn profile https://www.linkedin.com/in/kristian-kuntadi-tjahjosarwono-0933a3ba/ (OBSERVED). (2) Wayan Muka — Corporate General Manager, Hideaway Hospitality, who publicly signs management responses to guest reviews on TripAdvisor (OBSERVED — https://www.tripadvisor.com/Hotel_Review-g1219108-d14116304-Reviews-Hideaway_Villas_Bali-Ungasan_Bukit_Peninsula_Bali.html). No individual owner/founder of Kanaan Holding publicly confirmed.",
+   "public_contacts": "reservation@hideawayvillasbali.com, +62 878-0016-1000 (general reservations); rsv.uluwatu@hideawayvillasbali.com, Front Office +62 878-0015-1000, Reservations +62 878-0016-1000 (Uluwatu); address Jl. Bangbang Bendot, Pecatu, Bali (all VERIFIED from official contact pages https://hideawayvillasbali.com/uluwatu/contact-us-uluwatu/ and https://hideawayvillasbali.com/contact-us-01/). Wedding enquiries WhatsApp 62 822-4752-1152 (OBSERVED, weddingku.com).",
+   "visible_problems": [
+    "OBSERVED: Guest review states no WhatsApp contact is listed on Booking.com or Google and the listed phone number 'wasn't WhatsApp-compatible', even though the property runs day-to-day guest communication on WhatsApp — pre-arrival/pre-booking WhatsApp entry point is hidden (TripAdvisor reviews, https://www.tripadvisor.com/Hotel_Review-g1380108-d9459085-Reviews-Hideaway_Villas_Bali_Uluwatu-Pecatu_Bukit_Peninsula_Bali.html)",
+    "VERIFIED: Contact details are fragmented across at least three different contact pages with different emails/numbers per property (hideawayvillasbali.com/contact-us/, /contact-us-01/, /uluwatu/contact-us-uluwatu/) — no single unified enquiry pipeline visible",
+    "OBSERVED: Audience split across 4 Instagram accounts (17K Uluwatu, 9.9K main, 2.7K Ungasan, 0.96K Ubud) and inconsistent brand naming across OTAs (Hideaway Villas / Hideaway Residence / Hideaway Village), multiplying enquiry entry points",
+    "OBSERVED: Heavy OTA dependence — ~1,999 Agoda + 360 Booking.com reviews and discounted OTA rates as low as $65 vs 'book direct best rate' claim, indicating commission leakage the direct/WhatsApp funnel is not capturing (https://www.agoda.com/hideaway-villas-bali/hotel/bali-id.html, https://www.booking.com/reviews/id/hotel/hideaway-villas-bali.html)",
+    "OBSERVED: Management responses on review platforms acknowledge service-communication gaps and promise 'additional training' (TripAdvisor Uluwatu/Ungasan pages)",
+    "INFERRED: No response-time promise appears anywhere in indexed site content; with 3 properties, 4 IG accounts, wedding/restaurant/spa enquiries plus reservations lines, enquiry routing is almost certainly manual and unmeasured",
+    "NOT TESTED: wa.me prefill (villa name/dates carrying into WhatsApp) and booking-engine presence could not be inspected because the sandbox egress proxy blocks direct fetches of the site HTML"
+   ],
+   "revenue_capacity_signal": "~70 units across 3 operating properties at $101–150+/night implies roughly $2–3M+ annual room revenue at plausible occupancy; ~70 employees (ZoomInfo); backed by Kanaan Holding, a diversified developer/investment/hospitality group; wins 2025–2026 OTA awards and exhibits at BBTF trade fair. A $5,000–9,500 one-off ops project is well within capacity — likely under 0.5% of annual revenue. Counter-signal: as a corporate group they may have procurement processes and an existing PMS/channel stack, so the sale must land with the Corp GM/COO rather than a single owner-operator.",
+   "fit_score": 7.5,
+   "confidence_score": 8,
+   "notes": "Chosen from the target list: Hideaway Villas Bali verifiably exists and operates today (TripAdvisor Travelers' Choice 2026, Agoda Gold Circle 2025, 2026-dated blog content, 2026 OTA listings). 'Kanika Villas' could not be found and appears not to exist as a Bali villa management company. Caveats: (1) portfolio (~70 units) is above the 10–30 'mid-size' sweet spot and it is a developer-backed own-brand operator rather than an independent multi-owner villa manager — pitch should target the Corp GM (Wayan Muka) or Kanaan Holding COO; (2) this sandbox's egress proxy blocked all direct HTML fetches (curl and WebFetch both denied for the domain), so booking-engine scripts, wa.me hrefs and prefill text are NOT TESTED — these must be verified in a browser before outreach; every other fact above is sourced from search-indexed official pages (VERIFIED) or public third-party platforms (OBSERVED). The strongest hook for Villa Ops OS: guests literally complain they cannot find the WhatsApp number before arrival while the operation itself runs on WhatsApp — a documented website→WhatsApp funnel leak, multiplied across 3 properties, 4 Instagram accounts and 3 contact pages.",
+   "sources": [
+    {
+     "url": "https://hideawayvillasbali.com/",
+     "what": "Official homepage: brand, 3 locations (Uluwatu, Ungasan, Ubud), Travelers' Choice 2026 mention, book-direct messaging",
+     "accessed": "2026-07-12 (via Google index; direct fetch blocked by sandbox proxy)"
+    },
+    {
+     "url": "https://hideawayvillasbali.com/uluwatu/contact-us-uluwatu/",
+     "what": "Uluwatu contacts: rsv.uluwatu@hideawayvillasbali.com, FO +62 878-0015-1000, Reservations +62 878-0016-1000, WhatsApp availability",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://hideawayvillasbali.com/contact-us-01/",
+     "what": "General reservations contact: reservation@hideawayvillasbali.com, +62 878 0016 1000",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://hideawayvillasbali.com/hideaway-villas-bali-uluwatu-recognized-with-agoda-gold-circle-award-2025/",
+     "what": "Agoda Gold Circle Award 2025 announcement (operating recency)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://bbtf.co.id/exhibitor-directory/profile/279-Hideaway+Villas/",
+     "what": "BBTF exhibitor profile: brand structure — Kanaan Holding / Kanaan Land (developer) / Kanaan Hospitality (operator), three Hideaway properties",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://kanaanhospitality.com/about-us/",
+     "what": "Kanaan Hospitality about page: management company under Kanaan Holding",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://kanaanholding.com/",
+     "what": "Kanaan Holding: diversified group (developer, property investment, hospitality, ISP)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.expedia.com/Pecatu-Hotels-Hideaway-Villas-Bali.h13123041.Hotel-Information",
+     "what": "Uluwatu property: 34 rooms/villas, 4-star, address, amenities",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.booking.com/hotel/id/hideaway-residence-kabupaten-badung.html",
+     "what": "Ungasan property: 26 units",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.booking.com/hotel/id/hideaway-village-bali-ubud-by-kanaan-hospitality.html",
+     "what": "Ubud property: 10 units",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.tripadvisor.com/Hotel_Review-g1380108-d9459085-Reviews-Hideaway_Villas_Bali_Uluwatu-Pecatu_Bukit_Peninsula_Bali.html",
+     "what": "Uluwatu TripAdvisor: 4.0-4.5 rating, #5 of 74 in Pecatu, reviews incl. WhatsApp-not-listed-pre-arrival complaint, management responses",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.tripadvisor.com/Hotel_Review-g1219108-d14116304-Reviews-Hideaway_Villas_Bali-Ungasan_Bukit_Peninsula_Bali.html",
+     "what": "Ungasan TripAdvisor: reviews with management responses signed by Wayan Muka, Corp. GM Hideaway Hospitality",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.agoda.com/hideaway-villas-bali/hotel/bali-id.html",
+     "what": "Agoda Uluwatu: 8.3/10, ~1,999 reviews (international guest base)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.booking.com/reviews/id/hotel/hideaway-villas-bali.html",
+     "what": "Booking.com: 360 verified reviews, 8.2/10",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://en.planetofhotels.com/indonesia/uluwatu/hideaway-villas-bali",
+     "what": "Rate benchmark: from $153/night, 400 reviews",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.instagram.com/hideawayvillasbali.uluwatu/",
+     "what": "Instagram Uluwatu account ~17K followers (plus @hideawayvillasbali ~9.9K, .ungasan ~2.7K, .ubud ~961)",
+     "accessed": "2026-07-12 (via search index)"
+    },
+    {
+     "url": "https://www.linkedin.com/company/hideaway-villas-uluwatu-bali",
+     "what": "LinkedIn company page (exists)",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.zoominfo.com/pic/hideaway-villas/371244113",
+     "what": "ZoomInfo: ~70 employees, corporate office Jl. Bangbang Bendot Gang Hideaway, Uluwatu",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.linkedin.com/in/kristian-kuntadi-tjahjosarwono-0933a3ba/",
+     "what": "Public LinkedIn: Kristian Kuntadi Tjahjosarwono, COO Kanaan Holding",
+     "accessed": "2026-07-12"
+    },
+    {
+     "url": "https://www.weddingku.com/wedding-vendors/venue-restaurant/hideaway-villas-bali",
+     "what": "Wedding venue profile listing WhatsApp 62 822-4752-1152",
+     "accessed": "2026-07-12"
+    }
+   ],
+   "facts": "[\"VERIFIED: Hideaway Villas Bali operates three properties — Uluwatu, Ungasan, Ubud — under Kanaan Hospitality (official site hideawayvillasbali.com; bbtf.co.id exhibitor profile)\", \"OBSERVED: Portfolio ~70 units: Uluwatu 34 (Expedia h13123041), Ungasan 26 (Booking.com hideaway-residence-kabupaten-badung), Ubud 10 (Booking.com hideaway-village-bali-ubud)\", \"VERIFIED: Dedicated reservations contacts — reservation@hideawayvillasbali.com / rsv.uluwatu@ / +62 878-0016-1000 — and WhatsApp communication stated on official contact pages\", \"VERIFIED: Direct-booking site with Book Now CTAs, Early Bird 90-day offers, best-rate messaging (indexed offer pages)\", \"OBSERVED: Guest reviews report WhatsApp number not discoverable pre-arrival on OTAs/Google despite WhatsApp-run operations (TripAdvisor d9459085)\", \"OBSERVED: Wayan Muka signs TripAdvisor management responses as Corp. GM, Hideaway Hospitality; Kristian Kuntadi Tjahjosarwono is COO of parent Kanaan Holding per public LinkedIn\", \"OBSERVED: ~70 employees (ZoomInfo); mid-market rates $65–153+/night; 2,300+ OTA reviews; Travelers' Choice 2026 and Agoda Gold Circle 2025 awards confirm current operation\", \"NOT TESTED: booking engine identity, wa.me hrefs and prefill text — sandbox egress proxy blocked all direct HTML fetches of the domain\"]"
+  }
+ ],
+ "discovered": [
+  {
+   "company_name": "House of Reservations",
+   "website": "https://www.houseofreservations.com/en",
+   "area": "Island-wide: Seminyak, Canggu, Uluwatu, Ubud, Sanur, Nusa Dua, Jimbaran; HQ Denpasar (OBSERVED, official site via search snippet)",
+   "portfolio_size": "200+ villas in curated collection (OBSERVED, houseofreservations.com via search snippet)",
+   "whatsapp_visible": "YES — company publicly advertises 'seamless guest communication via WhatsApp' and '20-hour support' by its Reservations team (OBSERVED, official site via search snippet). Exact wa.me href/prefill: NOT TESTED (proxy blocked raw HTML).",
+   "direct_booking_visible": "YES — dedicated booking subdomain bookings.houseofreservations.com plus 'Book Luxury Private Villa in Bali | Best Rates Direct' page and a /book-villas-bali-discount direct-booking discount page (OBSERVED, official URLs in search results).",
+   "instagram": "@house_of_reservations — 207K followers, 3,497 posts, active (OBSERVED, instagram.com/house_of_reservations)",
+   "why_fit": "Closest match to the ideal profile: 200+ villa portfolio, own booking engine subdomain, WhatsApp explicitly named as the guest-communication channel, huge active Instagram (207K), dedicated Reservations team, international guest base, and photoshoot/monthly-rental verticals that multiply enquiry volume. Visible leak to sell against: they promise only '20-hour support' (not 24/7) and run parallel funnels (main site, bookings subdomain, discount page, IG DMs) — a unified pipeline + AI first responder story fits exactly. Decision maker not publicly named in sources found (NOT TESTED — LinkedIn company page exists at linkedin.com/company/house-of-reservations but individual names were not publicly confirmed). Operating status: active 2026 (INFERRED from active IG and live booking pages).",
+   "sources": [
+    "https://www.houseofreservations.com/en",
+    "https://bookings.houseofreservations.com/",
+    "https://www.houseofreservations.com/en/book-villas-bali",
+    "https://houseofreservations.com/book-villas-bali-discount",
+    "https://www.instagram.com/house_of_reservations/",
+    "https://www.linkedin.com/company/house-of-reservations/"
+   ]
+  },
+  {
+   "company_name": "Short Stay Bali",
+   "website": "https://shortstaybali.com/",
+   "area": "Canggu, Seminyak, Ubud, Uluwatu (OBSERVED, shortstaybali.com via search snippet)",
+   "portfolio_size": "70+ villas and 2 resorts, ~90 staff; separately claims '100+ fully licensed villas' page (OBSERVED, official site pages via search snippets)",
+   "whatsapp_visible": "YES — official FAQ/booking guidance says guests can 'contact their team directly via WhatsApp or email' (OBSERVED, shortstaybali.com/villa-rental-faq-bali via search snippet). Exact wa.me href/prefill: NOT TESTED.",
+   "direct_booking_visible": "PARTIAL — booking is via website booking form plus a direct-booking promo code BALISTAY10 (10% off direct bookings) rather than a confirmed instant-availability engine (OBSERVED via search snippet; engine presence NOT TESTED).",
+   "instagram": "Instagram handle not confirmed in sources found (NOT TESTED)",
+   "why_fit": "Mid-size owner-operator profile the offer is built for: 70+ personally managed villas, 90-person team (so reservations/guest-relations staff exist), explicit dual funnel of website form + WhatsApp, and a direct-booking discount strategy that lives or dies on enquiry response speed. The form→WhatsApp→email split with no visible response-time promise is exactly the leak Villa Ops OS fixes. Publishes 2026-dated content (anti-scam guide referencing 2026), so clearly still operating (OBSERVED). Decision maker: not publicly named in sources found (NOT TESTED). Portfolio numbers self-reported on own site (OBSERVED, not independently verified).",
+   "sources": [
+    "https://shortstaybali.com/",
+    "https://shortstaybali.com/villa-rental-faq-bali/",
+    "https://shortstaybali.com/legal-villas-bali/",
+    "https://shortstaybali.com/safe-villa-rentals-bali-scam-guide/",
+    "https://shortstaybali.com/bali-villa-management/"
+   ]
+  },
+  {
+   "company_name": "Villa Bali Management (villabalimanagement.com — distinct from excluded 'Bali Management Villas')",
+   "website": "https://www.villabalimanagement.com/",
+   "area": "Seminyak, Bidadari, Umalas, Canggu, Ubud and other areas (OBSERVED, official properties page via search snippet)",
+   "portfolio_size": "150-160+ private villas ('manages over 150 private properties' per site snippet; IG bio states 'managing over 160 villas') (OBSERVED)",
+   "whatsapp_visible": "NOT TESTED on website (proxy blocked raw HTML); phone-based enquiry visible via Instagram profile. Contact page invites direct outreach with promise to 'reply as quickly as possible' (OBSERVED, villabalimanagement.com/contact-us via search snippet).",
+   "direct_booking_visible": "PARTIAL — own properties catalogue at /properties with per-villa enquiry, but no confirmed instant booking engine (OBSERVED catalogue; engine NOT TESTED).",
+   "instagram": "@villabalimanagement — 26K followers, active, Airbnb Ambassador badge in bio (OBSERVED, instagram.com/villabalimanagement)",
+   "why_fit": "Strong volume + weak funnel combination: 150-160 villas and a 26K-follower Instagram generating enquiries, yet the public funnel is a generic contact page with only a vague 'reply as quickly as possible' promise — no response-time SLA, no visible booking engine, likely heavy OTA dependence (Airbnb Ambassador status suggests significant Airbnb channel). That is a textbook website→WhatsApp→booking leak for the audit pitch. Decision maker: not publicly named in sources found (NOT TESTED). Operating 2026: INFERRED from active IG and live site in current index.",
+   "sources": [
+    "https://www.villabalimanagement.com/",
+    "https://www.villabalimanagement.com/properties",
+    "https://www.villabalimanagement.com/contact-us",
+    "https://www.instagram.com/villabalimanagement/"
+   ]
+  },
+  {
+   "company_name": "Optimum Bali",
+   "website": "https://optimumbali.com/",
+   "area": "Seminyak, Oberoi, Canggu, Umalas (OBSERVED, official site via search snippet)",
+   "portfolio_size": "Not published as a number; established 2009, 17+ years experience, 'rents only the villas that they manage' (OBSERVED, optimumbali.com via search snippets). Villa count: NOT TESTED.",
+   "whatsapp_visible": "YES — WhatsApp number +62 822 3685 2696 publicly listed alongside info@optimumbali.com (OBSERVED, optimumbali.com/contact and IG profile via search snippets). Prefill/villa-context in link: NOT TESTED.",
+   "direct_booking_visible": "PARTIAL — extensive own rental catalogue by area/bedroom count on own domain; instant booking engine not confirmed (NOT TESTED).",
+   "instagram": "@optimumbali — 229 posts; most recently indexed reels date to 2024, so current posting cadence is uncertain (OBSERVED, instagram.com/optimumbali)",
+   "why_fit": "Long-established (2009) owner-operated manager-agent hybrid with rentals, sales and management, a public WhatsApp number as the primary enquiry channel, and a deep villa catalogue — the classic 'WhatsApp-run reservations desk' profile Villa Ops OS targets. Positive third-party reviews mention staff helpfulness (OBSERVED via search). Caution flags: exact portfolio size unpublished and Instagram recency uncertain (last indexed reels 2024) — verify current activity before outreach (NOT TESTED). Decision maker: not publicly named in sources found (NOT TESTED).",
+   "sources": [
+    "https://optimumbali.com/",
+    "https://optimumbali.com/contact/",
+    "https://optimumbali.com/villa-bali/rental/",
+    "https://optimumbali.com/villa-management-in-bali/",
+    "https://www.instagram.com/optimumbali/"
+   ]
+  },
+  {
+   "company_name": "Solar Property Bali",
+   "website": "https://solarpropertybali.com/",
+   "area": "Canggu, Seminyak, Ubud, Uluwatu, Sanur (OBSERVED, official site via search snippet)",
+   "portfolio_size": "16+ villas, 11 years experience, mid-range to luxury, 1BR studios to 5+BR estates (OBSERVED, solarpropertybali.com via search snippet)",
+   "whatsapp_visible": "YES — site offers contact 'via WhatsApp or a contact form' (OBSERVED via search snippet). Exact wa.me href: NOT TESTED.",
+   "direct_booking_visible": "WEAK — site is management- and owner-led ('Villa Management & Property Rental'); rentals also distributed via Airbnb/Booking.com OTAs; no confirmed own booking engine (OBSERVED positioning; engine NOT TESTED).",
+   "instagram": "Handle not confirmed in sources found (NOT TESTED)",
+   "why_fit": "Smallest of the shortlist but ticks the hardest-to-find box: a publicly identifiable decision maker — 'Yuriy Solar is the founder of Solar Property Bali' (OBSERVED, stated on solarpropertybali.com per search snippet) — plus WhatsApp + form dual funnel, 80%+ occupancy claims, and an actively maintained blog with 2026-dated content proving current operation (OBSERVED, solarpropertybali.com/blog with 'Investment Guide 2026' post). At 16+ villas it just meets the 10+ bar; positioned for growth (owner-acquisition marketing), so an enquiry-handling system is a credible upsell. Weaknesses vs ideal profile: guest-facing direct-booking funnel and Instagram presence are thinner (INFERRED).",
+   "sources": [
+    "https://solarpropertybali.com/",
+    "https://solarpropertybali.com/property-management/",
+    "https://solarpropertybali.com/blog/",
+    "https://solarpropertybali.com/blog/bali-villas-passive-income-roi-returns-2026/"
+   ]
+  },
+  {
+   "company_name": "My Villa Management",
+   "website": "https://myvillamanagement.com/",
+   "area": "Umalas, Seminyak, Canggu, Ubud (OBSERVED, official site via search snippets)",
+   "portfolio_size": "Number not published; 15+ years in Bali villa management, diverse portfolio incl. retreat villas of 5-18 bedrooms; ~$4M annual revenue 2025 (OBSERVED — years/retreats from myvillamanagement.com via snippets; revenue from third-party RocketReach profile, treat as unverified estimate)",
+   "whatsapp_visible": "PARTIAL — reservations phone numbers +62 82146560733 / +62 81338832125 published via Instagram profile (OBSERVED); whether the website uses wa.me links: NOT TESTED.",
+   "direct_booking_visible": "PARTIAL — own rental catalogue incl. dedicated retreat-villas pages on own domain; instant booking engine not confirmed (NOT TESTED).",
+   "instagram": "@myvillamanagementbali — only 619 followers (OBSERVED, instagram.com/myvillamanagementbali) — below the 'active Instagram' bar",
+   "why_fit": "Veteran mid-size operator (15+ years) with a premium niche — 5-18 bedroom retreat villas serving international retreat organizers, a segment where slow enquiry handling directly kills high-value group bookings. Publicly identifiable decision maker: 'Stephane Varennes is the Founding Director of My Villa Management' (OBSERVED, per myvillamanagement.com/about indexed content and rocketreach.co profile). Phone/WhatsApp-driven reservations with no visible SLA and a weak Instagram (619 followers) mean both a leak story and a marketing-upgrade story. Ranked last because Instagram activity and portfolio count are the least verified of the six (NOT TESTED).",
+   "sources": [
+    "https://myvillamanagement.com/",
+    "https://myvillamanagement.com/about/",
+    "https://myvillamanagement.com/contact/",
+    "https://www.myvillamanagement.com/retreat-villas/",
+    "https://www.instagram.com/myvillamanagementbali/",
+    "https://rocketreach.co/my-villa-management-profile_b4330258c1f79d99"
+   ]
+  },
+  {
+   "company_name": "Short Stay Bali (PT Tertata Jelas Management)",
+   "website": "https://shortstaybali.com/",
+   "area": "Canggu / Seminyak / Kerobokan HQ; villas also in Ubud, Uluwatu",
+   "portfolio_size": "OBSERVED: 70-80+ villas plus 2 resorts, ~90-100 staff (about page via search snippet)",
+   "direct_booking_visible": "OBSERVED: own direct booking engine with promo code BALISTAY10 for instant 10% off direct bookings; 'Cheaper Than Airbnb' landing pages; 100%-licensed-villas positioning",
+   "whatsapp_visible": "OBSERVED: 'Chat with the team on WhatsApp for instant human response' promise on site; contact numbers +62 819-4421-6352 / +62 878-7598-0873. NOT TESTED: wa.me href prefill and whether villa/dates carry into WhatsApp",
+   "instagram": "https://www.instagram.com/shortstaybali/ (OBSERVED, active, 'Bali Luxury Villa Rental & Management')",
+   "why_fit": "Strongest direct-booking ambition of the set: own booking engine, 10% book-direct code, anti-OTA content marketing (2026 'cheaper than Airbnb' and licensing-scare articles = active funnel investment). Visible funnel gap: homepage promises 24/7 service and 'instant human response' on WhatsApp, while the contact page lists office hours Sun-Fri 9-5, Sat 9-12 (OBSERVED) — overnight/weekend enquiries have no stated coverage, exactly what an AI first responder fixes. Publicly identifiable decision maker: Antoine Cardyn, Director & Owner of Tertata Jelas Mgmt, named on the company's own About page ('Known as Captain') and on his public LinkedIn (https://www.linkedin.com/in/antoinecardyn/) — ex-Microsoft, so receptive to a tech pitch. Operating in 2026 (INFERRED from 2026-dated blog posts and Sept 2025 verified guest review).",
+   "sources": [
+    "https://shortstaybali.com/",
+    "https://shortstaybali.com/about-shortstaybali/",
+    "https://shortstaybali.com/short-stay-bali-contact/",
+    "https://shortstaybali.com/discount-villas-near-atlas-finns-beach-club/",
+    "https://shortstaybali.com/legal-villas-bali/",
+    "https://www.linkedin.com/in/antoinecardyn/",
+    "https://www.instagram.com/shortstaybali/"
+   ]
+  },
+  {
+   "company_name": "BaliSuperHost (PT Bali Super Host Management)",
+   "website": "https://balisuperhost.com/",
+   "area": "Ubud HQ; Canggu, Seminyak and island-wide",
+   "portfolio_size": "OBSERVED: claims 569 villas under management (homepage via search snippet); rental brand 'bestay' (bestay.co)",
+   "direct_booking_visible": "OBSERVED: '10% off selected villas with our exclusive Summer in Bali offer' direct-booking promotion; separate consumer booking brand bestay.co",
+   "whatsapp_visible": "OBSERVED: WhatsApp +62 811-3820-0390 for villa-management enquiries on contact page; separate sales WhatsApp +62 878 1721 8986 in Instagram bio — multiple numbers for different funnels. NOT TESTED: wa.me prefill/context carry-through",
+   "instagram": "https://www.instagram.com/bestay_balisuperhost/ (79K followers) plus 3 smaller accounts (@balisuperhost 1.4K, @bali_superhost 3K, @bsh.management 3.7K) — OBSERVED",
+   "why_fit": "Largest portfolio in the set and the clearest public evidence of manual enquiry-handling pain: a LIVE job ad for a Reservation Agent in Ubud (OBSERVED at https://balisuperhost.com/jobs/reservation-agent-staff-level/) whose duties are exactly Villa Ops OS's scope — 'handle all incoming reservation requests via phone, email, or online platforms... ensure prompt responses,' maintain PMS/channel-manager availability, produce daily/weekly reservation reports. They are trying to hire the problem away at staff cost. Visible funnel fragmentation (INFERRED): four Instagram accounts and at least two WhatsApp numbers split enquiries across brands (BaliSuperHost vs bestay). One public guest complaint about a mishandled 15%-refund promise (OBSERVED on Petit Futé review page). Founded 2021 by 'Jonathan, Nicolas and Ian' per own About page — first names only publicly, so no individual named beyond that. Operating in 2026 (2026 blog content, live job ads).",
+   "sources": [
+    "https://balisuperhost.com/",
+    "https://balisuperhost.com/about-us/",
+    "https://balisuperhost.com/contact/",
+    "https://balisuperhost.com/jobs/reservation-agent-staff-level/",
+    "https://bestay.co/balisuperhost",
+    "https://www.instagram.com/bestay_balisuperhost/",
+    "https://www.petitfute.co.uk/v48284-ubud/c1166-hebergement/c1042-location/c168-villa/2035163-bali-super-host/tous-les-avis.html",
+    "https://www.linkedin.com/company/balisuperhost-management"
+   ]
+  },
+  {
+   "company_name": "House of Reservations",
+   "website": "https://www.houseofreservations.com/en",
+   "area": "Denpasar HQ; villas in Seminyak, Canggu, Uluwatu, Ubud, Sanur, Nusa Dua, Jimbaran",
+   "portfolio_size": "OBSERVED: 200+ villas in curated collection (site via search snippet)",
+   "direct_booking_visible": "OBSERVED: dedicated 'Best Rates Direct' page (/en/book-villas-bali) and separate booking-engine subdomain bookings.houseofreservations.com",
+   "whatsapp_visible": "OBSERVED: 'seamless guest communication via WhatsApp' stated in own services page. NOT TESTED: wa.me links, prefill, enquiry-form-to-WhatsApp handoff",
+   "instagram": "https://www.instagram.com/house_of_reservations/ (OBSERVED, active; also TikTok and YouTube under same handle)",
+   "why_fit": "The brand IS reservations — their pitch to owners is running an 'online reservations and marketing department,' so response speed is their core product and any leak is existential. Self-admitted coverage gap (OBSERVED): services page advertises a Reservations team with '20-hour support,' i.e. explicitly not 24/7 — a 4-hour nightly blind spot for international enquiries in EU/US time zones, a textbook AI-first-responder wedge. Direct-booking ambition visible via 'Best Rates Direct' page and own booking subdomain. Active across 6+ social channels (spread = more untracked enquiry entry points, INFERRED). Operating in 2026 (OBSERVED: blog post on 2026 Airbnb/Booking.com regulations for Bali owners). No publicly named owner/GM found — decision maker would need LinkedIn digging before outreach.",
+   "sources": [
+    "https://www.houseofreservations.com/en",
+    "https://www.houseofreservations.com/en/our-services",
+    "https://www.houseofreservations.com/en/book-villas-bali",
+    "https://bookings.houseofreservations.com/",
+    "https://www.houseofreservations.com/en/blog/new-regulations-for-airbnb-and-bookingcom-in-indonesia-2026-update-for-villa-owners-in-bali",
+    "https://www.instagram.com/house_of_reservations/",
+    "https://www.linkedin.com/company/house-of-reservations/"
+   ]
+  },
+  {
+   "company_name": "Ini Vie Hospitality",
+   "website": "https://inivie.com/",
+   "area": "Kerobokan HQ; properties in Seminyak, Legian, Canggu, Ubud, Sanur, Jimbaran",
+   "portfolio_size": "OBSERVED: multi-property premium portfolio of branded villas and resorts (Ini Vie Villa Seminyak, Aksari Villa/Resort, Kaamala Resort Ubud, plus restaurants/spas); exact villa count not published",
+   "direct_booking_visible": "OBSERVED: site urges guests to 'book directly through official property websites or contact central reservations via WhatsApp' for best rates and exclusive offers",
+   "whatsapp_visible": "OBSERVED: central reservations WhatsApp +62 811-3986-889 and reservation@inivie.com published on site. NOT TESTED: wa.me prefill, whether property/dates carry into the chat from each property microsite",
+   "instagram": "https://www.instagram.com/iniviehospitality/ (OBSERVED, active; 'Instagrammable' design is their stated brand strategy)",
+   "why_fit": "Premium, international-guest portfolio with award-winning properties (Tripadvisor Travellers' Choice 2024 for Aksari, 2025 for Kaamala — OBSERVED) and an explicit book-direct-via-WhatsApp funnel routed to ONE central reservations number across many property microsites — a single choke point where response analytics and AI triage pay off immediately (INFERRED). High enquiry volume is likely given 1,895 Tripadvisor reviews on one property alone (OBSERVED). Public jobs page (inivie.com/jobs) shows ongoing hospitality hiring. Publicly confirmed decision maker: Anak Agung Gede Dwi Permadi, Founder & CEO, per his Asia Dreams interview (https://www.asiadreams.com/anak-agung-gede-dwi-permadi-founder-and-ceo-of-ini-vie-hospitality-and-the-wonderspace/). Operating in 2026 (2026-priced Tripadvisor listings, active blog). Caveat: closer to a boutique hotel group than pure villa management, so buying process may resemble a hotel chain's.",
+   "sources": [
+    "https://inivie.com/",
+    "https://inivie.com/about",
+    "https://www.inivie.com/jobs",
+    "https://www.asiadreams.com/anak-agung-gede-dwi-permadi-founder-and-ceo-of-ini-vie-hospitality-and-the-wonderspace/",
+    "https://www.tripadvisor.com/Hotel_Review-g608487-d8503930-Reviews-Ini_Vie_Villa_Seminyak_by_Ini_Vie_Hospitality-Legian_Kuta_District_Bali.html",
+    "https://www.tripadvisor.com/Hotel_Review-g297701-d19863713-Reviews-Kaamala_Resort_Spa_Ubud_by_iNi_Vie_Hospitality-Ubud_Gianyar_Regency_Bali.html",
+    "https://www.instagram.com/iniviehospitality/"
+   ]
+  },
+  {
+   "company_name": "Villa Bali Management (VBM)",
+   "website": "https://www.villabalimanagement.com/",
+   "area": "Canggu (Jl. Pantai Berawa) HQ; properties in Seminyak, Umalas, Bidadari, Canggu, Ubud",
+   "portfolio_size": "OBSERVED: 150-160+ private properties under management, 15+ years in market (own site + Cabo Bali 2026 roundup)",
+   "direct_booking_visible": "OBSERVED: own /properties listing pages with booking@villabalimanagement.com; positioning is OTA-heavy ('Airbnb Ambassador & Superhost' in Instagram bio) — direct channel underdeveloped relative to peers (INFERRED), which is the sales angle: they pay OTA commission on 160 villas",
+   "whatsapp_visible": "OBSERVED: mobile number +62 877-3147-6478 published as primary contact. NOT TESTED: whether it is presented as a wa.me link with prefill",
+   "instagram": "https://www.instagram.com/villabalimanagement/ (OBSERVED: 26K followers, 603 posts, active)",
+   "why_fit": "Right-size portfolio (160+ villas) with 24/7 'VBM Concierge' guest-support promise (OBSERVED in Cabo Bali's 2026 comparison, which also documents their 10-25% commission + fixed-fee model — meaning every direct booking recovered is pure margin). Funnel leak signal (INFERRED): large Instagram audience (26K) funneling to a single staffed phone number and a booking@ inbox, with self-declared Airbnb-first identity — classic case for enquiry capture and OTA-to-direct shift, i.e. strong latent direct-booking ambition rather than an executed one. Listed in multiple 2026 'best villa management' roundups (OBSERVED) so verifiably operating. No publicly named owner/GM found — do not name anyone in outreach until confirmed. NOTE: distinct company from the excluded 'Bali Management Villas' (balimanagement.villas) — different domain, address and brand; keep the two separate in any deliverable.",
+   "sources": [
+    "https://www.villabalimanagement.com/",
+    "https://www.villabalimanagement.com/properties",
+    "https://www.cabobali.com/blog/best-villa-management-companies-bali",
+    "https://www.instagram.com/villabalimanagement/",
+    "https://www.facebook.com/VillaBaliManagement/"
+   ]
+  },
+  {
+   "company_name": "Bali Villa Escapes Pty Ltd",
+   "website": "https://balivillaescapes.com.au/",
+   "area": "Sydney (Surry Hills) sales office + on-ground reservations team in Bali; villas island-wide (Seminyak, Canggu, Uluwatu, Sanur, Legian, Ubud)",
+   "portfolio_size": "OBSERVED: 925+ villas listed, operating since 2005 (own site via search snippet)",
+   "direct_booking_visible": "OBSERVED: entire model is direct booking via their own site — homepage headlines 'Up to 50% Off' villa rentals; online chat + WhatsApp + contact form as enquiry channels",
+   "whatsapp_visible": "OBSERVED: named staffer 'Steven' (marketing, Sydney) publicly listed with WhatsApp 0402 222 605 on their site — an Australian mobile handling Bali villa enquiries. NOT TESTED: wa.me prefill and enquiry-form/WhatsApp handoff",
+   "instagram": "https://www.instagram.com/balivillaescapes/ (OBSERVED, active)",
+   "why_fit": "The only candidate with third-party review evidence of enquiry friction at scale: 15-16 pages of Trustpilot reviews including 'I dropped to 4 stars just due to communication but once I called it was followed up' (OBSERVED on Trustpilot) — communication is the one thing costing them stars, and their volume (925+ villas, enquiry-quote model rather than instant booking) makes response time the whole business. Cross-time-zone funnel (Sydney front office, Bali ops) creates handoff delays by design (INFERRED). Multiple Tripadvisor forum threads asking 'Bali Villa Escapes - Legit?' show pre-sale trust anxiety that faster, structured responses would convert (OBSERVED). Recent Trustpilot reviews confirm 2026 operation. Caveat: this is a booking agency/curator rather than an on-ground villa management company, and the decision maker sits in Australia — pitch and pricing may need framing as 'reservations ops' rather than 'villa ops'. No founder publicly named in sources found; do not name one.",
+   "sources": [
+    "https://balivillaescapes.com.au/",
+    "https://balivillaescapes.com.au/villas/",
+    "https://www.trustpilot.com/review/balivillaescapes.com.au",
+    "https://au.trustpilot.com/review/balivillaescapes.com.au",
+    "https://www.tripadvisor.com.au/ShowTopic-g294226-i7220-k14207124-Bali_Villa_Escapes_Legit-Bali.html",
+    "https://www.instagram.com/balivillaescapes/",
+    "https://www.facebook.com/balivillaescapes/"
+   ]
+  }
+ ]
+}

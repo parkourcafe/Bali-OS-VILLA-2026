@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Private audit — Gravity Bali direct-booking journey · Selena Systems</title>
+  <meta name="description" content="Private, independent review of the Gravity Bali guest enquiry journey. Prepared for discussion with Gravity Bali only.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450..650&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/audit.css">
+</head>
+<body data-audit-asset="gravity-bali">
+
+<header class="wrap audit-topbar">
+  <a class="brand" href="#top">Selena Systems</a>
+  <span class="private-badge">Private · prepared for Gravity Bali</span>
+</header>
+
+<!-- 1 · HERO -->
+<section class="wrap audit-hero" id="top" data-track-section="hero">
+  <p class="eyebrow">Independent public audit · July 2026</p>
+  <h1>We reviewed the direct-booking journey for Gravity Bali. Here is where guest enquiries may be losing speed, context and follow-up.</h1>
+  <p class="lead">Your pages promise a concierge that answers in under five minutes and booking requests answered within the hour. This private review shows where the current enquiry flow makes that promise hard to keep — and how a 14-day implementation makes it measurable and protected, 24/7, weekends included.</p>
+  <div class="hero-meta">
+    <span>Prepared for Olivier &amp; Celine Cancé</span>
+    <span>Passive review of public pages only</span>
+    <span>Nothing was submitted or booked</span>
+    <span>Reading time ≈ 7 minutes</span>
+  </div>
+  <div class="cta-row">
+    <a class="btn-primary" href="#demo" data-track-cta="hero-walkthrough">Book a 20-minute walkthrough</a>
+    <a class="btn-ghost" href="#findings" data-track-cta="hero-findings">See the findings</a>
+  </div>
+</section>
+
+<!-- 2 · SUMMARY -->
+<section class="section section-alt" data-track-section="summary">
+  <div class="wrap">
+    <p class="eyebrow">What we did</p>
+    <h2>Scope of this review</h2>
+    <div class="finding-grid">
+      <div>
+        <h3 style="margin-bottom:10px">Checked (July 12, 2026)</h3>
+        <ul class="scope-list" style="grid-template-columns:1fr">
+          <li>Public villa pages, Reserve Your Stay flow (up to — never through — submission)</li>
+          <li>Public WhatsApp entry points and contact routes</li>
+          <li>Your published service promises (response times, concierge coverage)</li>
+          <li>OTA listings of the same villas (Airbnb / Booking.com ecosystem)</li>
+          <li>Public social profiles, press, directories</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-bottom:10px">Deliberately not done</h3>
+        <ul class="scope-list not-list" style="grid-template-columns:1fr">
+          <li>No forms submitted, no test bookings, no mystery enquiries</li>
+          <li>No messages to your team — actual reply speed was <strong>not measured</strong></li>
+          <li>No access to any internal system</li>
+        </ul>
+        <p class="small" style="margin-top:12px">Every observation below is labelled: <span class="tag tag-observed">Observed</span> seen on public pages · <span class="tag tag-inferred">Inferred</span> reasoned, needs your confirmation · <span class="tag tag-nottested">Not tested</span> requires data only you have.</p>
+      </div>
+    </div>
+    <p style="margin-top:26px;max-width:760px"><strong>Summary:</strong> Gravity Bali gives direct guests the best perks but the slowest mechanics — a manual quote flow behind a written &lt;1-hour promise, with concierge coverage that your own pages describe both as “7 days a week” and “closed on weekends”. None of this is about your team. It is about plumbing that a boutique team has outgrown.</p>
+  </div>
+</section>
+
+<!-- 3 · FINDINGS -->
+<section class="section" id="findings" data-track-section="findings">
+  <div class="wrap">
+    <p class="eyebrow">What we found</p>
+    <h2>Five observations that matter</h2>
+
+    <article class="finding">
+      <div class="finding-head"><span class="finding-num">01</span><h3>Your best-perks channel is your slowest channel</h3>&nbsp;<span class="tag tag-priority-high">High priority</span></div>
+      <div class="finding-body">
+        <div class="finding-grid">
+          <div>
+            <p><span class="tag tag-observed">Observed</span>&nbsp; Direct booking is rewarded with your best perks — best price, free breakfast, welcome tray. But the “Check availability” path is a form <em>“sent directly to our marketing team”</em> that answers with a <em>“personalized quote”</em> — while the same villas confirm instantly on Booking.com and Airbnb.</p>
+            <div class="evidence-quote">“Requests are sent directly to our marketing team, who will get back to you with a personalized quote.”
+              <div class="evidence-src">gravitybali.com/en/reserve-your-stay/ · seen 2026-07-12</div>
+            </div>
+            <p><strong>Guest impact:</strong> a guest with two tabs open gets instant certainty from the OTA and a waiting period from you — on the channel you most want them to use.</p>
+            <p><strong>Business impact:</strong> the direct share of revenue is capped by reply speed; latency converts into OTA commission. <span class="tag tag-inferred">Inferred</span></p>
+            <p><strong>Recommended fix:</strong> instant acknowledgement + qualification on every direct enquiry, 24/7. Quotes stay human-crafted — the guest just stops waiting in silence.</p>
+          </div>
+          <div class="shot-slot" data-shot="shot-reserve-form">Screenshot slot: Reserve Your Stay form (desktop)<br>run <code>scripts/capture-evidence.mjs</code> to fill</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="finding">
+      <div class="finding-head"><span class="finding-num">02</span><h3>A written speed promise with no visible system guarding it</h3>&nbsp;<span class="tag tag-priority-high">High priority</span></div>
+      <div class="finding-body">
+        <div class="finding-grid">
+          <div>
+            <p><span class="tag tag-observed">Observed</span>&nbsp; Two separate pages promise a concierge <em>“average response time under five minutes”</em>, and booking requests answered <em>“under 1 hour”</em>.</p>
+            <div class="evidence-quote">“…average response time under five minutes…” · “…booking requests answered under 1 hour…”
+              <div class="evidence-src">gravitybali.com/en/gravity-bali-guest-experience-secrets/ · /en/bali-customer-service-key-to-rental-success/ · seen 2026-07-12</div>
+            </div>
+            <p><strong>Guest impact:</strong> expectations are set at five minutes. Any slow moment — peak season, night-time enquiries from Europe or Australia — breaks a written promise.</p>
+            <p><strong>Business impact:</strong> a premium brand carrying an unmeasured SLA. We found no public sign that reply times are tracked. <span class="tag tag-nottested">Not tested</span> — actual response times require your internal data; we do not claim they are slow.</p>
+            <p><strong>Recommended fix:</strong> measure first-acknowledgement time on every enquiry; make the median a dashboard number. The promise becomes auditable — and safe to keep advertising.</p>
+          </div>
+          <div class="shot-slot" data-shot="shot-promise-5min">Screenshot slot: “&lt;5 minutes” promise (mobile)</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="finding">
+      <div class="finding-head"><span class="finding-num">03</span><h3>“7 days a week” vs “closed on weekends” — on the same website</h3>&nbsp;<span class="tag tag-priority-high">High priority</span></div>
+      <div class="finding-body">
+        <div class="finding-grid">
+          <div>
+            <p><span class="tag tag-observed">Observed</span>&nbsp; The Conciergerie page advertises a dedicated WhatsApp concierge “7 days a week”, while your guest FAQ states the concierge <em>“is closed on weekends — for urgent requests, contact your villa manager”</em>.</p>
+            <div class="evidence-quote">“The concierge service is closed on weekends. For urgent requests, contact your villa manager directly.”
+              <div class="evidence-src">gravitybali.com/en/faqs-for-guests/ vs /en/gravity-conciergerie/ · seen 2026-07-12</div>
+            </div>
+            <p><strong>Guest impact:</strong> a Saturday enquirer doesn’t know whether to expect five minutes or Monday. Weekends are ≈28% of the week — and the moment many guests plan trips.</p>
+            <p><strong>Business impact:</strong> weekend direct enquiries may queue until Monday <span class="tag tag-inferred">Inferred</span> — while OTAs answer them instantly.</p>
+            <p><strong>Recommended fix:</strong> a 24/7 first responder covers weekends by design, with escalation rules for true urgencies; the copy contradiction is a 5-minute content fix we’ll flag precisely.</p>
+          </div>
+          <div class="shot-slot" data-shot="shot-faq-weekend">Screenshot slot: FAQ weekend note + Conciergerie “7 days” (side by side)</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="finding">
+      <div class="finding-head"><span class="finding-num">04</span><h3>Context likely dies between the villa page and WhatsApp</h3>&nbsp;<span class="tag tag-priority-med">Medium</span></div>
+      <div class="finding-body">
+        <div class="finding-grid">
+          <div>
+            <p><span class="tag tag-inferred">Inferred</span>&nbsp; The form flow and the WhatsApp flow appear disconnected: we found no mechanism that carries villa name, dates or source into a WhatsApp chat. A guest switching channels starts over: <em>“Hi, is the villa available?”</em> — which villa, which dates, from where?</p>
+            <p><span class="tag tag-nottested">Not tested</span>&nbsp; Exact WhatsApp link behavior needs a 2-minute check on your live pages — we’ll do it together on the walkthrough.</p>
+            <p><strong>Business impact:</strong> your team re-asks what the website already knew; the enquiry’s source and villa interest go unrecorded.</p>
+            <p><strong>Recommended fix:</strong> WhatsApp deep links on every villa page that pre-fill villa + dates + source — so the chat starts qualified.</p>
+          </div>
+          <div class="phone-mock" aria-label="Concept mockup">
+            <p class="mock-note">Concept — how the first message can arrive</p>
+            <div class="ph-head"><span class="ph-avatar">G</span> Gravity Bali · WhatsApp</div>
+            <div class="ph-msgs">
+              <div class="ph-msg ph-in">Hi! I’m interested in <strong>Villa Kelanah</strong>, 12–16 Aug, 6 guests. (via villa page)</div>
+              <div class="ph-msg ph-out">Wonderful choice! I’m checking Kelanah for 12–16 Aug, 6 guests, right now. May I confirm — any little ones joining, and is this a special occasion? 🌴</div>
+              <div class="ph-sys">Lead #341 created · source: website/villa-kelanah · assigned: Reservations</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="finding">
+      <div class="finding-head"><span class="finding-num">05</span><h3>Five inboxes, no single pipeline</h3>&nbsp;<span class="tag tag-priority-med">Medium</span></div>
+      <div class="finding-body">
+        <div class="finding-grid">
+          <div>
+            <p><span class="tag tag-inferred">Inferred</span>&nbsp; Enquiries can arrive via the reserve form (a mailbox), villa-page forms, WhatsApp, Instagram DMs, OTA threads and email. We found no public trace of a unified pipeline. If that matches reality, then: no single owner per lead, no follow-up cadence, no source attribution — and no way for you to see the whole funnel.</p>
+            <p><strong>Business impact:</strong> “Why didn’t they book?” is currently unanswerable. Follow-up depends on memory in six different places.</p>
+            <p><strong>Recommended fix:</strong> one pipeline for every channel — statuses, owners, reminders, source stamps, and a weekly funnel view for you both.</p>
+          </div>
+          <div class="dash-mock" aria-label="Concept mockup">
+            <div class="dm-head"><span>Enquiry pipeline — week 32</span><span class="mock-note" style="margin:0">Concept</span></div>
+            <div class="dash-cols">
+              <div class="dash-col"><h5>New</h5>
+                <div class="lead-card"><b>Kelanah · 12–16 Aug</b><span>WhatsApp · 6 guests · 2 min ago</span></div>
+                <div class="lead-card"><b>Simprana · 3–8 Sep</b><span>IG DM · 4 guests · 11 min ago</span></div>
+              </div>
+              <div class="dash-col"><h5>Qualified</h5>
+                <div class="lead-card"><b>Balangan 4BR · Oct</b><span>Website · budget ok · owner: Ayu</span></div>
+              </div>
+              <div class="dash-col"><h5>Follow-up due</h5>
+                <div class="lead-card"><b>Kelanah · flexible</b><span class="due">Quiet 48h — nudge today</span></div>
+              </div>
+              <div class="dash-col"><h5>Won / Lost</h5>
+                <div class="lead-card"><b>Simprana · 21–26 Jul</b><span>Won · $2,140 · source: website</span></div>
+                <div class="lead-card"><b>3BR enquiry</b><span>Lost — dates unavailable</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 4/5 · FUNNELS -->
+<section class="section section-alt" data-track-section="funnels">
+  <div class="wrap">
+    <p class="eyebrow">The journey</p>
+    <h2>Today’s observed flow — and the proposed one</h2>
+    <h3 style="margin:18px 0 4px">Now <span class="small">(observed public flow; internal steps inferred, to be confirmed together)</span></h3>
+    <div class="flow">
+      <div class="flow-step"><strong>Villa page</strong>premium, beautiful</div><span class="flow-arrow">→</span>
+      <div class="flow-step leak"><strong>“Check availability”</strong>form → marketing mailbox<span class="risk">waits for a human</span></div><span class="flow-arrow">→</span>
+      <div class="flow-step leak"><strong>WhatsApp switch</strong>context lost<span class="risk">villa/dates re-asked</span></div><span class="flow-arrow">→</span>
+      <div class="flow-step leak"><strong>Manual reply</strong>Mon–Fri fastest<span class="risk">weekend gap</span></div><span class="flow-arrow">→</span>
+      <div class="flow-step leak"><strong>Untracked thread</strong>no owner, no reminder<span class="risk">follow-up = memory</span></div><span class="flow-arrow">→</span>
+      <div class="flow-step leak"><strong>Unknown outcome</strong><span class="risk">invisible funnel</span></div>
+    </div>
+    <h3 style="margin:26px 0 4px">With Villa Ops OS <span class="small">(proposed — concept, built in 14 days)</span></h3>
+    <div class="flow">
+      <div class="flow-step gain"><strong>Website / IG</strong>tracked entry<span class="win">villa+dates+source attached</span></div><span class="flow-arrow">→</span>
+      <div class="flow-step gain"><strong>Instant ack</strong>&lt; 60 s, 24/7<span class="win">weekends covered</span></div><span class="flow-arrow">→</span>
+      <div class="flow-step gain"><strong>Qualification</strong>dates · party · budget</div><span class="flow-arrow">→</span>
+      <div class="flow-step gain"><strong>Human handoff</strong>your concierge, notified<span class="win">named owner</span></div><span class="flow-arrow">→</span>
+      <div class="flow-step gain"><strong>Pipeline + follow-up</strong>reminders on quiet threads</div><span class="flow-arrow">→</span>
+      <div class="flow-step gain"><strong>Outcome + analytics</strong><span class="win">weekly funnel view</span></div>
+    </div>
+    <p class="small" style="margin-top:14px">Your people stay in charge of every quote and every relationship — the system guarantees speed, memory and visibility around them.</p>
+  </div>
+</section>
+
+<!-- 6 · BEFORE / AFTER TABLE -->
+<section class="section" data-track-section="before-after">
+  <div class="wrap">
+    <p class="eyebrow">Before / after</p>
+    <h2>What actually changes</h2>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <tr><th></th><th>Today (observed / inferred)</th><th>With Villa Ops OS (target)</th></tr>
+        <tr><td>First acknowledgement</td><td class="now">Manual; promised &lt;1 h; weekends uncertain</td><td class="after">&lt; 60 seconds, 24/7 incl. weekends</td></tr>
+        <tr><td>Context kept</td><td class="now">Villa/dates re-asked after channel switch</td><td class="after">Carried automatically into the chat &amp; lead card</td></tr>
+        <tr><td>Qualification</td><td class="now">Unstructured, per-person</td><td class="after">Structured before human handoff</td></tr>
+        <tr><td>Handoff</td><td class="now">Whoever sees the inbox</td><td class="after">Named owner, instant notification</td></tr>
+        <tr><td>Follow-up</td><td class="now">Memory-dependent</td><td class="after">Scheduled, reminded, measured</td></tr>
+        <tr><td>Funnel visibility</td><td class="now">None visible</td><td class="after">Live pipeline + weekly snapshot</td></tr>
+        <tr><td>Reporting</td><td class="now">Ad-hoc</td><td class="after">Median response time, sources, conversion — as numbers</td></tr>
+      </table>
+    </div>
+    <p class="small" style="margin-top:12px">“Target” = agreed KPI targets, measured from your own baseline in shadow mode — not guarantees. Commercial outcomes also depend on availability, pricing and season.</p>
+  </div>
+</section>
+
+<!-- 7 · BUSINESS CASE -->
+<section class="section section-alt" data-track-section="business-case">
+  <div class="wrap">
+    <p class="eyebrow">Business case</p>
+    <h2>Three honest scenarios</h2>
+    <p class="lead" style="margin-bottom:24px">These are <strong>assumptions, not your numbers</strong> — anchored only to your observed portfolio (~40 villas) and public nightly rates ($343–486). Days 1–2 of the project replace this model with your real enquiry data.</p>
+    <div class="scenarios">
+      <div class="scenario">
+        <h4>Conservative</h4>
+        <p class="small">80 enquiries/mo · 10% lost · ⅓ recovered · 12% convert · $1,800 avg booking</p>
+        <div class="figure">~$580 / mo</div>
+        <ul><li>≈ 0.3 extra bookings/mo</li><li>Payback ≈ 13 months</li></ul>
+      </div>
+      <div class="scenario" style="border-color:var(--accent)">
+        <h4>Base</h4>
+        <p class="small">160 enquiries/mo · 15% lost · ⅓ recovered · 15% convert · $1,800 avg booking</p>
+        <div class="figure">~$2,160 / mo</div>
+        <ul><li>≈ 1.2 extra bookings/mo</li><li>Payback ≈ 3.5 months</li></ul>
+      </div>
+      <div class="scenario">
+        <h4>Upper</h4>
+        <p class="small">280 enquiries/mo · 20% lost · ⅓ recovered · 18% convert · $1,800 avg booking</p>
+        <div class="figure">~$6,050 / mo</div>
+        <ul><li>≈ 3.4 extra bookings/mo</li><li>Payback ≈ 5 weeks</li></ul>
+      </div>
+    </div>
+    <p class="small" style="margin-top:16px">Not modelled (real but unquantifiable from outside): the brand value of keeping your published &lt;5-minute promise true 24/7, and the decisions you can make once the funnel is visible.</p>
+  </div>
+</section>
+
+<!-- 8 · 14-DAY SCOPE -->
+<section class="section" data-track-section="scope">
+  <div class="wrap">
+    <p class="eyebrow">The implementation</p>
+    <h2>Exactly what gets built in 14 days</h2>
+    <ul class="scope-list">
+      <li>AI-assisted WhatsApp first responder in your tone of voice — instant acknowledgement, FAQ answers, 24/7 incl. weekends</li>
+      <li>Enquiry qualification: dates, party size, budget band, villa interest, special requests</li>
+      <li>Human handoff rules — complex, VIP, negotiation and urgent cases go straight to your team, instantly notified</li>
+      <li>Website → WhatsApp deep links carrying villa + dates + source</li>
+      <li>One unified lead pipeline for form, WhatsApp, Instagram and email enquiries — statuses, owners, notes</li>
+      <li>Source attribution on every lead (website / IG / OTA / referral)</li>
+      <li>Automatic reminders on unanswered and quiet threads; follow-up cadence for open enquiries</li>
+      <li>Response templates + FAQ knowledge base built from your real conversations</li>
+      <li>Analytics dashboard: median first-response time, capture rate, follow-up completion, conversion by source</li>
+      <li>Shadow mode (Days 11–12): system drafts, your team approves — nothing reaches a guest unreviewed before launch</li>
+      <li>Team training (2 sessions) + runbook + recorded walkthrough</li>
+      <li>30 days of post-launch support</li>
+    </ul>
+    <p class="small" style="margin-top:14px">Day-by-day plan with acceptance criteria per stage: request it below or see it on the walkthrough. Integrations are confirmed against your actual WhatsApp number type and website stack on Days 1–2 before anything is switched on.</p>
+  </div>
+</section>
+
+<!-- 9 · PRICE -->
+<section class="section section-alt" data-track-section="price">
+  <div class="wrap">
+    <p class="eyebrow">Investment</p>
+    <h2>One package, sized for Gravity Bali</h2>
+    <div class="price-card">
+      <p class="eyebrow" style="margin-bottom:6px">Villa Ops OS · 14-day implementation</p>
+      <div class="amount">$7,500 <small>one-off · USD</small></div>
+      <p style="margin:10px 0 14px">Everything in the scope above, for your full portfolio. 50% to start, 50% at handover after the final review. Includes 30 days of support; ongoing support after that is optional and priced separately — no lock-in, mirroring how you work with your own villa owners.</p>
+      <p class="small">Sized to your scale: roughly 1–2 villa-nights of portfolio revenue. If the base scenario holds, the project pays for itself inside a season — and the assumptions are yours to challenge on the walkthrough.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · LIMITATIONS -->
+<section class="section" data-track-section="limitations">
+  <div class="wrap">
+    <p class="eyebrow">Honesty box</p>
+    <h2>What this is not</h2>
+    <div class="limitation-box">
+      <ul class="scope-list not-list">
+        <li>Not a PMS/channel-manager replacement — we plug into what you use</li>
+        <li>Not ad management or Instagram growth</li>
+        <li>Not revenue management or pricing strategy</li>
+        <li>Not a 24/7 human call centre — it's a system + your team</li>
+        <li>No revenue guarantees — bookings depend on availability, pricing, season and your properties</li>
+        <li>No integration promised until validated against your actual systems (Days 1–2)</li>
+        <li>Not a website rebuild — we only add the enquiry plumbing to your existing site</li>
+        <li>Your concierges are never replaced: the system acknowledges, qualifies and remembers; people close</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · CTA + DEMO FORM -->
+<section class="section section-alt" id="demo" data-track-section="demo-form">
+  <div class="narrow">
+    <p class="eyebrow">Next step</p>
+    <h2>See it on your own enquiry flow — 20 minutes</h2>
+    <p class="lead" style="margin-bottom:8px">We’ll walk your actual guest journey together, verify the two-minute items this review couldn’t test from outside, and show the pipeline working on a live example. No slides, no obligation.</p>
+    <div class="cta-row" style="margin-bottom:30px">
+      <a class="btn-ghost" href="https://wa.me/6282339630988?text=Hi%20Selena%20—%20this%20is%20about%20the%20Gravity%20Bali%20audit.%20I%20have%20a%20question." target="_blank" rel="noopener" data-track-cta="whatsapp">Ask a question on WhatsApp</a>
+      <a class="btn-ghost" href="#demo" id="request-plan-cta" data-track-cta="request-plan">Request the 14-day implementation plan</a>
+    </div>
+
+    <form id="demo-form" class="demo-form" novalidate>
+      <div data-field="name"><label for="f-name">Your name *</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div data-field="company"><label for="f-company">Company *</label><input id="f-company" name="company" value="Gravity Bali" required></div>
+      <div data-field="role"><label for="f-role">Your role *</label><input id="f-role" name="role" placeholder="Founder / GM / Reservations" required></div>
+      <div data-field="whatsapp"><label for="f-wa">WhatsApp number *</label><input id="f-wa" name="whatsapp" inputmode="tel" placeholder="+62 …" required></div>
+      <div data-field="email"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+      <div data-field="villaCount"><label for="f-villas">Number of villas *</label>
+        <select id="f-villas" name="villaCount" required>
+          <option value="">Select…</option><option>1-4</option><option>5-9</option><option>10-19</option><option selected>20-49</option><option>50+</option>
+        </select></div>
+      <div data-field="currentSystem"><label for="f-system">Current booking system</label><input id="f-system" name="currentSystem" placeholder="e.g. forms + WhatsApp + OTA extranets"></div>
+      <div data-field="mainSource"><label for="f-source">Main enquiry source</label><input id="f-source" name="mainSource" placeholder="e.g. website / Instagram / OTAs"></div>
+      <div data-field="preferredDate"><label for="f-date">Preferred date</label><input id="f-date" name="preferredDate" type="date"></div>
+      <div data-field="timezone"><label for="f-tz">Time zone</label><input id="f-tz" name="timezone" value="Asia/Makassar (Bali, WITA)"></div>
+      <div class="full" data-field="comment"><label for="f-comment">Anything we should prepare?</label><textarea id="f-comment" name="comment" rows="3"></textarea></div>
+      <div class="full" style="position:absolute;left:-9999px" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" name="website" tabindex="-1" autocomplete="off"></div>
+      <div class="full consent-row" data-field="consent">
+        <input id="f-consent" name="consent" type="checkbox" required>
+        <label for="f-consent">I agree that these details are used to arrange the walkthrough and are stored by Selena Systems. No marketing lists, deletion on request (<a href="/privacy/">privacy</a>). *</label>
+      </div>
+      <div class="full"><div id="demo-form-status" class="form-status" hidden></div></div>
+      <div class="full"><button type="submit" class="btn-primary" data-track-cta="demo-submit">Book the 20-minute walkthrough</button></div>
+    </form>
+
+    <div id="demo-form-success" class="form-success" hidden tabindex="-1">
+      <h3>Request received — confirmed slot within one business day</h3>
+      <p style="margin-top:8px">Thank you! We’ll confirm your walkthrough slot on WhatsApp. Prefer instant? <a href="https://wa.me/6282339630988?text=Hi%20Selena%20—%20booked%20the%20Gravity%20Bali%20walkthrough%2C%20let%27s%20pick%20a%20time." target="_blank" rel="noopener" data-track-cta="success-whatsapp">Message us now</a>.</p>
+    </div>
+
+    <p class="disclaimer">Independent public audit prepared for discussion. Not affiliated with or endorsed by Gravity Bali. Based solely on publicly available pages reviewed on July 12, 2026; observations labelled Inferred/Not tested require confirmation. Quotations remain the property of their authors and are cited for review purposes. This page is private: not indexed, not listed, shared only with Gravity Bali. · <a href="/privacy/">Privacy</a></p>
+  </div>
+</section>
+
+<script type="module">
+  import '/assets/js/audit-page.js';
+  // "Request the implementation plan" pre-fills the comment and focuses the form.
+  document.getElementById('request-plan-cta').addEventListener('click', (e) => {
+    const c = document.getElementById('f-comment');
+    if (!c.value) c.value = 'Please send the 14-day implementation plan.';
+    document.getElementById('f-name').focus();
+  });
+</script>
+</body>
+</html>

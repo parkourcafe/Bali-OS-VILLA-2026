@@ -24,6 +24,18 @@ var HEADERS = [
 
 var RATE_LIMIT_PER_HOUR = 5; // score_completed per IP hash
 
+// Demo walkthrough requests from the private audit microsites (/audit/<slug>/)
+// land in their own tab so the readiness-funnel pipeline stays untouched.
+var DEMO_SHEET_NAME = 'Demo Requests';
+var DEMO_HEADERS = [
+  'Request ID', 'Created at', 'Name', 'Company', 'Role', 'WhatsApp', 'Email',
+  'Villa count', 'Current booking system', 'Main enquiry source',
+  'Preferred date', 'Timezone', 'Comment', 'Consent',
+  'Source', 'UTM source', 'UTM medium', 'UTM campaign', 'UTM content', 'UTM term',
+  'Landing path', 'Referrer', 'Status', 'Next action', 'Next action date', 'Notes'
+];
+var DEMO_RATE_LIMIT_PER_HOUR = 5; // demo_requested per IP hash
+
 function prop_(key) {
   var v = PropertiesService.getScriptProperties().getProperty(key);
   if (!v) throw new Error('Missing Script Property: ' + key);
@@ -108,6 +120,8 @@ function doPost(e) {
       out = handleAuditRequested_(p);
     } else if (p.event === 'playbook_requested') {
       out = handlePlaybookRequested_(p);
+    } else if (p.event === 'demo_requested') {
+      out = handleDemoRequested_(p, cache);
     } else {
       out = { ok: false, code: 'VALIDATION_ERROR' };
     }
@@ -236,6 +250,64 @@ function handlePlaybookRequested_(p) {
     ].join('\n')
   );
   return { ok: true, leadId: String(p.leadId) };
+}
+
+function getDemoSheet_() {
+  var ss = SpreadsheetApp.openById(prop_('SHEET_ID'));
+  var sheet = ss.getSheetByName(DEMO_SHEET_NAME);
+  if (!sheet) sheet = ss.insertSheet(DEMO_SHEET_NAME);
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(DEMO_HEADERS);
+    sheet.setFrozenRows(1);
+  }
+  return sheet;
+}
+
+function handleDemoRequested_(p, cache) {
+  if (p.ipHash) {
+    var rlKey = 'rl-demo:' + p.ipHash;
+    var count = Number(cache.get(rlKey) || '0');
+    if (count >= DEMO_RATE_LIMIT_PER_HOUR) return { ok: false, code: 'RATE_LIMITED' };
+    cache.put(rlKey, String(count + 1), 60 * 60);
+  }
+
+  var sheet = getDemoSheet_();
+  var now = new Date();
+  var meta = p.clientMeta || {};
+  var utm = meta.utm || {};
+
+  sheet.appendRow([
+    String(p.requestId), now,
+    sheetSafe_(p.name), sheetSafe_(p.company), sheetSafe_(p.role),
+    sheetSafe_(p.whatsapp), sheetSafe_(p.email),
+    p.villaCount || '', sheetSafe_(p.currentSystem), sheetSafe_(p.mainSource),
+    sheetSafe_(p.preferredDate), sheetSafe_(p.timezone), sheetSafe_(p.comment), 'YES',
+    sheetSafe_(p.source), sheetSafe_(utm.source), sheetSafe_(utm.medium),
+    sheetSafe_(utm.campaign), sheetSafe_(utm.content), sheetSafe_(utm.term),
+    sheetSafe_(meta.landingPath), sheetSafe_(meta.referrer),
+    'Demo requested', 'Confirm walkthrough slot on WhatsApp', '', ''
+  ]);
+
+  sendMail_(
+    'ACTION: Demo walkthrough requested · ' + p.company + ' (' + p.name + ')',
+    [
+      'Name: ' + p.name + (p.role ? ' — ' + p.role : ''),
+      'Company: ' + p.company,
+      'WhatsApp: ' + p.whatsapp,
+      'Email: ' + (p.email || '-'),
+      'Villa count: ' + (p.villaCount || '-'),
+      'Current booking system: ' + (p.currentSystem || '-'),
+      'Main enquiry source: ' + (p.mainSource || '-'),
+      'Preferred date: ' + (p.preferredDate || '-') + (p.timezone ? ' (' + p.timezone + ')' : ''),
+      'Comment: ' + (p.comment || '-'),
+      'Source: ' + (p.source || '-') + (utm.campaign ? ' / ' + utm.campaign : ''),
+      '',
+      'Next action: confirm a 20-minute walkthrough slot on WhatsApp within one business day.',
+      'Sheet: https://docs.google.com/spreadsheets/d/' + prop_('SHEET_ID')
+    ].join('\n')
+  );
+
+  return { ok: true, requestId: String(p.requestId) };
 }
 
 function sendMail_(subject, body) {

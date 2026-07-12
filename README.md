@@ -11,14 +11,36 @@ Static HTML/CSS/vanilla ES modules (no framework) · Netlify Function (`/api/lea
 ```text
 /                     landing        /score/            12-step assessment
 /score/result/        result + gate  /privacy/          privacy notice
+/audit/<slug>/        private per-client audit microsites (noindex, see below)
 netlify/functions/lead.mjs           canonical API
-google-apps-script/Code.gs           Sheet upsert + MailApp
+netlify/functions/demo-request.mjs   demo walkthrough bookings from /audit/ pages
+google-apps-script/Code.gs           Sheet upsert + MailApp (+ Demo Requests tab)
 assets/js/scoring.js                 LOCKED scoring rules (shared browser/server)
 assets/js/site-config.js             editable public config (placeholders)
 docs/                                operations, QA, content editing
+docs/sales-assets/                   per-client sales asset docs (proposal, messages, plan)
 tests/                               node --test suite
 scripts/dev-server.mjs               local static + real function + mock webhook
+scripts/capture-evidence.mjs         local Playwright screenshot capture for audit evidence
 ```
+
+## Private audit microsites (`/audit/<company-slug>/`)
+
+One-client sales assets: a passive public audit of a specific villa management
+company plus a Villa Ops OS proposal, deck and demo-booking form.
+
+- **Privacy:** `noindex` meta + `X-Robots-Tag` header (netlify.toml / vercel.json)
+  + `robots.txt` disallow. No links from the public site. Share the URL privately only.
+- **Demo form:** POST `/api/demo-request` → same Apps Script webhook → tab
+  `Demo Requests` + email notification. Success is shown only after the webhook
+  confirms the save (same no-fake-success contract as `/api/lead`).
+- **Analytics:** anonymous events (`audit_page_view`, `audit_section_view`,
+  `audit_cta_click`, `demo_form_started/submitted`) via the shared allowlist —
+  no PII; enabled only when Plausible/GA4 is configured in `site-config.js`.
+- **Evidence screenshots:** run `node scripts/capture-evidence.mjs
+  audit/<slug>/evidence-plan.json` locally (needs `npm i -D playwright`) —
+  the remote build environment cannot reach external websites, so shots are
+  captured on the operator's machine before sending the audit.
 
 ## Local development
 

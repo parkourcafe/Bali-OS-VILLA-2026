@@ -1,0 +1,14 @@
+{
+  "company": "Gravity Bali",
+  "note": "Run locally (the remote build env cannot reach external sites): node scripts/capture-evidence.mjs audit/gravity-bali/evidence-plan.json — writes PNGs to audit/gravity-bali/assets/shots/. The microsite and deck auto-load them into the matching slots via data-shot ids. Passive capture only: no forms submitted, nothing sent.",
+  "shots": [
+    { "id": "shot-reserve-form", "url": "https://gravitybali.com/en/reserve-your-stay/", "device": "desktop", "note": "Finding 01 — the manual 'personalized quote' form. Capture the form + the 'sent directly to our marketing team' wording." },
+    { "id": "shot-villa-page", "url": "https://gravitybali.com/en/property/villa-kelanah/", "device": "desktop", "fullPage": false, "note": "Finding 01 — villa page CTA area. Also manually record the WhatsApp link href if present (Evidence item E11)." },
+    { "id": "shot-ota-listing", "url": "https://www.villa-bali.com/en/villa/kerobokan/villa-kelanah", "device": "desktop", "note": "Finding 01 — same villa instantly bookable on an OTA." },
+    { "id": "shot-promise-5min", "url": "https://gravitybali.com/en/gravity-bali-guest-experience-secrets/", "device": "mobile", "note": "Finding 02 — capture the 'average response time under five minutes' and 'under 1 hour' wording." },
+    { "id": "shot-promise-1hour", "url": "https://gravitybali.com/en/bali-customer-service-key-to-rental-success/", "device": "mobile", "note": "Finding 02 — second source of the <5 min claim." },
+    { "id": "shot-concierge-7days", "url": "https://gravitybali.com/en/gravity-conciergerie/", "device": "desktop", "note": "Finding 03 — '7 days a week' concierge claim." },
+    { "id": "shot-faq-weekend", "url": "https://gravitybali.com/en/faqs-for-guests/", "device": "desktop", "fullPage": true, "note": "Finding 03 — 'concierge service is closed on weekends' note. Crop to the FAQ answer when placing side-by-side." },
+    { "id": "shot-contact-page", "url": "https://gravitybali.com/en/contact-us/", "device": "mobile", "note": "Context — public contact routes (form / email / WhatsApp number)." }
+  ]
+}

@@ -14,6 +14,7 @@ import { readFile } from 'node:fs/promises';
 import { join, extname, normalize } from 'node:path';
 import { handler } from '../netlify/functions/lead.mjs';
 import { handler as siteAudit } from '../netlify/functions/site-audit.mjs';
+import { handler as demoRequest } from '../netlify/functions/demo-request.mjs';
 
 const PORT = Number(process.argv[2] || 8788);
 const ROOT = new URL('..', import.meta.url).pathname;
@@ -32,6 +33,7 @@ const MIME = {
 
 /** In-memory Apps Script emulation */
 const sheet = new Map(); // leadId -> row object
+const demoSheet = new Map(); // requestId -> demo request row
 const idem = new Map();  // idempotencyKey -> response
 
 function mockWebhook(body) {
@@ -69,6 +71,26 @@ function mockWebhook(body) {
     row.playbookRequested = 'YES';
     if (row.status === 'Instant score completed') row.status = 'Playbook requested';
     out = { ok: true, leadId: payload.leadId };
+  } else if (payload.event === 'demo_requested') {
+    demoSheet.set(payload.requestId, {
+      requestId: payload.requestId,
+      createdAt: new Date().toISOString(),
+      name: payload.name,
+      company: payload.company,
+      role: payload.role,
+      whatsapp: payload.whatsapp,
+      email: payload.email,
+      villaCount: payload.villaCount,
+      currentSystem: payload.currentSystem,
+      mainSource: payload.mainSource,
+      preferredDate: payload.preferredDate,
+      timezone: payload.timezone,
+      comment: payload.comment,
+      source: payload.source,
+      utmCampaign: (payload.clientMeta?.utm || {}).campaign || '',
+      status: 'Demo requested',
+    });
+    out = { ok: true, requestId: payload.requestId };
   } else {
     out = { ok: false, code: 'VALIDATION_ERROR' };
   }
@@ -94,6 +116,20 @@ createServer(async (req, res) => {
     if (url.pathname === '/mock-sheet') {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       return res.end(JSON.stringify([...sheet.values()]));
+    }
+    if (url.pathname === '/mock-demo-sheet') {
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify([...demoSheet.values()]));
+    }
+    if (url.pathname === '/api/demo-request') {
+      const body = await readBody(req);
+      const out = await demoRequest({
+        httpMethod: req.method,
+        headers: Object.fromEntries(Object.entries(req.headers)),
+        body,
+      });
+      res.writeHead(out.statusCode, out.headers);
+      return res.end(out.body);
     }
     if (url.pathname === '/api/lead') {
       const body = await readBody(req);

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /score/result/
+Disallow: /audit/
 Sitemap: https://villaops.selenasystems.com/sitemap.xml
