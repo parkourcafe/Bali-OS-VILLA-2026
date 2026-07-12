@@ -1,0 +1,266 @@
+<title>Anjuna Bay Rentals — Performance Audit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+ --paper:#F3EEE4;--card:#FFFFFF;--card2:#FAF6EC;--ink:#172029;--muted:#5D6B72;
+ --line:#E4DCCB;--line2:#D3C9B2;--sea:#0F6B7A;--sea-soft:#DEEDEE;--coral:#C96F4A;--coral-soft:#F5E3D9;
+ --good:#2E8B57;--warn:#BE8A24;--bad:#B9503A;
+ --shadow:0 1px 2px rgba(23,32,41,.05),0 12px 30px rgba(23,32,41,.08);--r:14px;
+}
+@media (prefers-color-scheme:dark){:root{
+ --paper:#10161B;--card:#182026;--card2:#141B21;--ink:#ECF1F0;--muted:#94A3A8;
+ --line:#28323A;--line2:#35414B;--sea:#4CB6C4;--sea-soft:#0F2A2F;--coral:#E0906B;--coral-soft:#2F2018;
+ --good:#54B47C;--warn:#DDAE48;--bad:#DE7B62;--shadow:0 1px 2px rgba(0,0,0,.35),0 14px 34px rgba(0,0,0,.45);
+}}
+:root[data-theme="light"]{--paper:#F3EEE4;--card:#FFFFFF;--card2:#FAF6EC;--ink:#172029;--muted:#5D6B72;--line:#E4DCCB;--line2:#D3C9B2;--sea:#0F6B7A;--sea-soft:#DEEDEE;--coral:#C96F4A;--coral-soft:#F5E3D9;--good:#2E8B57;--warn:#BE8A24;--bad:#B9503A;--shadow:0 1px 2px rgba(23,32,41,.05),0 12px 30px rgba(23,32,41,.08);}
+:root[data-theme="dark"]{--paper:#10161B;--card:#182026;--card2:#141B21;--ink:#ECF1F0;--muted:#94A3A8;--line:#28323A;--line2:#35414B;--sea:#4CB6C4;--sea-soft:#0F2A2F;--coral:#E0906B;--coral-soft:#2F2018;--good:#54B47C;--warn:#DDAE48;--bad:#DE7B62;--shadow:0 1px 2px rgba(0,0,0,.35),0 14px 34px rgba(0,0,0,.45);}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.serif{font-family:Georgia,"Iowan Old Style","Times New Roman",serif}
+.wrap{max-width:980px;margin:0 auto;padding:30px 22px 90px}
+.eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:11px;font-weight:700;color:var(--sea)}
+.mast{border-bottom:2px solid var(--ink);padding-bottom:20px;display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}
+h1{margin:8px 0 0;font-size:36px;font-weight:600;letter-spacing:-.02em;line-height:1.05;text-wrap:balance}
+.sub{margin:10px 0 0;color:var(--muted);max-width:62ch}
+.themebtn{border:1px solid var(--line2);background:var(--card);color:var(--ink);border-radius:8px;padding:8px 12px;cursor:pointer;font-size:12.5px;font-weight:600}
+.themebtn:hover{border-color:var(--sea)}
+.metabar{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:12px;color:var(--muted)}
+.metabar b{color:var(--ink)}
+section{margin-top:44px}
+h2{font-size:23px;font-weight:600;letter-spacing:-.01em;margin:0 0 6px}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;color:var(--coral);margin-bottom:6px}
+.lead{color:var(--muted);max-width:66ch;margin:0 0 18px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 17px;box-shadow:var(--shadow)}
+.tile .k{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700}
+.tile .v{font-family:Georgia,serif;font-size:24px;font-weight:600;margin-top:6px;line-height:1.1}
+.tile .s{font-size:12px;color:var(--muted);margin-top:6px}
+.v.good{color:var(--good)}.v.warn{color:var(--warn)}.v.bad{color:var(--bad)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:20px 22px}
+.leak{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+.leak:first-child{border-top:0}
+.leak .n{flex:0 0 30px;height:30px;border-radius:50%;background:var(--coral-soft);color:var(--coral);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}
+.leak h4{margin:0 0 3px;font-size:15.5px}
+.leak p{margin:0;font-size:13.5px;color:var(--muted)}
+.leak .ev{display:block;margin-top:4px;font-size:12px;color:var(--sea)}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.ba{grid-template-columns:1fr}}
+.col{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;box-shadow:var(--shadow)}
+.col.before{border-top:4px solid var(--bad)}
+.col.after{border-top:4px solid var(--good)}
+.col h3{margin:0 0 10px;font-size:14px;text-transform:uppercase;letter-spacing:.1em}
+.col.before h3{color:var(--bad)}.col.after h3{color:var(--good)}
+.flow{list-style:none;margin:0;padding:0}
+.flow li{padding:8px 10px;margin:6px 0;border-radius:8px;background:var(--card2);border:1px solid var(--line);font-size:13.5px}
+.flow li b{font-size:13.5px}
+.bars{margin-top:22px}
+.bar{display:grid;grid-template-columns:190px 1fr 90px;gap:10px;align-items:center;margin:10px 0;font-size:13px}
+.bar .track{height:22px;border-radius:6px;background:var(--card2);border:1px solid var(--line);overflow:hidden}
+.bar .fill{height:100%;border-radius:5px}
+.bar .val{font-family:Georgia,serif;font-weight:600;font-variant-numeric:tabular-nums;text-align:right}
+.note{font-size:12px;color:var(--muted);margin-top:8px;font-style:italic}
+.moves li{margin:8px 0}
+.plan{width:100%;border-collapse:collapse;font-size:13.5px}
+.plan th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--line2)}
+.plan td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+.plan td:first-child{font-family:Georgia,serif;font-weight:600;white-space:nowrap;color:var(--sea)}
+.plan tr:last-child td{border-bottom:0}
+.tablewrap{overflow-x:auto}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.twocol{grid-template-columns:1fr}}
+ul.tight{margin:8px 0 0;padding-left:20px}
+ul.tight li{margin:6px 0;font-size:13.5px}
+.limits li{color:var(--muted)}
+.cta{background:linear-gradient(135deg,var(--sea-soft),var(--card));border:1px solid color-mix(in srgb,var(--sea) 30%,transparent)}
+.cta h2{color:var(--sea)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media(max-width:640px){.form{grid-template-columns:1fr}}
+.form label{display:flex;flex-direction:column;gap:5px;font-size:12px;font-weight:600;color:var(--muted)}
+.form input,.form select{border:1px solid var(--line2);background:var(--card);color:var(--ink);border-radius:8px;padding:10px 12px;font-size:14px;outline:none}
+.form input:focus,.form select:focus{border-color:var(--sea)}
+.form .full{grid-column:1/-1}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;padding:11px 18px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;border:1px solid var(--line2);background:var(--card);color:var(--ink)}
+.btn.primary{background:var(--sea);border-color:var(--sea);color:#fff}
+.btn.primary:hover{filter:brightness(1.06)}
+.btn:hover{border-color:var(--sea)}
+.foot{margin-top:50px;border-top:1px solid var(--line2);padding-top:16px;font-size:12px;color:var(--muted)}
+.foot b{color:var(--ink)}
+</style>
+
+<div class="wrap">
+ <header class="mast">
+  <div>
+   <div class="eyebrow">Selena Systems · Public Audit · Prepared for the Anjuna Bay owner side</div>
+   <h1 class="serif">Anjuna Bay Rentals — where the results leak, and how to stop it</h1>
+   <p class="sub">A public-data performance audit of the Anjuna rental villas at Thomas Beach, Uluwatu: OTA footprint, pricing vs market, marketing channels and the inquiry funnel. Every figure is sourced; estimates are labelled.</p>
+   <div class="metabar"><span>Date: <b>July 2026</b></span><span>Scope: <b>public data only</b></span><span>Units reviewed: <b>Anjuna Surf &amp; Sunset villas</b></span><span>Current operator: <b>Balinest Villas (Guesty)</b></span></div>
+  </div>
+  <button class="themebtn" id="themebtn" type="button">◐ Theme</button>
+ </header>
+
+ <section>
+  <div class="kicker">The verdict at a glance</div>
+  <h2 class="serif">Excellent product. Under-monetised operation.</h2>
+  <div class="tiles" style="margin-top:14px">
+   <div class="tile"><div class="k">Guest scores</div><div class="v good">4.87–5.0★</div><div class="s">Airbnb per unit · Booking 8.7/10, Staff 9.5 · Guest-favorite + Superhost</div></div>
+   <div class="tile"><div class="k">Occupancy signal</div><div class="v good">High</div><div class="s">~5–7 reviews/mo on lead units (est.) · operator claims ~85%</div></div>
+   <div class="tile"><div class="k">Nightly rate</div><div class="v bad">$144</div><div class="s">2BR "from" price vs Uluwatu median ~$216 · 2BR ADR ~$260</div></div>
+   <div class="tile"><div class="k">Owned demand</div><div class="v warn">≈ 0</div><div class="s">Marketing targets property buyers; bookings ride OTA algorithms</div></div>
+  </div>
+ </section>
+
+ <section>
+  <div class="kicker">What is genuinely working</div>
+  <h2 class="serif">Credit where due</h2>
+  <p class="lead">The on-ground team earns its scores: cleanliness, design and staff are consistently praised. Distribution is wide — Airbnb (~10 unit listings), Booking.com, Agoda, Trip.com, Marriott Homes &amp; Villas, plus a Guesty direct-booking site. This audit is not about weak hospitality. It is about economics and control.</p>
+ </section>
+
+ <section>
+  <div class="kicker">The leak map</div>
+  <h2 class="serif">Six places the results leak</h2>
+  <div class="card" style="margin-top:14px">
+   <div class="leak"><div class="n">1</div><div><h4>Rate leakage — the big one</h4><p>Occupancy is being bought with below-median pricing. High occupancy at $144/night earns less per available night than healthy occupancy at the market rate.</p><span class="ev">Evidence: Booking.com "from $144" · airroi Uluwatu: median $216, 2BR ADR ~$260 @ 62% occ</span></div></div>
+   <div class="leak"><div class="n">2</div><div><h4>OTA dependence</h4><p>Nearly every booking arrives through an OTA — with a commission attached. The direct Guesty site exists but has no owned traffic feeding it.</p><span class="ev">Evidence: no confirmed rental ads, no owned demand channel found</span></div></div>
+   <div class="leak"><div class="n">3</div><div><h4>Brand aimed at buyers, not guests</h4><p>@anjunabay (3.5k followers) markets real estate sales. The rental product has no guest-facing brand, no Google Business profile, no remarketing.</p><span class="ev">Evidence: IG bio "Luxury Real Estate" · no Google/Tripadvisor rental profile found</span></div></div>
+   <div class="leak"><div class="n">4</div><div><h4>First-response risk at scale</h4><p>Inquiries land in 6+ inboxes at once. The operator manages ~207 listings and grew ~4× in a year — exactly where first-response speed breaks. Digital response time is unverified; concierge runs 18h/day, not 24/7.</p><span class="ev">To be measured: free Secret Guest Audit (one timed test)</span></div></div>
+   <div class="leak"><div class="n">5</div><div><h4>Reputation surface gaps</h4><p>Recurring review themes — nightclub noise, active construction, scooter access — are not pre-managed in listing copy. A 4.9★ asset is exposed as volume grows.</p><span class="ev">Evidence: indexed review snippets across Airbnb/Booking</span></div></div>
+   <div class="leak"><div class="n">6</div><div><h4>Owner visibility</h4><p>No evidence of a funnel-level owner report: inquiries → response times → conversion → rate decisions. When the funnel is invisible, results become a feeling instead of a number.</p><span class="ev">Observation: no public owner-reporting artefacts found</span></div></div>
+  </div>
+ </section>
+
+ <section>
+  <div class="kicker">Before / after</div>
+  <h2 class="serif">The same villas, run differently</h2>
+  <div class="ba" style="margin-top:14px">
+   <div class="col before">
+    <h3>Today</h3>
+    <ul class="flow">
+     <li><b>6+ channels</b> → separate inboxes (Airbnb, Booking, Agoda, Trip, Marriott, Guesty, WhatsApp)</li>
+     <li>Lean team scaling ~4×/yr answers when it can — speed unverified, tone varies</li>
+     <li>Demand bought with <b>below-median rates</b>; occupancy high, revenue capped</li>
+     <li>Marketing spends on <b>buyers</b>, not guests; direct bookings incidental</li>
+     <li>Owner sees outcomes, not the funnel</li>
+    </ul>
+   </div>
+   <div class="col after">
+    <h3>With a governed response layer</h3>
+    <ul class="flow">
+     <li><b>One intake</b> over every channel — approved first reply <b>&lt; 2 minutes</b>, 24/7, multilingual</li>
+     <li>Every inquiry qualified (dates, party, budget, add-ons) and logged; quiet leads followed up D1/D3/D7</li>
+     <li>Rates stepped toward market with a guarded ladder — <b>revenue-led</b>, not price-led</li>
+     <li>Rental brand stood up: Google profile, guest-facing content, direct CTA — OTA share falls</li>
+     <li>Owner gets a <b>weekly funnel report</b>: inquiries, response times, conversion, ADR vs market</li>
+    </ul>
+   </div>
+  </div>
+
+  <div class="card bars" >
+   <div class="kicker">Revenue per available night — 2BR, estimate</div>
+   <div class="bar"><span>Today: $144 × ~85% occ</span><div class="track"><div class="fill" style="width:76%;background:var(--bad)"></div></div><span class="val">≈ $122</span></div>
+   <div class="bar"><span>Median rate: $216 × 70% occ</span><div class="track"><div class="fill" style="width:94%;background:var(--warn)"></div></div><span class="val">≈ $151</span></div>
+   <div class="bar"><span>Market 2BR: $260 × 62% occ</span><div class="track"><div class="fill" style="width:100%;background:var(--good)"></div></div><span class="val">≈ $161</span></div>
+   <div class="note">Estimates from public benchmarks (airroi Uluwatu, Booking "from" price). Directional, not a guarantee — the point is the ~24–32% gap per villa before direct-booking savings.</div>
+  </div>
+ </section>
+
+ <section>
+  <div class="kicker">What to do differently</div>
+  <h2 class="serif">Five moves</h2>
+  <div class="card">
+   <ol class="moves">
+    <li><b>Reprice toward market</b> with a guarded rate ladder — protect an occupancy floor, capture the gap. Pricing stays with you; our reporting makes it visible weekly.</li>
+    <li><b>Stand up the rental brand's owned demand</b> — Google Business profile + review flow, guest-facing content split from the sales brand, a direct-booking CTA everywhere.</li>
+    <li><b>Unify first response</b> — one AI layer over all channels: approved answers in under 2 minutes, 24/7, multilingual, human escalation for VIP / pricing / complaints.</li>
+    <li><b>Qualify and upsell systematically</b> — structured capture, add-ons (transfers, chef, beach club), D1/D3/D7 follow-up on quiet leads.</li>
+    <li><b>Weekly owner report</b> — inquiries → response times → conversion → ADR vs market. Results become numbers.</li>
+   </ol>
+  </div>
+ </section>
+
+ <section>
+  <div class="kicker">Implementation</div>
+  <h2 class="serif">14 days to live</h2>
+  <div class="card tablewrap">
+   <table class="plan">
+    <tr><th>Days</th><th>Work</th><th>Output</th></tr>
+    <tr><td>1–2</td><td>Access + knowledge base: approved answers, villa facts, tone, escalation rules</td><td>Approved KB v1</td></tr>
+    <tr><td>3–5</td><td>Channel unification: WhatsApp/direct + OTA inbox coverage, first-reply flows</td><td>&lt;2-min first response live</td></tr>
+    <tr><td>6–8</td><td>Qualification + upsell flows, quiet-lead follow-up D1/D3/D7</td><td>Qualification live</td></tr>
+    <tr><td>9–10</td><td>Owner report: weekly funnel + response times + ADR vs market</td><td>Report v1 delivered</td></tr>
+    <tr><td>11–13</td><td>40-scenario acceptance suite (availability, unknown pricing, complaint, VIP, pause-AI)</td><td>Acceptance pass</td></tr>
+    <tr><td>14</td><td>Go-live + handover + pause/rollback procedure</td><td>Live, documented</td></tr>
+   </table>
+  </div>
+ </section>
+
+ <section>
+  <div class="twocol">
+   <div class="card">
+    <div class="kicker">KPIs we commit to</div>
+    <ul class="tight">
+     <li>≥95% of eligible inquiries on covered channels answered <b>&lt; 2 minutes</b> with approved content</li>
+     <li>100% of inquiries logged with qualification fields</li>
+     <li>D1/D3/D7 follow-up on every quiet lead</li>
+     <li>Human escalation &lt; 15 minutes for flagged cases</li>
+     <li>Owner report delivered every Monday</li>
+    </ul>
+   </div>
+   <div class="card">
+    <div class="kicker">Honest limitations</div>
+    <ul class="tight limits">
+     <li>No guarantees of occupancy, revenue, ADR or review scores — pricing and hospitality decisions stay with the owner/operator</li>
+     <li>Public-data findings are search-index-based; the Secret Guest Audit is one test — a signal, not proof</li>
+     <li>Seasonality, construction, nightlife noise and OTA algorithms are outside our control</li>
+     <li>Per-channel coverage is confirmed during days 3–5 (OTA API access varies)</li>
+    </ul>
+   </div>
+  </div>
+ </section>
+
+ <section>
+  <div class="card cta">
+   <div class="kicker">Next step — free, 48 hours</div>
+   <h2 class="serif">See it measured, then decide</h2>
+   <p class="lead" style="margin-bottom:4px">Option A: a free <b>Secret Guest Audit</b> — one respectful test inquiry through your public flow, with a timed report (auto-reply vs human, qualification, follow-up, tone). Option B: a 20-minute demo — a live inquiry answered and qualified in under 2 minutes, plus a sample owner report.</p>
+   <form class="form" id="demoform">
+    <label>Your name<input id="f_name" type="text" placeholder="Name" autocomplete="name"></label>
+    <label>Company / role<input id="f_role" type="text" placeholder="Anjuna Bay — owner side"></label>
+    <label>Preferred contact<input id="f_contact" type="text" placeholder="WhatsApp or email"></label>
+    <label>What first?<select id="f_pref"><option>Secret Guest Audit (free)</option><option>20-minute demo</option><option>Both</option></select></label>
+    <div class="full btnrow">
+     <button class="btn primary" type="submit">✉ Request via email</button>
+     <a class="btn" id="wabtn" href="#" target="_blank" rel="noopener">Request via WhatsApp</a>
+    </div>
+   </form>
+   <div class="note">The buttons compose a message in your own email/WhatsApp — nothing is submitted or stored by this page.</div>
+  </div>
+ </section>
+
+ <div class="foot">
+  <b>Sources:</b> airbtics (operator profile), airroi (Uluwatu benchmarks), Airbnb/Booking/Agoda/Trip.com/Marriott listing data, Guesty booking engine, Instagram/Facebook pages — read via public search indexing (sites block automated fetchers).
+  <b>Prepared by Selena Systems, Bali</b> — an independent audit; not affiliated with Anjuna Bay or Balinest Villas. Estimates are labelled; one test is a signal, not systemic proof.
+ </div>
+</div>
+
+<script>
+document.getElementById("themebtn").onclick=()=>{const c=document.documentElement.getAttribute("data-theme");
+ const dark=c?c==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
+ document.documentElement.setAttribute("data-theme",dark?"light":"dark");};
+
+const SELENA_EMAIL="REPLACE_WITH_YOUR_EMAIL";   // TODO: replace before sending to client
+const SELENA_WA="REPLACE_WITH_YOUR_WHATSAPP";   // digits only, e.g. 62812xxxxxxx
+
+function msg(){
+ const n=v=>document.getElementById(v).value.trim();
+ return `Hi — this is ${n("f_name")||"..."} (${n("f_role")||"Anjuna Bay"}). I'd like: ${document.getElementById("f_pref").value}. Reach me at: ${n("f_contact")||"..."} — re: Anjuna Bay rental audit.`;
+}
+document.getElementById("demoform").onsubmit=e=>{
+ e.preventDefault();
+ location.href=`mailto:${SELENA_EMAIL}?subject=${encodeURIComponent("Anjuna Bay audit — next step")}&body=${encodeURIComponent(msg())}`;
+};
+document.getElementById("wabtn").onclick=e=>{
+ e.preventDefault();
+ window.open(`https://wa.me/${SELENA_WA}?text=${encodeURIComponent(msg())}`,"_blank");
+};
+</script>
