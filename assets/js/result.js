@@ -26,6 +26,13 @@ const savedWhatsapp = (quiz && quiz.data && quiz.data.whatsapp) || '';
 const root = document.getElementById('result-root');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+const riskCopy = {
+  low: 'Strong foundation. The main opportunity is to make the response process repeatable before volume increases.',
+  medium: 'Good foundation, but some inquiry leakage is likely when several guests message at once or when follow-up is delayed.',
+  medium_high: 'Several operational gaps are likely. The fastest improvement is usually response speed, qualification and follow-up discipline.',
+  high: 'High risk of losing qualified villa inquiries before they are properly qualified or followed up.',
+};
+
 function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {
@@ -46,7 +53,10 @@ num.appendChild(numSpan);
 num.appendChild(el('small', { text: ' / 100' }));
 hero.appendChild(num);
 hero.appendChild(el('div', { class: `risk-label risk-${result.riskLevel}`, text: result.riskLabel }));
-hero.appendChild(el('p', { class: 'small', style: 'margin-top:14px', text: 'Based on the answers you provided.' }));
+hero.appendChild(el('p', {
+  class: 'score-explainer',
+  text: `${result.score}/100 is a diagnostic estimate based only on your answers. It is not a measured audit of your inboxes or team performance.`,
+}));
 root.appendChild(hero);
 
 if (!reducedMotion) {
@@ -60,7 +70,25 @@ if (!reducedMotion) {
   requestAnimationFrame(tick);
 }
 
-/* ---------- Category bars ---------- */
+/* ---------- Summary + category bars ---------- */
+const summary = el('div', { class: 'result-summary' });
+const summaryCard = el('section', { class: 'summary-card', 'aria-labelledby': 'score-meaning-title' });
+summaryCard.appendChild(el('h2', { id: 'score-meaning-title', text: 'What this score means' }));
+summaryCard.appendChild(el('p', { text: riskCopy[result.riskLevel] || riskCopy.medium }));
+const summaryList = el('ul', { class: 'summary-list' });
+[
+  ['Score', `${result.score}/100 readiness estimate`],
+  ['Status', result.riskLabel],
+  ['Focus', 'Fix the highest-risk areas first'],
+].forEach(([label, value]) => {
+  const item = el('li');
+  item.appendChild(el('i', { text: label }));
+  item.appendChild(el('span', { text: value }));
+  summaryList.appendChild(item);
+});
+summaryCard.appendChild(summaryList);
+summary.appendChild(summaryCard);
+
 const bars = el('div', { class: 'catbars' });
 for (const cat of CATEGORY_ORDER) {
   const c = result.categoryScores[cat];
@@ -77,21 +105,28 @@ for (const cat of CATEGORY_ORDER) {
   bars.appendChild(bar);
   if (!reducedMotion) setTimeout(() => { fill.style.width = `${Math.round(c.percentage * 100)}%`; }, 150);
 }
-root.appendChild(bars);
+summary.appendChild(bars);
+root.appendChild(summary);
 
 /* ---------- Strongest + risk areas ---------- */
+const areas = el('div', { class: 'areas-grid' });
+const strongestStack = el('section', { class: 'area-stack', 'aria-labelledby': 'strongest-title' });
 const strong = el('div', { class: 'area-card strong' });
-strong.appendChild(el('h3', { text: `Strongest area: ${CATEGORY_META[result.strongestArea].title}` }));
+strong.appendChild(el('h3', { id: 'strongest-title', text: `Strongest area: ${CATEGORY_META[result.strongestArea].title}` }));
 strong.appendChild(el('p', { text: CATEGORY_META[result.strongestArea].strong }));
-root.appendChild(strong);
+strongestStack.appendChild(strong);
+areas.appendChild(strongestStack);
 
-root.appendChild(el('h2', { style: 'font-size:1.25rem;margin:26px 0 12px', text: 'Your three highest-risk areas' }));
+const risksStack = el('section', { class: 'area-stack', 'aria-labelledby': 'risk-title' });
+risksStack.appendChild(el('h2', { id: 'risk-title', style: 'font-size:1.25rem;margin:0 0 12px', text: 'Top risk areas to fix first' }));
 result.riskAreas.forEach((cat, i) => {
   const card = el('div', { class: 'area-card risk' });
   card.appendChild(el('h3', { text: `${i + 1}. ${CATEGORY_META[cat].title}` }));
   card.appendChild(el('p', { text: CATEGORY_META[cat].risk }));
-  root.appendChild(card);
+  risksStack.appendChild(card);
 });
+areas.appendChild(risksStack);
+root.appendChild(areas);
 
 /* ---------- Disclaimer (§15.2 — before main CTA) ---------- */
 const disc = el('div', { class: 'disclaimer' });
@@ -111,7 +146,13 @@ function requestButton(label, id) {
 }
 
 if (result.gate === 'audit') {
-  panel.appendChild(el('h2', { text: 'See how your actual inquiry flow performs.' }));
+  panel.appendChild(el('h2', { text: 'Business profile: ready for a live inquiry check' }));
+  panel.appendChild(el('div', { class: 'profile-tabs' }, [
+    el('span', { class: 'profile-tab', text: 'Overview' }),
+    el('span', { class: 'profile-tab', text: 'Inquiry channels' }),
+    el('span', { class: 'profile-tab', text: 'Response risks' }),
+    el('span', { class: 'profile-tab', text: 'Next step' }),
+  ]));
   panel.appendChild(el('p', { class: 'body', text: "We'll send one realistic guest inquiry to one public channel you approve. The first report is delivered within 48 hours after the test is sent. Follow-up is tracked for seven days." }));
   const openBtn = requestButton('Test my actual inquiry flow', 'audit-open');
   panel.appendChild(openBtn);
@@ -123,7 +164,13 @@ if (result.gate === 'audit') {
     openAuditModal();
   });
 } else {
-  panel.appendChild(el('h2', { text: 'A practical next step for an owner-operated portfolio' }));
+  panel.appendChild(el('h2', { text: 'Business profile: owner-operated response system' }));
+  panel.appendChild(el('div', { class: 'profile-tabs' }, [
+    el('span', { class: 'profile-tab', text: 'Overview' }),
+    el('span', { class: 'profile-tab', text: 'Inquiry channels' }),
+    el('span', { class: 'profile-tab', text: 'Response risks' }),
+    el('span', { class: 'profile-tab', text: 'Next step' }),
+  ]));
   panel.appendChild(el('p', { class: 'body', text: 'Because you answer inquiries personally, a live mystery test would mostly measure your own phone habits. The Villa Response Playbook is more useful at this stage: approved first-reply, qualification and day 1 / 3 / 7 follow-up templates.' }));
   const row = el('div', { class: 'result-actions', style: 'margin:0' });
   const pbBtn = requestButton('Send me the Playbook on WhatsApp', 'playbook-request');
