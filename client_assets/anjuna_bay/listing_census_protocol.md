@@ -37,10 +37,20 @@ Record everything in the census sheet (below). Same test dates everywhere so pri
 is only defensible as "matches the best villa the guest sees next to it in the same search".
 So the scale is anchored to a fixed **comp set**:
 
-1. **Fix the comp set FIRST**: ~5 named villas — same zone (Uluwatu/Bingin/Pecatu/Padang Padang),
-   same product (1–3BR private-pool villa), same price band ($120–350), rating ≥4.8 / 50+ reviews,
-   live right now. Include 1–2 "best-run" branded units (e.g. a Cabo/Lago- or Uluwatu Surf Villas-
-   class listing) so the top of the scale is real, not theoretical.
+1. **Fix the comp set FIRST — minimum 10 named villas, chosen by SEARCH FUNNEL.** A guest never
+   compares "in general": they compare inside one concrete search-results grid. So the set is built
+   from the actual funnels where guests meet the Anjuna villas:
+   - **Funnel A** — Airbnb search "Uluwatu" (map incl. Pecatu/Padang Padang/Thomas Beach): the direct grid neighbors;
+   - **Funnel B** — Airbnb search "Bingin": the adjacent beach cluster the same guest also opens;
+   - **Funnel C** — Booking.com "Uluwatu/Pecatu villas": Booking-first audience (more families/EU);
+   - **Funnel D** — Google "villa Uluwatu private pool / beach access" (Google Travel, roundups): research-first guests.
+   2–4 villas per funnel, ≥10 total, same product (1–3BR private-pool villa), same band ($120–350),
+   rating ≥4.8 / 50+ reviews, live now. Include 1–2 "best-run" branded units so the top of the
+   scale is real, not theoretical.
+   **Per competitor, record the DECISION DRIVER:** the 1–2 things visible in the grid that would
+   make a guest pick THEM over Anjuna (badge + review count, lower price with free cancellation,
+   cliff-pool hero shot, benefit-titled listing). The audit's central question — "why do guests
+   choose them and not us?" — is answered by these drivers, not by taste.
 2. **Score everyone on the same sub-criteria, same test dates.** For each block, the best performer
    in the comp set defines the top of the band; Anjuna is placed relative to it.
 3. **Every score must carry its evidence pair** — the number next to the competitor's number:
