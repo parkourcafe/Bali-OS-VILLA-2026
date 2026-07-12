@@ -1,0 +1,128 @@
+<title>Anjuna vs Competitors — Public Metrics</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+ --paper:#F4EFE6;--card:#FFFFFF;--ink:#172029;--muted:#5D6B72;--line:#E6DECF;--line2:#D3C9B2;
+ --sea:#0F6B7A;--sea-soft:#E4F0F0;--coral:#C4553D;--coral-soft:#F6E6DF;--gold:#B4801F;--good:#2E8B57;--bad:#B9503A;--warn:#BE8A24;
+ --shadow:0 1px 2px rgba(23,32,41,.05),0 10px 26px rgba(23,32,41,.07);--r:12px;
+}
+@media (prefers-color-scheme:dark){:root{
+ --paper:#0F1519;--card:#18211F;--ink:#ECF1F0;--muted:#93A29B;--line:#28322E;--line2:#37413B;
+ --sea:#49B7C2;--sea-soft:#0E2C30;--coral:#E0765C;--coral-soft:#2E1B15;--gold:#DDA748;--good:#54B47C;--bad:#E0765C;--warn:#DDA748;
+ --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 30px rgba(0,0,0,.45);
+}}
+:root[data-theme="light"]{--paper:#F4EFE6;--card:#FFFFFF;--ink:#172029;--muted:#5D6B72;--line:#E6DECF;--line2:#D3C9B2;--sea:#0F6B7A;--sea-soft:#E4F0F0;--coral:#C4553D;--coral-soft:#F6E6DF;--gold:#B4801F;--good:#2E8B57;--bad:#B9503A;--warn:#BE8A24;--shadow:0 1px 2px rgba(23,32,41,.05),0 10px 26px rgba(23,32,41,.07);}
+:root[data-theme="dark"]{--paper:#0F1519;--card:#18211F;--ink:#ECF1F0;--muted:#93A29B;--line:#28322E;--line2:#37413B;--sea:#49B7C2;--sea-soft:#0E2C30;--coral:#E0765C;--coral-soft:#2E1B15;--gold:#DDA748;--good:#54B47C;--bad:#E0765C;--warn:#DDA748;--shadow:0 1px 2px rgba(0,0,0,.35),0 12px 30px rgba(0,0,0,.45);}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.serif{font-family:Georgia,"Iowan Old Style","Times New Roman",serif}
+.wrap{max-width:1080px;margin:0 auto;padding:30px 20px 80px}
+.eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:10.5px;font-weight:700;color:var(--sea)}
+.mast{border-bottom:2px solid var(--ink);padding-bottom:16px;display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}
+h1{margin:8px 0 0;font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1.1;text-wrap:balance}
+.sub{margin:9px 0 0;color:var(--muted);max-width:66ch;font-size:12.5px}
+.themebtn{border:1px solid var(--line2);background:var(--card);color:var(--ink);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:12px;font-weight:600}
+.banner{margin-top:16px;background:var(--coral-soft);border:1px solid color-mix(in srgb,var(--coral) 30%,transparent);border-radius:var(--r);padding:12px 15px;font-size:12.5px}
+.banner b{color:var(--coral)}
+h2{font-size:19px;font-weight:600;margin:28px 0 4px;letter-spacing:-.01em}
+.kick{font-size:10.5px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--sea)}
+.stands{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+.stand{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow);border-top:3px solid var(--line2)}
+.stand.win{border-top-color:var(--good)} .stand.lose{border-top-color:var(--bad)}
+.stand .t{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.stand .v{font-family:Georgia,serif;font-size:18px;font-weight:600;margin:5px 0 4px}
+.stand.win .v{color:var(--good)} .stand.lose .v{color:var(--bad)}
+.stand .d{font-size:12px;color:var(--muted)}
+.tablewrap{margin-top:14px;overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:900px;font-size:12px;background:var(--card)}
+th{position:sticky;top:0;text-align:left;font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700;padding:9px 10px;border-bottom:2px solid var(--line2);background:var(--card)}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.co{font-weight:700}.co small{display:block;font-weight:400;color:var(--muted);font-size:10.5px}
+.num{font-variant-numeric:tabular-nums}
+.rowA{background:var(--coral-soft)} .rowA .co{color:var(--coral)}
+.pill{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:5px}
+.p-good{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}
+.p-warn{background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--warn)}
+.p-bad{background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad)}
+.p-mut{background:var(--line);color:var(--muted)}
+.mkt{background:var(--sea-soft)}
+.foot{margin-top:24px;border-top:1px solid var(--line2);padding-top:12px;font-size:10.5px;color:var(--muted)}
+.leg{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-top:8px}
+@media(max-width:560px){.mast h1{font-size:24px}}
+</style>
+
+<div class="wrap">
+ <header class="mast">
+  <div>
+   <div class="eyebrow">Selena Systems · Public metrics · July 2026</div>
+   <h1 class="serif">Anjuna vs 14 Competitors — What the Numbers Show</h1>
+   <p class="sub">Every publicly available parameter for the Uluwatu/Bingin comp set — price, operator scale, ratings, review depth, badges, direct booking, cancellation. Each value tagged for source; nothing estimated.</p>
+  </div>
+  <button class="themebtn" id="themebtn" type="button">◐ Theme</button>
+ </header>
+
+ <div class="banner"><b>The one number nobody shows: occupancy.</b> Per-villa occupancy is not public for ANY of the 14 competitors — analytics tools (AirDNA/Airbtics) don't expose it in free previews and OTAs never do. Only market averages exist (Uluwatu ~50–62%, RevPAR ~$130). Anjuna's ~85% is an operator claim. To verify occupancy for anyone needs a paid AirDNA pull; for Anjuna, the Guesty report (requested in due diligence).</div>
+
+ <div class="kick" style="margin-top:26px">Where Anjuna stands</div>
+ <h2 class="serif">Top-tier product, bottom-tier commercial wrapper</h2>
+ <div class="stands">
+  <div class="stand win"><div class="t">Ratings &amp; review depth</div><div class="v">Top cluster</div><div class="d">4.87–5.0★; B1's 86 + A14's 44 reviews out-depth most new-builds. A genuine strength.</div></div>
+  <div class="stand lose"><div class="t">Booking.com score</div><div class="v">Weakest scored</div><div class="d">8.7 vs the 9.0+ wall (Ayora 9.8, COZ 9.3–9.6, Young Villas 9.4). Booking guests sort on this.</div></div>
+  <div class="stand lose"><div class="t">Price &amp; terms</div><div class="v">Cheap + rigid</div><div class="d">$144 mid-low but non-refundable, while Ayora/COZ/Marghe/Palmera allow free cancellation.</div></div>
+  <div class="stand lose"><div class="t">Direct booking</div><div class="v">Behind the pack</div><div class="d">Guesty, 1 unit indexed. Rivals run own sites/engines (COZ, NOUR, Zyloh, Young Villas, Uluwatu Surf).</div></div>
+ </div>
+
+ <div class="kick" style="margin-top:26px">Full metrics grid</div>
+ <h2 class="serif">Every public parameter, side by side</h2>
+ <div class="tablewrap"><table id="tbl">
+  <thead><tr>
+   <th>Villa</th><th>Units</th><th>BR</th><th>Price / ADR</th><th>Airbnb ★</th><th>Booking</th><th>Reviews</th><th>Direct booking</th><th>Cancellation</th><th>Occupancy</th>
+  </tr></thead>
+  <tbody id="rows"></tbody>
+ </table></div>
+ <div class="leg">
+  <span><b>Direct:</b> <span class="pill p-good">strong</span> own engine · <span class="pill p-warn">basic</span> site/inquiry · <span class="pill p-bad">weak/none</span></span>
+  <span><b>Cancel:</b> <span class="pill p-good">free</span> · <span class="pill p-bad">non-ref</span></span>
+ </div>
+
+ <div class="foot">Source tags: values are [OBSERVED] from listings/sites or [TOOL] analytics estimates via public search indexing (OTAs &amp; tools 403-block robots); “—” = not public. Prices are point-in-time, mostly 2025 shoulder season, mixed seasons. Occupancy is market-level only — no per-villa figure is publicly available for any listing. Prepared by Selena Systems, Bali — independent; not affiliated with Anjuna Bay or Balinest Villas.</div>
+</div>
+
+<script>
+const D=[
+ {n:"ANJUNA Surf & Sunset",op:"Balinest (mgr)",u:"~207 op.",br:"1-3BR",price:"2BR $144",ab:"4.87–5.0",bk:"8.7",rev:"86+44+59",dir:["weak · Guesty (1 unit)","bad"],can:["non-ref","bad"],occ:"~85% claim",A:true},
+ {n:"Hakuna Matata",op:"owner-run",u:"~4",br:"2BR",price:"~$66",ab:"—",bk:"9.1",rev:"240",dir:["none (Gmail/FB)","bad"],can:["non-ref?","bad"],occ:"—"},
+ {n:"Makai Uluwatu",op:"House of Reservations",u:"1",br:"2BR",price:"~$388",ab:"4.71–5.0",bk:"—",rev:"40",dir:["via HoR","warn"],can:["—","mut"],occ:"—"},
+ {n:"Amaya (NOUR)",op:"NOUR brand",u:"8",br:"1BR",price:"—",ab:"SH",bk:"—",rev:"45 brand",dir:["strong · Cloudbeds","good"],can:["—","mut"],occ:"—"},
+ {n:"Bingin Castaways",op:"Bali Retreats",u:"1",br:"2BR",price:"$154",ab:"4.89",bk:"8.9",rev:"129",dir:["own site","good"],can:["strict","bad"],occ:"—"},
+ {n:"Zyloh collection",op:"Villa Zyloh (SH)",u:"3-4",br:"2-4BR",price:"~$500",ab:"4.89",bk:"—",rev:"106",dir:["own site","good"],can:["—","mut"],occ:"—"},
+ {n:"The Young Villas",op:"brand (SH)",u:"9+",br:"1-4BR",price:"$150-400",ab:"4.74",bk:"9.4",rev:"61 / 75",dir:["own + WhatsApp","good"],can:["non-ref","bad"],occ:"—"},
+ {n:"Villa Palmera",op:"Sentosa cluster",u:"~5",br:"2BR",price:"$190-249",ab:"—",bk:"—",rev:"new",dir:["none","bad"],can:["free","good"],occ:"—"},
+ {n:"COZ Bali Boutique",op:"COZ brand",u:"5-6",br:"1-3BR",price:"2BR $325",ab:"SH",bk:"9.3–9.6",rev:"72+",dir:["strong · engine","good"],can:["free","good"],occ:"—"},
+ {n:"Marghe (Valentina)",op:"Valentina brand",u:"4",br:"1BR",price:"~$136",ab:"—",bk:"9.5",rev:"4",dir:["Linktree/IG","warn"],can:["free","good"],occ:"—"},
+ {n:"Villa Yin",op:"Bali SuperHost grp",u:"300-569 grp",br:"1BR",price:"$171",ab:"—",bk:"—",rev:"new",dir:["group site","warn"],can:["—","mut"],occ:"—"},
+ {n:"KELUK Villas",op:"boutique",u:"2",br:"1BR",price:"$164",ab:"4.77",bk:"loc 9.7",rev:"—",dir:["OTA-only","bad"],can:["varies","mut"],occ:"—"},
+ {n:"Ayora Villas",op:"Ayora (self-op)",u:"4",br:"1-2BR",price:"from $117",ab:"4.88",bk:"9.8",rev:"88",dir:["own (inquiry)","warn"],can:["—","mut"],occ:"—"},
+ {n:"Uluwatu Surf Villas",op:"self-op estate",u:"1-5BR",br:"1-5BR",price:"$150 +$25pp",ab:"—",bk:"—",rev:"TA 204",dir:["own site","good"],can:["—","mut"],occ:"—"},
+ {n:"Bukit Vista (Bingin)",op:"Bukit Vista (mgr)",u:"100+",br:"1-5BR",price:"dynamic ~$82",ab:"—",bk:"8.9",rev:"11",dir:["own site","good"],can:["—","mut"],occ:"—"},
+];
+const MKT={n:"— Uluwatu MARKET (AirROI)",u:"—",br:"—",price:"ADR $267",ab:"—",bk:"—",rev:"—",dir:["—","mut"],can:["—","mut"],occ:"~50–62% · RevPAR $130"};
+const rowsEl=document.getElementById("rows");
+function cell(v){return v||"—";}
+[...D,MKT].forEach(d=>{
+ const tr=document.createElement("tr");
+ if(d.A) tr.className="rowA"; if(d.n.startsWith("—")) tr.className="mkt";
+ tr.innerHTML=`
+  <td class="co">${d.n}<small>${d.op||""}</small></td>
+  <td class="num">${cell(d.u)}</td><td>${cell(d.br)}</td><td class="num">${cell(d.price)}</td>
+  <td class="num">${cell(d.ab)}</td><td class="num">${cell(d.bk)}</td><td class="num">${cell(d.rev)}</td>
+  <td><span class="pill p-${d.dir[1]}">${d.dir[0]}</span></td>
+  <td><span class="pill p-${d.can[1]}">${d.can[0]}</span></td>
+  <td class="num">${cell(d.occ)}</td>`;
+ rowsEl.appendChild(tr);
+});
+document.getElementById("themebtn").onclick=()=>{const c=document.documentElement.getAttribute("data-theme");
+ const dark=c?c==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
+ document.documentElement.setAttribute("data-theme",dark?"light":"dark");};
+</script>
