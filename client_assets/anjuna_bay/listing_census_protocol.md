@@ -31,20 +31,39 @@ Record everything in the census sheet (below). Same test dates everywhere so pri
 **Rule:** a unit only counts as "live" if you can reach checkout with real dates. Aggregate listings
 ("2BR Villas") must be opened to count room inventory inside.
 
-## Part B — Guest-View Scorecard (100 points per listing)
-Score each Anjuna listing AND 6–8 competitors identically. Competitor set: same map zone
-(Uluwatu/Bingin/Pecatu), same bedroom class, 4.8★+/50+ reviews, price band $150–400 —
-i.e. what a guest actually compares in the same search results.
+## Part B — Guest-View Scorecard (100 points, COMPARATIVE)
 
-| Block | Pts | What to check (guest's eyes) |
+**Core rule: no score exists without a reference.** Points are meaningless in a vacuum — "15/15"
+is only defensible as "matches the best villa the guest sees next to it in the same search".
+So the scale is anchored to a fixed **comp set**:
+
+1. **Fix the comp set FIRST**: ~5 named villas — same zone (Uluwatu/Bingin/Pecatu/Padang Padang),
+   same product (1–3BR private-pool villa), same price band ($120–350), rating ≥4.8 / 50+ reviews,
+   live right now. Include 1–2 "best-run" branded units (e.g. a Cabo/Lago- or Uluwatu Surf Villas-
+   class listing) so the top of the scale is real, not theoretical.
+2. **Score everyone on the same sub-criteria, same test dates.** For each block, the best performer
+   in the comp set defines the top of the band; Anjuna is placed relative to it.
+3. **Every score must carry its evidence pair** — the number next to the competitor's number:
+   *"Photos 12/20: Anjuna 24 photos, no captions — comp median 42, best (Villa X) 58 with captions."*
+   That's how "15 баллов" is explained: not taste, a measured gap.
+
+Band anchors per block (apply to every villa in the set):
+- **Top of band (100%)** = the best listing in the comp set on this block.
+- **Middle (≈60%)** = comp-set median.
+- **Bottom (≤30%)** = clearly worse than every comp (e.g. unit-code title vs 5 descriptive titles).
+
+Scoring discipline: two people score independently where subjective (photos, copy), average the
+result; hard metrics (photo count, review count, price, instant-book) are just recorded facts.
+
+| Block | Pts | What to measure (record the comp's value next to Anjuna's) |
 |---|---|---|
-| **1. Search-result impression** | 15 | Thumbnail quality (5) · title says something desirable, not a unit code (5) · badge/rating visible + price looks credible in the grid (5) |
-| **2. Photos** | 20 | Count ≥30 (4) · hero shot sells the dream (5) · coverage: every room+pool+view+bathroom (5) · light/professional quality (4) · captions (2) |
-| **3. Copy & positioning** | 15 | First 2 lines hook (4) · concrete USPs — cliff, Thomas Beach access (4) · honest expectation-setting: construction/nightlife/access (4) · localization/tone (3) |
-| **4. Price & value display** | 15 | Rate vs comps for same dates (5) · fees/taxes not a checkout surprise (4) · cancellation flexibility (3) · discounts (weekly/early-bird) (3) |
-| **5. Social proof** | 15 | Rating ≥4.85 (4) · review count ≥50 (4) · recent reviews (3) · host status/badges (2) · management replies to reviews (2) |
-| **6. Booking friction** | 10 | Instant book (4) · min-nights reasonable (3) · deposit/rules not scary (3) |
-| **7. Cross-channel consistency** | 10 | Same name/photos everywhere (4) · rate parity, direct is best (3) · all key channels present (3) |
+| **1. Search-result impression** | 15 | Thumbnail (5) · title: descriptive vs unit code (5) · badge/rating/price credibility in the grid (5). *Evidence pair: screenshot of the search grid with both visible* |
+| **2. Photos** | 20 | Count vs comp median (4) · hero shot (5) · room coverage (5) · quality (4) · captions (2). *Evidence: photo counts for all villas in set* |
+| **3. Copy & positioning** | 15 | Hook in first 2 lines (4) · concrete USPs (4) · honest expectation-setting: construction/nightlife/access (4) · tone (3). *Evidence: first-paragraph texts side by side* |
+| **4. Price & value display** | 15 | Rate vs comp set for SAME dates (5) · fees transparency (4) · cancellation (3) · discounts (3). *Evidence: price table, one row per villa, same dates* |
+| **5. Social proof** | 15 | Rating (4) · review count (4) · recency (3) · badges (2) · host replies (2). *Evidence: rating/count table across the set* |
+| **6. Booking friction** | 10 | Instant book (4) · min-nights (3) · deposit/rules (3). *Evidence: comparison row* |
+| **7. Cross-channel consistency** | 10 | Same name/photos across OTAs (4) · rate parity, direct best (3) · channel coverage (3). *Evidence: per-channel matrix* |
 
 **Interpretation:** 85+ market-leading · 70–84 competitive · 55–69 leaking bookings · <55 actively repelling guests.
 
