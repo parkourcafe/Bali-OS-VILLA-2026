@@ -1,0 +1,14 @@
+{
+  "idempotencyKey": "f0000000-0000-4000-8000-000000000001",
+  "honeypot": "",
+  "brand": "Gravity Bali",
+  "villa": "Villa Kelanah",
+  "guestName": "Test Guest",
+  "stage": "checkout",
+  "rating": 5,
+  "comment": "Deployment smoke test — please delete.",
+  "whatsapp": "",
+  "consent": false,
+  "source": "feedback:checkout",
+  "clientMeta": { "landingPath": "/feedback/", "referrer": "", "utm": {} }
+}

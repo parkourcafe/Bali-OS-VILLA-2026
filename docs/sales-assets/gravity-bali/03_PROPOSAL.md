@@ -80,11 +80,29 @@ KPI definitions and the controllable/non-controllable split:
 - Rollback at any time: responder pauses in one click; the pipeline still
   works as a manual tool.
 
+## Optional add-on — Guest Feedback & Reviews
+
+A compliant review funnel: a mid-stay check-in catches issues while the guest
+is still in the villa (instant service-recovery alert to your team), and happy
+guests are invited to review publicly on Google. We deliberately avoid "review
+gating" (routing only happy guests to Google) because it violates Google's
+policy and risks your rating — the version we build gets the same result
+legitimately and can't be penalised. **+$1,500** with the 14-day project (or
+$2,500 standalone later). Details: `08_REVIEW_SYSTEM.md`.
+
+## A free head-start (yours to keep either way)
+
+Regardless of whether we work together, we've prepared three fixes your team
+can apply today at no cost — a WhatsApp away-message, corrected copy for the
+weekend contradiction, and a context-carrying WhatsApp button. See the gift
+page (`/audit/gravity-bali/gift/`) or `07_GIFT_WEEKEND_RESCUE_KIT.md`.
+
 ## Price
 
-**USD 7,500 one-off.** 50% to start, 50% at handover. 30 days of post-launch
-support included; optional ongoing support priced separately. No lock-in —
-the same way you work with your villa owners.
+**USD 7,500 one-off** for the core 14-day implementation (add the reviews
+module for +$1,500 if you'd like it from the start). 50% to start, 50% at
+handover. 30 days of post-launch support included; optional ongoing support
+priced separately. No lock-in — the same way you work with your villa owners.
 
 ## What is explicitly out of scope
 

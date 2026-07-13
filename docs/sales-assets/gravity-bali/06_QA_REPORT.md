@@ -4,11 +4,11 @@ Build date: 2026-07-12 · Branch: `claude/villa-ops-bali-sales-vwmqdj`
 
 ## Automated tests
 
-- `npm test`: **64/64 pass** — includes 12 new tests for
-  `/api/demo-request` (validation matrix, honeypot spam rejection, consent
-  requirement, whatsapp normalization, origin allowlist, 405, RATE_LIMITED →
-  429, webhook-garbage and webhook-down → 503 with `ok:false` — **no fake
-  success path exists**).
+- `npm test`: **76/76 pass** — includes 12 tests for `/api/demo-request` and
+  12 for `/api/feedback` (rating bounds 1–5, compliant routing recovery≤3 /
+  promote≥4, the non-gating rule that the public review link is returned on
+  BOTH routes, honeypot, consent-only-with-contact, origin allowlist, 405,
+  webhook-down → 503 with `ok:false` — **no fake success path exists**).
 
 ## Server E2E (dev server = real function + mock Apps Script webhook)
 
@@ -79,7 +79,10 @@ the deck slide 3, and `02_AUDIT.md` before sending. Accuracy is the asset.
 | 4–7 | Site / WhatsApp / booking-flow audit + loss map | `02_AUDIT.md` |
 | 8 | Before/after visualization (+ concept mockups) | microsite §§4–6, deck slides 4–5 |
 | 9 | Personal microsite (noindex, analytics, form) | `audit/gravity-bali/index.html` |
-| 9a | Interactive product demo (3 scenarios, guest-playable) | `audit/gravity-bali/demo/index.html` |
+| 9a | Interactive product demo (4 scenarios incl. review recovery) | `audit/gravity-bali/demo/index.html` |
+| 9b | Free lead-magnet gift (Weekend Rescue Kit) | `audit/gravity-bali/gift/index.html` + `07_GIFT_WEEKEND_RESCUE_KIT.md` |
+| 9c | Guest Feedback & Reviews module (compliant funnel) | `/feedback/`, `netlify/functions/feedback.mjs`, `08_REVIEW_SYSTEM.md` |
+| 9d | Deploy guide | `docs/DEPLOY.md` |
 | 10 | Audit deck 8 slides, editable, PDF-ready | `audit/gravity-bali/deck/index.html` |
 | 11 | Personal proposal | `03_PROPOSAL.md` |
 | 12–13 | 5-message sequence, WA/email/IG versions | `04_OUTREACH_MESSAGES.md` |

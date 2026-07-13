@@ -116,6 +116,7 @@
     <button class="scenario-tab" role="tab" data-s="s1" aria-selected="true">1 · Saturday-night enquiry</button>
     <button class="scenario-tab" role="tab" data-s="s2" aria-selected="false">2 · The guest who went quiet</button>
     <button class="scenario-tab" role="tab" data-s="s3" aria-selected="false">3 · Complex request → human</button>
+    <button class="scenario-tab" role="tab" data-s="s4" aria-selected="false">4 · Fix it before checkout → 5★</button>
   </div>
   <p class="scenario-desc" id="scenario-desc"></p>
 </section>
@@ -262,6 +263,7 @@ const DESC = {
   s1: 'From your audit, Finding 03: your concierge is described as closed on weekends. It’s Saturday 22:41 — a guest from Sydney found Villa Kelanah on your website. Watch what happens instead of silence until Monday.',
   s2: 'Finding 05: no visible follow-up system. A qualified guest received a quote… and went quiet. Today that thread depends on someone’s memory. Watch the system remember for you.',
   s3: 'Your boutique promise, protected: the responder recognises a complex request instantly and steps aside for your team — with full context attached. AI never negotiates, never improvises on special occasions.',
+  s4: 'The review funnel done right: a quiet mid-stay check-in catches a problem while the guest is still in the villa. Your team fixes it before checkout — so the review that follows is a genuine 5★, not damage control. (Compliant: nobody is blocked from posting publicly.)',
 };
 
 async function s1(token) {
@@ -392,8 +394,56 @@ async function s3(token) {
   track('audit_demo_scenario', { asset: ASSET, section: 's3-complete' });
 }
 
+async function s4(token) {
+  $('dp-status').textContent = 'Day 2 of stay · 16:30 WITA';
+  sys('Day 2 of the stay — a quiet check-in goes out automatically');
+  await wait(500, token);
+  bubble('ai', 'Hi Sofia! Just checking in — how is everything at <b>Villa Kelanah</b> so far? Tap 1–5 ⭐ (5 = perfect).', 'Tue 16:30');
+  $('lead-title').textContent = 'Stay #128 · Villa Kelanah';
+  setField('villa', 'Villa Kelanah (5BR)'); setField('guests', 'Sofia +5'); setField('source', 'Mid-stay check-in');
+  setField('dates', 'in-house, day 2 of 5'); setStatus('Mid-stay check'); setPipe('ack');
+  metric('m-ack', 'proactive'); metric('m-promise', 'ahead of it ✓');
+  const c1 = await chips(['⭐⭐ Pool heater is broken', '⭐⭐⭐ AC in one room is weak', '⭐⭐⭐⭐⭐ All perfect!'], token);
+  if (token !== runToken) return;
+  bubble('guest', c1, 'Tue 16:32');
+  const rating = c1.startsWith('⭐⭐⭐⭐⭐') ? 5 : c1.startsWith('⭐⭐⭐') ? 3 : 2;
+  metric('m-ctx', '4/4'); ctxCount = 4;
+  if (rating >= 5) {
+    if (!await typing(700, token)) return;
+    bubble('ai', 'That’s wonderful to hear — thank you, Sofia! 🌴 Enjoy the rest of your stay, and shout if you need anything at all.', 'Tue 16:32');
+    setStatus('Happy — day 2'); setField('notes', '5★ mid-stay, no issues');
+    notify('😊', '<b>Happy guest</b> — Kelanah 5★ on day 2. No action needed; flagged for a review invite at checkout.', 'Tue 16:32');
+    sys('At checkout this guest gets a review invite — a genuine 5★, earned during the stay.');
+  } else {
+    if (!await typing(800, token)) return;
+    bubble('ai', 'Oh no — I’m so sorry, Sofia. I’m flagging this to our team right now so we can fix it today, while you’re still here. Someone will message you within minutes. 🙏', 'Tue 16:32');
+    setStatus('Recovery — action needed'); setPipe('handoff');
+    setField('notes', rating + '★ — ' + c1.replace(/[⭐\s]+/, '') );
+    notify('🚨', '<b>SERVICE RECOVERY</b> — Kelanah, ' + rating + '★ on day 2: “' + c1.replace(/[⭐\s]+/, '') + '”. Fix before checkout. Assigned: Wayan (maintenance) + Ayu.', 'Tue 16:32');
+    await wait(900, token);
+    bubble('staff', 'Hi Sofia, Ayu here — so sorry! Wayan is on his way to sort it within the hour, and we’ve left a bottle of wine in the villa for the trouble. I’ll check back once it’s done. 🙏', 'Tue 16:41');
+    setField('owner', 'Ayu + Wayan'); setStatus('Fixing now');
+    const c2 = await chips(['Amazing, thank you!', 'Great — appreciate it'], token);
+    if (token !== runToken) return;
+    bubble('guest', c2, 'Tue 17:20');
+    await wait(700, token);
+    bubble('staff', 'All fixed and tested ✅ Thank you for your patience — enjoy the rest of your stay!', 'Tue 17:22');
+    setStatus('Recovered ✓'); setPipe('won'); setField('notes', 'Issue fixed same day, guest happy');
+    notify('✅', '<b>Recovered</b> — issue fixed on day 2, guest happy. A 2★ checkout just became a 5★ one.', 'Tue 17:22');
+    await wait(900, token);
+    sys('Checkout, day 5 — the guest leaves happy');
+    if (!await typing(700, token)) return;
+    bubble('ai', 'Sofia, it was a joy hosting you! If you have a moment, would you share your stay with a quick review? It genuinely helps other guests find us 🌸', 'Fri 11:00');
+    bubble('guest', 'Of course — you turned a small hiccup into great service. 5 stars! ⭐⭐⭐⭐⭐', 'Fri 11:03');
+    notify('🌟', '<b>Public review invited</b> — after a recovered stay. Genuine 5★, not damage control. (Unhappy guests are never blocked from posting — compliant.)', 'Fri 11:03');
+    sys('Demo point: catch it mid-stay, fix before checkout — the review takes care of itself, honestly.');
+  }
+  $('demo-progress').textContent = 'Scenario complete ✓ — book the walkthrough below';
+  track('audit_demo_scenario', { asset: ASSET, section: 's4-complete' });
+}
+
 /* ---------- wiring ---------- */
-const SCENARIOS = { s1, s2, s3 };
+const SCENARIOS = { s1, s2, s3, s4 };
 async function run(id) {
   runToken++;
   const token = runToken;

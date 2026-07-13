@@ -41,6 +41,21 @@ performance, guest decision speed, and advertising traffic volumes. Villa Ops
 OS controls the *speed, structure and completeness of the response process* —
 commercial outcomes are tracked so the owner can see them, not promised.
 
+## 4. Guest Feedback & Reviews KPIs (add-on module only)
+
+Operational (controllable):
+- Mid-stay check-in send rate (% of in-house stays that receive one)
+- Feedback response rate
+- Service-recovery response time (low rating → first staff reply)
+- Issues resolved before checkout (%)
+
+Commercial (monitored, NOT promised — outcomes depend on the real stay):
+- Public review invite rate (% of eligible happy/recovered guests invited)
+- Review conversion (invited → posted)
+
+Never promise a star-rating or review-count outcome, and never gate reviews by
+sentiment — see `gravity-bali/08_REVIEW_SYSTEM.md`.
+
 ## Baseline → target protocol
 
 1. Days 1–2: agree definitions + targets with the owner (this table, adjusted).

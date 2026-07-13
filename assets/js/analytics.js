@@ -7,8 +7,9 @@ import { SITE_CONFIG, has } from './site-config.js';
 
 const ALLOWED_PROPS = new Set([
   'step', 'gate', 'scoreBand', 'device', 'referrerCategory', 'utmCampaign', 'code',
-  // Private audit microsites (/audit/<slug>/): anonymous engagement props only.
+  // Private audit microsites (/audit/<slug>/) + feedback module: anonymous props only.
   'asset', 'section', 'cta',
+  // 'section' also carries anonymous route/rating labels (e.g. 'r5', 'recovery').
 ]);
 
 function deviceClass() {

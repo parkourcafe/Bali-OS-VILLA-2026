@@ -18,6 +18,11 @@
   to = "/.netlify/functions/demo-request"
   status = 200
 
+[[redirects]]
+  from = "/api/feedback"
+  to = "/.netlify/functions/feedback"
+  status = 200
+
 # Legacy / stray score routes land safely on the assessment
 [[redirects]]
   from = "/score"
@@ -58,6 +63,12 @@
 # Private audit microsites must not be indexed (per-client sales assets)
 [[headers]]
   for = "/audit/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# Per-guest feedback pages carry query params and are not for public search
+[[headers]]
+  for = "/feedback/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 

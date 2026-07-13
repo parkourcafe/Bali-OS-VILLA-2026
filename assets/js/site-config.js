@@ -30,6 +30,15 @@ export const SITE_CONFIG = Object.freeze({
 
   // V1 playbook delivery is manual (spec §15.4). Do not change without automation.
   PLAYBOOK_DELIVERY_MODE: 'manual_whatsapp',
+
+  // Guest Feedback & Reviews module — public review link (Google Maps "write a
+  // review" URL). Leave empty until the client provides their real place link:
+  // Google Maps -> find the business -> Share -> "write a review" link
+  // (looks like https://g.page/r/XXXXXXXX/review or
+  //  https://search.google.com/local/writereview?placeid=XXXX). Do not invent.
+  GOOGLE_REVIEW_URL: '',
+  // Default brand shown on the guest feedback page when ?brand= is absent.
+  FEEDBACK_BRAND: 'Villa Ops OS',
 });
 
 /** True when a value is configured (non-empty). */

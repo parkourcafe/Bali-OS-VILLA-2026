@@ -36,6 +36,16 @@ var DEMO_HEADERS = [
 ];
 var DEMO_RATE_LIMIT_PER_HOUR = 5; // demo_requested per IP hash
 
+// Guest Feedback & Reviews module (Villa Ops OS add-on): every rating stored;
+// low ratings raise an urgent service-recovery alert.
+var FEEDBACK_SHEET_NAME = 'Guest Feedback';
+var FEEDBACK_HEADERS = [
+  'Request ID', 'Created at', 'Brand', 'Villa', 'Guest name', 'Stage', 'Rating',
+  'Route', 'Comment', 'WhatsApp', 'Consent', 'Source', 'UTM campaign',
+  'Landing path', 'Status', 'Recovery owner', 'Resolved at', 'Notes'
+];
+var FEEDBACK_RATE_LIMIT_PER_HOUR = 20; // guest_feedback per IP hash
+
 function prop_(key) {
   var v = PropertiesService.getScriptProperties().getProperty(key);
   if (!v) throw new Error('Missing Script Property: ' + key);
@@ -122,6 +132,8 @@ function doPost(e) {
       out = handlePlaybookRequested_(p);
     } else if (p.event === 'demo_requested') {
       out = handleDemoRequested_(p, cache);
+    } else if (p.event === 'guest_feedback') {
+      out = handleGuestFeedback_(p, cache);
     } else {
       out = { ok: false, code: 'VALIDATION_ERROR' };
     }
@@ -306,6 +318,61 @@ function handleDemoRequested_(p, cache) {
       'Sheet: https://docs.google.com/spreadsheets/d/' + prop_('SHEET_ID')
     ].join('\n')
   );
+
+  return { ok: true, requestId: String(p.requestId) };
+}
+
+function getFeedbackSheet_() {
+  var ss = SpreadsheetApp.openById(prop_('SHEET_ID'));
+  var sheet = ss.getSheetByName(FEEDBACK_SHEET_NAME);
+  if (!sheet) sheet = ss.insertSheet(FEEDBACK_SHEET_NAME);
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(FEEDBACK_HEADERS);
+    sheet.setFrozenRows(1);
+  }
+  return sheet;
+}
+
+function handleGuestFeedback_(p, cache) {
+  if (p.ipHash) {
+    var rlKey = 'rl-fb:' + p.ipHash;
+    var count = Number(cache.get(rlKey) || '0');
+    if (count >= FEEDBACK_RATE_LIMIT_PER_HOUR) return { ok: false, code: 'RATE_LIMITED' };
+    cache.put(rlKey, String(count + 1), 60 * 60);
+  }
+
+  var sheet = getFeedbackSheet_();
+  var now = new Date();
+  var meta = p.clientMeta || {};
+  var isRecovery = String(p.route) === 'recovery';
+
+  sheet.appendRow([
+    String(p.requestId), now, sheetSafe_(p.brand), sheetSafe_(p.villa), sheetSafe_(p.guestName),
+    sheetSafe_(p.stage), p.rating, sheetSafe_(p.route), sheetSafe_(p.comment),
+    sheetSafe_(p.whatsapp), p.consent ? 'YES' : '', sheetSafe_(p.source),
+    sheetSafe_((meta.utm || {}).campaign || ''), sheetSafe_(meta.landingPath),
+    isRecovery ? 'RECOVERY — action needed' : 'Feedback logged', '', '', ''
+  ]);
+
+  var subject = isRecovery
+    ? '\u{1F6A8} SERVICE RECOVERY: ' + p.rating + '★ · ' + (p.villa || p.brand) + (p.guestName ? ' · ' + p.guestName : '')
+    : 'Guest feedback: ' + p.rating + '★ · ' + (p.villa || p.brand);
+  sendMail_(subject, [
+    (isRecovery ? 'ACTION NEEDED — reach the guest now, ideally before checkout.' : 'New guest feedback recorded.'),
+    '',
+    'Brand: ' + (p.brand || '-'),
+    'Villa: ' + (p.villa || '-'),
+    'Guest: ' + (p.guestName || '-'),
+    'Stage: ' + (p.stage || '-'),
+    'Rating: ' + p.rating + '/5',
+    'Comment: ' + (p.comment || '-'),
+    'WhatsApp: ' + (p.whatsapp || '(not provided)'),
+    '',
+    (isRecovery
+      ? 'Next: message the guest, resolve the issue, then log the outcome in the Guest Feedback sheet.'
+      : 'Next: if they left a public review, thank them.'),
+    'Sheet: https://docs.google.com/spreadsheets/d/' + prop_('SHEET_ID')
+  ].join('\n'));
 
   return { ok: true, requestId: String(p.requestId) };
 }

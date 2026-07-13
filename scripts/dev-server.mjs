@@ -15,6 +15,7 @@ import { join, extname, normalize } from 'node:path';
 import { handler } from '../netlify/functions/lead.mjs';
 import { handler as siteAudit } from '../netlify/functions/site-audit.mjs';
 import { handler as demoRequest } from '../netlify/functions/demo-request.mjs';
+import { handler as feedback } from '../netlify/functions/feedback.mjs';
 
 const PORT = Number(process.argv[2] || 8788);
 const ROOT = new URL('..', import.meta.url).pathname;
@@ -24,6 +25,8 @@ process.env.APPS_SCRIPT_WEBHOOK_URL = process.env.FAIL_WEBHOOK === '1'
   : `http://127.0.0.1:${PORT}/mock-webhook`;
 process.env.APPS_SCRIPT_SHARED_SECRET = 'dev-secret';
 process.env.IP_HASH_SALT = 'dev-salt';
+process.env.GOOGLE_REVIEW_URL = process.env.GOOGLE_REVIEW_URL
+  || 'https://search.google.com/local/writereview?placeid=DEMO_PLACE_ID';
 delete process.env.ALLOWED_ORIGIN;
 
 const MIME = {
@@ -34,6 +37,7 @@ const MIME = {
 /** In-memory Apps Script emulation */
 const sheet = new Map(); // leadId -> row object
 const demoSheet = new Map(); // requestId -> demo request row
+const feedbackSheet = new Map(); // requestId -> feedback row
 const idem = new Map();  // idempotencyKey -> response
 
 function mockWebhook(body) {
@@ -91,6 +95,16 @@ function mockWebhook(body) {
       status: 'Demo requested',
     });
     out = { ok: true, requestId: payload.requestId };
+  } else if (payload.event === 'guest_feedback') {
+    feedbackSheet.set(payload.requestId, {
+      requestId: payload.requestId,
+      createdAt: new Date().toISOString(),
+      brand: payload.brand, villa: payload.villa, guestName: payload.guestName,
+      stage: payload.stage, rating: payload.rating, route: payload.route,
+      comment: payload.comment, whatsapp: payload.whatsapp, source: payload.source,
+      status: payload.route === 'recovery' ? 'RECOVERY — action needed' : 'Feedback logged',
+    });
+    out = { ok: true, requestId: payload.requestId };
   } else {
     out = { ok: false, code: 'VALIDATION_ERROR' };
   }
@@ -120,6 +134,20 @@ createServer(async (req, res) => {
     if (url.pathname === '/mock-demo-sheet') {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       return res.end(JSON.stringify([...demoSheet.values()]));
+    }
+    if (url.pathname === '/mock-feedback-sheet') {
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify([...feedbackSheet.values()]));
+    }
+    if (url.pathname === '/api/feedback') {
+      const body = await readBody(req);
+      const out = await feedback({
+        httpMethod: req.method,
+        headers: Object.fromEntries(Object.entries(req.headers)),
+        body,
+      });
+      res.writeHead(out.statusCode, out.headers);
+      return res.end(out.body);
     }
     if (url.pathname === '/api/demo-request') {
       const body = await readBody(req);

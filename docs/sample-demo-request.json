@@ -1,0 +1,18 @@
+{
+  "idempotencyKey": "d0000000-0000-4000-8000-000000000001",
+  "honeypot": "",
+  "name": "Test Contact",
+  "company": "Gravity Bali",
+  "role": "Founder",
+  "whatsapp": "+62 813 5370 4430",
+  "email": "test@example.com",
+  "villaCount": "20-49",
+  "currentSystem": "forms + WhatsApp + OTA extranets",
+  "mainSource": "website + Instagram",
+  "preferredDate": "2026-07-20",
+  "timezone": "Asia/Makassar (Bali, WITA)",
+  "comment": "Deployment smoke test — please delete.",
+  "consent": true,
+  "source": "audit-microsite:gravity-bali",
+  "clientMeta": { "landingPath": "/audit/gravity-bali/", "referrer": "", "utm": { "source": "smoke", "medium": "test", "campaign": "deploy", "content": "", "term": "" } }
+}

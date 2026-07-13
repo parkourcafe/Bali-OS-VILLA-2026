@@ -14,6 +14,7 @@ Static HTML/CSS/vanilla ES modules (no framework) · Netlify Function (`/api/lea
 /audit/<slug>/        private per-client audit microsites (noindex, see below)
 netlify/functions/lead.mjs           canonical API
 netlify/functions/demo-request.mjs   demo walkthrough bookings from /audit/ pages
+netlify/functions/feedback.mjs       guest feedback + compliant review funnel (/feedback/)
 google-apps-script/Code.gs           Sheet upsert + MailApp (+ Demo Requests tab)
 assets/js/scoring.js                 LOCKED scoring rules (shared browser/server)
 assets/js/site-config.js             editable public config (placeholders)
@@ -43,6 +44,12 @@ clearly labelled as simulated) and a demo-booking form.
   audit/<slug>/evidence-plan.json` locally (needs `npm i -D playwright`) —
   the remote build environment cannot reach external websites, so shots are
   captured on the operator's machine before sending the audit.
+- **Free gift** (`/audit/<slug>/gift/`): a lead-magnet of copy-paste fixes.
+- **Guest Feedback & Reviews** (`/feedback/`, POST `/api/feedback`): a
+  compliant review funnel — mid-stay check-in → instant service-recovery alert
+  on low ratings → public review invite for happy guests, and it never gates
+  (blocks) reviews by sentiment. Set `GOOGLE_REVIEW_URL` for the review CTA.
+- **Deploying it all:** see `docs/DEPLOY.md`.
 
 ## Local development
 
