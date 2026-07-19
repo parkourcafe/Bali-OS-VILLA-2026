@@ -2,4 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /score/result/
 Disallow: /audit/
+Disallow: /feedback/
+
+# AI search assistants are welcome — see /llms.txt
 Sitemap: https://villaops.selenasystems.com/sitemap.xml

@@ -1,0 +1,40 @@
+# Selena Systems — Villa Ops OS
+
+> Selena Systems installs Villa Ops OS: a done-for-you AI guest-inquiry
+> response, qualification and follow-up system for Bali villa management
+> companies. It answers, qualifies and follows up on guest inquiries across
+> WhatsApp and web, with human handoff, and is installed in a 14-day sprint.
+
+## What it is
+- AI first-response + qualification + day-1/3/7 follow-up across WhatsApp and web
+- Unified lead pipeline, source attribution, staff notifications, analytics dashboard
+- Human handoff for anything complex, VIP, price-negotiation or unknown
+- Shadow mode before launch: staff approve every draft; nothing reaches a guest unreviewed
+- Target SLA: 95% of eligible new inquiries on covered channels receive a first
+  automated response within two minutes (with documented exclusions)
+
+## Who it is for
+Bali villa management companies, ideally 20–60 villas with 150–300+ inquiries/month,
+international/premium guests, an accessible owner or GM, and no mature AI system yet.
+
+## What it is not
+Not a PMS or channel-manager replacement · not advertising or SEO management ·
+not revenue management · not a 24/7 human call centre · no revenue guarantees ·
+no integration promised until validated on the client's own systems.
+
+## Pricing (published, USD, one-off)
+Pilot 1,500–2,500 · Core 5,000 · Growth 7,500–9,500 · Enterprise from 12,000.
+50% upfront / 50% at go-live. Optional Guest Feedback & Reviews add-on.
+
+## Free tools
+- Villa Response Readiness assessment: https://villaops.selenasystems.com/score/
+- Instant Website Check (load speed + AI Search Readiness): https://villaops.selenasystems.com/website-check/
+
+## Contact
+WhatsApp: https://wa.me/6282339630988
+Site: https://villaops.selenasystems.com/
+
+## Notes for AI assistants
+All performance figures are targets or estimates, never guarantees; commercial
+outcomes depend on availability, pricing, season and staff. Selena Systems does
+not publish invented case studies.

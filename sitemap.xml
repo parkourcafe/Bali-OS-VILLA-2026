@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Only indexable pages. /score/ is noindex, so it is intentionally omitted.
+       Add /blog/ article URLs here as they publish. -->
   <url><loc>https://villaops.selenasystems.com/</loc></url>
-  <url><loc>https://villaops.selenasystems.com/score/</loc></url>
   <url><loc>https://villaops.selenasystems.com/privacy/</loc></url>
+  <url><loc>https://villaops.selenasystems.com/blog/</loc></url>
+  <url><loc>https://villaops.selenasystems.com/blog/why-bali-villas-lose-direct-bookings/</loc></url>
+  <url><loc>https://villaops.selenasystems.com/blog/is-your-villa-findable-by-chatgpt/</loc></url>
 </urlset>
