@@ -6,6 +6,10 @@
   "tests": "103/103",
   "title": "Villa&nbsp;Ops&nbsp;OS — Project Hub",
   "eyebrow": "Selena Systems · internal",
+  "links": [
+    { "label": "Open the full hub — START_HERE.md", "url": "https://github.com/parkourcafe/bali-os-villa-2026/blob/claude/villa-ops-bali-sales-vwmqdj/START_HERE.md" },
+    { "label": "All project files (GitHub)", "url": "https://github.com/parkourcafe/bali-os-villa-2026/tree/claude/villa-ops-bali-sales-vwmqdj" }
+  ],
   "lede": "One place for the mission, what's built, where we are, who's next, and what to do next. The at-a-glance view of <code style=\"font-family:var(--mono);font-size:.82rem\">START_HERE.md</code>.",
   "stats": [
     { "n": "2", "k": "client assets built<br>Gravity · OriVista" },

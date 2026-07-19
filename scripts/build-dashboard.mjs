@@ -187,6 +187,17 @@ const STYLE = `<style>
     font-size:.78rem; color:var(--muted); }
   footer code { font-family:var(--mono); }
 
+  .openbar { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 2px; }
+  .openbtn { flex:1 1 220px; display:flex; align-items:center; justify-content:space-between;
+    gap:10px; text-decoration:none; background:var(--accent); color:var(--accent-ink);
+    border:1px solid transparent; border-radius:12px; padding:14px 16px;
+    font-weight:650; font-size:.92rem; box-shadow:var(--shadow); }
+  .openbtn:hover { filter:brightness(1.03); }
+  .openbtn:focus-visible { outline:2px solid var(--ink); outline-offset:2px; }
+  .openbtn.alt { background:var(--surface); color:var(--ink); border-color:var(--line); }
+  .openbtn .arrow { font-size:1.05rem; opacity:.85; }
+  .openhint { font-size:.76rem; color:var(--muted); margin:8px 2px 0; }
+
   @media (prefers-reduced-motion: no-preference) {
     .reveal { animation:rise .5s cubic-bezier(.2,.7,.3,1) both; }
     .stats .stat:nth-child(2){ animation-delay:.04s; }
@@ -223,6 +234,19 @@ function render(d) {
 
   const map = d.map.map((m) => `<div class="mgrp"><h5>${m.h5}</h5><p>${m.p}</p></div>`).join('\n      ');
 
+  const links = Array.isArray(d.links) ? d.links : [];
+  const openbar = links.length ? `
+  <div class="openbar">
+    ${links.map((l, i) => `<a class="openbtn${i ? ' alt' : ''}" href="${esc(l.url)}" target="_blank" rel="noopener"><span>${esc(l.label)}</span><span class="arrow" aria-hidden="true">&#8599;</span></a>`).join('\n    ')}
+  </div>
+  <p class="openhint">Opens GitHub — you'll sign in the first time (private repo).</p>
+` : '';
+
+  const hubUrl = links[0]?.url || '';
+  const footer = hubUrl
+    ? d.footer.replace('<code>START_HERE.md</code>', `<a href="${esc(hubUrl)}" target="_blank" rel="noopener"><code>START_HERE.md</code></a>`)
+    : d.footer;
+
   const body = `<div class="wrap">
 
   <header class="reveal">
@@ -235,7 +259,7 @@ function render(d) {
       <span><b>Tests</b> ${esc(d.tests)} green</span>
     </div>
   </header>
-
+${openbar}
   <section aria-label="At a glance">
     <div class="stats">
       ${stats}
@@ -290,7 +314,7 @@ function render(d) {
     <div class="contract">${d.contract}</div>
   </section>
 
-  <footer>${d.footer}</footer>
+  <footer>${footer}</footer>
 
 </div>`;
 
