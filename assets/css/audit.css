@@ -39,6 +39,7 @@
 .tag-nottested { background: rgba(23,36,31,.08); color: var(--muted); }
 .tag-priority-high { background: rgba(163,64,46,.12); color: var(--danger); }
 .tag-priority-med { background: rgba(163,116,42,.14); color: var(--warning); }
+.tag-priority-low { background: rgba(23,36,31,.08); color: var(--muted); }
 
 .evidence-quote {
   border-left: 3px solid var(--accent); background: var(--surface);
