@@ -1,7 +1,19 @@
 # Gravity Bali — passive public audit
 
-Prepared: 2026-07-12 · Auditor: Selena Systems · Independent public audit
-prepared for discussion. Not affiliated with or endorsed by Gravity Bali.
+Prepared: 2026-07-12 · **Re-run: 2026-07-13** · Auditor: Selena Systems ·
+Independent public audit prepared for discussion. Not affiliated with or
+endorsed by Gravity Bali.
+
+> **Refresh note (2026-07-13).** The audit was re-run. All checklists are now
+> consolidated in `09_SITE_AUDIT_CHECKLIST.md`. New public evidence softened or
+> repositioned some findings — read `09` §0 first. Headlines: (1) the site/chat
+> is in **12 languages** (a strength, not a gap); (2) **Xendit** payments + a
+> **channel manager** exist, so Finding F1's real gap is the *manual quote
+> step*, not payment capability; (3) they **already run a post-stay review
+> method**, so the Reviews add-on repositions to *mid-stay + real-time +
+> compliant + automated* — and their current process should be checked for
+> review gating. The narrative below is preserved; `09` is the authoritative
+> checklist.
 
 **Method & limits.** Passive public audit only: official pages (via search
 index — this environment blocked live page loads, see `01_EVIDENCE_REGISTER.md`),

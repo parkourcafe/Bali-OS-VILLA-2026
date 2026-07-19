@@ -36,6 +36,29 @@ Net effect: fewer bad experiences reach checkout, more real 5★ reviews, and
 zero policy risk. It is a stronger funnel than gating — and it can't be
 penalised.
 
+## They already do this post-stay — here's our differentiation
+
+Re-audit (2026-07-13) found Gravity already runs a review method: a **post-stay
+structured feedback form**, concerns "flagged and followed up directly by the
+team," plus proactive **pre-arrival** engagement (page:
+`/improving-guest-reviews-the-gravity-bali-method/`). So this add-on is **not
+net-new** — it's four upgrades to what they already believe in:
+
+1. **Mid-stay, not just post-stay** — catch issues *before checkout*, when they
+   can still be fixed, instead of learning about them after the guest has left.
+2. **Real-time recovery alerts** — a low rating pings the team instantly with
+   villa + issue + contact, versus a form reviewed later.
+3. **WhatsApp-native + automated** — sent through the same responder, in their
+   tone, at the right moment; no manual form-chasing.
+4. **Compliance-safe by construction** — and worth a direct conversation:
+   **verify whether their current "flag concerns / follow up directly" flow
+   steers unhappy guests away from public review.** If it does, that is review
+   gating (a Google-policy risk), and this module fixes it while keeping the
+   recovery benefit.
+
+Pitch line: "You already treat reviews as a growth engine — we make that engine
+real-time, automatic on WhatsApp, and safe from Google's gating penalties."
+
 ## What's built (in this repo)
 
 - **Endpoint:** `POST /api/feedback` (`netlify/functions/feedback.mjs` +

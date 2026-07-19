@@ -31,6 +31,20 @@ none possible this session), **OBSERVED** (public source via search index),
 | E20 | "Gravity Bali Hotel" (Pecatu) & "Gravity Eco Boutique Hotel" are unrelated businesses | OBSERVED | separate TripAdvisor/Agoda entities | ✔ (Agoda listing surfaced in re-check, clearly distinct) | — never cite their reviews |
 | E21 | Guest reviews of Gravity Bali (villa mgmt): no company-level negative reviews surfaced; per-villa reviews live on OTAs | OBSERVED (thin) | research sweep | — | ✔ check Google Maps rating of the office |
 | E22 | Revenue capacity: $500k–1M+ est. annual management revenue | INFERRED | E1 × E14 × typical 15–20% commission | — | — presented only as INFERRED |
+| E23 | Site + chat available in **12 languages** ("seamless multilingual journey") | OBSERVED | homepage/marketing snippet (re-run 2026-07-13) | ✔ | ✔ confirm switcher live |
+| E24 | **Xendit** payment provider secures bookings; direct payment possible | OBSERVED | /terms-services/ + FAQ snippet | ✔ | ✔ |
+| E25 | **Channel manager** — rental agreements signed online through it | OBSERVED | /terms-services/ snippet | ✔ | ✔ |
+| E26 | They **already run a review method**: post-stay structured feedback form; concerns flagged & followed up; proactive pre-arrival engagement | OBSERVED (process detail INFERRED) | /improving-guest-reviews-the-gravity-bali-method/ | ✔ | ✔✔ read the page; check for gating |
+| E27 | Homepage value proposition is **owner-facing** ("maximize your property's return") | OBSERVED | homepage snippet | — | ✔ note guest UVP above-the-fold |
+| E28 | Trust: **4.9/5 Airbnb** case-study villa; loyalty content; "any issue handled with professionalism" | OBSERVED | case-study + loyalty pages | — | — |
+
+## Refresh 2026-07-13
+
+The audit was re-run; E23–E28 are new. See `09_SITE_AUDIT_CHECKLIST.md` §0
+for how the new evidence softens/repositions prior findings (notably: payment
+rails exist, so Finding 1's gap is the manual quote step; and they already run
+a post-stay review method, so the Reviews add-on repositions to mid-stay +
+real-time + compliant + automated).
 
 ## Environment limitation (disclosed)
 
