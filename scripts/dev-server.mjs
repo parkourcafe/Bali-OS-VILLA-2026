@@ -16,6 +16,7 @@ import { handler } from '../netlify/functions/lead.mjs';
 import { handler as siteAudit } from '../netlify/functions/site-audit.mjs';
 import { handler as demoRequest } from '../netlify/functions/demo-request.mjs';
 import { handler as feedback } from '../netlify/functions/feedback.mjs';
+import { handler as demoAgent } from '../netlify/functions/demo-agent.mjs';
 
 const PORT = Number(process.argv[2] || 8788);
 const ROOT = new URL('..', import.meta.url).pathname;
@@ -142,6 +143,16 @@ createServer(async (req, res) => {
     if (url.pathname === '/api/feedback') {
       const body = await readBody(req);
       const out = await feedback({
+        httpMethod: req.method,
+        headers: Object.fromEntries(Object.entries(req.headers)),
+        body,
+      });
+      res.writeHead(out.statusCode, out.headers);
+      return res.end(out.body);
+    }
+    if (url.pathname === '/api/demo-agent') {
+      const body = await readBody(req);
+      const out = await demoAgent({
         httpMethod: req.method,
         headers: Object.fromEntries(Object.entries(req.headers)),
         body,

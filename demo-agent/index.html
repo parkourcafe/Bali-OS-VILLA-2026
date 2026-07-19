@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Villa Demo Selena — live AI reservations responder</title>
+  <meta name="description" content="A live demo of the Villa Ops OS AI first responder, on a fictional villa collection.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450..650&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/audit.css">
+  <style>
+    .da-wrap { max-width: 640px; margin: 0 auto; padding: 40px 20px 70px; }
+    .da-note { background: rgba(163,116,42,.12); border: 1px solid rgba(163,116,42,.35); border-radius: 10px; padding: 11px 15px; font-size: .82rem; color: var(--warning); margin: 14px 0 18px; }
+    .da-mode { font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; border-radius: 999px; padding: 3px 10px; }
+    .da-mode-mock { background: rgba(23,36,31,.08); color: var(--muted); }
+    .da-mode-live { background: rgba(46,125,79,.14); color: var(--success); }
+    .chat { border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: var(--shadow); overflow: hidden; }
+    .chat-head { background: var(--accent); color: var(--accent-ink); padding: 14px 16px; display: flex; align-items: center; gap: 10px; }
+    .chat-head .av { width: 30px; height: 30px; border-radius: 50%; background: var(--accent-ink); color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; }
+    .chat-head b { display: block; font-size: .92rem; }
+    .chat-head span { font-size: .68rem; opacity: .9; }
+    .chat-msgs { padding: 16px 14px; display: flex; flex-direction: column; gap: 9px; min-height: 340px; max-height: 460px; overflow-y: auto; background: var(--paper); }
+    .msg { max-width: 86%; padding: 9px 12px; border-radius: 13px; font-size: .88rem; line-height: 1.45; animation: pop .18s ease; }
+    @keyframes pop { from { opacity: 0; transform: translateY(6px); } }
+    .msg-guest { background: #fff; border: 1px solid var(--line); align-self: flex-end; border-bottom-right-radius: 4px; }
+    .msg-ai { background: rgba(31,107,91,.14); align-self: flex-start; border-bottom-left-radius: 4px; }
+    .msg-sys { align-self: center; font-size: .68rem; color: var(--muted); background: rgba(23,36,31,.06); border-radius: 999px; padding: 3px 12px; }
+    .msg .ho { display: block; margin-top: 5px; font-size: .68rem; color: var(--success); font-weight: 600; }
+    .typing { align-self: flex-start; background: rgba(31,107,91,.14); border-radius: 13px; padding: 10px 14px; }
+    .typing i { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); margin: 0 1.5px; animation: blink 1s infinite; }
+    .typing i:nth-child(2) { animation-delay: .2s; } .typing i:nth-child(3) { animation-delay: .4s; }
+    @keyframes blink { 0%,60%,100% { opacity: .25; } 30% { opacity: 1; } }
+    .chat-form { display: flex; gap: 8px; padding: 12px 12px; border-top: 1px solid var(--line); background: #fff; }
+    .chat-form input { flex: 1; padding: 11px 13px; border: 1px solid var(--line); border-radius: 999px; font: inherit; font-size: .9rem; }
+    .chat-form input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .chat-form button { border: none; background: var(--accent); color: var(--accent-ink); font: inherit; font-weight: 650; border-radius: 999px; padding: 0 20px; cursor: pointer; }
+    .chat-form button:disabled { opacity: .5; cursor: wait; }
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+    .chip { font: inherit; font-size: .78rem; cursor: pointer; border: 1.5px solid var(--accent); color: var(--accent); background: #fff; border-radius: 999px; padding: 6px 13px; }
+    .chip:hover { background: rgba(31,107,91,.08); }
+    .da-err { color: var(--danger); font-size: .82rem; padding: 6px 14px; }
+  </style>
+</head>
+<body>
+  <div class="da-wrap">
+    <header class="audit-topbar" style="border:none;padding:0 0 4px">
+      <a class="brand" href="/">Selena Systems</a>
+      <span class="private-badge">Live demo · fictional villas</span>
+    </header>
+    <p class="eyebrow" style="margin-top:18px">Villa Ops OS · try the responder</p>
+    <h1 style="font-family:var(--serif);font-size:clamp(1.7rem,4vw,2.3rem);line-height:1.12">Chat with the AI first responder</h1>
+    <p class="da-note">⚠ Demonstration on a <strong>fictional 3-villa collection</strong> (Selena Demo Villas). Not a real business; villas, rates and availability are made up. In a real deployment this is tuned to the client's villas, tone and handoff rules, and your team approves every template before launch. <span class="da-mode da-mode-mock" id="da-mode">demo mode</span></p>
+
+    <div class="chat">
+      <div class="chat-head">
+        <span class="av">S</span>
+        <div><b>Selena · Selena Demo Villas</b><span>replies instantly, 24/7</span></div>
+      </div>
+      <div class="chat-msgs" id="chat-msgs" aria-live="polite"></div>
+      <div class="da-err" id="da-err" hidden></div>
+      <form class="chat-form" id="chat-form" autocomplete="off">
+        <input id="chat-input" name="msg" placeholder="Ask about a villa, dates, budget…" maxlength="2000" aria-label="Your message">
+        <div style="position:absolute;left:-9999px" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <div class="chips" id="chips">
+      <button class="chip" data-msg="Hi! We're 6 people looking at Uluwatu in August.">Start an enquiry</button>
+      <button class="chip" data-msg="Is Villa Ombak available 12–16 August?">Ask about dates</button>
+      <button class="chip" data-msg="What's my budget get me at around $300/night?">Budget fit</button>
+      <button class="chip" data-msg="Can I get a discount on Villa Rimba?">Ask for a discount</button>
+      <button class="chip" data-msg="What time is check-in at Villa Surya?">Check-in question</button>
+    </div>
+
+    <div class="cta-row" style="margin-top:30px">
+      <a class="btn-primary" href="/audit/gravity-bali/#demo" data-cta="agent-walkthrough">Book a 20-minute walkthrough</a>
+    </div>
+    <p class="disclaimer" style="margin-top:18px">Demonstration prepared by Selena Systems. Selena Demo Villas is fictional. Response wording is a draft; in a real 14-day implementation your team edits and approves every template, and the assistant runs in shadow mode before it ever replies to a guest.</p>
+  </div>
+
+  <script type="module" src="/assets/js/demo-agent-page.js"></script>
+</body>
+</html>
