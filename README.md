@@ -1,5 +1,9 @@
 # Villa Response Readiness Funnel — V1
 
+> 🧭 **New here? Start with [`START_HERE.md`](START_HERE.md)** — the project hub:
+> the mission, the offer, what's built, current status, the pipeline, next
+> actions, and an index to every doc. This README covers the code/site only.
+
 Lead-generation funnel for **Selena Systems**: a 90-second self-assessment that produces a **Villa Response Readiness Score**, routes qualified Bali villa operators to a **Live Guest Inquiry Audit**, and owner-operated portfolios to the **Villa Response Playbook** — the bridge to the paid **Villa Ops Response System**.
 
 Source of truth: `FINAL_TZ_VILLA_RESPONSE_READINESS_V1.md` (spec). Implementation notes: `IMPLEMENTATION_NOTES.md`.

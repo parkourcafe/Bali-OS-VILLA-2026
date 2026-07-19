@@ -1,5 +1,8 @@
 # Next 24 Hours — Founder Action Plan
 
+> ⚠️ **Superseded — for the live plan & next actions see `START_HERE.md` (repo
+> root).** Kept as history; several items here are already done.
+
 Objective: outreach live within 24h; first audit conversations within 72h; signed client target day 7–10.
 
 ## Tonight (2–3 hours) — Evidence

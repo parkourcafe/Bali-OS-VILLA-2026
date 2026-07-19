@@ -1,5 +1,9 @@
 # Execution Dashboard — Selena Systems GTM v1.0
 
+> ⚠️ **Superseded — for live status/plan see `START_HERE.md` (repo root).** This
+> phase board is kept as history and is out of date (the demo, research, and
+> audits it lists as "not started" are all done).
+
 ## Phase 0: package normalization
 - Status: complete.
 - Owner: founder.
