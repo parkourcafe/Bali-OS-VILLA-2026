@@ -10,6 +10,15 @@ lives.
 > `next_24_hours_plan.md`, and `final_recap.html` (kept as history). Keep this
 > file current when the project state changes.
 
+> **📱 Visual dashboard (phone-friendly).** A rendered at-a-glance version of
+> this hub is published as a private Artifact:
+> `https://claude.ai/code/artifact/3cdb3322-1454-429d-ae22-af1ac135e5ba`.
+> It's generated from a single status source, so it never drifts —
+> **to refresh:** (1) edit `docs/project-status.json` and mirror the change in
+> this file's §4–§6, (2) run `node scripts/build-dashboard.mjs`, (3) re-publish
+> `build/dashboard.html` to the same Artifact URL (pass `url=` that URL from any
+> new session). See §8.
+
 ---
 
 ## 1. The task / mission
@@ -234,3 +243,4 @@ Everything in the project, reachable from here.
 - **No fake success:** never show a success state unless the webhook/API confirmed the save.
 - **Marketing edits** touch `assets/js/site-config.js` only (placeholders). Scoring (`assets/js/scoring.js`) is LOCKED. See `docs/CONTENT_EDITING.md`.
 - **Screenshots** are captured locally (`scripts/capture-evidence.mjs`) — the build environment can't reach external sites.
+- **Visual dashboard** = `docs/project-status.json` (canonical status) → `node scripts/build-dashboard.mjs` → `build/dashboard.html` → re-publish to the Artifact URL (stored in the JSON). `build/` is gitignored; the JSON + script are the source of truth, so the dashboard and this hub stay in sync.

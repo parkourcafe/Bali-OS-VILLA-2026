@@ -1,0 +1,84 @@
+{
+  "_comment": "Canonical machine-readable project status. Single source of truth for the visual dashboard. When status changes: (1) edit this file, (2) run `node scripts/build-dashboard.mjs`, (3) re-publish the Artifact at artifactUrl (from this session: republish build/dashboard.html; from another session: pass url=artifactUrl), (4) mirror the change in START_HERE.md prose. Text fields render as-is (small inline HTML allowed — this is an operator-authored private page).",
+  "updated": "19 Jul 2026",
+  "branch": "claude/villa-ops-bali-sales-vwmqdj",
+  "artifactUrl": "https://claude.ai/code/artifact/3cdb3322-1454-429d-ae22-af1ac135e5ba",
+  "tests": "103/103",
+  "title": "Villa&nbsp;Ops&nbsp;OS — Project Hub",
+  "eyebrow": "Selena Systems · internal",
+  "lede": "One place for the mission, what's built, where we are, who's next, and what to do next. The at-a-glance view of <code style=\"font-family:var(--mono);font-size:.82rem\">START_HERE.md</code>.",
+  "stats": [
+    { "n": "2", "k": "client assets built<br>Gravity · OriVista" },
+    { "n": "103", "k": "tests passing<br>zero-dependency" },
+    { "n": "4", "k": "prospects in pipeline<br>2 built · 2 queued" },
+    { "n": "0", "alert": true, "k": "outreach sent<br>both ready, not contacted" }
+  ],
+  "attention": [
+    { "title": "Outreach not started", "note": "Both assets are \"Ready — not contacted.\" Nothing has been sent.", "pill": "crit", "pillText": "Blocked" },
+    { "title": "Pre-send verification", "note": "Re-check OriVista's rebrand-leak facts (E3 / E4) and confirm founder surname before send.", "pill": "warn", "pillText": "Pending" },
+    { "title": "Deploy + go-live keys", "note": "Ship to the chosen domain; set analytics + <code style=\"font-family:var(--mono);font-size:.8em\">ANTHROPIC_API_KEY</code> (flips demo agent mock→live).", "pill": "warn", "pillText": "Pending" },
+    { "title": "Local screenshot capture", "note": "Run <code style=\"font-family:var(--mono);font-size:.8em\">capture-evidence.mjs</code> per asset — needs network, so it's an operator step.", "pill": "warn", "pillText": "Pending" },
+    { "title": "Legal / local contracting path", "note": "Entity, invoicing, IP — gates signing any Bali client.", "pill": "warn", "pillText": "Pending" }
+  ],
+  "status": [
+    { "label": "Strategy corpus", "note": "Offer, ICP, delivery, scripts, red-team", "pill": "good", "pillText": "Done" },
+    { "label": "Public site + assessment funnel + free tools", "note": "Landing, score quiz, website-check", "pill": "good", "pillText": "Built" },
+    { "label": "Live demo agent — \"Villa Demo Selena\"", "note": "Mock offline; real Claude when key is set", "pill": "good", "pillText": "Built" },
+    { "label": "Gravity Bali asset", "note": "Audit · demo · gift · deck", "pill": "good", "pillText": "Built" },
+    { "label": "OriVista asset", "note": "Audit · demo · gift (rebrand-leak headline)", "pill": "good", "pillText": "Built" },
+    { "label": "Scored pipeline + SEO foundation", "note": "Shortlist, llms.txt, sitemap, blog", "pill": "good", "pillText": "Shipped" },
+    { "label": "Analytics live", "note": "Plausible / GA4 keys empty", "pill": "warn", "pillText": "Pending" },
+    { "label": "Production deploy", "note": "villaops.selenasystems.com chosen; confirm ownership", "pill": "warn", "pillText": "Pending" },
+    { "label": "Outreach", "note": "Both assets ready; nothing sent", "pill": "crit", "pillText": "Not started" }
+  ],
+  "actions": {
+    "p0": {
+      "title": "Unblock &amp; send",
+      "items": [
+        "<b>Deploy</b> the site + both assets to the domain; set the 4 env vars; turn on analytics.",
+        "<b>Clear the legal / contracting path</b> — gates signing a Bali client.",
+        "Set <code>ANTHROPIC_API_KEY</code> to flip the demo agent mock → live.",
+        "<b>Ship Gravity Bali:</b> pre-send checklist → capture screenshots → <span class=\"em\">send M1</span>.",
+        "<b>Ship OriVista:</b> same checklist. <span class=\"em\">Verify E3 / E4 + Manish's surname</span> before send."
+      ]
+    },
+    "p1": {
+      "title": "This month",
+      "items": [
+        "Build the next audits from the template (Nagisa → Hideaway); 2–4 / week.",
+        "Run the sales motion on any reply: qualify → discovery → same-day proposal.",
+        "Publish the blog cadence; submit sitemap to Search Console."
+      ]
+    },
+    "p2": {
+      "title": "Compounding",
+      "items": [
+        "Convert the first pilot into a written case study + testimonial."
+      ]
+    }
+  },
+  "done30": "Done at 30 days = <b style=\"color:var(--ink)\">one signed pilot</b> (or a live negotiation) <b style=\"color:var(--ink)\">and</b> an inbound engine with ≥4 indexed pages.",
+  "pipeline": [
+    { "name": "Gravity Bali", "sub": "~40 villas · Olivier &amp; Celine Cancé", "note": "Headline: slow direct-booking channel", "pill": "good", "pillText": "Built" },
+    { "name": "OriVista", "sub": "52 villas · Manish A. · fit 8.5", "note": "Headline: Azure→OriVista rebrand leak", "pill": "good", "pillText": "Built" },
+    { "name": "Nagisa Bali", "sub": "50+ villas · Lina Goh · fit 8.5", "note": "Enquiry fragmentation", "pill": "flat", "pillText": "Queued" },
+    { "name": "Hideaway Villas", "sub": "~70 units · K. Tjahjosarwono (COO)", "note": "Contact fragmentation", "pill": "flat", "pillText": "Queued" }
+  ],
+  "offer": {
+    "tiers": [
+      { "t": "Pilot", "v": "$1.5–2.5k" },
+      { "t": "Core", "v": "$5,000" },
+      { "t": "Growth", "v": "$7.5–9.5k", "mark": true, "note": "Gravity $7.5k · OriVista $8.5k" },
+      { "t": "Enterprise", "v": "$12k+" }
+    ],
+    "sla": "<b>SLA:</b> 95% of eligible new enquiries on covered channels get a first automated response <b>within two minutes</b>. 14-day build that <b>augments</b> the client's stack — never replaces the PMS. +$1,500 compliant reviews add-on."
+  },
+  "map": [
+    { "h5": "Strategy &amp; GTM", "p": "<code>winning_offer.md</code>, <code>ICP_AND_SCORING.md</code>, <code>delivery_process.md</code>, outreach + call scripts (repo root)" },
+    { "h5": "Execution &amp; status", "p": "<code>START_HERE.md</code> (this, in Markdown) · <code>docs/sales-assets/GTM_30DAY_PLAN.md</code>, <code>PIPELINE_SHORTLIST.md</code>" },
+    { "h5": "Per-client assets", "p": "<code>audit/&lt;slug&gt;/</code> + <code>docs/sales-assets/&lt;slug&gt;/00…09</code> for Gravity &amp; OriVista" },
+    { "h5": "Product &amp; ops", "p": "<code>DEMO_AGENT_SPEC.md</code>, <code>KPI_FRAMEWORK.md</code>, <code>docs/DEPLOY.md</code>, <code>docs/MANUAL_QA.md</code>" }
+  ],
+  "contract": "<b>Passive public audit only</b> — nothing submitted, nobody messaged, nothing published without permission. <b>Every finding classified</b> Verified / Observed / Inferred / Not tested. <b>No overpromise</b> — projections are Target / Estimate / Assumption, never guarantees. <b>Never name an owner</b> without public confirmation. <b>No fake success</b> in code — a save is reported only after the backend confirms it.",
+  "footer": "Full detail, the complete document index, and house rules live in <code>START_HERE.md</code> at the repo root — this page is its at-a-glance companion. Private to Selena Systems."
+}

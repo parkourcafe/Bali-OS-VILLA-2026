@@ -1,0 +1,9 @@
+# Generated dashboard output (rebuild with: node scripts/build-dashboard.mjs)
+# Source of truth is docs/project-status.json + scripts/build-dashboard.mjs;
+# the rendered HTML is published as a private Artifact, not committed.
+build/
+
+# OS / editor cruft
+.DS_Store
+*.log
+node_modules/
