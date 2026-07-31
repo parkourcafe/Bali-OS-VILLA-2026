@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { authorized, hintFor, runSelftest, selftestHandler } from '../lib/selftest.mjs';
+import { authorized, hintFor, runSelftest, selftestHandler, unconfiguredReport } from '../lib/selftest.mjs';
 
 const ENV = { IP_HASH_SALT: 'salt123', TELEGRAM_BOT_TOKEN: 'tok', TELEGRAM_CHAT_ID: '5326034125' };
 
@@ -79,4 +79,36 @@ test('selftestHandler returns the report with the secret', async () => {
   const res = await selftestHandler({ query: { secret: 'salt123' }, env: ENV });
   assert.equal(res.statusCode, 200);
   assert.equal(JSON.parse(res.body).telegram.configured, true);
+});
+
+test('with no salt configured the endpoint answers instead of locking out', async () => {
+  const res = await selftestHandler({ query: {}, env: { TELEGRAM_BOT_TOKEN: 'tok' } });
+  assert.equal(res.statusCode, 200);
+  const body = JSON.parse(res.body);
+  assert.equal(body.sees.IP_HASH_SALT, false);
+  assert.equal(body.sees.TELEGRAM_BOT_TOKEN, true);
+  assert.equal(body.sees.TELEGRAM_CHAT_ID, false);
+  assert.match(body.message, /no environment variables reached it/);
+});
+
+test('the unconfigured report exposes presence only, never values', () => {
+  const dump = JSON.stringify(unconfiguredReport({
+    TELEGRAM_BOT_TOKEN: 'secret-token', ALLOWED_ORIGIN: 'https://x.com',
+  }));
+  assert.doesNotMatch(dump, /secret-token|https:\/\/x\.com/);
+  assert.match(dump, /"TELEGRAM_BOT_TOKEN": ?true/);
+});
+
+test('the unconfigured path never sends a test message', async () => {
+  let called = false;
+  globalThis.__probe = () => { called = true; };
+  const res = await selftestHandler({ query: { send: '1' }, env: { TELEGRAM_BOT_TOKEN: 't', TELEGRAM_CHAT_ID: '1' } });
+  assert.equal(res.statusCode, 200);
+  assert.equal(called, false);
+  assert.equal(JSON.parse(res.body).telegram, undefined);
+});
+
+test('once the salt is set the endpoint locks down again', async () => {
+  const res = await selftestHandler({ query: {}, env: { IP_HASH_SALT: 'salt123' } });
+  assert.equal(res.statusCode, 403);
 });
