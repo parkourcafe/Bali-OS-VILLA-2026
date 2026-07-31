@@ -178,6 +178,25 @@ async function forwardToSheet(payload) {
   }
 }
 
+/**
+ * A post from a page we ourselves served is same-origin by definition — the
+ * guard exists to block *cross-site* posts, not the site's own form. Comparing
+ * Origin to the host the request arrived on means every domain the project is
+ * served on works without configuration, so ALLOWED_ORIGIN is only needed for
+ * genuinely different origins. The host header is set by the platform's router,
+ * not by the browser's page.
+ */
+export function isSameOrigin(origin, headers) {
+  if (!origin) return false;
+  const host = (headers?.['x-forwarded-host'] || headers?.host || headers?.Host || '').trim();
+  if (!host) return false;
+  try {
+    return new URL(origin).host.toLowerCase() === host.toLowerCase();
+  } catch {
+    return false;
+  }
+}
+
 /* ---------------- handler ---------------- */
 
 export async function handler(event) {
@@ -194,7 +213,7 @@ export async function handler(event) {
   const allowedOrigins = (process.env.ALLOWED_ORIGIN || '')
     .split(',').map((o) => o.trim().replace(/\/$/, '')).filter(Boolean);
   const origin = (event.headers?.origin || event.headers?.Origin || '').replace(/\/$/, '');
-  if (allowedOrigins.length && origin && !allowedOrigins.includes(origin)) {
+  if (allowedOrigins.length && origin && !allowedOrigins.includes(origin) && !isSameOrigin(origin, event.headers)) {
     // Name the mismatch: during setup this is otherwise a guessing game, and the
     // caller already knows its own origin, so echoing it reveals nothing.
     return fail(403, 'VALIDATION_ERROR',
