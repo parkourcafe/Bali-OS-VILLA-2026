@@ -173,3 +173,32 @@ test('handler: unknown event rejected', async () => {
   const res = await post({ event: 'mystery', idempotencyKey: UUID });
   assert.equal(JSON.parse(res.body).code, 'VALIDATION_ERROR');
 });
+
+test('origin rejection names the origin so setup is not a guessing game', async () => {
+  const prev = process.env.ALLOWED_ORIGIN;
+  process.env.ALLOWED_ORIGIN = 'https://villaops.selenasystems.com';
+  const res = await handler({
+    httpMethod: 'POST',
+    headers: { origin: 'https://bali-os-villa-2026.vercel.app', 'content-type': 'application/json' },
+    body: '{}',
+  });
+  const body = JSON.parse(res.body);
+  assert.equal(res.statusCode, 403);
+  assert.match(body.message, /bali-os-villa-2026\.vercel\.app/);
+  assert.match(body.message, /ALLOWED_ORIGIN/);
+  process.env.ALLOWED_ORIGIN = prev;
+});
+
+test('a comma-separated allowlist accepts every listed origin', async () => {
+  const prev = process.env.ALLOWED_ORIGIN;
+  process.env.ALLOWED_ORIGIN = 'https://villaops.selenasystems.com,https://bali-os-villa-2026.vercel.app/';
+  for (const origin of ['https://villaops.selenasystems.com', 'https://bali-os-villa-2026.vercel.app']) {
+    const res = await handler({
+      httpMethod: 'POST',
+      headers: { origin, 'content-type': 'application/json' },
+      body: JSON.stringify({ event: 'nope' }),
+    });
+    assert.notEqual(res.statusCode, 403, `${origin} must pass the origin check`);
+  }
+  process.env.ALLOWED_ORIGIN = prev;
+});
