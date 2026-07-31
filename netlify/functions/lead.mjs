@@ -4,10 +4,12 @@
  * forwards a provider-safe payload to the Google Apps Script webhook.
  *
  * Env (Netlify): APPS_SCRIPT_WEBHOOK_URL, APPS_SCRIPT_SHARED_SECRET,
+ *                TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID (either sink is enough),
  *                ALLOWED_ORIGIN, IP_HASH_SALT
  */
 import { createHash, randomUUID } from 'node:crypto';
 import { calculateResult, ENUMS } from '../../assets/js/scoring.js';
+import { deliver } from '../../lib/notify.mjs';
 
 const MAX_BODY_BYTES = 50_000;
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -146,7 +148,12 @@ export function validatePlaybookRequested(body) {
 
 /* ---------------- webhook ---------------- */
 
+/** Deliver to every configured sink; succeeds if any accepts the lead. */
 async function forwardToWebhook(payload) {
+  return deliver(payload, { sheetSink: forwardToSheet });
+}
+
+async function forwardToSheet(payload) {
   const url = process.env.APPS_SCRIPT_WEBHOOK_URL;
   const secret = process.env.APPS_SCRIPT_SHARED_SECRET;
   if (!url || !secret) {
@@ -256,8 +263,10 @@ export async function handler(event) {
         ? 'Too many assessments from this connection. Please try again later.'
         : "We couldn't save your assessment yet. Please try again.");
     }
-    // Idempotent retries return the webhook's stored leadId so the browser and Sheet agree.
-    const finalLeadId = webhook.data.leadId && UUID_RE.test(webhook.data.leadId) ? webhook.data.leadId : leadId;
+    // Idempotent retries return the Sheet's stored leadId so the browser and Sheet agree.
+    // With Telegram-only delivery there is no stored id, so we keep the one we minted.
+    const storedId = webhook.data && webhook.data.leadId;
+    const finalLeadId = storedId && UUID_RE.test(storedId) ? storedId : leadId;
     return json(200, { ok: true, leadId: finalLeadId, result });
   }
 
