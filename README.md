@@ -30,6 +30,20 @@ npm run dev       # http://127.0.0.1:8788 — full funnel with in-memory mock we
 
 No dependencies to install: tests use Node's built-in runner (Node 18+).
 
+## Lead delivery: pick at least one sink
+
+The funnel is not tied to Google. Configure either block (or both — a lead is
+then delivered twice, and the submission succeeds if *any* sink accepts it):
+
+| Sink | Env vars | Setup |
+|---|---|---|
+| **Telegram** | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | ~2 min: `/newbot` to @BotFather, id from @userinfobot, press Start on your bot |
+| **Google Sheet** | `APPS_SCRIPT_WEBHOOK_URL`, `APPS_SCRIPT_SHARED_SECRET` | ~15 min, below |
+
+`ALLOWED_ORIGIN` and `IP_HASH_SALT` are required either way. A Russian
+step-by-step walkthrough for a non-technical operator lives in
+[`docs/SETUP_RU.md`](docs/SETUP_RU.md).
+
 ## Google Sheet + Apps Script setup (one time, ~15 minutes)
 
 1. **Create the Sheet.** Google Drive → new spreadsheet → rename a tab to `Inbound Audit Leads`. Headers are created automatically on first write.
