@@ -15,12 +15,13 @@ const AREA_TITLES = {
   contact: 'Can guests reach you',
 };
 const AREA_INTRO = {
+  speed: 'How quickly your page reaches a guest on a phone.',
   mobile: 'Most guests look at your site on a phone.',
   google: 'Whether guests find you in normal Google search.',
   ai: 'Whether AI assistants (ChatGPT, Perplexity, Google AI) can find and recommend you.',
   contact: 'Whether an interested guest can actually reach you.',
 };
-const AREA_ORDER = ['mobile', 'google', 'ai', 'contact'];
+const AREA_ORDER = ['speed', 'mobile', 'google', 'ai', 'contact'];
 const BADGE = { pass: '✓', warn: '!', fail: '✕', info: 'i' };
 
 function setStatus(msg, isErr) {
@@ -29,98 +30,154 @@ function setStatus(msg, isErr) {
   statusEl.classList.toggle('err', !!isErr);
 }
 
-function ring(label, score) {
-  const card = document.createElement('div');
-  card.className = 'card';
-  const h = document.createElement('h4'); h.textContent = label; card.appendChild(h);
-  const wrap = document.createElement('div'); wrap.className = 'wc-ring';
-  const b = document.createElement('b'); b.textContent = (score == null ? '–' : score);
-  const small = document.createElement('span'); small.textContent = '/100';
-  small.style.color = '#8a99a0'; small.style.fontSize = '.9rem';
-  wrap.appendChild(b); wrap.appendChild(small); card.appendChild(wrap);
-  return card;
-}
-
-function renderSpeed(speed) {
-  const box = $('wc-speed'); box.textContent = '';
-  for (const strat of ['mobile', 'desktop']) {
-    const s = speed && speed[strat];
-    const card = document.createElement('div'); card.className = 'card';
-    const h = document.createElement('h4'); h.textContent = strat === 'mobile' ? 'Speed — mobile' : 'Speed — desktop';
-    card.appendChild(h);
-    if (!s || s.error || !s.scores) {
-      const p = document.createElement('p'); p.className = 'wc-note';
-      p.textContent = 'Speed data unavailable right now.'; card.appendChild(p);
-      box.appendChild(card); continue;
-    }
-    const rings = document.createElement('div'); rings.style.display = 'flex'; rings.style.gap = '18px'; rings.style.flexWrap = 'wrap';
-    rings.appendChild(ring('Speed score', s.scores.performance));
-    rings.appendChild(ring('Google basics', s.scores.seo));
-    card.appendChild(rings);
-    if (s.metrics) {
-      const ul = document.createElement('ul'); ul.className = 'wc-metrics';
-      const rows = [['Time to show main content', s.metrics.lcp], ['Time the page feels frozen', s.metrics.tbt], ['Content jumping while it loads', s.metrics.cls]];
-      if (s.totalBytes) rows.push(['Page weight (how much loads)', s.totalBytes.replace(/^Total size was\s*/i, '')]);
-      for (const [k, v] of rows) { if (!v) continue; const li = document.createElement('li'); const a = document.createElement('span'); a.textContent = k; const bb = document.createElement('span'); bb.textContent = v; li.appendChild(a); li.appendChild(bb); ul.appendChild(li); }
-      card.appendChild(ul);
-    }
-    box.appendChild(card);
-  }
-}
-
-function checkRow(c) {
-  const row = document.createElement('div'); row.className = 'wc-check';
-  const badge = document.createElement('div'); badge.className = 'wc-badge ' + c.status; badge.textContent = BADGE[c.status] || '?';
-  const body = document.createElement('div');
-  const b = document.createElement('b'); b.textContent = c.title;
-  const span = document.createElement('span'); span.textContent = c.detail;
-  body.appendChild(b); body.appendChild(span);
-  row.appendChild(badge); row.appendChild(body);
-  return row;
+function el(tag, className, text) {
+  const n = document.createElement(tag);
+  if (className) n.className = className;
+  if (text != null) n.textContent = text;
+  return n;
 }
 
 function bandClass(score) {
   return score >= 80 ? 'low' : score >= 60 ? 'med' : score >= 40 ? 'medhigh' : 'high';
 }
 
-function render(report) {
-  $('wc-overall').textContent = report.summary.overall;
-  const band = $('wc-band'); band.textContent = report.summary.band;
-  band.className = 'wc-band ' + bandClass(report.summary.overall);
+function setMetric(numId, bandId, score, bandText) {
+  $(numId).textContent = score == null ? '–' : score;
+  const b = $(bandId);
+  b.textContent = bandText || '–';
+  b.className = 'wc-band ' + (score == null ? 'med' : bandClass(score));
+}
 
-  // AI Search Readiness — the headline "new search" metric
+/* ---------------------------------------------------------- priority fixes */
+
+function renderFixes(report) {
+  const box = $('wc-fixes');
+  box.textContent = '';
+  const fixes = (report.summary && report.summary.topFixes) || [];
+  if (!fixes.length) {
+    box.appendChild(el('div', 'wc-clean',
+      'Nothing urgent came up. Every check either passed or is optional — see the full list below.'));
+    return;
+  }
+  fixes.forEach((f, i) => {
+    const row = el('div', 'wc-fix');
+    row.appendChild(el('div', 'rank', String(i + 1)));
+    const body = el('div');
+    body.appendChild(el('h4', null, f.title));
+    body.appendChild(el('p', null, f.detail));
+    if (f.why) body.appendChild(el('p', 'why', f.why));
+    row.appendChild(body);
+    box.appendChild(row);
+  });
+}
+
+/* ------------------------------------------------------- measured numbers */
+
+function renderNumbers(report) {
+  const box = $('wc-nums');
+  box.textContent = '';
+  const rows = [];
+  const lh = report.speed && report.speed.mobile && report.speed.mobile.scores ? report.speed.mobile : null;
+  const m = report.measuredSpeed;
+
+  if (m && m.metrics) {
+    if (m.metrics.ttfb) rows.push(['Server response', m.metrics.ttfb]);
+    if (m.metrics.htmlSize) rows.push(['Page code size', m.metrics.htmlSize]);
+    if (m.metrics.compressed) rows.push(['Compressed', m.metrics.compressed]);
+  }
+  if (m && m.hints) {
+    rows.push(['Photos on the page', String(m.hints.images)]);
+    rows.push(['Scripts loaded', String(m.hints.scripts)]);
+    if (m.hints.blockingScripts) rows.push(['Scripts that delay it', String(m.hints.blockingScripts)]);
+  }
+  if (lh && lh.metrics) {
+    if (lh.metrics.lcp) rows.push(['Time to main content', lh.metrics.lcp]);
+    if (lh.metrics.cls) rows.push(['Content jumping', lh.metrics.cls]);
+    if (lh.totalBytes) rows.push(['Total page weight', String(lh.totalBytes).replace(/^Total size was\s*/i, '')]);
+  }
+
+  for (const [k, v] of rows) {
+    const cell = el('div', 'wc-num');
+    cell.appendChild(el('span', 'k', k));
+    cell.appendChild(el('b', null, v));
+    box.appendChild(cell);
+  }
+
+  $('wc-speed-source').textContent = lh
+    ? 'Speed scored by Google PageSpeed Insights (mobile), plus our own direct measurements.'
+    : 'Measured directly by us just now. Google PageSpeed scoring was not available for this run, so the speed score above is ours.';
+}
+
+/* ------------------------------------------------------------ check groups */
+
+function checkRow(c) {
+  const row = el('div', 'wc-check');
+  const badge = el('div', 'wc-badge ' + c.status, BADGE[c.status] || '?');
+  const body = el('div');
+  body.appendChild(el('b', null, c.title));
+  body.appendChild(el('span', null, c.detail));
+  row.appendChild(badge);
+  row.appendChild(body);
+  return row;
+}
+
+function renderGroups(report) {
+  const groups = $('wc-groups');
+  groups.textContent = '';
+  for (const area of AREA_ORDER) {
+    const items = report.checks.filter((c) => c.area === area);
+    if (!items.length) continue;
+    const g = el('div', 'wc-group');
+    const h = el('h4');
+    h.appendChild(document.createTextNode(AREA_TITLES[area]));
+    const ok = items.filter((c) => c.status === 'pass').length;
+    h.appendChild(el('span', 'wc-tally', ok + ' of ' + items.length + ' passing'));
+    g.appendChild(h);
+    if (AREA_INTRO[area]) g.appendChild(el('p', 'wc-note', AREA_INTRO[area]));
+    items.forEach((c) => g.appendChild(checkRow(c)));
+    groups.appendChild(g);
+  }
+}
+
+/* ------------------------------------------------------------------ render */
+
+function render(report) {
+  $('wc-url-label').textContent = report.url;
+  $('wc-meta').textContent = 'Prepared by Selena Systems · automated check of the public home page';
+  $('wc-verdict').textContent = (report.summary && report.summary.verdict) || '';
+
+  setMetric('wc-overall', 'wc-band', report.summary.overall, report.summary.band);
+
   const ai = report.aiReadiness || {};
-  $('wc-ai').textContent = (ai.score == null ? '–' : ai.score);
-  const aiBand = $('wc-ai-band');
-  aiBand.textContent = ai.band || '–';
-  aiBand.className = 'wc-band ' + (ai.score == null ? 'med' : bandClass(ai.score));
+  setMetric('wc-ai', 'wc-ai-band', ai.score, ai.band);
   const aiBlocked = report.checks.some((c) => c.id === 'ai-block' && c.status === 'fail');
   $('wc-ai-note').textContent = aiBlocked
     ? 'This site blocks AI search engines — they cannot cite it at all.'
     : 'Can ChatGPT, Perplexity & Google AI read and cite this site?';
 
-  $('wc-url-label').textContent = 'Checked: ' + report.url;
+  const lh = report.speed && report.speed.mobile && report.speed.mobile.scores ? report.speed.mobile : null;
+  const m = report.measuredSpeed || {};
+  const speedScore = lh ? lh.scores.performance : (typeof m.score === 'number' ? m.score : null);
+  const speedBandText = speedScore == null
+    ? '–'
+    : (speedScore >= 80 ? 'Fast' : speedScore >= 55 ? 'Average' : 'Slow');
+  setMetric('wc-speed-score', 'wc-speed-band', speedScore, speedBandText);
+  $('wc-speed-note').textContent = 'How long a guest on a phone waits before your page is usable.';
 
-  const tech = $('wc-tech'); tech.textContent = '';
+  renderFixes(report);
+  renderNumbers(report);
+  renderGroups(report);
+
+  const tech = $('wc-tech');
+  tech.textContent = '';
   if (report.tech && report.tech.length) {
     tech.appendChild(document.createTextNode('Built with: '));
-    for (const t of report.tech) { const s = document.createElement('span'); s.className = 'tag'; s.textContent = t; tech.appendChild(s); }
+    for (const t of report.tech) tech.appendChild(el('span', 'tag', t));
   }
 
-  renderSpeed(report.speed);
-
-  const groups = $('wc-groups'); groups.textContent = '';
-  for (const area of AREA_ORDER) {
-    const items = report.checks.filter((c) => c.area === area);
-    if (!items.length) continue;
-    const g = document.createElement('div'); g.className = 'wc-group';
-    const h = document.createElement('h3'); h.textContent = AREA_TITLES[area]; g.appendChild(h);
-    if (AREA_INTRO[area]) { const intro = document.createElement('p'); intro.className = 'wc-note'; intro.style.margin = '-4px 0 8px'; intro.textContent = AREA_INTRO[area]; g.appendChild(intro); }
-    items.forEach((c) => g.appendChild(checkRow(c)));
-    groups.appendChild(g);
-  }
   $('wc-disclaim').textContent = report.disclaimer;
   results.classList.remove('wc-hidden');
+  results.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 async function runCheck() {

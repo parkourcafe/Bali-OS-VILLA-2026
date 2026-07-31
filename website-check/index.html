@@ -6,56 +6,98 @@
 <title>Instant Website Check — Selena Systems</title>
 <meta name="description" content="A free instant check of any villa website: load speed, how Google sees it, how AI assistants read it, and whether guests can reach you.">
 <meta name="robots" content="noindex, follow">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2317241f'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%231f6b5b'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e1512'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%23c2a15d'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/styles.css">
 <style>
-  .wc-shell{max-width:760px;margin:0 auto;padding:32px 20px 80px}
-  .wc-intro h1{font-family:var(--serif,'Fraunces',serif);font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.1;margin:8px 0 12px}
-  .wc-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent,#1f6b5b)}
-  .wc-intro p{color:var(--muted,#5b6660);max-width:52ch}
-  .wc-form{display:flex;gap:10px;margin:22px 0 8px;flex-wrap:wrap}
-  .wc-form input{flex:1;min-width:220px;font-size:1rem;padding:14px 16px;border:1px solid var(--line,#d9d5c9);border-radius:10px;font-family:inherit}
-  .wc-form input:focus{outline:none;border-color:var(--accent,#1f6b5b)}
-  .wc-note{font-size:.8rem;color:var(--muted,#5b6660)}
-  .wc-status{margin:24px 0;font-size:.95rem;color:var(--muted,#5b6660)}
+  :root{
+    --wc-ink:#161210; --wc-ivory:#f4eee2; --wc-paper:#faf6ee;
+    --wc-brass:#d59a4a; --wc-brass-soft:#eec489; --wc-terra:#9c4a25;
+    --wc-line:#e2dccd; --wc-muted:#6c645a;
+    --wc-serif:"Fraunces",Georgia,serif; --wc-sans:"Public Sans",system-ui,sans-serif;
+  }
+  /* align this page with the landing's tropical-luxe palette (styles.css is teal) */
+  body{background:var(--wc-paper);color:var(--wc-ink)}
+  header.site{background:rgba(250,246,238,.9);border-bottom:1px solid var(--wc-line)}
+  .wordmark{color:var(--wc-ink)}
+  .wordmark b{color:var(--wc-terra)}
+  .btn-primary{background:linear-gradient(140deg,var(--wc-brass),#c58734);color:#231a12;box-shadow:0 12px 28px rgba(213,154,74,.32)}
+  .btn-primary:hover{box-shadow:0 16px 34px rgba(213,154,74,.4)}
+  a{color:var(--wc-terra)}
+  .wc-shell{max-width:880px;margin:0 auto;padding:32px 20px 90px;font-family:var(--wc-sans)}
+  .wc-intro h1{font-family:var(--wc-serif);font-weight:400;font-size:clamp(1.9rem,5vw,2.8rem);line-height:1.08;letter-spacing:-.015em;margin:8px 0 14px}
+  .wc-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--wc-terra)}
+  .wc-intro p{color:var(--wc-muted);max-width:56ch;line-height:1.6}
+  .wc-form{display:flex;gap:10px;margin:26px 0 8px;flex-wrap:wrap}
+  .wc-form input{flex:1;min-width:220px;font-size:1rem;padding:15px 16px;border:1px solid var(--wc-line);border-radius:10px;font-family:inherit;background:#fff}
+  .wc-form input:focus{outline:none;border-color:var(--wc-brass);box-shadow:0 0 0 3px rgba(213,154,74,.18)}
+  .wc-note{font-size:.82rem;color:var(--wc-muted);line-height:1.55}
+  .wc-status{margin:26px 0;font-size:.95rem;color:var(--wc-muted)}
   .wc-status.err{color:#a3352f}
   .wc-hidden{display:none}
-  .wc-headline{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0 6px}
-  .wc-stat{border:1px solid var(--line,#d9d5c9);border-radius:16px;padding:20px;background:#fff}
-  .wc-stat-ai{background:linear-gradient(160deg,#132a22,#0f1f19);color:#f4efe4;border-color:#1f6b5b}
-  .wc-stat .k{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted,#5b6660);margin-bottom:6px}
-  .wc-stat-ai .k{color:#cfe6db}
-  .wc-new{background:#c9a24b;color:#1a1a1a;border-radius:5px;font-size:.6rem;padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em}
-  .wc-stat .num{font-family:var(--serif,serif);font-size:2.9rem;line-height:1;margin-bottom:8px}
-  .wc-substat{font-size:.78rem;color:#cfe6db;margin:10px 0 0}
-  @media (max-width:560px){.wc-headline{grid-template-columns:1fr}}
-  .wc-score .num{font-family:var(--serif,serif);font-size:3.2rem;line-height:1}
-  .wc-band{display:inline-block;padding:6px 14px;border-radius:999px;font-weight:700;font-size:.85rem}
-  .wc-band.low{background:#e4f1ea;color:#1f6b4a}.wc-band.med{background:#fdf1dd;color:#8a5a12}
-  .wc-band.medhigh{background:#fce6df;color:#a3502a}.wc-band.high{background:#fbe1de;color:#a3352f}
-  .wc-speed{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
-  .wc-speed .card{border:1px solid var(--line,#d9d5c9);border-radius:12px;padding:16px;background:#fff}
-  .wc-speed .card h4{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#5b6660);margin:0 0 10px}
-  .wc-ring{display:inline-flex;align-items:baseline;gap:4px}
-  .wc-ring b{font-family:var(--serif,serif);font-size:1.8rem}
-  .wc-metrics{list-style:none;padding:0;margin:10px 0 0;font-size:.82rem;color:var(--muted,#5b6660)}
-  .wc-metrics li{display:flex;justify-content:space-between;padding:3px 0;border-top:1px solid var(--line,#efece3)}
-  .wc-group{margin:26px 0}
-  .wc-group h3{font-family:var(--serif,serif);font-size:1.25rem;margin:0 0 12px}
-  .wc-check{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line,#efece3)}
-  .wc-badge{flex:none;width:22px;height:22px;border-radius:50%;font-size:.8rem;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;margin-top:2px}
-  .wc-badge.pass{background:#2e8b62}.wc-badge.warn{background:#d69a2a}.wc-badge.fail{background:#c2453c}.wc-badge.info{background:#8a99a0}
-  .wc-check b{display:block;font-size:.95rem}
-  .wc-check span{font-size:.85rem;color:var(--muted,#5b6660)}
-  .wc-tech{font-size:.82rem;color:var(--muted,#5b6660);margin:6px 0 0}
-  .wc-tech .tag{display:inline-block;background:#eef1ec;border-radius:6px;padding:2px 8px;margin:2px 4px 2px 0}
-  .wc-bridge{margin-top:34px;border:1px solid var(--line,#d9d5c9);border-radius:16px;padding:24px;background:#fbfaf6}
-  .wc-bridge h3{font-family:var(--serif,serif);margin:0 0 8px}
-  .wc-disclaim{font-size:.8rem;color:var(--muted,#5b6660);margin-top:22px;border-left:3px solid var(--line,#d9d5c9);padding-left:14px}
-  @media (max-width:560px){.wc-speed{grid-template-columns:1fr}}
+
+  /* ---------- report masthead ---------- */
+  .wc-report{margin-top:34px;border:1px solid var(--wc-line);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 30px 70px rgba(22,18,16,.07)}
+  .wc-mast{background:linear-gradient(165deg,#1d1611,#161210);color:var(--wc-ivory);padding:28px 26px 26px}
+  .wc-mast .k{font-size:.66rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--wc-brass-soft)}
+  .wc-mast h2{font-family:var(--wc-serif);font-weight:400;font-size:clamp(1.4rem,3.4vw,2rem);line-height:1.15;margin:10px 0 4px;word-break:break-word}
+  .wc-mast .meta{font-size:.8rem;color:rgba(244,238,226,.62);margin-top:8px}
+  .wc-verdict{font-family:var(--wc-serif);font-weight:400;font-size:clamp(1.05rem,2.4vw,1.35rem);line-height:1.4;color:var(--wc-ivory);margin-top:18px;padding-top:18px;border-top:1px solid rgba(213,154,74,.28)}
+
+  /* ---------- headline metrics ---------- */
+  .wc-metrics-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--wc-line)}
+  .wc-metric{background:#fff;padding:22px 20px}
+  .wc-metric .k{font-size:.64rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--wc-muted);margin-bottom:10px;display:block}
+  .wc-metric .num{font-family:var(--wc-serif);font-weight:400;font-size:2.7rem;line-height:1;color:var(--wc-ink)}
+  .wc-metric .num small{font-size:.9rem;color:var(--wc-muted);font-family:var(--wc-sans);margin-left:3px}
+  .wc-new{background:var(--wc-brass);color:#231a12;border-radius:5px;font-size:.56rem;padding:2px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.06em}
+  .wc-band{display:inline-block;margin-top:10px;padding:5px 13px;border-radius:999px;font-weight:700;font-size:.78rem}
+  .wc-band.low{background:#e2efe6;color:#1f6b4a}.wc-band.med{background:#fbf0da;color:#87561a}
+  .wc-band.medhigh{background:#f8e5da;color:#9c4a25}.wc-band.high{background:#f9e1dd;color:#a3352f}
+  .wc-metric .sub{font-size:.76rem;color:var(--wc-muted);margin-top:10px;line-height:1.5}
+  @media (max-width:680px){.wc-metrics-row{grid-template-columns:1fr}}
+
+  /* ---------- body sections ---------- */
+  .wc-body{padding:28px 26px 30px}
+  .wc-h{font-family:var(--wc-serif);font-weight:400;font-size:1.35rem;letter-spacing:-.01em;margin:0 0 4px}
+  .wc-sub{font-size:.85rem;color:var(--wc-muted);margin:0 0 16px;line-height:1.55}
+  .wc-block + .wc-block{margin-top:34px;padding-top:30px;border-top:1px solid var(--wc-line)}
+
+  /* priority fixes */
+  .wc-fix{display:flex;gap:16px;padding:18px;border:1px solid var(--wc-line);border-radius:14px;background:var(--wc-paper)}
+  .wc-fix + .wc-fix{margin-top:12px}
+  .wc-fix .rank{flex:none;width:34px;height:34px;border-radius:50%;background:var(--wc-ink);color:var(--wc-brass-soft);font-family:var(--wc-serif);display:flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .wc-fix h4{margin:0 0 5px;font-size:1rem}
+  .wc-fix p{margin:0;font-size:.87rem;color:var(--wc-muted);line-height:1.55}
+  .wc-fix .why{margin-top:8px;font-size:.85rem;color:var(--wc-terra);font-weight:600;line-height:1.5}
+  .wc-clean{padding:18px;border:1px solid var(--wc-line);border-radius:14px;background:var(--wc-paper);font-size:.9rem;color:var(--wc-muted)}
+
+  /* speed numbers */
+  .wc-nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--wc-line);border:1px solid var(--wc-line);border-radius:14px;overflow:hidden}
+  .wc-num{background:#fff;padding:16px 18px}
+  .wc-num .k{display:block;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--wc-muted);margin-bottom:7px}
+  .wc-num b{font-family:var(--wc-serif);font-weight:400;font-size:1.5rem;color:var(--wc-ink)}
+  .wc-source{font-size:.76rem;color:var(--wc-muted);margin-top:10px;font-style:italic}
+
+  /* check rows */
+  .wc-group{margin-top:22px}
+  .wc-group h4{font-size:.98rem;margin:0 0 2px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .wc-tally{font-size:.7rem;font-weight:700;letter-spacing:.06em;color:var(--wc-muted);background:var(--wc-paper);border:1px solid var(--wc-line);border-radius:999px;padding:2px 9px}
+  .wc-group > p.wc-note{margin:0 0 6px}
+  .wc-check{display:flex;gap:12px;padding:13px 0;border-top:1px solid #efece3}
+  .wc-badge{flex:none;width:21px;height:21px;border-radius:50%;font-size:.75rem;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;margin-top:3px}
+  .wc-badge.pass{background:#2e8b62}.wc-badge.warn{background:#c98a2b}.wc-badge.fail{background:#b83f36}.wc-badge.info{background:#9a938a}
+  .wc-check b{display:block;font-size:.93rem;margin-bottom:2px}
+  .wc-check span{font-size:.85rem;color:var(--wc-muted);line-height:1.55}
+
+  .wc-tech{font-size:.8rem;color:var(--wc-muted);margin:14px 0 0}
+  .wc-tech .tag{display:inline-block;background:var(--wc-paper);border:1px solid var(--wc-line);border-radius:6px;padding:2px 8px;margin:2px 4px 2px 0}
+  .wc-bridge{margin-top:0;border-top:1px solid var(--wc-line);padding:26px;background:var(--wc-paper)}
+  .wc-bridge h3{font-family:var(--wc-serif);font-weight:400;font-size:1.3rem;margin:0 0 8px}
+  .wc-disclaim{font-size:.79rem;color:var(--wc-muted);margin:18px 26px 26px;border-left:3px solid var(--wc-line);padding-left:14px;line-height:1.6}
+  @media (max-width:560px){.wc-mast,.wc-body,.wc-bridge{padding-left:18px;padding-right:18px}.wc-disclaim{margin-left:18px;margin-right:18px}}
 </style>
 </head>
 <body>
@@ -81,26 +123,55 @@
 
   <p class="wc-status wc-hidden" id="wc-status" role="status" aria-live="polite"></p>
 
-  <section class="wc-hidden" id="wc-results" aria-live="polite">
-    <div class="wc-headline" id="wc-headline">
-      <div class="wc-stat">
-        <div class="k">Overall website health</div>
-        <div class="num" id="wc-overall">–</div>
+  <section class="wc-hidden wc-report" id="wc-results" aria-live="polite">
+    <div class="wc-mast">
+      <p class="k">Website check report</p>
+      <h2 id="wc-url-label">—</h2>
+      <p class="meta" id="wc-meta">Prepared by Selena Systems</p>
+      <p class="wc-verdict" id="wc-verdict"></p>
+    </div>
+
+    <div class="wc-metrics-row">
+      <div class="wc-metric">
+        <span class="k">Overall website health</span>
+        <div class="num"><span id="wc-overall">–</span><small>/100</small></div>
         <span class="wc-band" id="wc-band">–</span>
       </div>
-      <div class="wc-stat wc-stat-ai">
-        <div class="k">AI Search Readiness <span class="wc-new">new</span></div>
-        <div class="num" id="wc-ai">–</div>
+      <div class="wc-metric">
+        <span class="k">AI Search Readiness <span class="wc-new">new</span></span>
+        <div class="num"><span id="wc-ai">–</span><small>/100</small></div>
         <span class="wc-band" id="wc-ai-band">–</span>
-        <p class="wc-substat" id="wc-ai-note">Can ChatGPT, Perplexity &amp; Google AI read and cite this site?</p>
+        <p class="sub" id="wc-ai-note"></p>
+      </div>
+      <div class="wc-metric">
+        <span class="k">Loading speed</span>
+        <div class="num"><span id="wc-speed-score">–</span><small>/100</small></div>
+        <span class="wc-band" id="wc-speed-band">–</span>
+        <p class="sub" id="wc-speed-note"></p>
       </div>
     </div>
-    <p class="wc-note" id="wc-url-label" style="margin-top:12px"></p>
-    <p class="wc-tech" id="wc-tech"></p>
 
-    <div class="wc-speed" id="wc-speed"></div>
+    <div class="wc-body">
+      <div class="wc-block">
+        <h3 class="wc-h">Fix these first</h3>
+        <p class="wc-sub">Ordered by what costs you the most enquiries, not by how hard they are.</p>
+        <div id="wc-fixes"></div>
+      </div>
 
-    <div id="wc-groups"></div>
+      <div class="wc-block">
+        <h3 class="wc-h">What we measured</h3>
+        <p class="wc-sub">Direct measurements of your home page, taken just now.</p>
+        <div class="wc-nums" id="wc-nums"></div>
+        <p class="wc-source" id="wc-speed-source"></p>
+      </div>
+
+      <div class="wc-block">
+        <h3 class="wc-h">Every check, in full</h3>
+        <p class="wc-sub">All findings grouped by area, in plain language.</p>
+        <div id="wc-groups"></div>
+        <p class="wc-tech" id="wc-tech"></p>
+      </div>
+    </div>
 
     <div class="wc-bridge">
       <h3>Fast website ≠ fast replies</h3>
