@@ -14,6 +14,7 @@ import { readFile } from 'node:fs/promises';
 import { join, extname, normalize } from 'node:path';
 import { handler } from '../netlify/functions/lead.mjs';
 import { handler as siteAudit } from '../netlify/functions/site-audit.mjs';
+import { selftestHandler } from '../lib/selftest.mjs';
 
 const PORT = Number(process.argv[2] || 8788);
 const ROOT = new URL('..', import.meta.url).pathname;
@@ -101,6 +102,14 @@ createServer(async (req, res) => {
         httpMethod: req.method,
         headers: Object.fromEntries(Object.entries(req.headers)),
         body,
+      });
+      res.writeHead(out.statusCode, out.headers);
+      return res.end(out.body);
+    }
+    if (url.pathname === '/api/selftest') {
+      const out = await selftestHandler({
+        query: Object.fromEntries(url.searchParams),
+        env: process.env,
       });
       res.writeHead(out.statusCode, out.headers);
       return res.end(out.body);
