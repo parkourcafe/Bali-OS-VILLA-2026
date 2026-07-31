@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  handler, normalizeWhatsapp, sheetSafe,
+  handler, normalizeWhatsapp, sheetSafe, isSameOrigin,
   validateScoreCompleted, validateAuditRequested, validatePlaybookRequested,
 } from '../netlify/functions/lead.mjs';
 
@@ -200,5 +200,48 @@ test('a comma-separated allowlist accepts every listed origin', async () => {
     });
     assert.notEqual(res.statusCode, 403, `${origin} must pass the origin check`);
   }
+  process.env.ALLOWED_ORIGIN = prev;
+});
+
+test('isSameOrigin matches the host the request arrived on', () => {
+  assert.equal(isSameOrigin('https://a.vercel.app', { host: 'a.vercel.app' }), true);
+  assert.equal(isSameOrigin('https://A.Vercel.App', { host: 'a.vercel.app' }), true, 'host comparison is case-insensitive');
+  assert.equal(isSameOrigin('https://a.vercel.app', { 'x-forwarded-host': 'a.vercel.app' }), true);
+  assert.equal(isSameOrigin('https://evil.com', { host: 'a.vercel.app' }), false);
+  assert.equal(isSameOrigin('https://a.vercel.app.evil.com', { host: 'a.vercel.app' }), false, 'suffix tricks must not pass');
+  assert.equal(isSameOrigin('', { host: 'a.vercel.app' }), false);
+  assert.equal(isSameOrigin('https://a.vercel.app', {}), false);
+  assert.equal(isSameOrigin('not-a-url', { host: 'a.vercel.app' }), false);
+});
+
+test('the site own domain is accepted even when ALLOWED_ORIGIN omits it', async () => {
+  const prev = process.env.ALLOWED_ORIGIN;
+  process.env.ALLOWED_ORIGIN = 'https://villaops.selenasystems.com';
+  const res = await handler({
+    httpMethod: 'POST',
+    headers: {
+      origin: 'https://bali-os-villa-2026.vercel.app',
+      host: 'bali-os-villa-2026.vercel.app',
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({ event: 'nope' }),
+  });
+  assert.notEqual(res.statusCode, 403, 'the form on our own page must never be blocked');
+  process.env.ALLOWED_ORIGIN = prev;
+});
+
+test('a genuinely cross-site post is still rejected', async () => {
+  const prev = process.env.ALLOWED_ORIGIN;
+  process.env.ALLOWED_ORIGIN = 'https://villaops.selenasystems.com';
+  const res = await handler({
+    httpMethod: 'POST',
+    headers: {
+      origin: 'https://attacker.example',
+      host: 'bali-os-villa-2026.vercel.app',
+      'content-type': 'application/json',
+    },
+    body: '{}',
+  });
+  assert.equal(res.statusCode, 403);
   process.env.ALLOWED_ORIGIN = prev;
 });
