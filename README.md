@@ -32,11 +32,10 @@ No dependencies to install: tests use Node's built-in runner (Node 18+).
 
 ## Google Sheet + Apps Script setup (one time, ~15 minutes)
 
-1. **Create the Sheet.** Google Drive → new spreadsheet → rename a tab to `Inbound Audit Leads`. Copy the ID from its URL (`docs.google.com/spreadsheets/d/<SHEET_ID>/…`). Headers are created automatically on first write.
-2. **Create the Apps Script project.** In the Sheet: Extensions → Apps Script → replace the default file contents with `google-apps-script/Code.gs`.
+1. **Create the Sheet.** Google Drive → new spreadsheet → rename a tab to `Inbound Audit Leads`. Headers are created automatically on first write.
+2. **Create the Apps Script project.** In the Sheet: Extensions → Apps Script → replace the default file contents with `google-apps-script/Code.gs`. The script must be created *from inside the Sheet* so it stays container-bound — that is what keeps the OAuth scope limited to this one spreadsheet. Also replace the manifest (Project Settings → *Show "appsscript.json"*) with `google-apps-script/appsscript.json`.
 3. **Add Script Properties.** Project Settings → Script Properties:
    - `SHARED_SECRET` — long random string (e.g. `openssl rand -hex 32`)
-   - `SHEET_ID` — from step 1
    - `SHEET_NAME` — `Inbound Audit Leads`
    - `NOTIFICATION_EMAIL` — where lead emails go
 4. **Deploy as web app.** Deploy → New deployment → type *Web app* → **Execute as: Me** · **Who has access: Anyone** → Deploy → copy the `/exec` URL. (Authorize the MailApp/Sheets permissions when prompted; run `selfTest` from the editor once to verify.)
