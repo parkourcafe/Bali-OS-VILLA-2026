@@ -195,7 +195,10 @@ export async function handler(event) {
     .split(',').map((o) => o.trim().replace(/\/$/, '')).filter(Boolean);
   const origin = (event.headers?.origin || event.headers?.Origin || '').replace(/\/$/, '');
   if (allowedOrigins.length && origin && !allowedOrigins.includes(origin)) {
-    return fail(403, 'VALIDATION_ERROR', 'Request origin not allowed.');
+    // Name the mismatch: during setup this is otherwise a guessing game, and the
+    // caller already knows its own origin, so echoing it reveals nothing.
+    return fail(403, 'VALIDATION_ERROR',
+      `Request origin not allowed: ${origin}. Add it to the ALLOWED_ORIGIN environment variable (comma-separated), then redeploy.`);
   }
 
   const contentType = (event.headers?.['content-type'] || event.headers?.['Content-Type'] || '');
