@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   normalizeUrl, isPublicHost, findabilityChecks, mobileChecks, aiChecks,
   contactChecks, techFingerprint, parsePagespeed, summarize, areaScore, auditSite, AuditError,
+  pageWeightHints, speedBand, measuredSpeed, speedChecks, priorityFixes,
 } from '../lib/site-audit.mjs';
 
 const status = (checks, id) => checks.find((c) => c.id === id).status;
@@ -146,4 +147,70 @@ test('auditSite: end-to-end with injected fetch returns report + summary', async
   assert.ok(r.summary.overall > 0);
   assert.ok(typeof r.aiReadiness.score === 'number' && ['Ready', 'Partly ready', 'Not ready'].includes(r.aiReadiness.band));
   assert.match(r.disclaimer, /does not access private data/);
+});
+
+// ---------------------------------------------- own speed measurement layer
+
+test('pageWeightHints counts what actually slows a page down', () => {
+  const html = `<script src="a.js"></script><script defer src="b.js"></script>
+    <script async src="c.js"></script><link rel="stylesheet" href="s.css">
+    <img src="1.jpg" width="10" height="10"><img src="2.jpg" loading="lazy"><img src="3.webp">`;
+  const h = pageWeightHints(html);
+  assert.equal(h.scripts, 3);
+  assert.equal(h.blockingScripts, 1, 'defer/async scripts are not blocking');
+  assert.equal(h.stylesheets, 1);
+  assert.equal(h.images, 3);
+  assert.equal(h.imagesWithoutSize, 2);
+  assert.equal(h.imagesLazy, 1);
+});
+
+test('speedBand penalises slow servers and blocking scripts', () => {
+  const fast = speedBand({ ttfbMs: 180, htmlBytes: 40_000, hints: { blockingScripts: 1, images: 4, imagesLazy: 2, imagesWithoutSize: 0 } });
+  assert.equal(fast.band, 'Fast');
+  const slow = speedBand({ ttfbMs: 2400, htmlBytes: 500_000, hints: { blockingScripts: 9, images: 20, imagesLazy: 0, imagesWithoutSize: 12 } });
+  assert.equal(slow.band, 'Slow');
+  assert.ok(slow.score < fast.score);
+});
+
+test('speedBand stays within 0-100', () => {
+  const s = speedBand({ ttfbMs: 99_000, htmlBytes: 9_000_000, hints: { blockingScripts: 99, images: 99, imagesLazy: 0, imagesWithoutSize: 99 } });
+  assert.ok(s.score >= 0 && s.score <= 100);
+});
+
+test('speedChecks skips compression row when the header is unknown', () => {
+  const m = measuredSpeed({ ttfbMs: 300, htmlBytes: 20_000, compressed: null, html: '<img src="a.jpg">' });
+  const ids = speedChecks(m).map((c) => c.id);
+  assert.ok(!ids.includes('speed-compression'));
+  assert.ok(ids.includes('speed-server'));
+});
+
+test('speedChecks reports compression when it is known', () => {
+  const m = measuredSpeed({ ttfbMs: 300, htmlBytes: 20_000, compressed: false, html: '' });
+  const row = speedChecks(m).find((c) => c.id === 'speed-compression');
+  assert.equal(row.status, 'warn');
+});
+
+test('summarize falls back to our own score when PageSpeed is unavailable', () => {
+  const checks = [{ area: 'speed', id: 'x', status: 'pass' }, { area: 'ai', id: 'y', status: 'fail' }];
+  const withOurs = summarize(checks, { source: 'measured', score: 40 });
+  const withoutAny = summarize(checks, { strategy: 'mobile', error: 'PageSpeed HTTP 429' });
+  assert.ok(withOurs.overall < withoutAny.overall, 'a slow measured score must pull the total down');
+});
+
+test('summarize ships a verdict sentence and ranked fixes', () => {
+  const checks = [
+    { area: 'ai', id: 'ai-block', status: 'fail', title: 'Blocked', detail: 'd' },
+    { area: 'contact', id: 'contact-whatsapp', status: 'warn', title: 'No WhatsApp', detail: 'd' },
+    { area: 'google', id: 'g', status: 'pass', title: 'ok', detail: 'd' },
+  ];
+  const s = summarize(checks, null);
+  assert.match(s.verdict, /\S/);
+  assert.equal(s.topFixes[0].id, 'ai-block', 'failures rank above warnings');
+  assert.match(s.topFixes[0].why, /ChatGPT/);
+});
+
+test('priorityFixes never returns passing checks', () => {
+  const checks = [{ id: 'a', status: 'pass' }, { id: 'b', status: 'info' }, { id: 'c', status: 'warn' }];
+  const fixes = priorityFixes(checks, 3);
+  assert.deepEqual(fixes.map((f) => f.id), ['c']);
 });
