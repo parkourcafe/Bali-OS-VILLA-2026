@@ -112,3 +112,7 @@ test('once the salt is set the endpoint locks down again', async () => {
   const res = await selftestHandler({ query: {}, env: { IP_HASH_SALT: 'salt123' } });
   assert.equal(res.statusCode, 403);
 });
+
+test('hintFor recognises a token that resolves to no bot', () => {
+  assert.match(hintFor('Not Found'), /Re-paste TELEGRAM_BOT_TOKEN/);
+});
