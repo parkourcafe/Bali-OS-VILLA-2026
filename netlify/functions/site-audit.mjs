@@ -4,6 +4,7 @@
  * Endpoint: /.netlify/functions/site-audit?url=...  (aliased to /api/site-audit)
  */
 import { auditSite, AuditError } from '../../lib/site-audit.mjs';
+import { cleanEnv } from '../../lib/env.mjs';
 
 export async function handler(event) {
   const json = (statusCode, obj) => ({ statusCode, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' }, body: JSON.stringify(obj) });
@@ -16,7 +17,7 @@ export async function handler(event) {
   } catch { /* empty-url error below */ }
 
   try {
-    const report = await auditSite(url, { pagespeedKey: process.env.PAGESPEED_API_KEY || '' });
+    const report = await auditSite(url, { pagespeedKey: cleanEnv('PAGESPEED_API_KEY') });
     report.checkedAt = new Date().toISOString();
     return json(200, { ok: true, report });
   } catch (e) {

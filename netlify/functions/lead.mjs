@@ -10,6 +10,7 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { calculateResult, ENUMS } from '../../assets/js/scoring.js';
 import { deliver } from '../../lib/notify.mjs';
+import { cleanEnv } from '../../lib/env.mjs';
 
 const MAX_BODY_BYTES = 50_000;
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -153,18 +154,23 @@ async function forwardToWebhook(payload) {
   return deliver(payload, { sheetSink: forwardToSheet });
 }
 
+const SHEET_TIMEOUT_MS = 10_000; // a hung webhook must not hold the function until the platform kills it
+
 async function forwardToSheet(payload) {
-  const url = process.env.APPS_SCRIPT_WEBHOOK_URL;
-  const secret = process.env.APPS_SCRIPT_SHARED_SECRET;
+  const url = cleanEnv('APPS_SCRIPT_WEBHOOK_URL');
+  const secret = cleanEnv('APPS_SCRIPT_SHARED_SECRET');
   if (!url || !secret) {
     return { ok: false, code: 'WEBHOOK_UNAVAILABLE' };
   }
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), SHEET_TIMEOUT_MS);
   try {
     const res = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ secret, payload }),
       redirect: 'follow', // Apps Script replies via 302 to googleusercontent
+      signal: ctrl.signal,
     });
     const text = await res.text();
     let data = null;
@@ -175,6 +181,8 @@ async function forwardToSheet(payload) {
     return { ok: true, data };
   } catch {
     return { ok: false, code: 'WEBHOOK_UNAVAILABLE' };
+  } finally {
+    clearTimeout(timer);
   }
 }
 
@@ -210,7 +218,7 @@ export async function handler(event) {
   // Origin allowlist (same-origin posts may omit Origin; reject only a mismatch).
   // ALLOWED_ORIGIN may be a comma-separated list (e.g. production + Vercel preview);
   // a trailing slash on any entry is tolerated since browsers send Origin without one.
-  const allowedOrigins = (process.env.ALLOWED_ORIGIN || '')
+  const allowedOrigins = cleanEnv('ALLOWED_ORIGIN')
     .split(',').map((o) => o.trim().replace(/\/$/, '')).filter(Boolean);
   const origin = (event.headers?.origin || event.headers?.Origin || '').replace(/\/$/, '');
   if (allowedOrigins.length && origin && !allowedOrigins.includes(origin) && !isSameOrigin(origin, event.headers)) {
@@ -237,7 +245,7 @@ export async function handler(event) {
 
   // Salted IP hash for abuse control — raw IP never leaves this function.
   const ip = event.headers?.['x-nf-client-connection-ip'] || event.headers?.['x-forwarded-for']?.split(',')[0]?.trim() || '';
-  const ipHash = ip ? createHash('sha256').update((process.env.IP_HASH_SALT || 'dev-salt') + ip).digest('hex').slice(0, 24) : '';
+  const ipHash = ip ? createHash('sha256').update((cleanEnv('IP_HASH_SALT') || 'dev-salt') + ip).digest('hex').slice(0, 24) : '';
 
   if (body.event === 'score_completed') {
     if (typeof body.honeypot === 'string' && body.honeypot.trim() !== '') {
