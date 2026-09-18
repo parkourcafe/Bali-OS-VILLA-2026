@@ -56,5 +56,8 @@
     "api/selftest.mjs": {
       "maxDuration": 15
     }
+  },
+  "git": {
+    "deploymentEnabled": false
   }
 }
