@@ -119,6 +119,8 @@ whether guests can reach them, plus a headline **AI Search Readiness** score (ca
 
 ## Documentation
 
+- `docs/SEO_TOP5_SYSTEM.md` — SEO architecture, priority query clusters, top-5 roadmap, measurement system
+- `docs/SEO_DAILY_CONTROL.md` — daily/weekly control loop for search growth and funnel metrics
 - `docs/AUDIT_OPERATIONS.md` — manual Live Guest Inquiry Audit protocol (hard gates, scripts, report templates)
 - `docs/MANUAL_QA.md` — E2E flows, browser matrix, Lighthouse instructions
 - `docs/CONTENT_EDITING.md` — what marketing may edit vs. what is locked
